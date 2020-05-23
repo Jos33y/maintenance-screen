@@ -1,0 +1,244 @@
+/* =======================================================
+* Website Name: Citizen Participation Maintenance Screen 1.0
+* Website URL: don't know yet/
+* Author: Lagbalu Joseph (Jos33y)
+======================================================== */
+
+@import url('https://fonts.googleapis.com/css?family=Lato|Open+Sans|PT+Sans|PT+Serif|PT+Serif+Caption|Roboto|Roboto+Mono&display=swap');
+
+body {
+    height: 100%;
+    width: 100%;
+    padding: 0%;
+    margin: 0%;
+    font-family: 'Roboto', sans-serif;
+    color: #4f4e4b;
+    background-color: #f2f1f6;
+}
+
+.home-image {
+    background: url('../images/home.jpg');
+    width: 100vw;
+    background-size: cover;
+}
+
+.header {
+    padding-bottom: 30%;
+}
+
+.side-img {
+    margin-left: 30%;
+    width: 200px;
+    height: 200px;
+}
+
+.header-text {
+    color: blue;
+    font-size: 45px;
+    font-weight: 700;
+    padding-top: 8%;
+    padding-left: 9%;
+
+}
+
+.sub-head {
+    color: #ec1d2e;
+    font-size: 30px;
+    font-weight: 600;
+    margin-left: 10%;
+}
+
+
+.home-title {
+    margin-top: 8%;
+    color: #201dec;
+    font-size: 30px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.h3-line {
+    border: 2px solid #0f086d;
+}
+
+
+.home-cards {
+    margin: 5%;
+}
+
+.card {
+    margin-bottom: 10%;
+}
+
+.card-title {
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.card-footer {
+    color: #4f4e4b;
+}
+
+.icon .fas,
+.fab {
+    font-size: 80px;
+    color: aliceblue;
+    margin-bottom: 3%;
+
+}
+
+.icon-gov .fas {
+    font-size: 80px;
+    color: skyblue;
+    margin-bottom: 3%;
+
+}
+
+.btn.btn-new {
+    text-align: center;
+    background-color: aliceblue;
+    border-color: aliceblue;
+    border-radius: 15px;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 1px;
+    text-transform: capitalize;
+    padding-left: 10px;
+    padding-right: 10px;
+    color: #0f086d;
+}
+
+.btn.btn-view {
+    text-align: center;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 1px;
+    text-transform: capitalize;
+    background-color: aliceblue;
+    border-color: aliceblue;
+    border-radius: 15px;
+    float: right;
+    padding-left: 10px;
+    padding-right: 10px;
+    color: #ec1d2e;
+}
+
+
+/** Ballot STyles **/
+
+.logo {
+    margin-left: 40px;
+    width: 40px;
+    height: 40px;
+}
+
+.logo-name {
+    color: #0f086d;
+    font-size: 18px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.back-image {
+    width: 100%;
+}
+
+.page-title {
+    margin-top: 5%;
+    text-align: center;
+    font-size: 30px;
+    font-weight: 800;
+}
+
+.page-title-line {
+    border: 1px solid #0f086d;
+    margin-bottom: 5%;
+}
+
+.styled-border {
+    border: 1px solid #201dec;
+    padding: 5%;
+}
+
+.screen-border {
+    color: #ffffff;
+    background-color: #4a73f9;
+    border: 1px solid #4a73f9;
+    border-radius: 10px;
+    padding: 5%;
+}
+
+.btn.btn-save {
+    text-align: center;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 1px;
+    text-transform: capitalize;
+    background-color: #2f992a;
+    border-color: #2f992a;
+    border-radius: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    color: aliceblue;
+}
+
+
+
+/** Footer STyle **/
+footer {
+    margin-top: 15%;
+}
+
+/** Buttons **/
+.btn.btn-cancel {
+    text-align: center;
+    font-weight: 700;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    background-color: #63bb5e;
+    border-radius: 5px;
+    padding: 7px;
+    color: aliceblue;
+    margin: 5px;
+}
+
+.btn.btn-prev {
+    text-align: center;
+    font-weight: 700;
+    font-size: 14px;
+    text-transform: capitalize;
+    letter-spacing: 1px;
+    background-color: rgb(11, 8, 61);
+    border-radius: 5px;
+    padding: 7px;
+    color: #fff;
+    margin: 5px;
+}
+
+.btn.btn-publish {
+    text-align: center;
+    font-weight: 700;
+    font-size: 14px;
+    text-transform: capitalize;
+    letter-spacing: 1px;
+    background-color: rgb(230, 230, 20);
+    border-radius: 5px;
+    padding: 7px;
+    color: rgb(0, 0, 0);
+    margin: 5px;
+}
+
+
+/**colors **/
+.blue{
+    color: #1B1F80;
+}
+.gold{
+color: #FE9C13
+}
+.green{
+color: #519E58;
+}
