@@ -1,5 +1,5 @@
 <?php 
-$title = "Search Result";
+$title = "Edit Data";
 include('dbcon.php');
 include('header.php'); 
 
@@ -7,19 +7,40 @@ include('header.php');
 
 <?php
 
-  if(isset($_GET['govid'])){
+  if(isset($_GET['did'])){
 
-    $edit_id = $_GET['govid'];
+    $edit_id = $_GET['did'];
 
-    $get_a = "select * from addresses where GovId = '$edit_id'";
+    $get_g = "select * from governments where id = '$edit_id'";
 
-    $run_edit = mysqli_query($con, $get_a);
+    $run_governments = mysqli_query($con, $get_g);
 
-    $row_edit = mysqli_fetch_array($run_edit);
+    $row_gov = mysqli_fetch_array($run_governments);
+
+    $gvid = $row_gov['GovId'];
+
+    $cmpid = $row_gov['ComptrollerID'];
+
+    $othertypeid = $row_gov['OtherIDtype'];
+
+    $othertypecode = $row_gov['OtherID'];
+
+    $rev = $row_gov['RevenueID'];
+
+    $ktyabb = $row_gov['KtyAbb'];
+
+    $fullspan = $row_gov['FullSpan'];
+
+    $sort_as = $row_gov['NameSimple'];
+
+
+
+    $get_a = "select * from addresses where GovId = '$gvid'";
+    $run_a = mysqli_query($con, $get_a);
+    
+    $row_edit = mysqli_fetch_array($run_a);
 
     $aid = $row_edit['AddressId'];
-    $gvid = $row_edit['GovId'];
-    $cmpid = $row_edit['ComptrollerID'];
     $pbdnfm = $row_edit['PublicBodyNameFormal'];
     $gvtype = $row_edit['GovType'];
     $weburl = $row_edit['WebsiteURL'];
@@ -52,29 +73,6 @@ include('header.php');
     $gvtypename = $row['govtypename'];
     $desc = $row['description'];
 
-
-    $get_governments = "select * from governments where GovId = '$gvid'";
-
-    $run_governments = mysqli_query($con, $get_governments);
-
-    $row_gov = mysqli_fetch_array($run_governments);
-
-
-    $othertypeid = $row_gov['OtherIDtype'];
-
-    $othertypecode = $row_gov['OtherID'];
-
-    $rev = $row_gov['RevenueID'];
-
-    $ktyabb = $row_gov['KtyAbb'];
-
-    $fullspan = $row_gov['FullSpan'];
-
-    $sort_as = $row_gov['NameSimple'];
-
- 
-
-
 ?>
 <!--header image-->
 
@@ -83,7 +81,7 @@ include('header.php');
 <!-- page title-->
 <div class="container">
     <h2 class="page-title blue">
-    Search Result
+    Edit Data
     </h2>
     <hr width="15%" class="page-title-line">
 
