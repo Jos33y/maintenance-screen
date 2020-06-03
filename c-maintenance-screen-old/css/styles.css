@@ -158,8 +158,7 @@ body {
 }
 
 .styled-border {
-    border-top: 1px solid #201dec;
-    border-width: auto;
+    border: 1px solid #201dec;
     padding: 5%;
 }
 
@@ -180,8 +179,8 @@ body {
     background-color: #2f992a;
     border-color: #2f992a;
     border-radius: 20px;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
     color: aliceblue;
 }
 
@@ -234,169 +233,12 @@ footer {
 
 
 /**colors **/
-.blue {
+.blue{
     color: #1B1F80;
 }
-
-.gold {
-    color: #FE9C13
+.gold{
+color: #FE9C13
 }
-
-.green {
-    color: #519E58;
-}
-
-/** Search Styles **/
-.search-screen {
-    margin: 10%;
-}
-
-.search-head {
-    margin-top: 2%;
-    margin-bottom: 3%;
-    text-align: center;
-    font-size: 35px;
-    font-weight: 700;
-    color: #ffff00;
-}
-
-.search-one {
-    color: #fff;
-    font-size: 20px;
-    font-weight: bolder;
-    margin: 10px;
-    letter-spacing: 1px;
-}
-
-.search-two {
-    color: #fff;
-    font-size: 20px;
-    font-weight: bolder;
-    margin: 10px;
-    letter-spacing: 1px;
-}
-
-.search-note {
-    color: #ffff00;
-    font-size: 11px;
-    margin-left: 10px;
-}
-
-.search-three {
-    color: #fff;
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 1px;
-}
-
-.note-info {
-    color: #ffff00;
-    font-size: 11px;
-    margin-top: 20px;
-    margin-right: 7%;
-}
-
-.search-counties .fas {
-    color: #ffff00;
-    font-size: 10px;
-    margin-left: 2px;
-}
-
-.search-counties input::placeholder {
-    font-size: 12px;
-    font-weight: 600;
-}
-
-.search-btn .btn.btn-danger {
-    text-align: center;
-    font-size: 13px;
-    font-weight: 600;
-    margin-top: 5px;
-    letter-spacing: 1px;
-    background-color: rgb(92, 182, 98);
-    border-color: rgb(92, 182, 98);
-    border-radius: 5px;
-    padding: 2px 10px 2px 10px;
-    color: #fff;
-}
-
-.search-btn .btn.btn-warning {
-    text-align: center;
-    font-size: 18px;
-    font-weight: bolder;
-    margin-top: 5px;
-    margin-left: 20px;
-    letter-spacing: 1px;
-    background-color: #ffff00;
-    border-color: #ffff00;
-    border-radius: 5px;
-    padding: 5px 30px 5px 30px;
-    color: #111111;
-}
-
-/** edit counties **/
-
-.edit-county {
-    color: #fff;
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 1px;
-
-}
-
-/** New Counties **/
-
-.county-tble-head{
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 1px;
-
-}
-
-/** Address Style **/
-
-.address .row{
-    margin-bottom: 1%;
-}
-
-.address-text{
-    font-size: 13px;
-    color: #fff;
-    font-weight: 600;
-    letter-spacing: 1px;
-}
-
-.address input{
-    font-size: 13px;
-    padding: 5px;
-}
-
-
-/** Edit govtype **/
-
-.govtype-desc{
-    font-size: 10px;
-   overflow: auto;
-  
-}
-
-/** Search Type **/
-
-.version{
-    font-size: 15px;
-    font-weight: 600;
-}
-.version-time{
-    margin-left: 3%;
-    color: #ffff00;
-    font-size: 13px;
-}
-
-.yellow-ballot{
-    color: #ffff00;
-    font-size: 13px;
-    font-weight: 550;
-    font-style: italic;
-    letter-spacing: 0.5px;
-
+.green{
+color: #519E58;
 }
