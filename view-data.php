@@ -65,7 +65,7 @@ include('header.php');
 
                 <?php
             $i = 0;
-                $get_governments = "select * from governments LIMIT 500";
+                $get_governments = "select * from governments LIMIT 100";
                 $run_governments = mysqli_query($con, $get_governments);
                 while ($row = mysqli_fetch_array($run_governments)){
                     

@@ -88,7 +88,7 @@ include('header.php');
 
     <!--table for ballot-->
 
-    <form method="POST" action="#" class="screen-border address">
+    <form method="POST" class="screen-border address">
 
         <!--row one-->
         <div class="row">
@@ -106,7 +106,7 @@ include('header.php');
 
             <div class="col-sm-10">
                 <label for="gov" class="sr-only">PublicBodyNameFormal </label>
-                <input type="text" class="form-control" id="" value="<?php echo $pbdnfm ;?>">
+                <input type="text" class="form-control" id="" name="pbdnfm" value="<?php echo $pbdnfm ;?>">
             </div>
         </div>
 
@@ -120,7 +120,7 @@ include('header.php');
                     <tbody>
                         <tr>
                             <td width="20%"><span class="address-text">Sort as</span>
-                                <input type="text" class="form-control" id="" value="<?php echo $sort_as ;?>">
+                                <input type="text" class="form-control" id="" name="sort" value="<?php echo $sort_as ;?>">
                             </td>
                         </tr>
                     </tbody>
@@ -132,7 +132,7 @@ include('header.php');
                     <tbody>
                         <tr>
                             <td width="20%"><span class="address-text">GovType</span>
-                                <input type="text" class="form-control" id="" value="<?php echo $gvtype ;?>">
+                                <input type="text" class="form-control" id="" name="gvtype" value="<?php echo $gvtype ;?>">
                             </td>
                         </tr>
                     </tbody>
@@ -169,21 +169,21 @@ include('header.php');
 
             <div class="col-sm-6">
                 <label for="gov" class="sr-only"> Physical Address </label>
-                <input type="text" class="form-control" id="" value="<?php echo $hqpaddress ;?>">
+                <input type="text" class="form-control" id="" name="hqpaddress" value="<?php echo $hqpaddress ;?>">
             </div>
             <div class="col-sm-2">
                 <label for="gov" class="sr-only">City </label>
-                <input type="text" class="form-control" id="" value="<?php echo $hqpcity ;?>">
+                <input type="text" class="form-control" id="" name="hqpcity" value="<?php echo $hqpcity ;?>">
             </div>
 
             <div class="col-sm-1">
                 <label for="gov" class="sr-only">State </label>
-                <input type="text" class="form-control" id="" value="<?php echo $hqstate ;?>">
+                <input type="text" class="form-control" id="" name="hqstate" value="<?php echo $hqstate ;?>">
             </div>
 
             <div class="col-sm-2">
                 <label for="gov" class="sr-only">Zip </label>
-                <input type="text" class="form-control" id="" value="<?php echo $hqmzip ;?>">
+                <input type="text" class="form-control" id="" name="hqmzip" value="<?php echo $hqmzip ;?>">
             </div>
 
         </div>
@@ -196,21 +196,21 @@ include('header.php');
 
             <div class="col-sm-6">
                 <label for="gov" class="sr-only"> Mailing Address </label>
-                <input type="text" class="form-control" id="" value="<?php echo $hqmaddress ;?>">
+                <input type="text" class="form-control" id="" name="hqmaddress" value="<?php echo $hqmaddress ;?>">
             </div>
             <div class="col-sm-2">
                 <label for="gov" class="sr-only">City </label>
-                <input type="text" class="form-control" id="" value="<?php echo $hqmcity ;?>">
+                <input type="text" class="form-control" id="" name="hqmcity" value="<?php echo $hqmcity ;?>">
             </div>
 
             <div class="col-sm-1">
                 <label for="gov" class="sr-only">State </label>
-                <input type="text" class="form-control" id="" value="<?php echo $hqstate ;?>">
+                <input type="text" class="form-control" id="" name="hqstate" value="<?php echo $hqstate ;?>">
             </div>
 
             <div class="col-sm-2">
                 <label for="gov" class="sr-only">Zip </label>
-                <input type="text" class="form-control" id="" value="<?php echo $hqmzip ;?>">
+                <input type="text" class="form-control" id="" name="hqmzip" value="<?php echo $hqmzip ;?>">
             </div>
 
         </div>
@@ -224,13 +224,13 @@ include('header.php');
                     <thead>
                         <tr>
                             <td width="20%"><span class="address-text">Phone</span>
-                                <input type="text" class="form-control" id="" value="<?php echo $hqphone ;?>">
+                                <input type="text" class="form-control" id="" name="hqphone" value="<?php echo $hqphone ;?>">
                             </td>
                             <td><span class="address-text">Email</span>
-                                <input type="text" class="form-control" id="" value="<?php echo $hqemail ;?>">
+                                <input type="text" class="form-control" id="" name="hqemail" value="<?php echo $hqemail ;?>">
                             </td>
                             <td width="35%"><span class="address-text">Website</span>
-                                <input type="text" class="form-control" id="" value="<?php echo $weburl ;?>">
+                                <input type="text" class="form-control" id="" name="weburl" value="<?php echo $weburl ;?>">
                             </td>
                         </tr>
                     </thead>
@@ -246,21 +246,21 @@ include('header.php');
 
             <div class="col-sm-6">
                 <label for="gov" class="sr-only"> Mailing Address </label>
-                <input type="text" class="form-control" id="" value="<?php echo $foiaeaddress ;?>">
+                <input type="text" class="form-control" id="" name="faddress" value="<?php echo $foiaeaddress ;?>">
             </div>
             <div class="col-sm-2">
                 <label for="gov" class="sr-only">City </label>
-                <input type="text" class="form-control" id="" value="<?php echo $foiamcity ;?>">
+                <input type="text" class="form-control" id="" name="fmcity" value="<?php echo $foiamcity ;?>">
             </div>
 
             <div class="col-sm-1">
                 <label for="gov" class="sr-only">State </label>
-                <input type="text" class="form-control" id="" value="<?php echo $foiastate ;?>">
+                <input type="text" class="form-control" id="" name="fstate" value="<?php echo $foiastate ;?>">
             </div>
 
             <div class="col-sm-2">
                 <label for="gov" class="sr-only">Zip </label>
-                <input type="text" class="form-control" id="" value="<?php echo $foiamzip ;?>">
+                <input type="text" class="form-control" id="" name="fmzip" value="<?php echo $foiamzip ;?>">
             </div>
         </div>
 
@@ -273,13 +273,13 @@ include('header.php');
                     <thead>
                         <tr>
                             <td width="20%"><span class="address-text">Phone</span>
-                                <input type="text" class="form-control" id="" value="<?php echo $foiaphone ;?>">
+                                <input type="text" class="form-control" id="" name="fphone" value="<?php echo $foiaphone ;?>">
                             </td>
                             <td><span class="address-text">Email</span>
-                                <input type="text" class="form-control" id="" value="<?php echo $foiaemail ;?>">
+                                <input type="text" class="form-control" id="" name="fmail" value="<?php echo $foiaemail ;?>">
                             </td>
                             <td width="35%"><span class="address-text">Website</span>
-                                <input type="text" class="form-control" id="" value="<?php echo $weburl ;?>">
+                                <input type="text" class="form-control" id="" name="weburl" value="<?php echo $weburl ;?>">
                             </td>
                         </tr>
                     </thead>
@@ -299,7 +299,7 @@ include('header.php');
                         <tr>
 
                             <td width="20%">
-                                <textarea name="comments" id="" cols="30" rows="5" class="form-control"><?php echo $desc; ?></textarea>
+                                <textarea name="comments" id="" cols="30" rows="5" name="desc" class="form-control"><?php echo $desc; ?></textarea>
                             </td>
 
                         </tr>
@@ -319,20 +319,20 @@ include('header.php');
                         <tr>
 
                             <td width="10%"><span class="address-text">Revenue</span>
-                                <input type="text" class="form-control" id="" value="<?php echo $rev ;?>">
+                                <input type="text" class="form-control" id="" name="revid" value="<?php echo $rev ;?>">
                             </td>
 
                             <td width="5%"><span class="address-text">Comptroller</span>
-                                <input type="text" class="form-control" id="" value="<?php echo $cmpid ;?>">
+                                <input type="text" class="form-control" id="" name="cmpid" value="<?php echo $cmpid ;?>">
                             </td>
 
                             <td width="1%"><span class="address-text"> <br></span>
-                                <input type="text" class="form-control" id="" value="<?php echo $othertypeid ;?>">
+                                <input type="text" class="form-control" id="" name="othertypeid" value="<?php echo $othertypeid ;?>">
                                 <span class="address-text">&nbsp;State</span>
                             </td>
 
                             <td width="20%"><span class="address-text">Other</span>
-                                <input type="text" class="form-control" id="" value="<?php echo $othertypecode ;?>">
+                                <input type="text" class="form-control" id="" name="othertypecode" value="<?php echo $othertypecode ;?>">
                                 <span class="address-text">Board of Education</span>
                             </td>
 
@@ -353,11 +353,11 @@ include('header.php');
                         <tr>
 
                             <td width="5%"><span class="address-text">SEI</span>
-                                <input type="text" class="form-control" id="" value="<?php echo $ktyabb;?>">
+                                <input type="text" class="form-control" id="" name="ktyabb" value="<?php echo $ktyabb;?>">
                             </td>
 
                             <td width="2%"><span class="address-text">Home</span>
-                                <input type="text" class="form-control" id="" value="<?php echo $fullspan;?>">
+                                <input type="text" class="form-control" id="" name="fullspan" value="<?php echo $fullspan;?>">
                             </td>
 
                             <td width="10%"><span class="address-text"> <br></span>
@@ -402,8 +402,8 @@ include('header.php');
 
                                     <i class="fas fa-backward"></i> Get Previous Version</a>
 
-                                <a style="text-decoration: none;" class="btn btn-publish" href="#" name="save">
-                                    <i class="fas fa-upload"></i> Publish This</a>
+                                <button style="text-decoration: none;" class="btn btn-publish" name="publish">
+                                    <i class="fas fa-upload"></i> Publish This</button>
                             </td>
                         </tr>
                     </tbody>
@@ -420,3 +420,54 @@ include('header.php');
 <?php include('footer.php'); ?>
 
 <?php  } ?>
+
+<?php
+
+if(isset($_POST['publish']))
+{
+
+    $gvtype = $_POST['gvtype'];
+    $cmpid = $_POST['cmpid'];
+    $othertypeid = $_POST['othertypeid'];
+    $othertypecode = $_POST['othertypecode'];
+    $rev = $_POST['revid'];
+    $ktyabb = $_POST['ktyabb'];
+    $fullspan =$_POST['fullspan'];
+    $sort_as = $_POST['sort'];
+    $pbdnfm =  $_POST['pbdnfm'];
+    $weburl =  $_POST['weburl'];
+    $hqemail =  $_POST['hqemail'];
+    $hqpaddress =  $_POST['hqpaddress'];
+    $hqpcity =  $_POST['hqpcity'];
+    $hqmzip =  $_POST['hqmzip'];
+    $hqphone =  $_POST['hqphone'];
+    $hqmaddress =  $_POST['hqmaddress'];
+    $hqmcity =  $_POST['hqmcity'];
+    $hqstate =  $_POST['hqstate'];
+    $foiaemail = $_POST['fmail'];
+    $foiaeaddress =  $_POST['faddress'];
+    $foiaphone =  $_POST['fphone'];
+    $foiapaddress =  $_POST['faddress'];
+    $foiamcity =  $_POST['fmcity'];
+    $foiastate =  $_POST['fstate'];
+    $foiamzip =  $_POST['fmzip'];
+
+    $sql = "INSERT INTO historytable (govid, comptrollerid, revenueid, otheridtype, othertypecode, namesimple, PBDNF, govtype, websiteurl, hqemail, hqphysicaladdress, hqphysicalcity, hqmailingzip, hqphone, hqmailingaddress, hqmailingcity, hqstate, Femail, Fmailingaddress, Fphone, Fphysicaladdress, Fmailingcity, Fstate, Fmailingzip, govtypename, webgroup, ballotgroupid, investiture, ktyabb, fullspan ) 
+    VALUES ('$gvid', '$cmpid', '$rev', '$othertypeid', '$othertypecode', '$sort_as', '$pbdnfm', '$gvtype', '$weburl', '$hqemail', '$hqpaddress', '$hqpcity', '$hqmzip', '$hqphone, '$hqmaddress', '$hqmcity', '$hqstate', '$foiaemail', '$foiaeaddress', '$foiaphone', '$foiapaddress', '$foiamcity', $gvtypename', '$webgrp', '$bgrpid', '$investiture', '$ktyabb', '$fullspan')
+    ";
+
+    $query = mysqli_query($con, $sql) or  die(mysqli_error($con));
+
+    if($query){
+
+        echo "<script> alert('Published Successfully')</script>";
+
+    }
+
+    
+    
+    
+}
+
+
+?>
