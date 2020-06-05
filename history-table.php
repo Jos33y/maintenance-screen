@@ -66,7 +66,7 @@ include('header.php');
 
                 <?php
             $i = 0;
-                $get_history = "select * from historytable LIMIT 100";
+                $get_history = "select * from historytable ORDER BY hist_id DESC";
                 $run_history = mysqli_query($con, $get_history);
                 while ($row = mysqli_fetch_array($run_history)){
                     
