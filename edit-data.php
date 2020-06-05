@@ -452,8 +452,13 @@ if(isset($_POST['publish']))
     $foiastate =  $_POST['fstate'];
     $foiamzip =  $_POST['fmzip'];
 
-    $sql = "INSERT INTO historytable (govid, comptrollerid, revenueid, otheridtype, othertypecode, namesimple, PBDNF, govtype, websiteurl, hqemail, hqphysicaladdress, hqphysicalcity, hqmailingzip, hqphone, hqmailingaddress, hqmailingcity, hqstate, Femail, Fmailingaddress, Fphone, Fphysicaladdress, Fmailingcity, Fstate, Fmailingzip, govtypename, webgroup, ballotgroupid, investiture, ktyabb, fullspan ) 
-    VALUES ('$gvid', '$cmpid', '$rev', '$othertypeid', '$othertypecode', '$sort_as', '$pbdnfm', '$gvtype', '$weburl', '$hqemail', '$hqpaddress', '$hqpcity', '$hqmzip', '$hqphone, '$hqmaddress', '$hqmcity', '$hqstate', '$foiaemail', '$foiaeaddress', '$foiaphone', '$foiapaddress', '$foiamcity', $gvtypename', '$webgrp', '$bgrpid', '$investiture', '$ktyabb', '$fullspan')
+    $sql = "INSERT INTO historytable (govid, comptrollerid, revenueid, otheridtype, othertypecode, namesimple, PBDNF, govtype, websiteurl, 
+    hqemail, hqphysicaladdress, hqphysicalcity, hqmailingzip, hqphone, hqmailingaddress, hqmailingcity, hqstate, Femail, Fmailingaddress,
+     Fphone, Fphysicaladdress, Fmailingcity, Fstate, Fmailingzip, govtypename, webgroup, ballotgroupid, investiture, ktyabb, fullspan) 
+
+    VALUES ('$gvid', '$cmpid', '$rev', '$othertypeid', '$othertypecode', '$sort_as', '$pbdnfm', '$gvtype', '$weburl', '$hqemail',
+     '$hqpaddress', '$hqpcity', '$hqmzip', '$hqphone', '$hqmaddress', '$hqmcity', '$hqstate', '$foiaemail', '$foiaeaddress', 
+     '$foiaphone', '$foiapaddress', '$foiamcity', '$foiastate', '$foiamzip', '$gvtypename', '$webgrp', '$bgrpid', '$investiture', '$ktyabb', '$fullspan')
     ";
 
     $query = mysqli_query($con, $sql) or  die(mysqli_error($con));
@@ -461,6 +466,7 @@ if(isset($_POST['publish']))
     if($query){
 
         echo "<script> alert('Published Successfully')</script>";
+        echo "<script>window.open('view-data.php', '_self')</script>";  
 
     }
 
