@@ -397,7 +397,7 @@ include('header.php');
                     <tbody>
                         <tr>
                             <td colspan="2">
-                                <a style="text-decoration: none;" class="btn btn-cancel" href="#" name="save">
+                                <a style="text-decoration: none;" class="btn btn-cancel" href="search.php" name="save">
                                     <i class="fas fa-times"></i> Cancel</a>
 
                                 <a style="text-decoration: none;" class="btn btn-prev" href="#" name="save">
