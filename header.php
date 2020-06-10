@@ -34,6 +34,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="https://kit.fontawesome.com/eedc5762fd.js"></script>
+    <script src="https://use.fontawesome.com/2ce208766d.js"></script>
 
     <!--  CSS File -->
     <link href="css/styles.css" rel="stylesheet">
@@ -44,7 +45,7 @@
 
     <!--navbar-->
 
-    <nav class="navbar navbar-expand-lg navbar-light  bg-light sticky-top">
+    <nav class="navbar navbar-expand-lg navbar-light  bg-light">
         <a class="navbar-brand" href="index.html">
             <img src="images/4869420be83.png" class="logo">
             <span class="logo-name">Home Screen</span>

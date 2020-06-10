@@ -5,6 +5,7 @@
 ======================================================== */
 
 @import url('https://fonts.googleapis.com/css?family=Lato|Open+Sans|PT+Sans|PT+Serif|PT+Serif+Caption|Roboto|Roboto+Mono&display=swap');
+@import "//netdna.bootstrapcdn.com/font-awesome/3.0/css/font-awesome.css";
 
 body {
     height: 100%;
@@ -166,9 +167,8 @@ body {
 .screen-border {
     color: #ffffff;
     background-color: #4a73f9;
-    border: 1px solid #4a73f9;
-    border-radius: 10px;
-    padding: 5%;
+    border: 2px solid #333436;
+    padding: 4%;
 }
 
 .btn.btn-save {
@@ -256,7 +256,7 @@ footer {
     margin-bottom: 3%;
     text-align: center;
     font-size: 35px;
-    font-weight: 700;
+    font-weight: bolder;
     color: #ffff00;
 }
 
@@ -264,42 +264,67 @@ footer {
     color: #fff;
     font-size: 20px;
     font-weight: bolder;
-    margin: 10px;
     letter-spacing: 1px;
 }
 
+/** Input Styles **/
+.search-gov input {
+    border: 2px solid #fff;
+    border-radius: 0;
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.search-part input {
+    border: 2px solid #fff;
+    border-radius: 0;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.search-part input::placeholder {
+    font-family: FontAwesome;
+    font-weight: normal;
+    overflow: visible;
+    vertical-align: top;
+    display: inline-block !important;
+    padding-left: 5px;
+    padding-top: 2px;
+    color: gray;
+    text-align: center;
+}
+
+
+/** Styles COntinue **/
+
 .search-two {
     color: #fff;
-    font-size: 20px;
+    font-size: 22px;
     font-weight: bolder;
-    margin: 10px;
     letter-spacing: 1px;
 }
 
 .search-note {
     color: #ffff00;
-    font-size: 11px;
-    margin-left: 10px;
+    font-size: 13px;
+    font-weight: 600;
+
 }
 
 .search-three {
     color: #fff;
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 600;
     letter-spacing: 1px;
 }
 
-.note-info {
-    color: #ffff00;
-    font-size: 11px;
-    margin-top: 20px;
-    margin-right: 7%;
-}
 
-.search-counties .fas {
+
+.search-three .fas {
     color: #ffff00;
     font-size: 10px;
-    margin-left: 2px;
+    margin-left: 5px;
+    margin-bottom: 13px;
 }
 
 .search-counties input::placeholder {
@@ -307,29 +332,35 @@ footer {
     font-weight: 600;
 }
 
-.search-btn .btn.btn-danger {
-    text-align: center;
-    font-size: 13px;
-    font-weight: 600;
-    margin-top: 5px;
-    letter-spacing: 1px;
-    background-color: rgb(92, 182, 98);
-    border-color: rgb(92, 182, 98);
-    border-radius: 5px;
-    padding: 2px 10px 2px 10px;
+.search-btn .btn {
+    -webkit-box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.75);
+}
+
+.search-btn .btn.btn-success {
     color: #fff;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    border-color: #0d0d0e;
+    border-radius: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 .search-btn .btn.btn-warning {
     text-align: center;
-    font-size: 18px;
-    font-weight: bolder;
-    margin-top: 5px;
-    margin-left: 20px;
+    font-size: 22px;
+    font-weight: 700;
+    margin-left: 20%;
     letter-spacing: 1px;
     background-color: #ffff00;
-    border-color: #ffff00;
-    border-radius: 5px;
+    border-color: #0d0d0e;
+    border-radius: 0;
     padding: 5px 30px 5px 30px;
     color: #111111;
 }
@@ -400,4 +431,3 @@ footer {
     font-style: italic;
     letter-spacing: 0.5px;
 }
-
