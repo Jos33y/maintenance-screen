@@ -331,10 +331,19 @@ footer {
 .search-three .fas {
     color: #ffff00;
     font-size: 10px;
-    margin-left: 5px;
     margin-bottom: 13px;
 }
+.search-three .btn.btn-outline-light{
 
+    text-align: center;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    border-color:transparent;
+    border-radius: 0;
+    padding: 0;
+
+}
 .search-counties input::placeholder {
     font-size: 12px;
     font-weight: 600;

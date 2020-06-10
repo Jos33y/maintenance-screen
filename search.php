@@ -124,8 +124,18 @@ include('header.php');
                         <tbody class="search-part">
                             <tr>
                                 <td width="15%">
-                                    <label for="part" class="search-three">Counties <i class="fas fa-info"></i></label>
+                                    <label for="counties" class="search-three">Counties
+                                        <button type="button" class="btn btn-outline-light" data-toggle="modal"
+                                            data-target="#countyName">
+                                            <i class="fas fa-info"></i>
+                                        </button></label>
+
+
                                 </td>
+
+                                <!-- Button trigger modal -->
+
+
 
                                 <td width="35%">
 
@@ -133,7 +143,7 @@ include('header.php');
 
                                         <option> Any of these as the HOME county </option>
 
-                                                <?php
+                                        <?php
 
                                                 $get_kty = "select * from kountynbrs";
                                                 $run_kty = mysqli_query($con , $get_kty);
@@ -156,11 +166,11 @@ include('header.php');
 
                                 <td width="50%">
 
-                                 <select name="fullspan_kty" class="form-control">
+                                    <select name="fullspan_kty" class="form-control">
 
                                         <option> Any of these as the HOME or INCLUDED county </option>
 
-                                                <?php
+                                        <?php
 
                                                 $get_kty = "select * from kountynbrs";
                                                 $run_kty = mysqli_query($con , $get_kty);
@@ -179,7 +189,7 @@ include('header.php');
 
                                                 ?>
                                     </select>
-                                    
+
                                 </td>
                             </tr>
                         </tbody>
@@ -204,13 +214,52 @@ include('header.php');
 
 </div>
 
+<!-- Modal -->
+<div class="modal fade" id="countyName" tabindex="-1" role="dialog" aria-labelledby="countyNameTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th style="font-size: 13px;" id="ktynhead">County Name</th>
+                            <th style="font-size: 13px;" id="ktyahead">County Abb</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
 
-<footer>
-    <div class="container">
-        <p class="text-center" style="font-size: 13px; color: darkred;"> &copy 2020 All right reserved Citizen
-            Participation Institute</p>
+                                                $get_kty = "select * from kountynbrs";
+                                                $run_kty = mysqli_query($con , $get_kty);
+
+                                                while ($row_kty=mysqli_fetch_array($run_kty)){
+
+                                                    $kid = $row_kty['kid'];
+                                                    $ktyname = $row_kty['namesimple'];
+                                                    $ktyabb = $row_kty['ktyabb'];
+
+                                                ?>
+                        <tr>
+                            <td style="font-size: 13px;"><?php echo $ktyname;  ?></td>
+                            <td style="font-size: 13px;"><?php echo $ktyabb;  ?></td>
+                        </tr>
+
+                        <?php } ?>
+                    </tbody>
+                </table>
+
+            </div>
+
+        </div>
     </div>
-</footer>
+</div>
+
 
 <?php include('footer.php'); ?>
 
