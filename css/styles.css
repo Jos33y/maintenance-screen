@@ -294,6 +294,14 @@ footer {
     text-align: center;
 }
 
+.search-part select{
+    color: gray;
+    border: 2px solid #fff;
+    border-radius: 0;
+    font-size: 13px;
+    font-weight: 600;
+}
+
 
 /** Styles COntinue **/
 

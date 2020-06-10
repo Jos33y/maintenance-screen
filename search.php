@@ -128,13 +128,58 @@ include('header.php');
                                 </td>
 
                                 <td width="35%">
-                                    <input type="text" name="part" id="#" class="form-control"
-                                        placeholder="&#61442;  &nbsp; Any of these as the HOME county">
+
+                                    <select name="home_kty" class="form-control">
+
+                                        <option> Any of these as the HOME county </option>
+
+                                                <?php
+
+                                                $get_kty = "select * from kountynbrs";
+                                                $run_kty = mysqli_query($con , $get_kty);
+
+                                                while ($row_kty=mysqli_fetch_array($run_kty)){
+
+                                                    $kid = $row_kty['kid'];
+                                                    $ktyabb = $row_kty['ktyabb'];
+
+                                                    echo "
+                                                    
+                                        <option value='$kid'> $ktyabb </option>
+                                                    
+                                                    ";
+                                                }
+
+                                                ?>
+                                    </select>
                                 </td>
 
                                 <td width="50%">
-                                    <input type="text" name="part" id="#" class="form-control"
-                                        placeholder="&#61442; &nbsp; Any of these as the HOME or INCLUDED county">
+
+                                 <select name="fullspan_kty" class="form-control">
+
+                                        <option> Any of these as the HOME or INCLUDED county </option>
+
+                                                <?php
+
+                                                $get_kty = "select * from kountynbrs";
+                                                $run_kty = mysqli_query($con , $get_kty);
+
+                                                while ($row_kty=mysqli_fetch_array($run_kty)){
+
+                                                    $kid = $row_kty['kid'];
+                                                    $ktyabb = $row_kty['ktyabb'];
+
+                                                    echo "
+                                                    
+                                        <option value='$kid'> $ktyabb </option>
+                                                    
+                                                    ";
+                                                }
+
+                                                ?>
+                                    </select>
+                                    
                                 </td>
                             </tr>
                         </tbody>
