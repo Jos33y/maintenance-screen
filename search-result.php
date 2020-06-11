@@ -455,23 +455,50 @@ include('header.php');
                 <table class="table table-borderless text-white">
                     <tbody>
                         <tr>
+                            
                             <td>
+                                <br> <br>
                                 <a style="text-decoration: none;" class="btn btn-md btn-success" href="search.php" name="save">
                                     <i class="fas fa-times"></i> Cancel</a>
                             </td>
 
                             <td>
+                                <br> <br>
                                 <a style="text-decoration: none;" class="btn btn-md btn-warning" href="search.php" name="save">
                                     <i class="fas fa-times"></i> Print</a>
                             </td>
 
                             <td>
+                                    
+                                        <?php
+
+                                                $get_prevtime = "select timestamp from historytable WHERE govid ='$gvid' ORDER BY timestamp DESC";
+                                                
+                                                $run_prevtime = mysqli_query($con , $get_prevtime);
+
+                                                if (mysqli_num_rows($run_prevtime) == 0){
+
+                                                    $prev_timestamp = "";
+
+                                                }
+                                                else{
+
+                                                $row_time=mysqli_fetch_array($run_prevtime);
+
+                                                $prev_timestamp = date("M-d-yy h:i:s A", strtotime( $row_time['timestamp']));
+
+                                                }
+                                                ?>
+
+
+                            <span class="version-time" style="font-style: italic;"><?php echo $prev_timestamp; ?> </span><br><br>
                                 <a style="text-decoration: none;" class="btn btn-md btn-prev" href="#" name="save">
 
                                     <i class="fas fa-backward"></i> Get Previous Version</a>
                             </td>
 
                             <td>
+                                <br> <br>
                                 <a style="text-decoration: none;" class="btn  btn-md btn-danger" href="#" name="save">
                                     <i class="fas fa-upload"></i> Publish This</a>
                             </td>
