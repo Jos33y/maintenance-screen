@@ -40,6 +40,14 @@
     <!--  CSS File -->
     <link href="css/styles.css" rel="stylesheet">
 
+    <style>
+        @media print
+{
+.noprint {display:none;}
+}
+
+    </style>
+
 </head>
 
 <body>

@@ -131,7 +131,7 @@ include('header.php');
 
                     <tr style="font-size:13px;">
                         <td><a style="text-decoration: none;" href="edit-data.php?did=<?php echo $did;?>"><i class="fas fa-edit"></i> Edit</a> </td>
-                        <td><b><?php echo $did; ?> </b></td>
+                        <td><b><?php echo $i; ?> </b></td>
                         <td><?php echo $gvid; ?> </td>
                         <td><?php echo $cmpid; ?> </td>
                         <td><?php echo $revid; ?> </td> 

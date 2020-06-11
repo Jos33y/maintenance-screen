@@ -6,8 +6,10 @@ include('header.php');
 
 ?>
 
-<!--header image-->
+<!--no print div class -->
+<div class="noprint">
 
+<!--header image-->
 <img src="images/search.jpg" alt="" class="back-image">
 
 <!-- page title-->
@@ -223,7 +225,7 @@ include('header.php');
             <div class="row">
                 <div class="col-md-6 mx-auto">
                     <div class="form-inline search-btn">
-                        <a href="#" class="btn btn-success btn-small">Cancel</a>
+                        <a href="search.php" class="btn btn-success btn-small">Cancel</a>
 
                         <button type="submit" name="search" class="btn btn-warning btn-lg">Search</button>
                     </div>
@@ -282,6 +284,9 @@ include('header.php');
 </div>
 
 
+<!--print end-->
+                                                </div>
+
 <?php 
 
     if(ISSET($_POST['search'])){
@@ -309,6 +314,7 @@ include('header.php');
 
 
 <div class="sty">
+<button style="margin: 20px; font-weight: 600;" onclick="window.print()" class="btn btn-md btn-danger">Print this page</button>
     <table class="table border-bottom border">
         <thead>
             <tr class="county-tble-head">

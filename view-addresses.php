@@ -54,7 +54,7 @@ include('header.php');
 
                 <?php
             $i = 0;
-                $get_addresses = "select * from addresses";
+                $get_addresses = "select * from addresses  LIMIT 20";
                 $run_addresses = mysqli_query($con, $get_addresses);
                 while ($row = mysqli_fetch_array($run_addresses)){
                     $aid = $row['AddressId'];
@@ -86,7 +86,7 @@ include('header.php');
                         <td><a style="text-decoration: none;" href="#" class="text-danger"><i
                                         class="fas fa-trash-alt"></i>
                                     Delete</a></td>
-                        <td><b><?php echo $aid; ?> </b></td>
+                        <td><b><?php echo $i; ?> </b></td>
                         <td><?php echo $gvid; ?> </td>
                         <td><?php echo $cmpid; ?> </td>
                         <td><?php echo $pbdnfm; ?> </td>
