@@ -294,7 +294,7 @@ footer {
     text-align: center;
 }
 
-.search-part select{
+.search-part select {
     color: gray;
     border: 2px solid #fff;
     border-radius: 0;
@@ -333,17 +333,19 @@ footer {
     font-size: 10px;
     margin-bottom: 13px;
 }
-.search-three .btn.btn-outline-light{
+
+.search-three .btn.btn-outline-light {
 
     text-align: center;
     font-size: 15px;
     font-weight: 600;
     letter-spacing: 1px;
-    border-color:transparent;
+    border-color: transparent;
     border-radius: 0;
     padding: 0;
 
 }
+
 .search-counties input::placeholder {
     font-size: 12px;
     font-weight: 600;
@@ -403,9 +405,7 @@ footer {
 
 /** Address Style **/
 
-.address .row {
-    margin-bottom: 1%;
-}
+
 
 .address-text {
     font-size: 13px;
@@ -433,12 +433,23 @@ footer {
 .version {
     font-size: 15px;
     font-weight: 600;
+    margin-left: 2%;
+}
+
+.version .btn.btn-danger {
+    text-align: center;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    border-color: #0d0d0e;
+    border-radius: 0;
+
 }
 
 .version-time {
     margin-left: 3%;
     color: #ffff00;
-    font-size: 13px;
+    font-size: 15px;
 }
 
 .yellow-ballot {
@@ -447,4 +458,31 @@ footer {
     font-weight: 550;
     font-style: italic;
     letter-spacing: 0.5px;
+}
+
+
+.search-rgov input {
+    border: 2px solid #fff;
+    border-radius: 0;
+    font-size: 22px;
+    font-weight: 700;
+    padding-top: 0;
+    padding-bottom: 0;
+
+}
+
+.search-res input {
+    border: 2px solid #fff;
+    border-radius: 0;
+    font-size: 13px;
+    font-weight: 600;
+
+}
+
+.search-res textarea {
+    border: 2px solid #fff;
+    border-radius: 0;
+    font-size: 13px;
+    font-weight: 600;
+
 }

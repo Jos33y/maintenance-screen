@@ -38,7 +38,8 @@ include('header.php');
     $foiamcity = $row_edit['FoiaMailingCity'];
     $foiastate = $row_edit['FoiaState'];
     $foiamzip = $row_edit['FoiaMailingZip'];
-    $timestamp = $row_edit['timestamp'];
+
+    $timestamp = date("M-d-yy h:i:s A", strtotime( $row_edit['timestamp']));
 
     $get_govtype = "select * from govtype where govtypeid = '$gvtype'";
 
@@ -83,7 +84,7 @@ include('header.php');
 <!-- page title-->
 <div class="container">
     <h2 class="page-title blue">
-    Search Result
+        Search Result
     </h2>
     <hr width="15%" class="page-title-line">
 
@@ -93,70 +94,66 @@ include('header.php');
     <form method="POST" action="#" class="screen-border address">
 
         <!--row one-->
-        <div class="row">
-            <div class="col-sm-6 mx-auto">
-                <h3 class="version">Version Time : <span class="version-time"><?php echo $timestamp; ?> </span></h3>
+        <div class="row version">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-8" style="font-weight: 600;">
+                <button style="font-weight: 600;" class="btn btn-md btn-danger">This is the latest version</button> It
+                is from<span class="version-time"> <?php echo $timestamp; ?> </span>
             </div>
         </div>
         <div class="row">
+            <div class="col-md-12">
+                <table class="table table-borderless">
+                    <tbody>
+                        <tr>
+                            <td width="11%" class="search-rgov">
+                                <label for="gov" class="sr-only">GovID </label>
+                                <input type="text" class="form-control" id="" value="<?php echo $gvid;?>" disabled>
 
+                            </td>
+                            <td class="search-res">
+                                <label for="gov" class="sr-only">PublicBodyNameFormal </label>
+                                <input type="text" class="form-control" id="" value="<?php echo $pbdnfm ;?>">
 
-            <div class="col-sm-1">
-                <label for="gov" class="sr-only">GovID </label>
-                <input type="text" class="form-control" id="" value="<?php echo $gvid;?>" disabled>
-            </div>
+                            </td>
 
-            <div class="col-sm-10">
-                <label for="gov" class="sr-only">PublicBodyNameFormal </label>
-                <input type="text" class="form-control" id="" value="<?php echo $pbdnfm ;?>">
+                        </tr>
+                    </tbody>
+                </table>
+
             </div>
         </div>
 
         <!--row two-->
 
         <div class="row">
-            <div class="col-sm-1"></div>
-                <!--sort as -->
-            <div class="col-sm-3">
+            <!--sort as -->
+            <div class="col-sm-12">
                 <table class="table table-borderless text-white">
-                    <tbody>
+                    <tbody class="search-res">
                         <tr>
-                            <td width="20%"><span class="address-text">Sort as</span>
-                                <input type="text" class="form-control" id="" value="<?php echo $sort_as ;?>">
+                            <td width="11%"></td>
+                            <td width="26%"><span class="address-text">Sort as</span>
+                                <input type="text" class="form-control" id="" value="<?php echo $sort_as ;?>" disabled >
+                            <td/>
+                       
+                            <td width="5%"><span class="address-text">GovType</span>
+                                <input type="text" class="form-control" id="" value="<?php echo $gvtype ;?>" disabled>
                             </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-                <!--govtype -->
-            <div class="col-sm-2">
-                <table class="table table-borderless text-white">
-                    <tbody>
-                        <tr>
-                            <td width="20%"><span class="address-text">GovType</span>
-                                <input type="text" class="form-control" id="" value="<?php echo $gvtype ;?>">
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="col-sm-6">
-                <table class="table table-borderless text-white">
-                    <tbody>
-                        <tr>
+                       
                             <td width="20%">
                                 <h3 class="yellow-ballot"> <?php echo $gvtypename; ?> </h3>
                                 <h3 class="yellow-ballot">WebGroup: <?php echo $webgrp; ?> </h3>
 
                             </td>
-                            <td width="20%"><br>
+                            <td width="13%"><br>
                                 <h3 class="yellow-ballot">BallotGroup: <?php echo $bgrpid; ?> </h3>
 
                             </td>
-                            <td width="20%"><br>
+                            <td width="8%"><br>
                                 <h3 class="yellow-ballot"> <?php echo $investiture; ?> </h3>
                             </td>
+                            <td width="17%"></td>
                         </tr>
                     </tbody>
                 </table>
@@ -167,64 +164,46 @@ include('header.php');
         <!--row three-->
 
         <div class="row">
-            <div class="col-sm-1"><span class="address-text">Physical</span> </div>
+        <div class="col-sm-12">
+                <table class="table table-borderless text-white">
+                    <tbody class="search-res">
+                        <tr>
+                            <td width="11%"><span class="address-text">Physical</span></td>
+                            <td width="54%"> 
+                                <label for="gov" class="sr-only"> Physical Address </label>
+                                <input type="text" class="form-control" id="" value="<?php echo $hqpaddress ;?>">
+                            <td/>
+                       
+                            <td width="20%"> 
+                                <label for="gov" class="sr-only">City </label>
+                                <input type="text" class="form-control" id="" value="<?php echo $hqpcity ;?>">
+                            </td>
+                       
+                            <td width="5%">
+                                <label for="gov" class="sr-only">State </label>
+                                <input type="text" class="form-control" id="" value="<?php echo $hqstate ;?>">
+                            </td>
 
-            <div class="col-sm-6">
-                <label for="gov" class="sr-only"> Physical Address </label>
-                <input type="text" class="form-control" id="" value="<?php echo $hqpaddress ;?>">
-            </div>
-            <div class="col-sm-2">
-                <label for="gov" class="sr-only">City </label>
-                <input type="text" class="form-control" id="" value="<?php echo $hqpcity ;?>">
-            </div>
+                            <td width="10%"> 
+                                <label for="gov" class="sr-only">Zip </label>
+                                <input type="text" class="form-control" id="" value="<?php echo $hqmzip ;?>">
+                            </td>
 
-            <div class="col-sm-1">
-                <label for="gov" class="sr-only">State </label>
-                <input type="text" class="form-control" id="" value="<?php echo $hqstate ;?>">
+                        </tr>
+                    </tbody>
+                </table>
             </div>
-
-            <div class="col-sm-2">
-                <label for="gov" class="sr-only">Zip </label>
-                <input type="text" class="form-control" id="" value="<?php echo $hqmzip ;?>">
-            </div>
-
         </div>
 
-
-        <!--row four-->
-
-        <div class="row">
-            <div class="col-sm-1"><span class="address-text">Mailing</span> </div>
-
-            <div class="col-sm-6">
-                <label for="gov" class="sr-only"> Mailing Address </label>
-                <input type="text" class="form-control" id="" value="<?php echo $hqmaddress ;?>">
-            </div>
-            <div class="col-sm-2">
-                <label for="gov" class="sr-only">City </label>
-                <input type="text" class="form-control" id="" value="<?php echo $hqmcity ;?>">
-            </div>
-
-            <div class="col-sm-1">
-                <label for="gov" class="sr-only">State </label>
-                <input type="text" class="form-control" id="" value="<?php echo $hqstate ;?>">
-            </div>
-
-            <div class="col-sm-2">
-                <label for="gov" class="sr-only">Zip </label>
-                <input type="text" class="form-control" id="" value="<?php echo $hqmzip ;?>">
-            </div>
-
-        </div>
 
         <!--row five-->
 
         <div class="row">
-            <div class="col-sm-1"></div>
-            <div class="col-sm-11">
+            <div class="col-sm-12">
                 <table class="table table-borderless text-white">
-                    <thead>
+                    <tbody class="search-res">
                         <tr>
+                            <td width="11%"></td>
                             <td width="20%"><span class="address-text">Phone</span>
                                 <input type="text" class="form-control" id="" value="<?php echo $hqphone ;?>">
                             </td>
@@ -235,56 +214,99 @@ include('header.php');
                                 <input type="text" class="form-control" id="" value="<?php echo $weburl ;?>">
                             </td>
                         </tr>
-                    </thead>
+                    </tbody>
                 </table>
             </div>
         </div>
 
 
+        <!--row four-->
+
+        <div class="row">
+
+        <div class="col-sm-12">
+                <table class="table table-borderless text-white">
+                    <tbody class="search-res">
+                        <tr>
+                            <td width="11%"><span class="address-text">Mailing</span></td>
+                            <td width="54%"> 
+                                 <label for="gov" class="sr-only"> Mailing Address </label>
+                                 <input type="text" class="form-control" id="" value="<?php echo $hqmaddress ;?>">
+                            <td/>
+                       
+                            <td width="20%"> 
+                                <label for="gov" class="sr-only">City </label>
+                                <input type="text" class="form-control" id="" value="<?php echo $hqmcity ;?>">
+                            </td>
+                       
+                            <td width="5%">
+                                <label for="gov" class="sr-only">State </label>
+                                <input type="text" class="form-control" id="" value="<?php echo $hqstate ;?>">
+                            </td>
+
+                            <td width="10%"> 
+                                <label for="gov" class="sr-only">Zip </label>
+                                <input type="text" class="form-control" id="" value="<?php echo $hqmzip ;?>">
+                            </td>
+
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        
+
         <!--row six-->
 
         <div class="row">
-            <div class="col-sm-1"><span class="address-text">FOIA</span> </div>
 
-            <div class="col-sm-6">
-                <label for="gov" class="sr-only"> Mailing Address </label>
-                <input type="text" class="form-control" id="" value="<?php echo $foiaeaddress ;?>">
-            </div>
-            <div class="col-sm-2">
-                <label for="gov" class="sr-only">City </label>
-                <input type="text" class="form-control" id="" value="<?php echo $foiamcity ;?>">
-            </div>
+        <div class="col-sm-12">
+                <table class="table table-borderless text-white">
+                    <tbody class="search-res">
+                        <tr>
+                            <td width="11%"><span class="address-text">FOIA</span></td>
+                            <td width="74%"> 
+                                <label for="gov" class="sr-only"> Mailing Address </label>
+                                <input type="text" class="form-control" id="" value="<?php echo $foiaeaddress ;?>">
+                            <td/>
+                       
+                            <td width="5%">
+                                <label for="gov" class="sr-only">State </label>
+                                <input type="text" class="form-control" id="" value="<?php echo $foiastate ;?>">
+                            </td>
 
-            <div class="col-sm-1">
-                <label for="gov" class="sr-only">State </label>
-                <input type="text" class="form-control" id="" value="<?php echo $foiastate ;?>">
-            </div>
+                            <td width="12%"> 
+                                 <label for="gov" class="sr-only">Zip </label>
+                                 <input type="text" class="form-control" id="" value="<?php echo $foiamzip ;?>">
+                            </td>
 
-            <div class="col-sm-2">
-                <label for="gov" class="sr-only">Zip </label>
-                <input type="text" class="form-control" id="" value="<?php echo $foiamzip ;?>">
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
 
         <!--row Seven-->
 
         <div class="row">
-            <div class="col-sm-1"></div>
-            <div class="col-sm-11">
-                <table class="table table-borderless text-white">
-                    <thead>
+            <div class="col-sm-12">
+                
+                <table class="table table-borderless text-white ">
+                    <tbody class="search-res">
                         <tr>
-                            <td width="20%"><span class="address-text">Phone</span>
+                        <td width="11%"></td>
+                            <td width="20%"><span class="address-text">FOIA Phone</span>
                                 <input type="text" class="form-control" id="" value="<?php echo $foiaphone ;?>">
                             </td>
-                            <td><span class="address-text">Email</span>
+                            <td><span class="address-text">FOIA Email</span>
                                 <input type="text" class="form-control" id="" value="<?php echo $foiaemail ;?>">
                             </td>
-                            <td width="35%"><span class="address-text">Website</span>
+                            <td width="35%"><span class="address-text">FOIA Website</span>
                                 <input type="text" class="form-control" id="" value="<?php echo $weburl ;?>">
                             </td>
                         </tr>
-                    </thead>
+                    </tbody>
                 </table>
             </div>
         </div>
@@ -293,19 +315,18 @@ include('header.php');
         <!--row eight  first-->
 
         <div class="row">
-            <div class="col-sm-1"><span class="address-text">Notes</span>
-            </div>
-            <div class="col-sm-8">
+            <div class="col-sm-9">
                 <table class="table table-borderless text-white">
-                    <thead>
+                    <tbody class="search-res">
                         <tr>
-
-                            <td width="20%">
-                                <textarea name="comments" id="" cols="30" rows="5" class="form-control"><?php echo $desc; ?></textarea>
+                            <td class="width="8%><span class="address-text">Notes</span></td>
+                            <td >
+                                <textarea name="comments" id="" cols="30" rows="3"
+                                    class="form-control" disabled><?php echo $desc; ?></textarea>
                             </td>
 
                         </tr>
-                    </thead>
+                    </tbody>
                 </table>
             </div>
         </div>
@@ -344,9 +365,9 @@ include('header.php');
             </div>
         </div>
 
-           <!--row nine-->
+        <!--row nine-->
 
-           <div class="row">
+        <div class="row">
             <div class="col-sm-1"><span class="address-text">Counties</span>
             </div>
             <div class="col-sm-6">
