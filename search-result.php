@@ -81,9 +81,15 @@ include('header.php');
 
     $parent = $row_gov['ParentID'];
  
+    $version_details = "This is not the latest version";
 
+    //$version_link = ", Click " . "<a href='#' class='text-white'>" . "here" . "</a> " . " to bring up latest version";
+
+    $version_link =" ";
 
 ?>
+<!--no print div -->
+<div class="noprint">
 <!--header image-->
 
 <img src="images/screenblue.jpg" alt="" class="back-image">
@@ -91,21 +97,22 @@ include('header.php');
 <!-- page title-->
 <div class="container">
     <h2 class="page-title blue">
-        Search Result
+        Screen Result
     </h2>
     <hr width="15%" class="page-title-line">
 
-
+  </div>
+  </div>
     <!--table for ballot-->
-
+<div class="container">
     <form method="POST" action="#" class="screen-border search-result address">
 
         <!--row one-->
         <div class="row version">
             <div class="col-sm-1"></div>
-            <div class="col-sm-8" style="font-weight: 600;">
-                <button style="font-weight: 600;" class="btn btn-md btn-danger">This is the latest version</button> It
-                is from<span class="version-time"> <?php echo $timestamp; ?> </span>
+            <div class="col-sm-10" style="font-weight: 600;">
+                <button style="font-weight: 600;" class="btn btn-md btn-danger"><?php echo $version_details; ?></button> 
+                <span class="version-time">It is from <?php echo $timestamp . $version_link; ?> </span>
             </div>
         </div>
         <div class="row">
@@ -113,7 +120,7 @@ include('header.php');
                 <table class="table table-borderless">
                     <tbody>
                         <tr>
-                            <td width="11%" class="search-rgov">
+                            <td width="12%" class="search-rgov">
                                 <label for="gov" class="sr-only">GovID </label>
                                 <input type="text" class="form-control" id="" value="<?php echo $gvid;?>" disabled>
 
@@ -370,7 +377,7 @@ include('header.php');
                                 <span class="address-note">Board of Education</span>
                             </td>
 
-                            <td width="14%"></td>
+                            <td width="12%"></td>
                             <td width="12%"><br>
                                 <span class="address-text">Counties
                                     <button type="button" class="btn btn-outline-light" data-toggle="modal"
@@ -378,12 +385,12 @@ include('header.php');
                                         <i class="fas fa-info"></i>
                                     </button>
                                 </span></td>
-                            <td width="7%">
+                            <td width="8%">
                                 <span class="address-text">SEI</span>
                                 <input type="text" class="form-control" id="" value="<?php echo $ktyabb;?>" disabled>
                             </td>
 
-                            <td width="7%">
+                            <td width="8%">
                                 <span class="address-text">Home</span>
                                 <input type="text" class="form-control" id="" value="<?php echo $ktyabb;?>" disabled>
 
@@ -412,8 +419,8 @@ include('header.php');
                                 <input type="text" class="form-control" id="" value="<?php echo $parent ;?>" disabled>
                             </td>
 
-                            <td width="42%"></td>
-                            <td width="7%">
+                            <td width="38%"></td>
+                            <td width="8%">
                                 <input type="text" class="form-control" id="" value="" disabled>
                                 <input type="text" class="form-control" id="" value="" disabled>
                                 <input type="text" class="form-control" id="" value="" disabled>
@@ -421,21 +428,21 @@ include('header.php');
 
                             </td>
 
-                            <td width="7%">
+                            <td width="8%">
                                 <input type="text" class="form-control" id="" value="" disabled>
                                 <input type="text" class="form-control" id="" value="" disabled>
                                 <input type="text" class="form-control" id="" value="" disabled>
                                 <input type="text" class="form-control" id="" value="" disabled>
                             </td>
 
-                            <td width="7%">
+                            <td width="8%">
                                 <input type="text" class="form-control" id="" value="" disabled>
                                 <input type="text" class="form-control" id="" value="" disabled>
                                 <input type="text" class="form-control" id="" value="" disabled>
                                 <input type="text" class="form-control" id="" value="" disabled>
                             </td>
 
-                            <td width="7%">
+                            <td width="8%">
                                 <input type="text" class="form-control" id="" value="" disabled>
                                 <input type="text" class="form-control" id="" value="" disabled>
                                 <input type="text" class="form-control" id="" value="" disabled>
@@ -464,8 +471,8 @@ include('header.php');
 
                             <td>
                                 <br> <br>
-                                <a style="text-decoration: none;" class="btn btn-md btn-warning" href="search.php" name="save">
-                                    <i class="fas fa-times"></i> Print</a>
+                                <button  onclick="window.print()" class="btn btn-md btn-warning">
+                                    <i class="fas fa-times"></i> Print</button>
                             </td>
 
                             <td>

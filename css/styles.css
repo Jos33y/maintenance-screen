@@ -7,6 +7,7 @@
 @import url('https://fonts.googleapis.com/css?family=Lato|Open+Sans|PT+Sans|PT+Serif|PT+Serif+Caption|Roboto|Roboto+Mono&display=swap');
 @import "//netdna.bootstrapcdn.com/font-awesome/3.0/css/font-awesome.css";
 
+
 body {
     height: 100%;
     width: 100%;
@@ -525,3 +526,5 @@ footer {
 -moz-box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.75);
 box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.75);
 }
+
+
