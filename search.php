@@ -91,7 +91,28 @@ include('header.php');
                                     <label for="part" class="search-three">Sort as</label>
                                 </td>
                                 <td width="35%">
-                                    <input type="text" name="part" id="#" class="form-control" placeholder="&#61442;">
+                                    <select name="sort_as" class="form-control">
+
+                                        <option> Sort AS </option>
+
+                                        <?php
+
+                                                $get_kty = "select DISTINCT NameSimple from governments";
+                                                $run_kty = mysqli_query($con , $get_kty);
+
+                                                while ($row_kty=mysqli_fetch_array($run_kty)){
+
+                                                    $namesimple = $row_kty['NameSimple'];
+
+                                                    echo "
+                                                    
+                                        <option value='$namesimple'> $namesimple </option>
+                                                    
+                                                    ";
+                                                }
+
+                                                ?>
+                                    </select>
                                 </td>
 
                                 <td width="15%">
@@ -261,52 +282,62 @@ include('header.php');
 </div>
 
 
-<?php include('footer.php'); ?>
-
 <?php 
 
     if(ISSET($_POST['search'])){
 
     $govid = $_POST['govid'];
 
+    $home_kty = $_POST['home_kty'];
+
+    $fullspan_kty = $_POST['fullspan_kty'];
+
+    $sort_as = $_POST['sort_as'];
+
     $_SESSION['govid'] = $govid;
-?>
+    /* Govid Search */
+
+    if($govid){
+
+        echo "<script>window.open('search-result.php?govid=$govid', '_self')</script>";
+
+    }
+    else{
+
+    
+    ?>
 
 
 <div class="sty">
-            <table class="table border-bottom border">
-                <thead>
-                    <tr class="county-tble-head">
-                        <th></th>
-                        <th>id</th>
-                        <th>GovId</th>
-                        <th>ComptrollerID</th>
-                        <th>DptRevType</th>
-                        <th>NameSimple</th>
-                        <th>KtyAbb</th>
-                        <th>NameFormal</th>
-                        <th>FullSpan</th> 
-                        <th>KtyHomeNbr</th> 
-                        <th>KtyHomeAbb</th> 
-                       
-                    </tr>
-                </thead>
-                <tbody>
+    <table class="table border-bottom border">
+        <thead>
+            <tr class="county-tble-head">
+                <th></th>
+                <th>id</th>
+                <th>GovId</th>
+                <th>ComptrollerID</th>
+                <th>DptRevType</th>
+                <th>NameSimple</th>
+                <th>KtyAbb</th>
+                <th>NameFormal</th>
+                <th>FullSpan</th>
+                <th>KtyHomeNbr</th>
+                <th>KtyHomeAbb</th>
 
-              
-          
+            </tr>
+        </thead>
+        <tbody>
 
+
+
+        <!--Counties Search -->
             <?php
-
-              $i = 0;
-
-              
-                $home_kty = $_POST['home_kty'];
-
-                $fullspan_kty = $_POST['fullspan_kty'];
-
-                $get_governments = "select * from governments where KtyAbb = '$home_kty' AND FullSpan = '$fullspan_kty'";
+            
+              if($home_kty OR $fullspan_kty){
+                $i = 0;
+                  $get_governments = "select * from governments where KtyAbb = '$home_kty' OR FullSpan = '$fullspan_kty'";
                 $run_governments = mysqli_query($con, $get_governments);
+
                 while ($row = mysqli_fetch_array($run_governments)){
                     $gid = $row['id'];
                     $gvid = $row['GovId'];
@@ -319,35 +350,79 @@ include('header.php');
                     $khnbr = $row['KtyHomeNbr'];
                     $khab = $row['KtyHomeAbb'];
                     $i++;
+
+              ?>
+              <tr style="font-size:13px;">
+              <td><a style="text-decoration: none;" href="search-result.php?govid=<?php echo $gvid;?>"><i
+                          class="fas fa-edit"></i> Edit</a> </td>
+              <td><b><?php echo $i; ?> </b></td>
+              <td><?php echo $gvid; ?> </td>
+              <td><?php echo $cmpid; ?> </td>
+              <td><?php echo $drt; ?> </td>
+              <td><?php echo $nmsimp; ?> </td>
+              <td><?php echo $ktyabb; ?> </td>
+              <td><?php echo $nmfrm; ?> </td>
+              <td><?php echo $fulspan; ?> </td>
+              <td><?php echo $khnbr; ?> </td>
+              <td><?php echo $khab; ?> </td>
+          </tr>
+
+          <?php } } ?>
+
+                 <!--sort as search -->
+          <?php
+              if($sort_as){
+                $i = 0;
+
+                $get_governments = "select * from governments where NameSimple = '$sort_as'";
+                $run_governments = mysqli_query($con, $get_governments);
+
+                while ($row = mysqli_fetch_array($run_governments)){
+                    $gid = $row['id'];
+                    $gvid = $row['GovId'];
+                    $cmpid = $row['ComptrollerID'];
+                    $drt = $row['DptRevType'];
+                    $nmsimp = $row['NameSimple'];
+                    $ktyabb = $row['KtyAbb'];
+                    $nmfrm = $row['NameFormal'];
+                    $fulspan = $row['FullSpan'];
+                    $khnbr = $row['KtyHomeNbr'];
+                    $khab = $row['KtyHomeAbb'];
+                    $i++;
+            
+               
         ?>
+            <tr style="font-size:13px;">
+                <td><a style="text-decoration: none;" href="search-result.php?govid=<?php echo $gvid;?>"><i
+                            class="fas fa-edit"></i> Edit</a> </td>
+                <td><b><?php echo $i; ?> </b></td>
+                <td><?php echo $gvid; ?> </td>
+                <td><?php echo $cmpid; ?> </td>
+                <td><?php echo $drt; ?> </td>
+                <td><?php echo $nmsimp; ?> </td>
+                <td><?php echo $ktyabb; ?> </td>
+                <td><?php echo $nmfrm; ?> </td>
+                <td><?php echo $fulspan; ?> </td>
+                <td><?php echo $khnbr; ?> </td>
+                <td><?php echo $khab; ?> </td>
+            </tr>
 
-                    <tr style="font-size:13px;">
-                        <td><a style="text-decoration: none;" href="search-result.php?govid=<?php echo $gvid;?>"><i class="fas fa-edit"></i> Edit</a> </td>
-                        <td><b><?php echo $i; ?> </b></td>
-                        <td><?php echo $gvid; ?> </td>
-                        <td><?php echo $cmpid; ?> </td>
-                        <td><?php echo $drt; ?> </td>
-                        <td><?php echo $nmsimp; ?> </td>
-                        <td><?php echo $ktyabb; ?> </td>
-                        <td><?php echo $nmfrm; ?> </td>
-                        <td><?php echo $fulspan; ?> </td>
-                        <td><?php echo $khnbr; ?> </td>
-                        <td><?php echo $khab; ?> </td>
-                    </tr>
-
-                    <?php } ?>
-
-                </tbody>
-            </table>
+            <?php } } ?>
 
 
-
-            <?php
-    
-            //  echo "<script>window.open('searchtwo.php', '_self')</script>";  
-
-// echo "<script>window.open('search-result.php?govid=$govid', '_self')</script>";  
+        </tbody>
+    </table>
 
 
-    }
+
+    <?php
+       }   }
+                
+            /* echo "<script>window.open('searchtwo.php', '_self')</script>";  
+
+ echo "<script>window.open('search-result.php?govid=$govid', '_self')</script>";  */
+
+   
 ?>
+
+    <?php include('footer.php'); ?>
