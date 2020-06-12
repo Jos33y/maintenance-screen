@@ -161,7 +161,7 @@ include('header.php');
      
         $version_details = "This is not the latest version";
     
-        $version_link = ", Click " . "<a href='search-result.php?govid=$gvid' class='text-white'>" . "here" . "</a> " . " to bring up latest version";
+        $version_link = ", Click " . "<a href='update.php?govid=$gvid' class='text-white'>" . "here" . "</a> " . " to bring up latest version";
     
        // $version_link =" ";
     
@@ -207,7 +207,7 @@ include('header.php');
                             </td>
                             <td class="search-res">
                                 <label for="gov" class="sr-only">PublicBodyNameFormal </label>
-                                <input type="text" class="form-control" id="" value="<?php echo $pbdnfm ;?>" disabled>
+                                <input type="text" class="form-control" id="" value="<?php echo $pbdnfm ;?>">
 
                             </td>
 
@@ -271,12 +271,12 @@ include('header.php');
                             <td width="11%"><span class="address-text">Physical</span></td>
                             <td width="54%">
                                 <label for="gov" class="sr-only"> Physical Address </label>
-                                <input type="text" class="form-control" id="" value="<?php echo $hqpaddress ;?>" disabled>
+                                <input type="text" class="form-control" id="" value="<?php echo $hqpaddress ;?>">
                                 <td />
 
                             <td width="20%">
                                 <label for="gov" class="sr-only">City </label>
-                                <input type="text" class="form-control" id="" value="<?php echo $hqpcity ;?>" disabled>
+                                <input type="text" class="form-control" id="" value="<?php echo $hqpcity ;?>">
                             </td>
 
                             <td width="5%">
@@ -305,13 +305,13 @@ include('header.php');
                         <tr>
                             <td width="11%"></td>
                             <td width="20%"><span class="address-text">Phone</span>
-                                <input type="text" class="form-control" id="" value="<?php echo $hqphone ;?>" disabled>
+                                <input type="text" class="form-control" id="" value="<?php echo $hqphone ;?>">
                             </td>
                             <td><span class="address-text">Email</span>
-                                <input type="text" class="form-control" id="" value="<?php echo $hqemail ;?>" disabled>
+                                <input type="text" class="form-control" id="" value="<?php echo $hqemail ;?>" >
                             </td>
                             <td width="35%"><span class="address-text">Website</span>
-                                <input type="text" class="form-control" id="" value="<?php echo $weburl ;?>" disabled>
+                                <input type="text" class="form-control" id="" value="<?php echo $weburl ;?>">
                             </td>
                         </tr>
                     </tbody>
@@ -331,12 +331,12 @@ include('header.php');
                             <td width="11%"><span class="address-text">Mailing</span></td>
                             <td width="54%">
                                 <label for="gov" class="sr-only"> Mailing Address </label>
-                                <input type="text" class="form-control" id="" value="<?php echo $hqmaddress ;?>" disabled>
+                                <input type="text" class="form-control" id="" value="<?php echo $hqmaddress ;?>">
                                 <td />
 
                             <td width="20%">
                                 <label for="gov" class="sr-only">City </label>
-                                <input type="text" class="form-control" id="" value="<?php echo $hqmcity ;?>" disabled>
+                                <input type="text" class="form-control" id="" value="<?php echo $hqmcity ;?>">
                             </td>
 
                             <td width="5%">
@@ -346,7 +346,7 @@ include('header.php');
 
                             <td width="10%">
                                 <label for="gov" class="sr-only">Zip </label>
-                                <input type="text" class="form-control" id="" value="<?php echo $hqmzip ;?>" disabled>
+                                <input type="text" class="form-control" id="" value="<?php echo $hqmzip ;?>"disabled>
                             </td>
 
                         </tr>
@@ -368,13 +368,13 @@ include('header.php');
                             <td width="11%"><span class="address-text">FOIA</span></td>
                             <td width="74%">
                                 <label for="gov" class="sr-only"> Mailing Address </label>
-                                <input type="text" class="form-control" id="" value="<?php echo $foiaeaddress ;?>" disabled>
+                                <input type="text" class="form-control" id="" value="<?php echo $foiaeaddress ;?>">
                                 <td />
 
                             <td width="5%">
                                 <label for="gov" class="sr-only">State </label>
                                 <input type="text" class="form-control" id="" value="<?php echo $foiastate ;?>"
-                                    disabled>
+                                disabled>
                             </td>
 
                             <td width="12%">
@@ -398,13 +398,13 @@ include('header.php');
                         <tr>
                             <td width="11%"></td>
                             <td width="20%"><span class="address-text">FOIA Phone</span>
-                                <input type="text" class="form-control" id="" value="<?php echo $foiaphone ;?>" disabled>
+                                <input type="text" class="form-control" id="" value="<?php echo $foiaphone ;?>">
                             </td>
                             <td><span class="address-text">FOIA Email</span>
-                                <input type="text" class="form-control" id="" value="<?php echo $foiaemail ;?>" disabled>
+                                <input type="text" class="form-control" id="" value="<?php echo $foiaemail ;?>">
                             </td>
                             <td width="35%"><span class="address-text">FOIA Website</span>
-                                <input type="text" class="form-control" id="" value="<?php echo $weburl ;?>" disabled>
+                                <input type="text" class="form-control" id="" value="<?php echo $weburl ;?>">
                             </td>
                         </tr>
                     </tbody>
@@ -551,15 +551,8 @@ include('header.php');
 
                             <td>
                                 <br> <br>
-                                <a style="text-decoration: none;" class="btn btn-md btn-success" href="search.php"
-                                    name="save">
+                                <a style="text-decoration: none;" class="btn btn-md btn-success" href="search-result.php?govid=<?php echo $gvid ;?>">
                                     <i class="fas fa-times"></i> Cancel</a>
-                            </td>
-
-                            <td>
-                                <br> <br>
-                                <button onclick="window.print()" class="btn btn-md btn-warning">
-                                    <i class="fas fa-times"></i> Print</button>
                             </td>
 
                             <td>
@@ -594,8 +587,8 @@ include('header.php');
 
                             <td>
                                 <br> <br>
-                                <a style="text-decoration: none;" class="btn  btn-md btn-danger" href="update.php?govid=<?php echo $gvid; ?>">
-                                <i class="fas fa-unlock-alt"></i> Unlock</a>
+                                <a style="text-decoration: none;" class="btn  btn-md btn-warning" href="#" name="save">
+                                    <i class="fas fa-upload"></i> Publish This</a>
                             </td>
                         </tr>
                     </tbody>
@@ -741,7 +734,7 @@ if(isset($_POST['previous'])){
     ';
     */
 
-    echo "<script>window.open('search-result.php?previd=$gvid', '_self')</script>";
+    echo "<script>window.open('update.php?previd=$gvid', '_self')</script>";
 
     }
    
