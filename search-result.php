@@ -6,12 +6,21 @@ include('header.php');
 ?>
 
 <?php
+//$query = (isset($_GET['previd']) ? $_GET['govid'] : null);
 
-  if(isset($_GET['govid'])){
+ //if($query){
+  
+    
+  // if($edit_id = $_GET['govid'] ) {
+//GOVID OR PREVIOUS DATA ID
+  if(!empty(isset($_GET['govid']) OR isset($_GET['previd'] ))){
 
-    $edit_id = $_GET['govid'];
 
-    $get_a = "select * from addresses where GovId = '$edit_id'";
+    //BELOW IS THE CODE TO GET THE PRESENT ID
+    $query = (!empty($_GET['govid'])?$_GET['govid']:null);
+    if($query) {
+
+    $get_a = "select * from addresses where GovId = '$query'";
 
     $run_edit = mysqli_query($con, $get_a);
 
@@ -54,18 +63,18 @@ include('header.php');
     $govfunction = $row['govfunction'];
 
     $investiture = $row['investiture'];
+
     $webgrp = $row['webgroup'];
+
     $gvtypename = $row['govtypename'];
+
     $desc = $row['description'];
-
-
 
     $get_governments = "select * from governments where GovId = '$gvid'";
 
     $run_governments = mysqli_query($con, $get_governments);
 
     $row_gov = mysqli_fetch_array($run_governments);
-
 
     $othertypeid = $row_gov['OtherIDtype'];
 
@@ -81,97 +90,96 @@ include('header.php');
 
     $parent = $row_gov['ParentID'];
  
-    $version_details = "This is not the latest version";
+    $version_details = "This is the latest version";
 
-    //$version_link = ", Click " . "<a href='#' class='text-white'>" . "here" . "</a> " . " to bring up latest version";
+    //$version_link = ", Click " . "<a href='search-result.php?govid=$gvid' class='text-white'>" . "here" . "</a> " . " to bring up latest version";
 
     $version_link =" ";
-  
+    }
+
+    //THE CODE TO GET THE PREVIOUS VERISON OF ANY DATA 
+
+    elseif($edit_id = $_GET['previd']){
+        
+        $get_a = "select * from addresses where GovId = '$edit_id'";
+    
+        $run_edit = mysqli_query($con, $get_a);
+    
+        $row_edit = mysqli_fetch_array($run_edit);
+    
+        $aid = $row_edit['AddressId'];
+        $gvid = $row_edit['GovId'];
+        $cmpid = $row_edit['ComptrollerID'];
+        $pbdnfm = $row_edit['PublicBodyNameFormal'];
+        $gvtype = $row_edit['GovType'];
+        $weburl = $row_edit['WebsiteURL'];
+        $hqemail = $row_edit['HQemail'];
+        $hqpaddress = $row_edit['HQphysicalAddress'];
+        $hqpcity = $row_edit['HQphysicalCity'];
+        $hqmzip = $row_edit['HQmailingZip'];
+        $hqphone = $row_edit['HQphone'];
+        $hqmaddress = $row_edit['HQmailingAddress'];
+        $hqmcity = $row_edit['HQmailingCity'];
+        $hqstate = $row_edit['HQState'];
+        $foiaemail = $row_edit['FoiaEmail'];
+        $foiaeaddress = $row_edit['FoiaMailingAddress'];
+        $foiaphone = $row_edit['FoiaPhone'];
+        $foiapaddress = $row_edit['FoiaPhysicalAddress'];
+        $foiamcity = $row_edit['FoiaMailingCity'];
+        $foiastate = $row_edit['FoiaState'];
+        $foiamzip = $row_edit['FoiaMailingZip'];
+    
+        $timestamp = date("M-d-yy h:i:s A", strtotime( $row_edit['timestamp']));
+    
+        $get_govtype = "select * from govtype where govtypeid = '$gvtype'";
+    
+        $run_govtype = mysqli_query($con, $get_govtype);
+    
+        $row = mysqli_fetch_array($run_govtype);
+    
+        $bgrpid = $row['ballotgroupid'];
+    
+        $dept = $row['comptypecode'];
+    
+        $govfunction = $row['govfunction'];
+    
+        $investiture = $row['investiture'];
+        $webgrp = $row['webgroup'];
+        $gvtypename = $row['govtypename'];
+        $desc = $row['description'];
+    
+    
+    
+        $get_governments = "select * from governments where GovId = '$gvid'";
+    
+        $run_governments = mysqli_query($con, $get_governments);
+    
+        $row_gov = mysqli_fetch_array($run_governments);
+    
+    
+        $othertypeid = $row_gov['OtherIDtype'];
+    
+        $othertypecode = $row_gov['OtherID'];
+    
+        $rev = $row_gov['RevenueID'];
+    
+        $ktyabb = $row_gov['KtyAbb'];
+    
+        $fullspan = $row_gov['FullSpan'];
+    
+        $sort_as = $row_gov['NameSimple'];
+    
+        $parent = $row_gov['ParentID'];
+     
+        $version_details = "This is not the latest version";
+    
+        $version_link = ", Click " . "<a href='search-result.php?govid=$gvid' class='text-white'>" . "here" . "</a> " . " to bring up latest version";
+    
+       // $version_link =" ";
+    
+       }
 ?>
 
-<?php
-
-if(isset($_GET['govid'])){
-
-$edit_id = $_GET['govid'];
-
-$get_a = "select * from addresses where GovId = '$edit_id'";
-
-$run_edit = mysqli_query($con, $get_a);
-
-$row_edit = mysqli_fetch_array($run_edit);
-
-$aid = $row_edit['AddressId'];
-$gvid = $row_edit['GovId'];
-$cmpid = $row_edit['ComptrollerID'];
-$pbdnfm = $row_edit['PublicBodyNameFormal'];
-$gvtype = $row_edit['GovType'];
-$weburl = $row_edit['WebsiteURL'];
-$hqemail = $row_edit['HQemail'];
-$hqpaddress = $row_edit['HQphysicalAddress'];
-$hqpcity = $row_edit['HQphysicalCity'];
-$hqmzip = $row_edit['HQmailingZip'];
-$hqphone = $row_edit['HQphone'];
-$hqmaddress = $row_edit['HQmailingAddress'];
-$hqmcity = $row_edit['HQmailingCity'];
-$hqstate = $row_edit['HQState'];
-$foiaemail = $row_edit['FoiaEmail'];
-$foiaeaddress = $row_edit['FoiaMailingAddress'];
-$foiaphone = $row_edit['FoiaPhone'];
-$foiapaddress = $row_edit['FoiaPhysicalAddress'];
-$foiamcity = $row_edit['FoiaMailingCity'];
-$foiastate = $row_edit['FoiaState'];
-$foiamzip = $row_edit['FoiaMailingZip'];
-
-$timestamp = date("M-d-yy h:i:s A", strtotime( $row_edit['timestamp']));
-
-$get_govtype = "select * from govtype where govtypeid = '$gvtype'";
-
-$run_govtype = mysqli_query($con, $get_govtype);
-
-$row = mysqli_fetch_array($run_govtype);
-
-$bgrpid = $row['ballotgroupid'];
-
-$dept = $row['comptypecode'];
-
-$govfunction = $row['govfunction'];
-
-$investiture = $row['investiture'];
-$webgrp = $row['webgroup'];
-$gvtypename = $row['govtypename'];
-$desc = $row['description'];
-
-
-
-$get_governments = "select * from governments where GovId = '$gvid'";
-
-$run_governments = mysqli_query($con, $get_governments);
-
-$row_gov = mysqli_fetch_array($run_governments);
-
-
-$othertypeid = $row_gov['OtherIDtype'];
-
-$othertypecode = $row_gov['OtherID'];
-
-$rev = $row_gov['RevenueID'];
-
-$ktyabb = $row_gov['KtyAbb'];
-
-$fullspan = $row_gov['FullSpan'];
-
-$sort_as = $row_gov['NameSimple'];
-
-$parent = $row_gov['ParentID'];
-
-$version_details = "This is not the latest version";
-
-//$version_link = ", Click " . "<a href='#' class='text-white'>" . "here" . "</a> " . " to bring up latest version";
-
-$version_link =" ";
-
-?>
 <!--no print div -->
 <div class="noprint">
     <!--header image-->
@@ -656,7 +664,9 @@ $version_link =" ";
 
 
 <?php include('footer.php'); ?>
-<?php  } } ?> 
+ <?php  }  ?> 
+
+
 
 <?php 
 
@@ -682,7 +692,7 @@ if(isset($_POST['previous'])){
     else{
         $govid = "10278";
 
-        echo '
+     /**    echo '
         <script>
             swal({
                     title: "Previous Data Available!",
@@ -690,8 +700,9 @@ if(isset($_POST['previous'])){
                  });
     </script>
     ';
+    */
 
-    //echo "<script>window.open('search-result.php?govid=$govid', '_self')</script>";
+    echo "<script>window.open('search-result.php?previd=$govid', '_self')</script>";
 
     }
    
