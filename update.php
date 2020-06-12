@@ -185,7 +185,7 @@ include('header.php');
 </div>
 <!--table for ballot-->
 <div class="container">
-    <form method="POST" class="screen-border search-result address">
+    <form method="POST" class="screen-border update search-result address">
 
         <!--row one-->
         <div class="row version">
@@ -202,12 +202,12 @@ include('header.php');
                         <tr>
                             <td width="12%" class="search-rgov">
                                 <label for="gov" class="sr-only">GovID </label>
-                                <input type="text" class="form-control" id="" value="<?php echo $gvid;?>" disabled>
+                                <input type="text" class="form-control" id="" value="<?php echo $gvid;?>" disabled required placeholder="">
 
                             </td>
                             <td class="search-res">
                                 <label for="gov" class="sr-only">PublicBodyNameFormal </label>
-                                <input type="text" class="form-control" id="" value="<?php echo $pbdnfm ;?>">
+                                <input type="text" class="form-control" id="" value="<?php echo $pbdnfm ;?>" required pattern="\S+.*" placeholder=" ">
 
                             </td>
 
@@ -228,17 +228,17 @@ include('header.php');
                         <tr>
                             <td width="11%"></td>
                             <td width="26%"><span class="address-text">Sort as</span>
-                                <input type="text" class="form-control" id="" value="<?php echo $sort_as ;?>" disabled>
+                                <input type="text" class="form-control" id="" value="<?php echo $sort_as ;?>" disabled placeholder="">
                                 <td />
 
                             <td width="10%"><span class="address-text">GovType
-                            <button type="button" class="btn btn-outline-light" data-toggle="modal"
-                                                data-target="#govTypeName">
-                                                <i class="fas fa-info"></i>
-                                            </button></label>       
+                                    <button type="button" class="btn btn-outline-light" data-toggle="modal"
+                                        data-target="#govTypeName">
+                                        <i class="fas fa-info"></i>
+                                    </button></label>
 
-                            </span>
-                                <input type="text" class="form-control" id="" value="<?php echo $gvtype ;?>" disabled>
+                                </span>
+                                <input type="text" class="form-control" id="" value="<?php echo $gvtype ;?>" disabled required placeholder="">
                             </td>
 
                             <td width="20%">
@@ -271,22 +271,22 @@ include('header.php');
                             <td width="11%"><span class="address-text">Physical</span></td>
                             <td width="54%">
                                 <label for="gov" class="sr-only"> Physical Address </label>
-                                <input type="text" class="form-control" id="" value="<?php echo $hqpaddress ;?>">
+                                <input type="text" class="form-control" id="" value="<?php echo $hqpaddress ;?>" required placeholder="">
                                 <td />
 
                             <td width="20%">
                                 <label for="gov" class="sr-only">City </label>
-                                <input type="text" class="form-control" id="" value="<?php echo $hqpcity ;?>">
+                                <input type="text" class="form-control" id="" value="<?php echo $hqpcity ;?>" required placeholder="">
                             </td>
 
                             <td width="5%">
                                 <label for="gov" class="sr-only">State </label>
-                                <input type="text" class="form-control" id="" value="<?php echo $hqstate ;?>" disabled>
+                                <input type="text" class="form-control" id="" value="<?php echo $hqstate ;?>" disabled placeholder="">
                             </td>
 
                             <td width="10%">
                                 <label for="gov" class="sr-only">Zip </label>
-                                <input type="text" class="form-control" id="" value="<?php echo $hqmzip ;?>" disabled>
+                                <input type="text" class="form-control" id="" value="<?php echo $hqmzip ;?>" disabled placeholder="">
                             </td>
 
                         </tr>
@@ -305,13 +305,13 @@ include('header.php');
                         <tr>
                             <td width="11%"></td>
                             <td width="20%"><span class="address-text">Phone</span>
-                                <input type="text" class="form-control" id="" value="<?php echo $hqphone ;?>">
+                                <input type="text" class="form-control" id="" value="<?php echo $hqphone ;?>" required placeholder="">
                             </td>
                             <td><span class="address-text">Email</span>
-                                <input type="text" class="form-control" id="" value="<?php echo $hqemail ;?>" >
+                                <input type="text" class="form-control" id="" value="<?php echo $hqemail ;?>" required placeholder="">
                             </td>
                             <td width="35%"><span class="address-text">Website</span>
-                                <input type="text" class="form-control" id="" value="<?php echo $weburl ;?>">
+                                <input type="text" class="form-control" id="" value="<?php echo $weburl ;?>" placeholder="">
                             </td>
                         </tr>
                     </tbody>
@@ -331,22 +331,22 @@ include('header.php');
                             <td width="11%"><span class="address-text">Mailing</span></td>
                             <td width="54%">
                                 <label for="gov" class="sr-only"> Mailing Address </label>
-                                <input type="text" class="form-control" id="" value="<?php echo $hqmaddress ;?>">
+                                <input type="text" class="form-control" id="" value="<?php echo $hqmaddress ;?>" required placeholder="address">
                                 <td />
 
                             <td width="20%">
                                 <label for="gov" class="sr-only">City </label>
-                                <input type="text" class="form-control" id="" value="<?php echo $hqmcity ;?>">
+                                <input type="text" class="form-control" id="" value="<?php echo $hqmcity ;?>" required placeholder=" ">
                             </td>
 
                             <td width="5%">
                                 <label for="gov" class="sr-only">State </label>
-                                <input type="text" class="form-control" id="" value="<?php echo $hqstate ;?>" disabled>
+                                <input type="text" class="form-control" id="" value="<?php echo $hqstate ;?>" disabled placeholder=" ">
                             </td>
 
                             <td width="10%">
                                 <label for="gov" class="sr-only">Zip </label>
-                                <input type="text" class="form-control" id="" value="<?php echo $hqmzip ;?>"disabled>
+                                <input type="text" class="form-control" id="" value="<?php echo $hqmzip ;?>" disabled placeholder=" ">
                             </td>
 
                         </tr>
@@ -368,18 +368,18 @@ include('header.php');
                             <td width="11%"><span class="address-text">FOIA</span></td>
                             <td width="74%">
                                 <label for="gov" class="sr-only"> Mailing Address </label>
-                                <input type="text" class="form-control" id="" value="<?php echo $foiaeaddress ;?>">
+                                <input type="text" class="form-control" id="" value="<?php echo $foiaeaddress ;?>" required placeholder="">
                                 <td />
 
                             <td width="5%">
                                 <label for="gov" class="sr-only">State </label>
                                 <input type="text" class="form-control" id="" value="<?php echo $foiastate ;?>"
-                                disabled>
+                                    disabled placeholder="">
                             </td>
 
                             <td width="12%">
                                 <label for="gov" class="sr-only">Zip </label>
-                                <input type="text" class="form-control" id="" value="<?php echo $foiamzip ;?>" disabled>
+                                <input type="text" class="form-control" id="" value="<?php echo $foiamzip ;?>" disabled placeholder="">
                             </td>
 
                         </tr>
@@ -398,13 +398,13 @@ include('header.php');
                         <tr>
                             <td width="11%"></td>
                             <td width="20%"><span class="address-text">FOIA Phone</span>
-                                <input type="text" class="form-control" id="" value="<?php echo $foiaphone ;?>">
+                                <input type="text" class="form-control" id="" value="<?php echo $foiaphone ;?>" required placeholder="">
                             </td>
                             <td><span class="address-text">FOIA Email</span>
-                                <input type="text" class="form-control" id="" value="<?php echo $foiaemail ;?>">
+                                <input type="text" class="form-control" id="" value="<?php echo $foiaemail ;?>" required placeholder="">
                             </td>
                             <td width="35%"><span class="address-text">FOIA Website</span>
-                                <input type="text" class="form-control" id="" value="<?php echo $weburl ;?>">
+                                <input type="text" class="form-control" id="" value="<?php echo $weburl ;?>" placeholder="">
                             </td>
                         </tr>
                     </tbody>
@@ -423,7 +423,7 @@ include('header.php');
                             <td width="11%"><span class="address-text">Notes</span></td>
                             <td width="54%">
                                 <textarea name="comments" id="" cols="30" rows="3" class="form-control"
-                                    disabled><?php echo $desc; ?></textarea>
+                                    disabled placeholder=""><?php echo $desc; ?></textarea>
                             </td>
                             <td width="35%"></td>
 
@@ -444,22 +444,22 @@ include('header.php');
 
                             <td width="15%">
                                 <span class="address-text">Revenue</span>
-                                <input type="text" class="form-control" id="" value="<?php echo $rev ;?>" disabled>
+                                <input type="text" class="form-control" id="" value="<?php echo $rev ;?>" disabled placeholder="">
                             </td>
 
                             <td width="12%"><span class="address-text">Comptroller</span>
-                                <input type="text" class="form-control" id="" value="<?php echo $cmpid ;?>" disabled>
+                                <input type="text" class="form-control" id="" value="<?php echo $cmpid ;?>" disabled placeholder="">
                             </td>
 
                             <td width="2%"><span class="address-text"> <br></span>
                                 <input type="text" class="form-control" id="" value="<?php echo $othertypeid ;?>"
-                                    disabled>
+                                    disabled placeholder="">
                                 <span class="address-note">&nbsp;State</span>
                             </td>
 
                             <td width="20%"><span class="address-text">Other</span>
                                 <input type="text" class="form-control" id="" value="<?php echo $othertypecode ;?>"
-                                    disabled>
+                                    disabled placeholder="">
                                 <span class="address-note">Board of Education</span>
                             </td>
 
@@ -473,12 +473,12 @@ include('header.php');
                                 </span></td>
                             <td width="8%">
                                 <span class="address-text">SEI</span>
-                                <input type="text" class="form-control" id="" value="<?php echo $ktyabb;?>" disabled>
+                                <input type="text" class="form-control" id="" value="<?php echo $ktyabb;?>" disabled placeholder="">
                             </td>
 
                             <td width="8%">
                                 <span class="address-text">Home</span>
-                                <input type="text" class="form-control" id="" value="<?php echo $ktyabb;?>" disabled>
+                                <input type="text" class="form-control" id="" value="<?php echo $ktyabb;?>" disabled placeholder="">
 
                             </td>
 
@@ -497,42 +497,42 @@ include('header.php');
                             <td width="11%"></td>
 
                             <td width="7%"><span class="address-text">Dept</span>
-                                <input type="text" class="form-control" id="" value="<?php echo $dept ;?>" disabled>
+                                <input type="text" class="form-control" id="" value="<?php echo $dept ;?>" disabled placeholder="">
                                 <span class="address-note"><?php echo $govfunction; ?></span>
                             </td>
 
                             <td width="12%"><span class="address-text">Parent Gov</span>
-                                <input type="text" class="form-control" id="" value="<?php echo $parent ;?>" disabled>
+                                <input type="text" class="form-control" id="" value="<?php echo $parent ;?>" disabled placeholder="">
                             </td>
 
                             <td width="38%"></td>
                             <td width="8%">
-                                <input type="text" class="form-control" id="" value="" disabled>
-                                <input type="text" class="form-control" id="" value="" disabled>
-                                <input type="text" class="form-control" id="" value="" disabled>
-                                <input type="text" class="form-control" id="" value="" disabled>
+                                <input type="text" class="form-control" id="" value="" disabled placeholder="">
+                                <input type="text" class="form-control" id="" value="" disabled placeholder="">
+                                <input type="text" class="form-control" id="" value="" disabled placeholder="">
+                                <input type="text" class="form-control" id="" value="" disabled placeholder="">
 
                             </td>
 
                             <td width="8%">
-                                <input type="text" class="form-control" id="" value="" disabled>
-                                <input type="text" class="form-control" id="" value="" disabled>
-                                <input type="text" class="form-control" id="" value="" disabled>
-                                <input type="text" class="form-control" id="" value="" disabled>
+                                <input type="text" class="form-control" id="" value="" disabled placeholder="">
+                                <input type="text" class="form-control" id="" value="" disabled placeholder="">
+                                <input type="text" class="form-control" id="" value="" disabled placeholder="">
+                                <input type="text" class="form-control" id="" value="" disabled placeholder="">
                             </td>
 
                             <td width="8%">
-                                <input type="text" class="form-control" id="" value="" disabled>
-                                <input type="text" class="form-control" id="" value="" disabled>
-                                <input type="text" class="form-control" id="" value="" disabled>
-                                <input type="text" class="form-control" id="" value="" disabled>
+                                <input type="text" class="form-control" id="" value="" disabled placeholder="">
+                                <input type="text" class="form-control" id="" value="" disabled placeholder="">
+                                <input type="text" class="form-control" id="" value="" disabled placeholder="">
+                                <input type="text" class="form-control" id="" value="" disabled placeholder="">
                             </td>
 
                             <td width="8%">
-                                <input type="text" class="form-control" id="" value="" disabled>
-                                <input type="text" class="form-control" id="" value="" disabled>
-                                <input type="text" class="form-control" id="" value="" disabled>
-                                <input type="text" class="form-control" id="" placeholder="&#61442;" disabled>
+                                <input type="text" class="form-control" id="" value="" disabled placeholder="">
+                                <input type="text" class="form-control" id="" value="" disabled placeholder="">
+                                <input type="text" class="form-control" id="" value="" disabled placeholder="">
+                                <input type="text" class="form-control" id="" placeholder="&#61442;" disabled placeholder="">
                             </td>
 
                         </tr>
@@ -551,7 +551,8 @@ include('header.php');
 
                             <td>
                                 <br> <br>
-                                <a style="text-decoration: none;" class="btn btn-md btn-success" href="search-result.php?govid=<?php echo $gvid ;?>">
+                                <a style="text-decoration: none;" class="btn btn-md btn-success"
+                                    href="search-result.php?govid=<?php echo $gvid ;?>">
                                     <i class="fas fa-times"></i> Cancel</a>
                             </td>
 
@@ -697,7 +698,7 @@ include('header.php');
 
 
 <?php include('footer.php'); ?>
- <?php  }  ?> 
+<?php  }  ?>
 
 
 

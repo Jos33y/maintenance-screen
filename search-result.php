@@ -423,7 +423,7 @@ include('header.php');
                             <td width="11%"><span class="address-text">Notes</span></td>
                             <td width="54%">
                                 <textarea name="comments" id="" cols="30" rows="3" class="form-control"
-                                    disabled><?php echo $desc; ?></textarea>
+                                    disabled placeholder=""><?php echo $desc; ?></textarea>
                             </td>
                             <td width="35%"></td>
 
