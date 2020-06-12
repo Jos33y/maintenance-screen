@@ -101,75 +101,63 @@ include('header.php');
 
     elseif($edit_id = $_GET['previd']){
         
-        $get_a = "select * from addresses where GovId = '$edit_id'";
+        $get_a = "select * from historytable where govid = '$edit_id' ORDER BY timestamp DESC";
     
         $run_edit = mysqli_query($con, $get_a);
     
         $row_edit = mysqli_fetch_array($run_edit);
     
-        $aid = $row_edit['AddressId'];
-        $gvid = $row_edit['GovId'];
-        $cmpid = $row_edit['ComptrollerID'];
-        $pbdnfm = $row_edit['PublicBodyNameFormal'];
-        $gvtype = $row_edit['GovType'];
-        $weburl = $row_edit['WebsiteURL'];
-        $hqemail = $row_edit['HQemail'];
-        $hqpaddress = $row_edit['HQphysicalAddress'];
-        $hqpcity = $row_edit['HQphysicalCity'];
-        $hqmzip = $row_edit['HQmailingZip'];
-        $hqphone = $row_edit['HQphone'];
-        $hqmaddress = $row_edit['HQmailingAddress'];
-        $hqmcity = $row_edit['HQmailingCity'];
-        $hqstate = $row_edit['HQState'];
-        $foiaemail = $row_edit['FoiaEmail'];
-        $foiaeaddress = $row_edit['FoiaMailingAddress'];
-        $foiaphone = $row_edit['FoiaPhone'];
-        $foiapaddress = $row_edit['FoiaPhysicalAddress'];
-        $foiamcity = $row_edit['FoiaMailingCity'];
-        $foiastate = $row_edit['FoiaState'];
-        $foiamzip = $row_edit['FoiaMailingZip'];
+        $hid = $row_edit['hist_id'];
+        $gvid = $row_edit['govid'];
+        $cmpid = $row_edit['comptrollerid'];
+        $pbdnfm = $row_edit['PBDNF'];
+        $gvtype = $row_edit['govtype'];
+        $weburl = $row_edit['websiteurl'];
+        $hqemail = $row_edit['hqemail'];
+        $hqpaddress = $row_edit['hqphysicaladdress'];
+        $hqpcity = $row_edit['hqphysicalcity'];
+        $hqmzip = $row_edit['hqmailingzip'];
+        $hqphone = $row_edit['hqphone'];
+        $hqmaddress = $row_edit['hqmailingaddress'];
+        $hqmcity = $row_edit['hqmailingcity'];
+        $hqstate = $row_edit['hqstate'];
+        $foiaemail = $row_edit['Femail'];
+        $foiaeaddress = $row_edit['Fmailingaddress'];
+        $foiaphone = $row_edit['Fphone'];
+        $foiapaddress = $row_edit['Fphysicaladdress'];
+        $foiamcity = $row_edit['Fmailingcity'];
+        $foiastate = $row_edit['Fstate'];
+        $foiamzip = $row_edit['Fmailingzip'];
+
+        $bgrpid = $row_edit['ballotgroupid'];
+
+        $investiture = $row_edit['investiture'];
+
+        $webgrp = $row_edit['webgroup'];
+
+        $othertypeid = $row_edit['otheridtype'];
     
-        $timestamp = date("M-d-yy h:i:s A", strtotime( $row_edit['timestamp']));
+        $othertypecode = $row_edit['othertypecode'];
+     
+         $rev = $row_edit['revenueid'];
+     
+         $ktyabb = $row_edit['ktyabb'];
+     
+         $fullspan = $row_edit['fullspan'];
+     
+         $sort_as = $row_edit['namesimple'];
+
+         $gvtypename = $row_edit['govtypename'];
     
-        $get_govtype = "select * from govtype where govtypeid = '$gvtype'";
+         $dept = "";
     
-        $run_govtype = mysqli_query($con, $get_govtype);
+        $govfunction = "";
+
+        $desc = "";     
     
-        $row = mysqli_fetch_array($run_govtype);
-    
-        $bgrpid = $row['ballotgroupid'];
-    
-        $dept = $row['comptypecode'];
-    
-        $govfunction = $row['govfunction'];
-    
-        $investiture = $row['investiture'];
-        $webgrp = $row['webgroup'];
-        $gvtypename = $row['govtypename'];
-        $desc = $row['description'];
-    
-    
-    
-        $get_governments = "select * from governments where GovId = '$gvid'";
-    
-        $run_governments = mysqli_query($con, $get_governments);
-    
-        $row_gov = mysqli_fetch_array($run_governments);
-    
-    
-        $othertypeid = $row_gov['OtherIDtype'];
-    
-        $othertypecode = $row_gov['OtherID'];
-    
-        $rev = $row_gov['RevenueID'];
-    
-        $ktyabb = $row_gov['KtyAbb'];
-    
-        $fullspan = $row_gov['FullSpan'];
-    
-        $sort_as = $row_gov['NameSimple'];
-    
-        $parent = $row_gov['ParentID'];
+       $parent = ""; 
+
+        $timestamp = date("M-d-yy h:i:s A", strtotime($row_edit['timestamp']));
      
         $version_details = "This is not the latest version";
     
@@ -690,7 +678,6 @@ if(isset($_POST['previous'])){
 
     }
     else{
-        $govid = "10278";
 
      /**    echo '
         <script>
@@ -702,7 +689,7 @@ if(isset($_POST['previous'])){
     ';
     */
 
-    echo "<script>window.open('search-result.php?previd=$govid', '_self')</script>";
+    echo "<script>window.open('search-result.php?previd=$gvid', '_self')</script>";
 
     }
    

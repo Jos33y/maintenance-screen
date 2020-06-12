@@ -70,10 +70,10 @@ include('header.php');
                     <table class="table table-borderless">
                         <tbody class="search-part">
                             <tr>
-                                <td width="15%">
+                                <td width="25%">
                                     <label for="part" class="search-three">Part of Name</label>
                                 </td>
-                                <td width="85%">
+                                <td width="80%">
                                     <input type="text" name="part" id="#" class="form-control" placeholder="&#61442;">
                                 </td>
                             </tr>
