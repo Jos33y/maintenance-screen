@@ -207,7 +207,7 @@ include('header.php');
                             </td>
                             <td class="search-res">
                                 <label for="gov" class="sr-only">PublicBodyNameFormal </label>
-                                <input type="text" class="form-control" id="" value="<?php echo $pbdnfm ;?>">
+                                <input type="text" class="form-control" id="" value="<?php echo $pbdnfm ;?>" disabled>
 
                             </td>
 
@@ -231,7 +231,13 @@ include('header.php');
                                 <input type="text" class="form-control" id="" value="<?php echo $sort_as ;?>" disabled>
                                 <td />
 
-                            <td width="5%"><span class="address-text">GovType</span>
+                            <td width="10%"><span class="address-text">GovType
+                            <button type="button" class="btn btn-outline-light" data-toggle="modal"
+                                                data-target="#govTypeName">
+                                                <i class="fas fa-info"></i>
+                                            </button></label>       
+
+                            </span>
                                 <input type="text" class="form-control" id="" value="<?php echo $gvtype ;?>" disabled>
                             </td>
 
@@ -265,12 +271,12 @@ include('header.php');
                             <td width="11%"><span class="address-text">Physical</span></td>
                             <td width="54%">
                                 <label for="gov" class="sr-only"> Physical Address </label>
-                                <input type="text" class="form-control" id="" value="<?php echo $hqpaddress ;?>">
+                                <input type="text" class="form-control" id="" value="<?php echo $hqpaddress ;?>" disabled>
                                 <td />
 
                             <td width="20%">
                                 <label for="gov" class="sr-only">City </label>
-                                <input type="text" class="form-control" id="" value="<?php echo $hqpcity ;?>">
+                                <input type="text" class="form-control" id="" value="<?php echo $hqpcity ;?>" disabled>
                             </td>
 
                             <td width="5%">
@@ -299,13 +305,13 @@ include('header.php');
                         <tr>
                             <td width="11%"></td>
                             <td width="20%"><span class="address-text">Phone</span>
-                                <input type="text" class="form-control" id="" value="<?php echo $hqphone ;?>">
+                                <input type="text" class="form-control" id="" value="<?php echo $hqphone ;?>" disabled>
                             </td>
                             <td><span class="address-text">Email</span>
-                                <input type="text" class="form-control" id="" value="<?php echo $hqemail ;?>">
+                                <input type="text" class="form-control" id="" value="<?php echo $hqemail ;?>" disabled>
                             </td>
                             <td width="35%"><span class="address-text">Website</span>
-                                <input type="text" class="form-control" id="" value="<?php echo $weburl ;?>">
+                                <input type="text" class="form-control" id="" value="<?php echo $weburl ;?>" disabled>
                             </td>
                         </tr>
                     </tbody>
@@ -325,12 +331,12 @@ include('header.php');
                             <td width="11%"><span class="address-text">Mailing</span></td>
                             <td width="54%">
                                 <label for="gov" class="sr-only"> Mailing Address </label>
-                                <input type="text" class="form-control" id="" value="<?php echo $hqmaddress ;?>">
+                                <input type="text" class="form-control" id="" value="<?php echo $hqmaddress ;?>" disabled>
                                 <td />
 
                             <td width="20%">
                                 <label for="gov" class="sr-only">City </label>
-                                <input type="text" class="form-control" id="" value="<?php echo $hqmcity ;?>">
+                                <input type="text" class="form-control" id="" value="<?php echo $hqmcity ;?>" disabled>
                             </td>
 
                             <td width="5%">
@@ -362,7 +368,7 @@ include('header.php');
                             <td width="11%"><span class="address-text">FOIA</span></td>
                             <td width="74%">
                                 <label for="gov" class="sr-only"> Mailing Address </label>
-                                <input type="text" class="form-control" id="" value="<?php echo $foiaeaddress ;?>">
+                                <input type="text" class="form-control" id="" value="<?php echo $foiaeaddress ;?>" disabled>
                                 <td />
 
                             <td width="5%">
@@ -392,13 +398,13 @@ include('header.php');
                         <tr>
                             <td width="11%"></td>
                             <td width="20%"><span class="address-text">FOIA Phone</span>
-                                <input type="text" class="form-control" id="" value="<?php echo $foiaphone ;?>">
+                                <input type="text" class="form-control" id="" value="<?php echo $foiaphone ;?>" disabled>
                             </td>
                             <td><span class="address-text">FOIA Email</span>
-                                <input type="text" class="form-control" id="" value="<?php echo $foiaemail ;?>">
+                                <input type="text" class="form-control" id="" value="<?php echo $foiaemail ;?>" disabled>
                             </td>
                             <td width="35%"><span class="address-text">FOIA Website</span>
-                                <input type="text" class="form-control" id="" value="<?php echo $weburl ;?>">
+                                <input type="text" class="form-control" id="" value="<?php echo $weburl ;?>" disabled>
                             </td>
                         </tr>
                     </tbody>
@@ -604,7 +610,7 @@ include('header.php');
 
 
 
-<!-- Modal -->
+<!-- Modal for counties-->
 <div class="modal fade" id="countyName" tabindex="-1" role="dialog" aria-labelledby="countyNameTitle"
     aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
@@ -638,6 +644,52 @@ include('header.php');
                         <tr>
                             <td style="font-size: 13px;"><?php echo $ktyname;  ?></td>
                             <td style="font-size: 13px;"><?php echo $ktyabb;  ?></td>
+                        </tr>
+
+                        <?php } ?>
+                    </tbody>
+                </table>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- Modal for govtypename  -->
+<div class="modal fade" id="govTypeName" tabindex="-1" role="dialog" aria-labelledby="countyNameTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th style="font-size: 13px;" id="ktynhead">Gov Type Name</th>
+                            <th style="font-size: 13px;" id="ktyahead">Gov Type Code</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+
+                                                $get_gov = "select DISTINCT govtypeid, govtypename from govtype ORDER BY govtypename ASC";
+                                                $run_gov = mysqli_query($con , $get_gov);
+
+                                                while ($row_gov=mysqli_fetch_array($run_gov)){
+
+                                                
+                                                    $govname = $row_gov['govtypename'];
+                                                    $govcode = $row_gov['govtypeid'];
+
+                                                ?>
+                        <tr>
+                            <td style="font-size: 13px;"><?php echo $govname;  ?></td>
+                            <td style="font-size: 13px;"><?php echo $govcode;  ?></td>
                         </tr>
 
                         <?php } ?>
