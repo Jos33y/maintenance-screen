@@ -4,8 +4,8 @@
 * Author: Lagbalu Joseph (Jos33y)
 ======================================================== */
 
- @import url('https://fonts.googleapis.com/css?family=Lato|Open+Sans|PT+Sans|PT+Serif|PT+Serif+Caption|Roboto|Roboto+Mono&display=swap');
-@import "//netdna.bootstrapcdn.com/font-awesome/3.0/css/font-awesome.css"; 
+@import url('https://fonts.googleapis.com/css?family=Lato|Open+Sans|PT+Sans|PT+Serif|PT+Serif+Caption|Roboto|Roboto+Mono&display=swap');
+@import "//netdna.bootstrapcdn.com/font-awesome/3.0/css/font-awesome.css";
 
 
 body {
@@ -16,7 +16,7 @@ body {
     font-family: 'Roboto', sans-serif;
     color: #4f4e4b;
     background-color: #f2f1f6;
-  
+
 }
 
 .home-image {
@@ -245,7 +245,8 @@ footer {
     font-weight: 600;
 }
 
-.search-part, .search-res input::placeholder {
+.search-part,
+.search-res input::placeholder {
     font-family: FontAwesome;
     font-weight: normal;
     overflow: visible;
@@ -451,7 +452,7 @@ footer {
 
 }
 
-.address-note{
+.address-note {
     font-style: italic;
     font-size: 11px;
     color: #ffff00;
@@ -463,6 +464,7 @@ footer {
     font-size: 10px;
     margin-bottom: 13px;
 }
+
 .search-res .btn.btn-outline-light {
 
     text-align: center;
@@ -474,14 +476,17 @@ footer {
     padding: 0;
 
 }
-.search-result{
+
+.search-result {
     line-height: 15px;
 }
-.search-result .row{
+
+.search-result .row {
     margin: 0;
     padding: 0;
 }
-.search-result .table{
+
+.search-result .table {
     margin-top: 0;
     margin-bottom: 0;
     padding: 0;
@@ -502,10 +507,12 @@ footer {
     padding-bottom: 5px;
     padding-top: 5px;
     padding-left: 20px;
-    padding-right: 20px;  
+    padding-right: 20px;
 }
 
-.search-result-btn .btn.btn-warning, .btn-success, .btn-danger{
+.search-result-btn .btn.btn-warning,
+.btn-success,
+.btn-danger {
     color: #fff;
     text-align: center;
     font-weight: 700;
@@ -517,45 +524,57 @@ footer {
     padding-bottom: 5px;
     padding-top: 5px;
     padding-left: 20px;
-    padding-right: 20px; 
+    padding-right: 20px;
 }
 
 
-.search-result-btn .btn{
--webkit-box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.75);
--moz-box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.75);
-box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.75);
+.search-result-btn .btn {
+    -webkit-box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.75);
 }
 
 
 /** Update Mode Styles Goes Here **/
-.update input:hover{
+.update input:hover {
     border: 1px solid #ec1d2e;
     color: #ec1d2e;
 }
 
 .update input:placeholder-shown {
-    border: 1.5px solid red; /* Red border only if the input is empty */
+    border: 1.5px solid red;
+    /* Red border only if the input is empty */
 }
+
 .update input:valid {
     border: 1.5px solid hsl(120, 76%, 50%);
     color: #0f086d
-  }
-  .update textarea:placeholder-shown{
-    border: 1.5px solid red; /* Red border only if the input is empty */
-  }
+}
 
-  /* Publish Mode Styles */
+.update textarea:placeholder-shown {
+    border: 1.5px solid red;
+    /* Red border only if the input is empty */
+}
 
-  .publish-mod-border {
+/* Publish Mode Styles */
+
+.publish-mod-border {
     color: #ffffff;
     background-color: #FF9966;
     border: 2px solid #333436;
     padding: 4%;
 }
 
-.publish-mod-border .changed input{
+.publish-mod-border .changed input {
     border: 3px solid #ec1d2e;
     color: #ec1d2e;
     font-weight: 700;
+}
+
+.row.send-email {
+
+    color: #111111;
+    font-weight: 700;
+    margin-top: 10%;
+    margin-left: 13%;
 }

@@ -18,10 +18,10 @@ include('header.php');
 
 
     //BELOW IS THE CODE TO GET THE PRESENT ID
-    $query = (!empty($_GET['govid'])?$_GET['govid']:null);
-    if($query) {
+    $edit_gov = (!empty($_GET['govid'])?$_GET['govid']:null);
+    if($edit_gov) {
 
-    $get_a = "select * from addresses where GovId = '$query'";
+    $get_a = "select * from addresses where GovId = '$edit_gov'";
 
     $run_edit = mysqli_query($con, $get_a);
 
@@ -182,6 +182,22 @@ include('header.php');
         $version_link = ", Click " . "<a href='update.php?govid=$gvid' class='text-white'>" . "here" . "</a> " . " to bring up latest version";
     
        // $version_link =" ";
+
+        /** COde to get Session  */
+        $newpbdnf  = $_SESSION["newpbdnf"];  
+        $newpaddress  = $_SESSION["newpaddress"];   
+        $newpcity  = $_SESSION["newpcity"];  
+        $newpphone  = $_SESSION["newpphone"];   
+        $newpemail  = $_SESSION["newpemail"];   
+        $newweburl  = $_SESSION["newweburl"];   
+        $newmaddress  = $_SESSION["newmaddress"];   
+        $newmcity  = $_SESSION["newmcity"];  
+        $newfaddress  = $_SESSION["newfaddress"];   
+        $newfphone  = $_SESSION["newfphone"];   
+        $newfemail  = $_SESSION["newfemail"];   
+        $newweburl  = $_SESSION["newweburl"];   
+
+  
     
        }
 ?>
@@ -632,7 +648,13 @@ include('header.php');
         <!--row ten-->
 
         <!-- send mail-->
-        <div ckas
+        <div class="row send-email">
+            <div class="form-check">
+                <label class="form-check-label">
+                  <input type="checkbox" class="form-check-input" value=""> Send Email Confirmation
+                </label>
+              </div>
+        </div>
 
         <div class="row">
             <div class="col-md-10 mx-auto search-result-btn">
@@ -650,14 +672,14 @@ include('header.php');
                             <td>
 
                                 </span><br><br>
-                                <button class="btn btn-md btn-warning" name="previous">
+                                <button  onclick="window.print()"class="btn btn-md btn-warning">
 
                                     <i class="fas fa-print"></i> Print</button>
                             </td>
 
                             <td>
                                 <br> <br>
-                                <button class="btn btn-md btn-danger" name="publish">
+                                <button class="btn btn-md btn-danger" name="confirm">
                                     <i class="far fa-check-circle"></i> Confirm</button>
                             </td>
                         </tr>
@@ -767,96 +789,78 @@ include('header.php');
     </div>
 </div>
 
+                                                -->
 
 <?php include('footer.php'); ?>
 
 <?php  }  ?>
 
+<?php
+if(isset($_POST['confirm'])){
 
-
-<?php 
-
-/* Code for Publish Button */
-
-if(isset($_POST['publish'])){
-
-
-    $newWebsite = $_POST['website'];
-
-    if($newWebsite == $oldWebsite){
-        echo '
-        <script>
-            swal({
-                    title: "They are Same!",
-                    icon: "success",
-                 });
-    </script>
-    ';
-
-    }
-
-    else{
-        echo '
-        <script>
-            swal({
-                    title: "They are Different!",
-                    icon: "error",
-                 });
-    </script>
-    ';
-
-    }
-
-     /* echo '
-        <script>
-            swal({
-                    title: "They are Same!",
-                    icon: "success",
-                 });
-    </script>
-    '; */
-    
-
-}
-
-
-
-/* Code for Get Previous Button */
-if(isset($_POST['previous'])){
-
-    
-    $get_prev = "select * from historytable WHERE govid ='$gvid' ORDER BY timestamp DESC";
-                                                
-    $run_prev = mysqli_query($con , $get_prev);
-
-    if (mysqli_num_rows($run_prev) == 0){
-
-        echo '
-        <script>
-            swal({
-                    title: "No Previous Data!",
-                    icon: "error",
-                 });
-    </script>
-    ';
-
-    }
-    else{
-
-     /**    echo '
-        <script>
-            swal({
-                    title: "Previous Data Available!",
-                    icon: "success",
-                 });
-    </script>
-    ';
+   /* $newpbdnf;   
+    $newpaddress;
+    $newpcity;  
+    $newpphone;
+    $newpemail;
+    $newweburl;
+    $newmaddress;  
+    $newmcity ;  
+    $newfaddress; 
+    $newfphone;
+    $newfemail;
+    $newweburl;
     */
+//update statement for address table
 
-    echo "<script>window.open('update.php?previd=$gvid', '_self')</script>";
+    $sql_update = "UPDATE addresses 
+   SET PublicBodyNameFormal = '$newpbdnf', 	WebsiteURL = '$newweburl',
+   HQemail = '$newpemail', HQphysicalAddress = '$newpaddress', HQphysicalCity = '$newpcity', HQphone = '$newpphone',
+   HQmailingAddress = '$newmaddress', HQmailingCity = '$newmcity', FoiaEmail = '$newfemail',
+   FoiaMailingAddress = '$newfaddress', FoiaPhone = '$newfphone', FoiaPhysicalAddress = '$newfaddress',
+   FoiaMailingCity = '$newmcity'
+   WHERE GovId = '$gvid'
+    ";
 
-    }
+$query_update = mysqli_query($con, $sql_update) or  die(mysqli_error($con));
+
+//Insert Statement for History Table
+    $sql_insert = "INSERT INTO historytable (govid, comptrollerid, revenueid, otheridtype, othertypecode, namesimple, PBDNF, govtype, websiteurl, 
+    hqemail, hqphysicaladdress, hqphysicalcity, hqmailingzip, hqphone, hqmailingaddress, hqmailingcity, hqstate, Femail, Fmailingaddress,
+     Fphone, Fphysicaladdress, Fmailingcity, Fstate, Fmailingzip, govtypename, webgroup, ballotgroupid, investiture, ktyabb, fullspan) 
+
+     VALUES ('$gvid', '$cmpid', '$rev', '$othertypeid', '$othertypecode', '$sort_as', '$newpbdnf', '$gvtype', '$newweburl', '$newpemail',
+     '$newpaddress', '$newpcity', '$hqmzip', '$newpphone', '$newmaddress', '$newmcity', '$hqstate', '$newfemail', '$newfaddress', 
+     '$newfphone', '$newfaddress', '$newmcity', '$foiastate', '$foiamzip', '$gvtypename', '$webgrp', '$bgrpid', '$investiture', '$ktyabb', '$fullspan')
+    ";
+
+$query_insert = mysqli_query($con, $sql_insert) or  die(mysqli_error($con));
+
+    if ($query_update AND $query_insert == 1) 
+    {
+       
+        echo '
+        <script>
+            swal({
+                    title: "Updated Successfully!",
+                    icon: "success",
+                 });
+                
+                </script>';
+
+      }
+       else
+       {
+        echo '
+        <script>
+            swal({
+                    title: "Update Not Successful",
+                    icon: "error",
+                 });
+    </script>';
+
+      }
+
 
 }
-
 ?>

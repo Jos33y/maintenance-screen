@@ -733,15 +733,19 @@ echo "<script>window.open('publish.php?govid=$gvid', '_self')</script>";
  if(isset($_POST['publish'])){
 
 
-  /*  echo '
-        <script>
-            swal({
-                    title: "Previous Open",
-                    icon: "success",
-                });
-    </script>
-    ';     
-    */
+    $_SESSION["newpbdnf"]   = $_POST['pbdnf'];
+    $_SESSION["newpaddress"]   = $_POST['paddress'];
+    $_SESSION["newpcity"]   = $_POST['pcity'];
+    $_SESSION["newpphone"]   = $_POST['pphone'];
+    $_SESSION["newpemail"]   = $_POST['pemail'];
+    $_SESSION["newweburl"]   = $_POST['weburl'];
+    $_SESSION["newmaddress"]   = $_POST['Maddress'];
+    $_SESSION["newmcity"]   = $_POST['Mcity'];
+    $_SESSION["newfaddress"]   = $_POST['Faddress'];
+    $_SESSION["newfphone"]   = $_POST['Fphone'];
+    $_SESSION["newfemail"]   = $_POST['Femail'];
+    $_SESSION["newweburl"]   = $_POST['weburl'];
+    
     echo "<script>window.open('publish.php?previd=$gvid', '_self')</script>"; 
 
     }

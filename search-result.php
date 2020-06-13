@@ -559,7 +559,7 @@ include('header.php');
                             <td>
                                 <br> <br>
                                 <button onclick="window.print()" class="btn btn-md btn-warning">
-                                    <i class="fas fa-times"></i> Print</button>
+                                    <i class="fas fa-print"></i> Print</button>
                             </td>
 
                             <td>
