@@ -1,14 +1,17 @@
 <?php 
-$title = "Update Mode";
+$title = "Publish Mode";
 include('dbcon.php');
 include('header.php'); 
 
 ?>
 
 <?php
-//GET SESSION OF OLD VARIABLES 
+//GET SESSION OF NEW VARIABLES 
  
-//$oldWebsite =  $_SESSION["oldWebsite"];
+
+
+
+
 
 //GOVID OR PREVIOUS DATA ID
   if(!empty(isset($_GET['govid']) OR isset($_GET['previd'] ))){
@@ -90,11 +93,27 @@ include('header.php');
  
     $version_details = "This is the latest version";
 
-    //$version_link = ", Click " . "<a href='search-result.php?govid=$gvid' class='text-white'>" . "here" . "</a> " . " to bring up latest version";
-
     $version_link =" ";
 
-}
+
+    /** COde to get Session  */
+  $newpbdnf  = $_SESSION["newpbdnf"];  
+  $newpaddress  = $_SESSION["newpaddress"];   
+  $newpcity  = $_SESSION["newpcity"];  
+  $newpphone  = $_SESSION["newpphone"];   
+  $newpemail  = $_SESSION["newpemail"];   
+  $newweburl  = $_SESSION["newweburl"];   
+  $newmaddress  = $_SESSION["newmaddress"];   
+  $newmcity  = $_SESSION["newmcity"];  
+  $newfaddress  = $_SESSION["newfaddress"];   
+  $newfphone  = $_SESSION["newfphone"];   
+  $newfemail  = $_SESSION["newfemail"];   
+  $newweburl  = $_SESSION["newweburl"];   
+
+  
+
+
+    }
 
     //THE CODE TO GET THE PREVIOUS VERISON OF ANY DATA 
 
@@ -163,10 +182,8 @@ include('header.php');
         $version_link = ", Click " . "<a href='update.php?govid=$gvid' class='text-white'>" . "here" . "</a> " . " to bring up latest version";
     
        // $version_link =" ";
-
     
        }
-
 ?>
 
 <!--no print div -->
@@ -178,7 +195,7 @@ include('header.php');
     <!-- page title-->
     <div class="container">
         <h2 class="page-title blue">
-            Update Mode
+            Publish Mode
         </h2>
         <hr width="15%" class="page-title-line">
 
@@ -186,10 +203,12 @@ include('header.php');
 </div>
 <!--table for ballot-->
 <div class="container">
-    <form method="POST" class="screen-border update search-result address">
+    <form method="POST" class="publish-mod-border publish search-result address">
 
         <!--row one-->
+        <h4 style="font-weight: 700; margin-bottom:5%;" class="text-center text-white">New Changes are indicated in red </h4>
         <div class="row version">
+           
             <div class="col-sm-1"></div>
             <div class="col-sm-10" style="font-weight: 600;">
                 <button style="font-weight: 600;" class="btn btn-md btn-danger"><?php echo $version_details; ?></button>
@@ -203,13 +222,18 @@ include('header.php');
                         <tr>
                             <td width="12%" class="search-rgov">
                                 <label for="gov" class="sr-only">GovID </label>
-                                <input type="text" class="form-control" id="" value="<?php echo $gvid;?>" readonly required placeholder="">
+                                <input type="text" class="form-control" id="" value="<?php echo $gvid;?>" readonly
+                                    required placeholder="" readonly>
 
                             </td>
                             <td class="search-res">
                                 <label for="gov" class="sr-only">PublicBodyNameFormal </label>
-                                <input type="text" class="form-control" name="pbdnf" value="<?php echo $pbdnfm ;?>" required pattern="\S+.*" placeholder="">
-
+                                <input type="text" class="form-control" id="" value="<?php echo $pbdnfm ;?>" required
+                                    pattern="\S+.*" placeholder=" "readonly>
+                                <div class="changed">
+                                    <input type="text" class="form-control" id="" value="<?php echo $newpbdnf ;?>"
+                                        required pattern="\S+.*" placeholder=" "readonly>
+                                </div>
                             </td>
 
                         </tr>
@@ -221,15 +245,16 @@ include('header.php');
 
         <!--row two-->
 
-        <div class="row">
+        <!--   <div class="row">
             <!--sort as -->
+        <!--
             <div class="col-sm-12">
                 <table class="table table-borderless text-white">
                     <tbody class="search-res">
                         <tr>
                             <td width="11%"></td>
                             <td width="26%"><span class="address-text">Sort as</span>
-                                <input type="text" class="form-control" id="" value="<?php echo $sort_as ;?>" readonly placeholder="">
+                                <input type="text" class="form-control" id="" value="<?php echo $sort_as ;?>" readonly placeholder="" readonly>
                                 <td />
 
                             <td width="10%"><span class="address-text">GovType
@@ -239,7 +264,7 @@ include('header.php');
                                     </button></label>
 
                                 </span>
-                                <input type="text" class="form-control" id="" value="<?php echo $gvtype ;?>" readonly required placeholder="">
+                                <input type="text" class="form-control" id="" value="<?php echo $gvtype ;?>" readonly required placeholder="" readonly>
                             </td>
 
                             <td width="20%">
@@ -272,22 +297,36 @@ include('header.php');
                             <td width="11%"><span class="address-text">Physical</span></td>
                             <td width="54%">
                                 <label for="gov" class="sr-only"> Physical Address </label>
-                                <input type="text" class="form-control"name="paddress"value="<?php echo $hqpaddress ;?>" required placeholder="">
+                                <input type="text" class="form-control" id="" value="<?php echo $hqpaddress ;?>"
+                                    required placeholder="" readonly>
+                                <div class="changed">
+                                    <input type="text" class="form-control" id="" value="<?php echo $newpaddress ;?>"
+                                        required placeholder="" readonly>
+                                </div>
                                 <td />
 
                             <td width="20%">
                                 <label for="gov" class="sr-only">City </label>
-                                <input type="text" class="form-control" name="pcity" value="<?php echo $hqpcity ;?>" required placeholder="">
+                                <input type="text" class="form-control" id="" value="<?php echo $hqpcity ;?>" required
+                                    placeholder="" readonly>
+
+                                <div class="changed">
+                                    <input type="text" class="form-control" id="" value="<?php echo $newpcity ;?>"
+                                        required placeholder="" readonly>
+                                </div>
                             </td>
 
                             <td width="5%">
                                 <label for="gov" class="sr-only">State </label>
-                                <input type="text" class="form-control" id="" value="<?php echo $hqstate ;?>" readonly placeholder="">
+                                <input type="text" class="form-control" id="" value="<?php echo $hqstate ;?>" readonly
+                                    placeholder="" readonly>
+
                             </td>
 
                             <td width="10%">
                                 <label for="gov" class="sr-only">Zip </label>
-                                <input type="text" class="form-control" id="" value="<?php echo $hqmzip ;?>" readonly placeholder="">
+                                <input type="text" class="form-control" id="" value="<?php echo $hqmzip ;?>" readonly
+                                    placeholder="" readonly>
                             </td>
 
                         </tr>
@@ -306,13 +345,28 @@ include('header.php');
                         <tr>
                             <td width="11%"></td>
                             <td width="20%"><span class="address-text">Phone</span>
-                                <input type="text" class="form-control" name="pphone"  value="<?php echo $hqphone ;?>" required placeholder="">
+                                <input type="text" class="form-control" id="" value="<?php echo $hqphone ;?>" required
+                                    placeholder="" readonly>
+                                <div class="changed">
+                                    <input type="text" class="form-control" id="" value="<?php echo $newpphone ;?>"
+                                        required placeholder="" readonly>
+                                </div>
                             </td>
                             <td><span class="address-text">Email</span>
-                                <input type="text" class="form-control" name="pemail"  value="<?php echo $hqemail ;?>" required placeholder="">
+                                <input type="text" class="form-control" id="" value="<?php echo $hqemail ;?>" required
+                                    placeholder="" readonly>
+                                <div class="changed">
+                                    <input type="text" class="form-control" id="" value="<?php echo $newpemail ;?>"
+                                        required placeholder="" readonly>
+                                </div>
                             </td>
                             <td width="35%"><span class="address-text">Website</span>
-                                <input type="text" class="form-control" name="weburl" value="<?php echo $weburl ;?>" placeholder="">
+                                <input type="text" class="form-control" name="website" value="<?php echo $weburl ;?>"
+                                    placeholder="" readonly>
+                                <div class="changed">
+                                    <input type="text" class="form-control" name="website"
+                                        value="<?php echo $newweburl;?>" placeholder="" readonly>
+                                </div>
                             </td>
                         </tr>
                     </tbody>
@@ -332,22 +386,34 @@ include('header.php');
                             <td width="11%"><span class="address-text">Mailing</span></td>
                             <td width="54%">
                                 <label for="gov" class="sr-only"> Mailing Address </label>
-                                <input type="text" class="form-control" name="Maddress"  value="<?php echo $hqmaddress ;?>" required placeholder="address">
+                                <input type="text" class="form-control" id="" value="<?php echo $hqmaddress ;?>"
+                                    required placeholder="" readonly>
+                                <div class="changed">
+                                    <input type="text" class="form-control" id="" value="<?php echo $newmaddress ;?>"
+                                        required placeholder="" readonly>
+                                </div>
                                 <td />
 
                             <td width="20%">
                                 <label for="gov" class="sr-only">City </label>
-                                <input type="text" class="form-control" name="Mcity"  value="<?php echo $hqmcity ;?>" required placeholder=" ">
+                                <input type="text" class="form-control" id="" value="<?php echo $hqmcity ;?>" required
+                                    placeholder=" "readonly>
+                                <div class="changed">
+                                    <input type="text" class="form-control" id="" value="<?php echo $newmcity ;?>"
+                                        required placeholder="" readonly>
+                                </div>
                             </td>
 
                             <td width="5%">
                                 <label for="gov" class="sr-only">State </label>
-                                <input type="text" class="form-control" id="" value="<?php echo $hqstate ;?>" readonly placeholder=" ">
+                                <input type="text" class="form-control" id="" value="<?php echo $hqstate ;?>" readonly
+                                    placeholder=" "readonly>
                             </td>
 
                             <td width="10%">
                                 <label for="gov" class="sr-only">Zip </label>
-                                <input type="text" class="form-control" id="" value="<?php echo $hqmzip ;?>" readonly placeholder=" ">
+                                <input type="text" class="form-control" id="" value="<?php echo $hqmzip ;?>" readonly
+                                    placeholder=" "readonly>
                             </td>
 
                         </tr>
@@ -369,18 +435,24 @@ include('header.php');
                             <td width="11%"><span class="address-text">FOIA</span></td>
                             <td width="74%">
                                 <label for="gov" class="sr-only"> Mailing Address </label>
-                                <input type="text" class="form-control" name="Faddress"  value="<?php echo $foiaeaddress ;?>" required placeholder="">
+                                <input type="text" class="form-control" id="" value="<?php echo $foiaeaddress ;?>"
+                                    required placeholder="" readonly>
+                                <div class="changed">
+                                    <input type="text" class="form-control" id="" value="<?php echo $newfaddress;?>"
+                                        required placeholder="" readonly>
+                                </div>
                                 <td />
 
                             <td width="5%">
                                 <label for="gov" class="sr-only">State </label>
-                                <input type="text" class="form-control"  value="<?php echo $foiastate ;?>"
-                                    readonly placeholder="">
+                                <input type="text" class="form-control" id="" value="<?php echo $foiastate ;?>" readonly
+                                    placeholder="" readonly>
                             </td>
 
                             <td width="12%">
                                 <label for="gov" class="sr-only">Zip </label>
-                                <input type="text" class="form-control" value="<?php echo $foiamzip ;?>" readonly placeholder="">
+                                <input type="text" class="form-control" id="" value="<?php echo $foiamzip ;?>" readonly
+                                    placeholder="" readonly>
                             </td>
 
                         </tr>
@@ -399,13 +471,28 @@ include('header.php');
                         <tr>
                             <td width="11%"></td>
                             <td width="20%"><span class="address-text">FOIA Phone</span>
-                                <input type="text" class="form-control" name="Fphone"  value="<?php echo $foiaphone ;?>" required placeholder="">
+                                <input type="text" class="form-control" id="" value="<?php echo $foiaphone ;?>" required
+                                    placeholder="" readonly>
+                                <div class="changed">
+                                    <input type="text" class="form-control" id="" value="<?php echo $newfphone ;?>"
+                                        required placeholder="" readonly>
+                                </div>
                             </td>
                             <td><span class="address-text">FOIA Email</span>
-                                <input type="text" class="form-control" name="Femail"  value="<?php echo $foiaemail ;?>" required placeholder="">
+                                <input type="text" class="form-control" id="" value="<?php echo $foiaemail ;?>" required
+                                    placeholder="" readonly>
+                                <div class="changed">
+                                    <input type="text" class="form-control" id="" value="<?php echo $newfemail ;?>"
+                                        required placeholder="" readonly>
+                                </div>
                             </td>
                             <td width="35%"><span class="address-text">FOIA Website</span>
-                                <input type="text" class="form-control" name="weburl" value="<?php echo $weburl ;?>" placeholder="">
+                                <input type="text" class="form-control" name="website" value="<?php echo $weburl ;?>"
+                                    placeholder="" readonly>
+                                <div class="changed">
+                                    <input type="text" class="form-control" name="website"
+                                        value="<?php echo $newweburl;?>" placeholder="" readonly>
+                                </div>
                             </td>
                         </tr>
                     </tbody>
@@ -415,7 +502,7 @@ include('header.php');
 
 
         <!--row eight  first-->
-
+        <!--
         <div class="row">
             <div class="col-sm-12">
                 <table class="table table-borderless text-white">
@@ -424,7 +511,7 @@ include('header.php');
                             <td width="11%"><span class="address-text">Notes</span></td>
                             <td width="54%">
                                 <textarea name="comments" id="" cols="30" rows="3" class="form-control"
-                                    readonly placeholder=""><?php echo $desc; ?></textarea>
+                                    readonly placeholder="" readonly><?php// echo $desc; ?></textarea>
                             </td>
                             <td width="35%"></td>
 
@@ -435,7 +522,7 @@ include('header.php');
         </div>
 
         <!--row eight-->
-
+        <!--
         <div class="row">
             <div class="col-sm-12">
                 <table class="table table-borderless text-white">
@@ -445,22 +532,22 @@ include('header.php');
 
                             <td width="15%">
                                 <span class="address-text">Revenue</span>
-                                <input type="text" class="form-control" id="" value="<?php echo $rev ;?>" readonly placeholder="">
+                                <input type="text" class="form-control" id="" value="<?php echo $rev ;?>" readonly placeholder="" readonly>
                             </td>
 
                             <td width="12%"><span class="address-text">Comptroller</span>
-                                <input type="text" class="form-control" id="" value="<?php echo $cmpid ;?>" readonly placeholder="">
+                                <input type="text" class="form-control" id="" value="<?php echo $cmpid ;?>" readonly placeholder="" readonly>
                             </td>
 
                             <td width="2%"><span class="address-text"> <br></span>
                                 <input type="text" class="form-control" id="" value="<?php echo $othertypeid ;?>"
-                                    readonly placeholder="">
+                                    readonly placeholder="" readonly>
                                 <span class="address-note">&nbsp;State</span>
                             </td>
 
                             <td width="20%"><span class="address-text">Other</span>
                                 <input type="text" class="form-control" id="" value="<?php echo $othertypecode ;?>"
-                                    readonly placeholder="">
+                                    readonly placeholder="" readonly>
                                 <span class="address-note">Board of Education</span>
                             </td>
 
@@ -474,12 +561,12 @@ include('header.php');
                                 </span></td>
                             <td width="8%">
                                 <span class="address-text">SEI</span>
-                                <input type="text" class="form-control" id="" value="<?php echo $ktyabb;?>" readonly placeholder="">
+                                <input type="text" class="form-control" id="" value="<?php echo $ktyabb;?>" readonly placeholder="" readonly>
                             </td>
 
                             <td width="8%">
                                 <span class="address-text">Home</span>
-                                <input type="text" class="form-control" id="" value="<?php echo $ktyabb;?>" readonly placeholder="">
+                                <input type="text" class="form-control" id="" value="<?php echo $ktyabb;?>" readonly placeholder="" readonly>
 
                             </td>
 
@@ -489,7 +576,7 @@ include('header.php');
             </div>
         </div>
         <!--row eight-->
-
+        <!--
         <div class="row">
             <div class="col-sm-12">
                 <table class="table table-borderless text-white">
@@ -498,44 +585,44 @@ include('header.php');
                             <td width="11%"></td>
 
                             <td width="7%"><span class="address-text">Dept</span>
-                                <input type="text" class="form-control" id="" value="<?php echo $dept ;?>" readonly placeholder="">
+                                <input type="text" class="form-control" id="" value="<?php echo $dept ;?>" readonly placeholder="" readonly>
                                 <span class="address-note"><?php echo $govfunction; ?></span>
                             </td>
 
                             <td width="12%"><span class="address-text">Parent Gov</span>
-                                <input type="text" class="form-control" id="" value="<?php echo $parent ;?>" readonly placeholder="">
+                                <input type="text" class="form-control" id="" value="<?php echo $parent ;?>" readonly placeholder="" readonly>
                             </td>
 
-                            <td width="38%"></td>
-                            <td width="8%">
-                                <input type="text" class="form-control" id="" value="" readonly placeholder="">
-                                <input type="text" class="form-control" id="" value="" readonly placeholder="">
-                                <input type="text" class="form-control" id="" value="" readonly placeholder="">
-                                <input type="text" class="form-control" id="" value="" readonly placeholder="">
+                            <td width="70%"></td>
+                       <!--     <td width="8%">
+                                <input type="text" class="form-control" id="" value="" readonly placeholder="" readonly>
+                                <input type="text" class="form-control" id="" value="" readonly placeholder="" readonly>
+                                <input type="text" class="form-control" id="" value="" readonly placeholder="" readonly>
+                                <input type="text" class="form-control" id="" value="" readonly placeholder="" readonly>
 
-                            </td>
-
-                            <td width="8%">
-                                <input type="text" class="form-control" id="" value="" readonly placeholder="">
-                                <input type="text" class="form-control" id="" value="" readonly placeholder="">
-                                <input type="text" class="form-control" id="" value="" readonly placeholder="">
-                                <input type="text" class="form-control" id="" value="" readonly placeholder="">
                             </td>
 
                             <td width="8%">
-                                <input type="text" class="form-control" id="" value="" readonly placeholder="">
-                                <input type="text" class="form-control" id="" value="" readonly placeholder="">
-                                <input type="text" class="form-control" id="" value="" readonly placeholder="">
-                                <input type="text" class="form-control" id="" value="" readonly placeholder="">
+                                <input type="text" class="form-control" id="" value="" readonly placeholder="" readonly>
+                                <input type="text" class="form-control" id="" value="" readonly placeholder="" readonly>
+                                <input type="text" class="form-control" id="" value="" readonly placeholder="" readonly>
+                                <input type="text" class="form-control" id="" value="" readonly placeholder="" readonly>
                             </td>
 
                             <td width="8%">
-                                <input type="text" class="form-control" id="" value="" readonly placeholder="">
-                                <input type="text" class="form-control" id="" value="" readonly placeholder="">
-                                <input type="text" class="form-control" id="" value="" readonly placeholder="">
-                                <input type="text" class="form-control" id="" placeholder="&#61442;" readonly placeholder="">
+                                <input type="text" class="form-control" id="" value="" readonly placeholder="" readonly>
+                                <input type="text" class="form-control" id="" value="" readonly placeholder="" readonly>
+                                <input type="text" class="form-control" id="" value="" readonly placeholder="" readonly>
+                                <input type="text" class="form-control" id="" value="" readonly placeholder="" readonly>
                             </td>
 
+                            <td width="8%">
+                                <input type="text" class="form-control" id="" value="" readonly placeholder="" readonly>
+                                <input type="text" class="form-control" id="" value="" readonly placeholder="" readonly>
+                                <input type="text" class="form-control" id="" value="" readonly placeholder="" readonly>
+                                <input type="text" class="form-control" id="" placeholder="&#61442;" readonly placeholder="" readonly>
+                            </td>
+  
                         </tr>
                     </tbody>
                 </table>
@@ -543,6 +630,9 @@ include('header.php');
         </div>
 
         <!--row ten-->
+
+        <!-- send mail-->
+        <div ckas
 
         <div class="row">
             <div class="col-md-10 mx-auto search-result-btn">
@@ -553,44 +643,22 @@ include('header.php');
                             <td>
                                 <br> <br>
                                 <a style="text-decoration: none;" class="btn btn-md btn-success"
-                                    href="search-result.php?govid=<?php echo $gvid ;?>">
+                                    href="update.php?govid=<?php echo $gvid ;?>">
                                     <i class="fas fa-times"></i> Cancel</a>
                             </td>
 
                             <td>
 
-                                <?php
-
-                                                $get_prevtime = "select timestamp from historytable WHERE govid ='$gvid' ORDER BY timestamp DESC";
-                                                
-                                                $run_prevtime = mysqli_query($con , $get_prevtime);
-
-                                                if (mysqli_num_rows($run_prevtime) == 0){
-
-                                                    $prev_timestamp = "";
-
-                                                }
-                                                else{
-
-                                                $row_time=mysqli_fetch_array($run_prevtime);
-
-                                                $prev_timestamp = date("M-d-yy h:i:s A", strtotime( $row_time['timestamp']));
-
-                                                }
-                                                ?>
-
-
-                                <span class="version-time" style="font-style: italic;"><?php echo $prev_timestamp; ?>
                                 </span><br><br>
-                                <button class="btn btn-md btn-prev" name="previous">
+                                <button class="btn btn-md btn-warning" name="previous">
 
-                                    <i class="fas fa-backward"></i> Get Previous Version</button>
+                                    <i class="fas fa-print"></i> Print</button>
                             </td>
 
                             <td>
                                 <br> <br>
-                                <button class="btn btn-md btn-warning" name="publish">
-                                    <i class="fas fa-upload"></i> Publish This</button>
+                                <button class="btn btn-md btn-danger" name="publish">
+                                    <i class="far fa-check-circle"></i> Confirm</button>
                             </td>
                         </tr>
                     </tbody>
@@ -606,6 +674,7 @@ include('header.php');
 
 
 <!-- Modal for counties-->
+<!--
 <div class="modal fade" id="countyName" tabindex="-1" role="dialog" aria-labelledby="countyNameTitle"
     aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
@@ -652,6 +721,7 @@ include('header.php');
 </div>
 
 <!-- Modal for govtypename  -->
+<!--
 <div class="modal fade" id="govTypeName" tabindex="-1" role="dialog" aria-labelledby="countyNameTitle"
     aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
@@ -708,45 +778,47 @@ include('header.php');
 
 /* Code for Publish Button */
 
-if($_GET['govid']){
-
 if(isset($_POST['publish'])){
 
-    $_SESSION["newpbdnf"]   = $_POST['pbdnf'];
-    $_SESSION["newpaddress"]   = $_POST['paddress'];
-    $_SESSION["newpcity"]   = $_POST['pcity'];
-    $_SESSION["newpphone"]   = $_POST['pphone'];
-    $_SESSION["newpemail"]   = $_POST['pemail'];
-    $_SESSION["newweburl"]   = $_POST['weburl'];
-    $_SESSION["newmaddress"]   = $_POST['Maddress'];
-    $_SESSION["newmcity"]   = $_POST['Mcity'];
-    $_SESSION["newfaddress"]   = $_POST['Faddress'];
-    $_SESSION["newfphone"]   = $_POST['Fphone'];
-    $_SESSION["newfemail"]   = $_POST['Femail'];
-    $_SESSION["newweburl"]   = $_POST['weburl'];
 
-echo "<script>window.open('publish.php?govid=$gvid', '_self')</script>";
-}
-}
+    $newWebsite = $_POST['website'];
 
- elseif($_GET['previd']){
- if(isset($_POST['publish'])){
-
-
-  /*  echo '
+    if($newWebsite == $oldWebsite){
+        echo '
         <script>
             swal({
-                    title: "Previous Open",
+                    title: "They are Same!",
                     icon: "success",
-                });
+                 });
     </script>
-    ';     
-    */
-    echo "<script>window.open('publish.php?previd=$gvid', '_self')</script>"; 
+    ';
 
     }
 
+    else{
+        echo '
+        <script>
+            swal({
+                    title: "They are Different!",
+                    icon: "error",
+                 });
+    </script>
+    ';
+
+    }
+
+     /* echo '
+        <script>
+            swal({
+                    title: "They are Same!",
+                    icon: "success",
+                 });
+    </script>
+    '; */
+    
+
 }
+
 
 
 /* Code for Get Previous Button */
@@ -770,6 +842,16 @@ if(isset($_POST['previous'])){
 
     }
     else{
+
+     /**    echo '
+        <script>
+            swal({
+                    title: "Previous Data Available!",
+                    icon: "success",
+                 });
+    </script>
+    ';
+    */
 
     echo "<script>window.open('update.php?previd=$gvid', '_self')</script>";
 

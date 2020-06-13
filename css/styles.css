@@ -544,3 +544,18 @@ box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.75);
   .update textarea:placeholder-shown{
     border: 1.5px solid red; /* Red border only if the input is empty */
   }
+
+  /* Publish Mode Styles */
+
+  .publish-mod-border {
+    color: #ffffff;
+    background-color: #FF9966;
+    border: 2px solid #333436;
+    padding: 4%;
+}
+
+.publish-mod-border .changed input{
+    border: 3px solid #ec1d2e;
+    color: #ec1d2e;
+    font-weight: 700;
+}
