@@ -7,7 +7,8 @@
     <title><?php echo $title; ?></title>
     <meta content="" name="description">
     <meta content="" name="keywords">
-
+    
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/themes/base/minified/jquery-ui.min.css" type="text/css" /> 
     <!-- Favicons -->
     <link rel="apple-touch-icon" sizes="57x57" href="/images/favicons/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="/images/favicons/apple-icon-60x60.png">
@@ -39,6 +40,7 @@
 
     <!--  CSS File -->
     <link href="css/styles.css" rel="stylesheet">
+   
 
     <style>
         @media print

@@ -75,14 +75,15 @@ include('header.php');
                                         <label for="part" class="search-three">Part of Name</label>
                                     </td>
                                     <td width="70%" >
-                                        <input type="text" name="part" id="#" class="form-control" placeholder="&#61442;">
+                                        <input type='text' name='publicaddress' value='' id="#auto" class='form-control' placeholder="&#61442;">
+                                       
                                     </td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
                 </div>
-
+                              
                 <!-- fourth row-->
                 <div class="row">
                     <div class="col-md-12">
@@ -91,7 +92,7 @@ include('header.php');
                             <tbody class="search-part">
                                 <tr>
                                     <td width="15%">
-                                        <label for="part" class="search-three">Alternate name</label>
+                                        <label for="sort-as" class="search-three">Alternate name</label>
                                     </td>
                                     <td width="35%">
                                         <select name="sort_as" class="form-control">
@@ -435,3 +436,14 @@ include('header.php');
 ?>
 
     <?php include('footer.php'); ?>
+    <script type="text/javascript">
+                 $(function() {
+                                    
+                //autocomplete
+                    $("#auto").autocomplete({
+                         source: "ajax-search.php",
+                         minLength: 1
+                         });                
+
+                        });
+         </script>
