@@ -9,12 +9,13 @@ include('header.php');
 <!--no print div class -->
 <div class="noprint">
 
-    <!--header image-->
+    <!--header image--><!--
     <img src="images/search.jpg" alt="" class="back-image">
+    -->
 
     <!-- page title-->
     <div class="container">
-        <h2 class="page-title blue">
+      <!--  <h2 class="page-title blue">
             Search Database
         </h2>
         <hr width="15%" class="page-title-line">
@@ -28,16 +29,16 @@ include('header.php');
                 <h1 class="search-head">ILGov Database</h1>
                 <div class="row">
                     <div class="col-md-2"></div>
-                    <div class="col-md-5">
+                    <div class="col-md-6">
                         <table class="table table-borderless">
                             <tbody>
                                 <tr>
                                     <td width="57%" <label for="gov" class="search-one">Enter Record ID:</label>
 
                                     </td>
-                                    <td width="40%" class="search-gov">
+                                    <td width="50%" class="search-gov">
                                         <input type="text" name="govid" class="form-control" id="" maxlength="5"
-                                            placeholder="GovID">
+                                            placeholder="">
                                     </td>
                                 </tr>
 
@@ -90,12 +91,12 @@ include('header.php');
                             <tbody class="search-part">
                                 <tr>
                                     <td width="15%">
-                                        <label for="part" class="search-three">Sort as</label>
+                                        <label for="part" class="search-three">Alternate name</label>
                                     </td>
                                     <td width="35%">
                                         <select name="sort_as" class="form-control">
 
-                                            <option> Sort AS </option>
+                                            <option> Alternate Name </option>
 
                                             <?php
 
@@ -151,7 +152,7 @@ include('header.php');
                                         <label for="counties" class="search-three">Counties
                                             <button type="button" class="btn btn-outline-light" data-toggle="modal"
                                                 data-target="#countyName">
-                                                <i class="fas fa-info"></i>
+                                                <i class="fas fa-info-circle"></i>
                                             </button></label>
 
 

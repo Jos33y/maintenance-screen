@@ -171,11 +171,11 @@ include('header.php');
 <!--no print div -->
 <div class="noprint">
     <!--header image-->
-
+<!--
     <img src="images/screenblue.jpg" alt="" class="back-image">
 
     <!-- page title-->
-    <div class="container">
+  <!--  <div class="container">
         <h2 class="page-title blue">
             Screen Mode
         </h2>
@@ -184,7 +184,7 @@ include('header.php');
     </div>
 </div>
 <!--table for ballot-->
-<div class="container">
+<div class="container-fluid">
     <form method="POST" class="screen-border search-result address">
 
         <!--row one-->
@@ -227,7 +227,7 @@ include('header.php');
                     <tbody class="search-res">
                         <tr>
                             <td width="11%"></td>
-                            <td width="26%"><span class="address-text">Sort as</span>
+                            <td width="26%"><span class="address-text">Alternate name</span>
                                 <input type="text" class="form-control" id="" value="<?php echo $sort_as ;?>" readonly>
                                 <td />
 
