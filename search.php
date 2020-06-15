@@ -353,9 +353,9 @@ include('header.php');
 
     $pbdnf = $_POST['pbdnf'];
 
-    $nameSimple = $_POST['nameSimple'];
+    $govType = $_POST['govType'];
 
-    $govType =  $_POST['govType'];
+    $nameSimple = $_POST['nameSimple'];
 
     $home_kty = $_POST['home_kty'];
 
@@ -366,11 +366,55 @@ include('header.php');
 
     if($govid){
 
+        $check = "select * from addresses where GovId = '$govid'";
+        $run_check = mysqli_query($con, $check);
+
+        if (mysqli_num_rows($run_check) == 1) {
+
+        
         echo "<script>window.open('search-result.php?govid=$govid', '_self')</script>";
+        }
+        else{
+
+            echo '
+            <script>
+                swal({
+                        title: "No GovId Found!",
+                        icon: "error",
+                     });
+        </script>
+        ';
+        }
 
     }
-    else{
+    elseif($pbdnf){
+        $get_address = "select * from addresses where PublicBodyNameFormal ='$pbdnf'";
 
+        $run_address = mysqli_query($con, $get_address);
+
+            if (mysqli_num_rows($run_address) == 1) {
+
+                $row = mysqli_fetch_array($run_address);
+                    $gvid = $row['GovId'];
+
+                    echo "<script>window.open('search-result.php?govid=$gvid', '_self')</script>";
+            }
+            else{
+                echo '
+                <script>
+                    swal({
+                            title: "No Public Body Formal Name Found!",
+                            icon: "error",
+                         });
+            </script>
+            ';
+
+            }
+
+
+    }
+
+    elseif($govType OR $home_kty OR $fullspan_kty OR $nameSimple){
     
     ?>
 
@@ -397,15 +441,84 @@ include('header.php');
         </thead>
         <tbody>
 
+            <!--GovType Search -->
 
+            <?php 
+                if($govType){
+                   
+                    $get_govtype = "select * from govtype where govtypename = '$govType'";
+        
+                    $run_govtype = mysqli_query($con, $get_govtype);
 
-            <!--Counties Search -->
-            <?php
+            if(mysqli_num_rows($run_govtype) >= 1) { 
+                $i = 0;
+                    $row = mysqli_fetch_array($run_govtype);
+        
+                    $gvtypeid = $row['govtypeid'];
+
+                   $get_govid = "select * from addresses where GovType = '$gvtypeid'";
+                   $run_govid = mysqli_query($con, $get_govid);
+
+                   while($row = mysqli_fetch_array($run_govid)){
+                   
+                    $gvid = $row['GovId'];
+                  
+                    $get_governments = "select * from governments where GovId = '$gvid'";
+                    $run_governments = mysqli_query($con, $get_governments);                             
+
+                        while ($row = mysqli_fetch_array($run_governments)){
+                            $gid = $row['id'];
+                            $gvid = $row['GovId'];
+                            $cmpid = $row['ComptrollerID'];
+                            $drt = $row['DptRevType'];
+                            $nmsimp = $row['NameSimple'];
+                            $ktyabb = $row['KtyAbb'];
+                            $nmfrm = $row['NameFormal'];
+                            $fulspan = $row['FullSpan'];
+                            $khnbr = $row['KtyHomeNbr'];
+                            $khab = $row['KtyHomeAbb'];
+                           
+                        }
+                        $i++;
+        ?>
+            <tr style="font-size:13px;">
+                <td><a style="text-decoration: none;" href="search-result.php?govid=<?php echo $gvid;?>"><i
+                            class="fas fa-edit"></i> Edit</a> </td>
+                <td><b><?php echo $i; ?> </b></td>
+                <td><?php echo $gvid; ?> </td>
+                <td><?php echo $cmpid; ?> </td>
+                <td><?php echo $drt; ?> </td>
+                <td><?php echo $nmsimp; ?> </td>
+                <td><?php echo $ktyabb; ?> </td>
+                <td><?php echo $nmfrm; ?> </td>
+                <td><?php echo $fulspan; ?> </td>
+                <td><?php echo $khnbr; ?> </td>
+                <td><?php echo $khab; ?> </td>
+            </tr>
+        <?php      }       
             
-              if($home_kty OR $fullspan_kty){
+              }
+            else{
+                        
+                echo '
+                <script>
+                    swal({
+                            title: "No Gov Type Name Found!",
+                            icon: "error",
+                        });
+            </script>
+            ';
+            }
+
+        } 
+                //Counties search
+            
+              elseif($home_kty OR $fullspan_kty){
                 $i = 0;
                   $get_governments = "select * from governments where KtyAbb = '$home_kty' OR FullSpan = '$fullspan_kty'";
                 $run_governments = mysqli_query($con, $get_governments);
+
+                if (mysqli_num_rows($run_governments) >= 1) {
 
                 while ($row = mysqli_fetch_array($run_governments)){
                     $gid = $row['id'];
@@ -436,15 +549,33 @@ include('header.php');
                 <td><?php echo $khab; ?> </td>
             </tr>
 
-            <?php } } ?>
+            <?php }
+              }
+            
+            else{
+                        
+                echo '
+                <script>
+                    swal({
+                            title: "No County Found!",
+                            icon: "error",
+                        });
+            </script>
+            ';
+            }
 
-            <!--sort as search -->
-            <?php
-              if($nameSimple){
+        }
+        
+
+            //--sort as search -->
+            
+              elseif($nameSimple){
                 $i = 0;
 
                 $get_governments = "select * from governments where NameSimple = '$nameSimple'";
-                $run_governments = mysqli_query($con, $get_governments);                 
+                $run_governments = mysqli_query($con, $get_governments);         
+                
+                if (mysqli_num_rows($run_governments) >= 1) {        
 
                 while ($row = mysqli_fetch_array($run_governments)){
 
@@ -488,7 +619,21 @@ include('header.php');
             
         }
         
-        } } ?>
+        } }
+        else{
+            echo '
+            <script>
+                swal({
+                        title: "No Alternate Name Found!",
+                        icon: "error",
+                     });
+        </script>
+        ';
+
+        }
+
+        }
+        ?>
 
 
         </tbody>
@@ -497,7 +642,20 @@ include('header.php');
 
 
     <?php
-       }   }
+       }  
+       else{
+        echo '
+        <script>
+            swal({
+                    title: "No Input Received!",
+                    icon: "error",
+                 });
+    </script>
+    ';
+    
+    }
+}
+
                 
             /* echo "<script>window.open('searchtwo.php', '_self')</script>";  
 

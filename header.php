@@ -32,6 +32,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="https://kit.fontawesome.com/eedc5762fd.js"></script>
     <script src="https://use.fontawesome.com/2ce208766d.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   
 
         
@@ -46,10 +47,6 @@
             }
         }
     </style>
-
-    <script src="https://code.jquery.com/jquery-2.1.1.min.js" type="text/javascript"></script>
-    </script>
-
 
 </head>
 
