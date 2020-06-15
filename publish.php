@@ -91,8 +91,8 @@ include('header.php');
 
     $parent = $row_gov['ParentID'];
  
-    $version_details = "This is the latest version";
-
+    $version_details = " <button style='font-weight: 600;' class='btn btn-sm btn-success'>This is the latest version</button>";
+   
     $version_link =" ";
 
 
@@ -177,7 +177,7 @@ include('header.php');
 
         $timestamp = date("M-d-yy h:i:s A", strtotime($row_edit['timestamp']));
      
-        $version_details = "This is not the latest version";
+        $version_details = " <button style='font-weight: 600;' class='btn btn-md btn-danger'>This is not the latest version</button>";
     
         $version_link = ", Click " . "<a href='update.php?govid=$gvid' class='text-white'>" . "here" . "</a> " . " to bring up latest version";
     
@@ -205,10 +205,12 @@ include('header.php');
 <!--no print div -->
 <div class="noprint">
     <!--header image-->
-
+<!--
     <img src="images/screenblue.jpg" alt="" class="back-image">
 
     <!-- page title-->
+
+    <!--
     <div class="container">
         <h2 class="page-title blue">
             Publish Mode
@@ -216,19 +218,19 @@ include('header.php');
         <hr width="15%" class="page-title-line">
 
     </div>
-</div>
+</div> -->
 <!--table for ballot-->
 <div class="container">
     <form method="POST" class="publish-mod-border publish search-result address">
 
         <!--row one-->
-        <h4 style="font-weight: 700; margin-bottom:5%;" class="text-center text-white">New Changes are indicated in red </h4>
+        <h4 style="font-weight: 700; margin-bottom:2%;" class="text-center text-white">New Changes are indicated in red </h4>
         <div class="row version">
            
-            <div class="col-sm-1"></div>
+            <div class="col-sm-2"></div>
             <div class="col-sm-10" style="font-weight: 600;">
-                <button style="font-weight: 600;" class="btn btn-md btn-danger"><?php echo $version_details; ?></button>
-                <span class="version-time">It is from <?php echo $timestamp . $version_link; ?> </span>
+            <?php echo $version_details; ?>
+              <span class="version-time">It is from <?php echo $timestamp . $version_link; ?> </span>
             </div>
         </div>
         <div class="row">
@@ -245,8 +247,10 @@ include('header.php');
                             <td class="search-res">
                                 <label for="gov" class="sr-only">PublicBodyNameFormal </label>
                                 <input type="text" class="form-control" id="" value="<?php echo $pbdnfm ;?>" required
-                                    pattern="\S+.*" placeholder=" "readonly>
-                                <div class="changed">
+                                    pattern="\S+.*" placeholder=" "readonly>    
+                              
+                                    <div  class="<?php  if($pbdnfm == $newpbdnf){ echo "empty"; }else{echo "changed";} ?>"> 
+
                                     <input type="text" class="form-control" id="" value="<?php echo $newpbdnf ;?>"
                                         required pattern="\S+.*" placeholder=" "readonly>
                                 </div>
@@ -315,7 +319,7 @@ include('header.php');
                                 <label for="gov" class="sr-only"> Physical Address </label>
                                 <input type="text" class="form-control" id="" value="<?php echo $hqpaddress ;?>"
                                     required placeholder="" readonly>
-                                <div class="changed">
+                                    <div  class="<?php  if($hqpaddress == $newpaddress){ echo "empty"; }else{echo "changed";} ?>"> 
                                     <input type="text" class="form-control" id="" value="<?php echo $newpaddress ;?>"
                                         required placeholder="" readonly>
                                 </div>
@@ -326,7 +330,7 @@ include('header.php');
                                 <input type="text" class="form-control" id="" value="<?php echo $hqpcity ;?>" required
                                     placeholder="" readonly>
 
-                                <div class="changed">
+                                    <div  class="<?php  if($hqpcity == $newpcity){ echo "empty"; }else{echo "changed";} ?>"> 
                                     <input type="text" class="form-control" id="" value="<?php echo $newpcity ;?>"
                                         required placeholder="" readonly>
                                 </div>
@@ -363,7 +367,7 @@ include('header.php');
                             <td width="20%"><span class="address-text">Phone</span>
                                 <input type="text" class="form-control" id="" value="<?php echo $hqphone ;?>" required
                                     placeholder="" readonly>
-                                <div class="changed">
+                                    <div  class="<?php  if($hqphone == $newpphone){ echo "empty"; }else{echo "changed";} ?>"> 
                                     <input type="text" class="form-control" id="" value="<?php echo $newpphone ;?>"
                                         required placeholder="" readonly>
                                 </div>
@@ -371,7 +375,7 @@ include('header.php');
                             <td><span class="address-text">Email</span>
                                 <input type="text" class="form-control" id="" value="<?php echo $hqemail ;?>" required
                                     placeholder="" readonly>
-                                <div class="changed">
+                                    <div  class="<?php  if($hqemail == $newpemail){ echo "empty"; }else{echo "changed";} ?>"> 
                                     <input type="text" class="form-control" id="" value="<?php echo $newpemail ;?>"
                                         required placeholder="" readonly>
                                 </div>
@@ -379,7 +383,7 @@ include('header.php');
                             <td width="35%"><span class="address-text">Website</span>
                                 <input type="text" class="form-control" name="website" value="<?php echo $weburl ;?>"
                                     placeholder="" readonly>
-                                <div class="changed">
+                                    <div  class="<?php  if($weburl == $newweburl){ echo "empty"; }else{echo "changed";} ?>"> 
                                     <input type="text" class="form-control" name="website"
                                         value="<?php echo $newweburl;?>" placeholder="" readonly>
                                 </div>
@@ -404,7 +408,7 @@ include('header.php');
                                 <label for="gov" class="sr-only"> Mailing Address </label>
                                 <input type="text" class="form-control" id="" value="<?php echo $hqmaddress ;?>"
                                     required placeholder="" readonly>
-                                <div class="changed">
+                                    <div  class="<?php  if($hqmaddress == $newmaddress){ echo "empty"; }else{echo "changed";} ?>"> 
                                     <input type="text" class="form-control" id="" value="<?php echo $newmaddress ;?>"
                                         required placeholder="" readonly>
                                 </div>
@@ -414,7 +418,7 @@ include('header.php');
                                 <label for="gov" class="sr-only">City </label>
                                 <input type="text" class="form-control" id="" value="<?php echo $hqmcity ;?>" required
                                     placeholder=" "readonly>
-                                <div class="changed">
+                                    <div  class="<?php  if($hqmcity == $newmcity){ echo "empty"; }else{echo "changed";} ?>"> 
                                     <input type="text" class="form-control" id="" value="<?php echo $newmcity ;?>"
                                         required placeholder="" readonly>
                                 </div>
@@ -453,7 +457,7 @@ include('header.php');
                                 <label for="gov" class="sr-only"> Mailing Address </label>
                                 <input type="text" class="form-control" id="" value="<?php echo $foiaeaddress ;?>"
                                     required placeholder="" readonly>
-                                <div class="changed">
+                                    <div  class="<?php  if($foiaeaddress == $newfaddress){ echo "empty"; }else{echo "changed";} ?>"> 
                                     <input type="text" class="form-control" id="" value="<?php echo $newfaddress;?>"
                                         required placeholder="" readonly>
                                 </div>
@@ -489,7 +493,7 @@ include('header.php');
                             <td width="20%"><span class="address-text">FOIA Phone</span>
                                 <input type="text" class="form-control" id="" value="<?php echo $foiaphone ;?>" required
                                     placeholder="" readonly>
-                                <div class="changed">
+                                    <div  class="<?php  if($foiaphone == $newfphone){ echo "empty"; }else{echo "changed";} ?>"> 
                                     <input type="text" class="form-control" id="" value="<?php echo $newfphone ;?>"
                                         required placeholder="" readonly>
                                 </div>
@@ -497,7 +501,7 @@ include('header.php');
                             <td><span class="address-text">FOIA Email</span>
                                 <input type="text" class="form-control" id="" value="<?php echo $foiaemail ;?>" required
                                     placeholder="" readonly>
-                                <div class="changed">
+                                    <div  class="<?php  if($foiaemail == $newfemail){ echo "empty"; }else{echo "changed";} ?>"> 
                                     <input type="text" class="form-control" id="" value="<?php echo $newfemail ;?>"
                                         required placeholder="" readonly>
                                 </div>
@@ -505,7 +509,7 @@ include('header.php');
                             <td width="35%"><span class="address-text">FOIA Website</span>
                                 <input type="text" class="form-control" name="website" value="<?php echo $weburl ;?>"
                                     placeholder="" readonly>
-                                <div class="changed">
+                                    <div  class="<?php  if($weburl == $newweburl){ echo "empty"; }else{echo "changed";} ?>"> 
                                     <input type="text" class="form-control" name="website"
                                         value="<?php echo $newweburl;?>" placeholder="" readonly>
                                 </div>

@@ -233,6 +233,7 @@ include('header.php');
 
                                                     $kid = $row_kty['kid'];
                                                     $ktyabb = $row_kty['ktyabb'];
+                                                   
 
                                                     echo "
                                                     
@@ -325,11 +326,12 @@ include('header.php');
                                                     $kid = $row_kty['kid'];
                                                     $ktyname = $row_kty['namesimple'];
                                                     $ktyabb = $row_kty['ktyabb'];
+                                                    $code = $row_kty['dptrevcounty'];
 
                                                 ?>
                             <tr>
                                 <td style="font-size: 13px;"><?php echo $ktyname;  ?></td>
-                                <td style="font-size: 13px;"><?php echo $ktyabb;  ?></td>
+                                <td style="font-size: 13px;"><?php echo $ktyabb . " " . "(". $code . ")";  ?></td>
                             </tr>
 
                             <?php } ?>
