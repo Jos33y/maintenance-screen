@@ -139,12 +139,12 @@ include('header.php');
                 <div class="row">
                     <div class="col-md-12">
                         <table class="table table-borderless">
-                            <tbody class="search-part">
+                            <tbody>
                                 <tr>
-                                    <td width="30%">
+                                    <td width="15%" class="search-label">
                                         <label for="part" class="search-three">Part of Name</label>
                                     </td>
-                                    <td width="70%">
+                                    <td width="85%" class="search-input">
                                         <input type='text' name='pbdnf' class='form-control' placeholder="&#61442;" id="pbdnf">
                                         <div id="bodyResponse"></div>
 
@@ -160,21 +160,21 @@ include('header.php');
                     <div class="col-md-12">
 
                         <table class="table table-borderless">
-                            <tbody class="search-part">
+                            <tbody>
                                 <tr>
-                                    <td width="15%">
+                                    <td width="15%" class="search-label">
                                         <label for="sort-as" class="search-three">Alternate name</label>
                                     </td>
-                                    <td width="35%">
+                                    <td width="90%" class="search-input">
                                     <input type="text" name="nameSimple" class="form-control"
                                             placeholder="&#61442;" id="nameSimple" >
                                     <div id="response"></div>
                                     </td>
 
-                                    <td width="15%">
+                                    <td class="search-label">
                                         <label for="part" class="search-three">GovType</label>
                                     </td>
-                                    <td width="35%">
+                                    <td width="90%" class="search-input">
                                         <input type="text" name="govType" class="form-control"
                                             placeholder="&#61442;" id="govType">
                                             <div id="govResponse"></div>
@@ -200,9 +200,9 @@ include('header.php');
                     <div class="col-md-12">
 
                         <table class="table table-borderless">
-                            <tbody class="search-part">
+                            <tbody>
                                 <tr>
-                                    <td width="15%">
+                                    <td width="15%" class="search-label">
                                         <label for="counties" class="search-three">Counties
                                             <button type="button" class="btn btn-outline-light" data-toggle="modal"
                                                 data-target="#countyName">
@@ -216,7 +216,7 @@ include('header.php');
 
 
 
-                                    <td width="35%">
+                                    <td width="45%" class="search-input">
 
                                         <select name="home_kty" class="form-control">
 
@@ -243,7 +243,7 @@ include('header.php');
                                         </select>
                                     </td>
 
-                                    <td width="50%">
+                                    <td width="45%" class="search-input">
 
                                         <select name="fullspan_kty" class="form-control">
 
