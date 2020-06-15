@@ -1,21 +1,91 @@
+
 <?php 
+
+
 include('dbcon.php');
+if (isset($_POST['search'])){
+    $response = '<ul><li>No data found</li><ul>';
+
+    $q = $con->real_escape_string($_POST['q']);
+
+    $sql = $con->query("SELECT DISTINCT NameSimple from governments WHERE NameSimple LIKE '%$q%'");
+    if($sql->num_rows > 0) {
+
+        $response = "<ul>";
+
+        while($data = $sql->fetch_array())
+        $response .= "<li>".$data['NameSimple']."</li>";
+
+        $response .= "</ul>";
+    }
+
+    exit($response);
+}
+
+if (isset($_POST['request'])){
+    $response = '<ul><li>No data found</li><ul>';
+
+    $q = $con->real_escape_string($_POST['g']);
+
+    $sql = $con->query("SELECT DISTINCT govtypename from govtype  WHERE govtypename LIKE '%$q%'");
+    if($sql->num_rows > 0) {
+
+        $response = "<ul>";
+
+        while($data = $sql->fetch_array())
+        $response .= "<li>".$data['govtypename']."</li>";
+
+        $response .= "</ul>";
+    }
+
+    exit($response);
+}
+
+
+if (isset($_POST['checkdata'])){
+    $response = '<ul><li>No data found</li><ul>';
+
+    $q = $con->real_escape_string($_POST['p']);
+
+    $sql = $con->query("SELECT DISTINCT PublicBodyNameFormal from addresses  WHERE PublicBodyNameFormal LIKE '%$q%'");
+    if($sql->num_rows > 0) {
+
+        $response = "<ul>";
+
+        while($data = $sql->fetch_array())
+        $response .= "<li>".$data['PublicBodyNameFormal']."</li>";
+
+        $response .= "</ul>";
+    }
+
+    exit($response);
+}
+
+
+
+?>
+<?php 
+
 $title = "Search Database";
 
 include('header.php'); 
 
 ?>
 
+
+
+
 <!--no print div class -->
 <div class="noprint">
 
-    <!--header image--><!--
+    <!--header image-->
+    <!--
     <img src="images/search.jpg" alt="" class="back-image">
     -->
 
     <!-- page title-->
     <div class="container">
-      <!--  <h2 class="page-title blue">
+        <!--  <h2 class="page-title blue">
             Search Database
         </h2>
         <hr width="15%" class="page-title-line">
@@ -24,7 +94,7 @@ include('header.php');
         <!--table for ballot-->
 
         <div class="search-screen">
-            <form method="POST" class="screen-border">
+            <form method="POST" class="search-border">
 
                 <h1 class="search-head">ILGov Database</h1>
                 <div class="row">
@@ -74,16 +144,17 @@ include('header.php');
                                     <td width="30%">
                                         <label for="part" class="search-three">Part of Name</label>
                                     </td>
-                                    <td width="70%" >
-                                        <input type='text' name='publicaddress' value='' id="#auto" class='form-control' placeholder="&#61442;">
-                                       
+                                    <td width="70%">
+                                        <input type='text' name='pbdnf' class='form-control' placeholder="&#61442;" id="pbdnf">
+                                        <div id="bodyResponse"></div>
+
                                     </td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
                 </div>
-                              
+
                 <!-- fourth row-->
                 <div class="row">
                     <div class="col-md-12">
@@ -95,36 +166,18 @@ include('header.php');
                                         <label for="sort-as" class="search-three">Alternate name</label>
                                     </td>
                                     <td width="35%">
-                                        <select name="sort_as" class="form-control">
-
-                                            <option> Alternate Name </option>
-
-                                            <?php
-
-                                                $get_kty = "select DISTINCT NameSimple from governments";
-                                                $run_kty = mysqli_query($con , $get_kty);
-
-                                                while ($row_kty=mysqli_fetch_array($run_kty)){
-
-                                                    $namesimple = $row_kty['NameSimple'];
-
-                                                    echo "
-                                                    
-                                        <option value='$namesimple'> $namesimple </option>
-                                                    
-                                                    ";
-                                                }
-
-                                                ?>
-                                        </select>
+                                    <input type="text" name="nameSimple" class="form-control"
+                                            placeholder="&#61442;" id="nameSimple" >
+                                    <div id="response"></div>
                                     </td>
 
                                     <td width="15%">
                                         <label for="part" class="search-three">GovType</label>
                                     </td>
                                     <td width="35%">
-                                        <input type="text" name="part" id="#" class="form-control"
-                                            placeholder="&#61442;">
+                                        <input type="text" name="govType" class="form-control"
+                                            placeholder="&#61442;" id="govType">
+                                            <div id="govResponse"></div>
                                     </td>
                                 </tr>
                             </tbody>
@@ -286,7 +339,6 @@ include('header.php');
         </div>
     </div>
 
-
     <!--print end-->
 </div>
 
@@ -435,15 +487,5 @@ include('header.php');
    
 ?>
 
-    <?php include('footer.php'); ?>
-    <script type="text/javascript">
-                 $(function() {
-                                    
-                //autocomplete
-                    $("#auto").autocomplete({
-                         source: "ajax-search.php",
-                         minLength: 1
-                         });                
-
-                        });
-         </script>
+<?php include('footer.php');?>
+   
