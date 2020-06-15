@@ -61,7 +61,7 @@
                        url:'search.php',
                        method:'POST',
                        data: {
-                           search: 1,
+                           checkBase: 1,
                            q: query
                        },
                        success: function(data) {

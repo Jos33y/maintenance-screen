@@ -3,7 +3,8 @@
 
 
 include('dbcon.php');
-if (isset($_POST['search'])){
+
+if (isset($_POST['checkBase'])){
     $response = '<ul><li>No data found</li><ul>';
 
     $q = $con->real_escape_string($_POST['q']);
@@ -22,7 +23,7 @@ if (isset($_POST['search'])){
     exit($response);
 }
 
-if (isset($_POST['request'])){
+elseif(isset($_POST['request'])){
     $response = '<ul><li>No data found</li><ul>';
 
     $q = $con->real_escape_string($_POST['g']);
@@ -42,7 +43,8 @@ if (isset($_POST['request'])){
 }
 
 
-if (isset($_POST['checkdata'])){
+
+elseif(isset($_POST['checkdata'])){
     $response = '<ul><li>No data found</li><ul>';
 
     $q = $con->real_escape_string($_POST['p']);
@@ -287,6 +289,7 @@ include('header.php');
                         </div>
                     </div>
                 </div>
+                <!-- end of form -->
             </form>
 
         </div>
@@ -348,11 +351,15 @@ include('header.php');
 
     $govid = $_POST['govid'];
 
+    $pbdnf = $_POST['pbdnf'];
+
+    $nameSimple = $_POST['nameSimple'];
+
+    $govType =  $_POST['govType'];
+
     $home_kty = $_POST['home_kty'];
 
     $fullspan_kty = $_POST['fullspan_kty'];
-
-    $sort_as = $_POST['sort_as'];
 
     $_SESSION['govid'] = $govid;
     /* Govid Search */
@@ -369,7 +376,7 @@ include('header.php');
 
 
 <div class="sty">
-    <button style="margin: 20px; font-weight: 600;" onclick="window.print()" class="btn btn-md btn-danger">Print this
+    <button style="margin: 20px; font-weight: 600;" onclick="window.print()" class="btn btn-sm btn-danger">Print this
         page</button>
     <table class="table border-bottom border">
         <thead>
@@ -433,13 +440,15 @@ include('header.php');
 
             <!--sort as search -->
             <?php
-              if($sort_as){
+              if($nameSimple){
                 $i = 0;
 
-                $get_governments = "select * from governments where NameSimple = '$sort_as'";
-                $run_governments = mysqli_query($con, $get_governments);
+                $get_governments = "select * from governments where NameSimple = '$nameSimple'";
+                $run_governments = mysqli_query($con, $get_governments);                 
 
                 while ($row = mysqli_fetch_array($run_governments)){
+
+                    $rowcount=mysqli_num_rows($run_governments);
                     $gid = $row['id'];
                     $gvid = $row['GovId'];
                     $cmpid = $row['ComptrollerID'];
@@ -451,6 +460,8 @@ include('header.php');
                     $khnbr = $row['KtyHomeNbr'];
                     $khab = $row['KtyHomeAbb'];
                     $i++;
+
+                    if($rowcount >= '2'){  
             
                
         ?>
@@ -469,7 +480,15 @@ include('header.php');
                 <td><?php echo $khab; ?> </td>
             </tr>
 
-            <?php } } ?>
+            <?php }
+        
+        elseif($rowcount == 1){
+
+            echo "<script>window.open('search-result.php?govid=$gvid', '_self')</script>";
+            
+        }
+        
+        } } ?>
 
 
         </tbody>
