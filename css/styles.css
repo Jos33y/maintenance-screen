@@ -646,3 +646,11 @@ li:hover {
 .time{
     font-size: 11px;
 }
+
+
+/* same as style */
+
+.search-res .form-check{
+    font-size: 7px;
+    font-weight: 500;
+}

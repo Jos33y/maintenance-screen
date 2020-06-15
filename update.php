@@ -330,7 +330,14 @@ include('header.php');
                 <table class="table table-borderless text-white">
                     <tbody class="search-res">
                         <tr>
-                            <td width="11%"><span class="address-text">Mailing</span></td>
+                            <td width="11%"><span class="address-text">Mailing
+
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                <input type="checkbox" class="form-check-input"  value="">same as physical
+                                </label>
+                            </div>
+                            </span></td>
                             <td width="54%">
                                 <label for="gov" class="sr-only"> Mailing Address </label>
                                 <input type="text" class="form-control" name="Maddress"  value="<?php echo $hqmaddress ;?>" required placeholder="address">
@@ -367,7 +374,13 @@ include('header.php');
                 <table class="table table-borderless text-white">
                     <tbody class="search-res">
                         <tr>
-                            <td width="11%"><span class="address-text">FOIA</span></td>
+                            <td width="11%"><span class="address-text">FOIA
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                <input type="checkbox" class="form-check-input"  value="">same as Mailing
+                                </label>
+                            </div>
+                            </span></td>
                             <td width="74%">
                                 <label for="gov" class="sr-only"> Mailing Address </label>
                                 <input type="text" class="form-control" name="Faddress"  value="<?php echo $foiaeaddress ;?>" required placeholder="">
