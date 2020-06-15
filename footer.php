@@ -19,7 +19,7 @@
 
                 var query =  $("#pbdnf").val();
 
-                if(query.length > 2){
+                if(query.length > 1){
                
                $.ajax(
                    {
@@ -38,7 +38,7 @@
       }
             });
 
-            $(document).on('click', 'li', function() {
+            $(document).on('click', 'li.pbdnf', function() {
                 var pbdnf = $(this).text();
                 $("#pbdnf").val(pbdnf);
                 $("#bodyResponse").html("");
@@ -54,7 +54,7 @@
 
                 var query =  $("#nameSimple").val();
 
-                if(query.length > 2){
+                if(query.length > 1){
                
                $.ajax(
                    {
@@ -73,7 +73,7 @@
       }
             });
 
-            $(document).on('click', 'li', function() {
+            $(document).on('click', 'li.name',  function() {
                 var namesimple = $(this).text();
                 $("#nameSimple").val(namesimple);
                 $("#response").html("");
@@ -89,7 +89,7 @@
 
                 var query =  $("#govType").val();
 
-                if(query.length > 2){
+                if(query.length > 1){
                
                     $.ajax(
                         {
@@ -108,7 +108,7 @@
            }
             });
 
-             $(document).on('click', 'li', function() {
+             $(document).on('click', 'li.gname', function() {
                 var govtype = $(this).text();
                 $("#govType").val(govtype);
                 $("#govResponse").html("");
