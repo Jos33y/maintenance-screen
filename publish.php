@@ -833,9 +833,9 @@ $query_update = mysqli_query($con, $sql_update) or  die(mysqli_error($con));
     hqemail, hqphysicaladdress, hqphysicalcity, hqmailingzip, hqphone, hqmailingaddress, hqmailingcity, hqstate, Femail, Fmailingaddress,
      Fphone, Fphysicaladdress, Fmailingcity, Fstate, Fmailingzip, govtypename, webgroup, ballotgroupid, investiture, ktyabb, fullspan) 
 
-     VALUES ('$gvid', '$cmpid', '$rev', '$othertypeid', '$othertypecode', '$sort_as', '$newpbdnf', '$gvtype', '$newweburl', '$newpemail',
-     '$newpaddress', '$newpcity', '$hqmzip', '$newpphone', '$newmaddress', '$newmcity', '$hqstate', '$newfemail', '$newfaddress', 
-     '$newfphone', '$newfaddress', '$newmcity', '$foiastate', '$foiamzip', '$gvtypename', '$webgrp', '$bgrpid', '$investiture', '$ktyabb', '$fullspan')
+     VALUES ('$gvid', '$cmpid', '$rev', '$othertypeid', '$othertypecode', '$sort_as', '$pbdnfm', '$gvtype', '$weburl', '$hqemail',
+     '$hqpaddress', '$hqpcity', '$hqmzip', '$hqphone', '$hqmaddress', '$hqmcity', '$hqstate', '$foiaemail', '$foiaeaddress', 
+     '$foiaphone', '$foiapaddress', '$foiamcity', '$foiastate', '$foiamzip', '$gvtypename', '$webgrp', '$bgrpid', '$investiture', '$ktyabb', '$fullspan')
     ";
 
 $query_insert = mysqli_query($con, $sql_insert) or  die(mysqli_error($con));
