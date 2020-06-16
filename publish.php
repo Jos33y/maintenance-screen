@@ -822,7 +822,7 @@ if(isset($_POST['confirm'])){
    HQemail = '$newpemail', HQphysicalAddress = '$newpaddress', HQphysicalCity = '$newpcity', HQphone = '$newpphone',
    HQmailingAddress = '$newmaddress', HQmailingCity = '$newmcity', FoiaEmail = '$newfemail',
    FoiaMailingAddress = '$newfaddress', FoiaPhone = '$newfphone', FoiaPhysicalAddress = '$newfaddress',
-   FoiaMailingCity = '$newmcity'
+   FoiaMailingCity = '$newmcity', timestamp = NOW()
    WHERE GovId = '$gvid'
     ";
 

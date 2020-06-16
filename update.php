@@ -4,7 +4,6 @@ include('dbcon.php');
 include('header.php'); 
 
 ?>
-
 <?php
 //GET SESSION OF OLD VARIABLES 
  
@@ -273,12 +272,12 @@ include('header.php');
                             <td width="11%"><span class="address-text">Physical</span></td>
                             <td width="54%">
                                 <label for="gov" class="sr-only"> Physical Address </label>
-                                <input type="text" class="form-control"name="paddress"value="<?php echo $hqpaddress ;?>" required placeholder="">
+                                <input type="text" id="myAddress" class="form-control"name="paddress"value="<?php echo $hqpaddress ;?>" required placeholder="">
                                 <td />
 
                             <td width="20%">
                                 <label for="gov" class="sr-only">City </label>
-                                <input type="text" class="form-control" name="pcity" value="<?php echo $hqpcity ;?>" required placeholder="">
+                                <input type="text" id="myCity" class="form-control" name="pcity" value="<?php echo $hqpcity ;?>" required placeholder="">
                             </td>
 
                             <td width="6%">
@@ -307,13 +306,13 @@ include('header.php');
                         <tr>
                             <td width="11%"></td>
                             <td width="20%"><span class="address-text">Phone</span>
-                                <input type="text" class="form-control" name="pphone"  value="<?php echo $hqphone ;?>" required placeholder="">
+                                <input type="text" id="myPhone" class="form-control" name="pphone"  value="<?php echo $hqphone ;?>" required placeholder="">
                             </td>
                             <td><span class="address-text">Email</span>
-                                <input type="text" class="form-control" name="pemail"  value="<?php echo $hqemail ;?>" required placeholder="">
+                                <input type="text" id="myEmail" class="form-control" name="pemail"  value="<?php echo $hqemail ;?>" required placeholder="">
                             </td>
                             <td width="35%"><span class="address-text">Website</span>
-                                <input type="text" class="form-control" name="weburl" value="<?php echo $weburl ;?>" placeholder="">
+                                <input type="text" id="myWeburl" class="form-control" name="weburl" value="<?php echo $weburl ;?>" placeholder="">
                             </td>
                         </tr>
                     </tbody>
@@ -334,18 +333,18 @@ include('header.php');
 
                             <div class="form-check">
                                 <label class="form-check-label">
-                                <input type="checkbox" class="form-check-input"  value="">same as physical
+                                <input type="checkbox" id="checkMail" class="form-check-input"  value="">same as physical
                                 </label>
                             </div>
                             </span></td>
                             <td width="54%">
                                 <label for="gov" class="sr-only"> Mailing Address </label>
-                                <input type="text" class="form-control" name="Maddress"  value="<?php echo $hqmaddress ;?>" required placeholder="address">
+                                <input type="text" id="mAddress"  class="form-control" name="Maddress"  value="<?php echo $hqmaddress ;?>" required placeholder="">
                                 <td />
 
                             <td width="20%">
                                 <label for="gov" class="sr-only">City </label>
-                                <input type="text" class="form-control" name="Mcity"  value="<?php echo $hqmcity ;?>" required placeholder=" ">
+                                <input type="text" id="mCity" class="form-control" name="Mcity"  value="<?php echo $hqmcity ;?>" required placeholder=" ">
                             </td>
 
                             <td width="6%">
@@ -377,13 +376,13 @@ include('header.php');
                             <td width="11%"><span class="address-text">FOIA
                             <div class="form-check">
                                 <label class="form-check-label">
-                                <input type="checkbox" class="form-check-input"  value="">same as Mailing
+                                <input type="checkbox" id="checkFoia" class="form-check-input"  value="">same as Mailing
                                 </label>
                             </div>
                             </span></td>
                             <td width="74%">
                                 <label for="gov" class="sr-only"> Mailing Address </label>
-                                <input type="text" class="form-control" name="Faddress"  value="<?php echo $foiaeaddress ;?>" required placeholder="">
+                                <input type="text" id="fAddress"  class="form-control" name="Faddress"  value="<?php echo $foiaeaddress ;?>" required placeholder="">
                                 <td />
 
                             <td width="6%">
@@ -413,13 +412,13 @@ include('header.php');
                         <tr>
                             <td width="11%"></td>
                             <td width="20%"><span class="address-text">FOIA Phone</span>
-                                <input type="text" class="form-control" name="Fphone"  value="<?php echo $foiaphone ;?>" required placeholder="">
+                                <input type="text" id="Fphone" class="form-control" name="Fphone"  value="<?php echo $foiaphone ;?>" required placeholder="">
                             </td>
                             <td><span class="address-text">FOIA Email</span>
-                                <input type="text" class="form-control" name="Femail"  value="<?php echo $foiaemail ;?>" required placeholder="">
+                                <input type="text" id="Femail" class="form-control" name="Femail"  value="<?php echo $foiaemail ;?>" required placeholder="">
                             </td>
                             <td width="35%"><span class="address-text">FOIA Website</span>
-                                <input type="text" class="form-control" name="weburl" value="<?php echo $weburl ;?>" placeholder="">
+                                <input type="text" id="Fweburl" class="form-control" name="weburl" value="<?php echo $weburl ;?>" placeholder="">
                             </td>
                         </tr>
                     </tbody>

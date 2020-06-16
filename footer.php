@@ -118,6 +118,55 @@
       
     </script>
 
+<script>
+$(document).ready(function(){   
+
+    $('#checkMail').click(function(){
+        // Print entered value in a div box
+        $("#myAddress").on("input", function(){
+        var same = $(this).val();
+        $("#mAddress").val(same);
+       
+    });
+
+    $("#myCity").on("input", function(){
+        var same = $(this).val();
+        $("#mCity").val(same);
+       
+    });
+});
+
+
+$('#checkFoia').click(function(){
+    $("#myAddress").on("input", function(){
+    var same = $(this).val();
+    $("#fAddress").val(same);
+
+});
+
+$("#myPhone").on("input", function(){
+        var same = $(this).val();
+        $("#Fphone").val(same);
+       
+    });
+
+    $("#myEmail").on("input", function(){
+        var same = $(this).val();
+        $("#Femail").val(same);
+       
+    });
+
+    $("#myWeburl").on("input", function(){
+        var same = $(this).val();
+        $("#Fweburl").val(same);
+       
+    });
+
+});
+
+});
+</script>
+
     </body>
 
     </html>
