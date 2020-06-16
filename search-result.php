@@ -442,7 +442,7 @@ include('header.php');
                         <tr>
                             <td width="11%"><span class="address-text">Cross References</span> </td>
 
-                            <td width="15%">
+                            <td width="18%">
                                 <span class="address-text">Revenue</span>
                                 <input type="text" class="form-control" id="" value="<?php echo $rev ;?>" readonly>
                             </td>
