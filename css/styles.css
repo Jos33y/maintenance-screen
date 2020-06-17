@@ -179,7 +179,7 @@ body {
     margin-right: 8%;
     margin-left: 8%;
     color: #ffffff;
-    background-color: #99116e;
+    background-color: #281199;
     padding: 2%;
 }
 
@@ -187,7 +187,7 @@ body {
     margin-right: 8%;
     margin-left: 8%;
     color: #ffffff;
-    background-color: #281199;
+    background-color: #99116e;
     padding: 2%;
 }
 
@@ -437,7 +437,8 @@ footer {
     border-radius: 0;
 
 }
-.version .btn.btn-success{
+
+.version .btn.btn-success {
     text-align: center;
     font-size: 12px;
     font-weight: 600;
@@ -607,7 +608,7 @@ footer {
     font-weight: 700;
 }
 
-.publish-mod-border .empty input{
+.publish-mod-border .empty input {
     background-color: transparent;
     color: transparent;
     border-color: transparent;
@@ -643,14 +644,14 @@ li:hover {
     color: #fff;
 }
 
-.time{
+.time {
     font-size: 11px;
 }
 
 
 /* same as style */
 
-.search-res .form-check{
+.search-res .form-check {
     font-size: 7px;
     font-weight: 500;
 }

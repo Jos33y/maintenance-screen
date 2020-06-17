@@ -2,6 +2,7 @@
 $title = "Screen Mode";
 include('dbcon.php');
 include('header.php'); 
+session_destroy();
 
 ?>
 
@@ -305,13 +306,13 @@ include('header.php');
                         <tr>
                             <td width="11%"></td>
                             <td width="20%"><span class="address-text">Phone</span>
-                                <input type="text" class="form-control" id="" value="<?php echo $hqphone ;?>" readonly>
+                                <input type="tel" class="form-control" id=""  pattern="([0-9]{3}) [0-9]{3}-[0-9]{4}" value="<?php echo $hqphone ;?>" readonly>
                             </td>
                             <td><span class="address-text">Email</span>
                                 <input type="text" class="form-control" id="" value="<?php echo $hqemail ;?>" readonly>
                             </td>
                             <td width="35%"><span class="address-text">Website</span>
-                                <input type="text" class="form-control" name="website" value="<?php echo $weburl ;?>" readonly>
+                                <input type="url" class="form-control" name="website" value="<?php echo $weburl ;?>" readonly>
                             </td>
                         </tr>
                     </tbody>
@@ -404,7 +405,7 @@ include('header.php');
                                 <input type="text" class="form-control" id="" value="<?php echo $foiaemail ;?>" readonly>
                             </td>
                             <td width="35%"><span class="address-text">FOIA Website</span>
-                                <input type="text" class="form-control" name="website" value="<?php echo $weburl ;?>" readonly>
+                                <input type="url" class="form-control" name="website" value="<?php echo $weburl ;?>" readonly>
                             </td>
                         </tr>
                     </tbody>
@@ -451,16 +452,13 @@ include('header.php');
                                 <input type="text" class="form-control" id="" value="<?php echo $cmpid ;?>" readonly>
                             </td>
 
-                            <td width="7%"><span class="address-text"> <br></span>
-                                <input type="text" class="form-control" id="" value="<?php echo $othertypeid ;?>"
-                                    readonly>
-                                    <span class="address-note"></span>
-                            </td>
-
-                            <td width="20%"><span class="address-text">Other</span>
-                                <input type="text" class="form-control" id="" value="<?php echo $othertypecode ;?>"
-                                    readonly>
-                                <span class="address-note">State Board of Education</span>
+                            <td width="25%"><span class="address-text"> Type </span><span class="address-text"> &nbsp;&nbsp; Other</span>
+                            <div class="form-inline">
+                                <input type="text" class="form-control col-sm-2" id="" value="<?php echo $othertypeid ;?>" readonly>
+                                    <input type="text" class="form-control col-sm-7" id="" value="<?php echo $othertypecode ;?>" readonly>
+                                    </div>
+                                    <span class="address-note">State Board of Education</span>                      
+                                
                             </td>
 
                             <td width="12%"></td>
@@ -496,13 +494,13 @@ include('header.php');
                         <tr>
                             <td width="11%"></td>
 
+                            <td width="12%"><span class="address-text">Parent Gov</span>
+                                <input type="text" class="form-control" id="" value="<?php echo $parent ;?>" readonly>
+                            </td>
+
                             <td width="7%"><span class="address-text">Dept</span>
                                 <input type="text" class="form-control" id="" value="<?php echo $dept ;?>" readonly>
                                 <span class="address-note"><?php echo $govfunction; ?></span>
-                            </td>
-
-                            <td width="12%"><span class="address-text">Parent Gov</span>
-                                <input type="text" class="form-control" id="" value="<?php echo $parent ;?>" readonly>
                             </td>
 
                             <td width="38%"></td>
@@ -624,8 +622,8 @@ include('header.php');
                 <table class="table">
                     <thead>
                         <tr>
-                            <th style="font-size: 13px;" id="ktynhead">County Name</th>
                             <th style="font-size: 13px;" id="ktyahead">County Abb</th>
+                            <th style="font-size: 13px;" id="ktynhead">County Name</th>     
                         </tr>
                     </thead>
                     <tbody>
@@ -643,8 +641,8 @@ include('header.php');
 
                                                 ?>
                         <tr>
-                            <td style="font-size: 13px;"><?php echo $ktyname;  ?></td>
                             <td style="font-size: 13px;"><?php echo $ktyabb . " " . "(". $code . ")"; ?></td>
+                            <td style="font-size: 13px;"><?php echo $ktyname;  ?></td>
                         </tr>
 
                         <?php } ?>
@@ -671,8 +669,8 @@ include('header.php');
                 <table class="table">
                     <thead>
                         <tr>
-                            <th style="font-size: 13px;" id="ktynhead">Gov Type Name</th>
                             <th style="font-size: 13px;" id="ktyahead">Gov Type Code</th>
+                            <th style="font-size: 13px;" id="ktynhead">Gov Type Name</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -689,8 +687,8 @@ include('header.php');
 
                                                 ?>
                         <tr>
-                            <td style="font-size: 13px;"><?php echo $govname;  ?></td>
                             <td style="font-size: 13px;"><?php echo $govcode;  ?></td>
+                            <td style="font-size: 13px;"><?php echo $govname;  ?></td>
                         </tr>
 
                         <?php } ?>
@@ -736,7 +734,7 @@ if(isset($_POST['previous'])){
         echo '
         <script>
             swal({
-                    title: "No Previous Data!",
+                    title: "No Previous Version!",
                     icon: "error",
                  });
     </script>

@@ -311,9 +311,8 @@ include('header.php');
                     <table class="table">
                         <thead>
                             <tr>
-                                <th style="font-size: 13px;" id="ktynhead">County Name</th>
                                 <th style="font-size: 13px;" id="ktyahead">County Abb</th>
-                            </tr>
+                                <th style="font-size: 13px;" id="ktynhead">County Name</th>                            </tr>
                         </thead>
                         <tbody>
                             <?php
@@ -330,8 +329,8 @@ include('header.php');
 
                                                 ?>
                             <tr>
-                                <td style="font-size: 13px;"><?php echo $ktyname;  ?></td>
                                 <td style="font-size: 13px;"><?php echo $ktyabb . " " . "(". $code . ")";  ?></td>
+                                <td style="font-size: 13px;"><?php echo $ktyname;  ?></td>
                             </tr>
 
                             <?php } ?>

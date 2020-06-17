@@ -93,6 +93,24 @@ include('header.php');
 
     $version_link =" ";
 
+     /** COde to get Session  
+     if(isset($_POST['cancel'])){
+     $pbdnf  = $_SESSION["newpbdnf"];  
+     $hqpaddress  = $_SESSION["newpaddress"];   
+     $hqpcity  = $_SESSION["newpcity"];  
+     $hqphone  = $_SESSION["newpphone"];   
+     $hqemail  = $_SESSION["newpemail"];   
+     $weburl  = $_SESSION["newweburl"];   
+     $hqmaddress  = $_SESSION["newmaddress"];   
+     $hqmcity  = $_SESSION["newmcity"];  
+     $foiaeaddress  = $_SESSION["newfaddress"];   
+     $foiaphone  = $_SESSION["newfphone"];   
+     $foiaemail  = $_SESSION["newfemail"];   
+     $weburl  = $_SESSION["newweburl"];   
+
+     }
+     */
+
 }
 
     //THE CODE TO GET THE PREVIOUS VERISON OF ANY DATA 
@@ -306,7 +324,7 @@ include('header.php');
                         <tr>
                             <td width="11%"></td>
                             <td width="20%"><span class="address-text">Phone</span>
-                                <input type="text" id="myPhone" class="form-control" name="pphone"  value="<?php echo $hqphone ;?>" required placeholder="">
+                                <input type="tel" id="myPhone" class="form-control" name="pphone" id="phoneNumber" value="<?php echo $hqphone ;?>" required placeholder="">
                             </td>
                             <td><span class="address-text">Email</span>
                                 <input type="text" id="myEmail" class="form-control" name="pemail"  value="<?php echo $hqemail ;?>" required placeholder="">
@@ -632,8 +650,8 @@ include('header.php');
                 <table class="table">
                     <thead>
                         <tr>
-                            <th style="font-size: 13px;" id="ktynhead">County Name</th>
                             <th style="font-size: 13px;" id="ktyahead">County Abb</th>
+                            <th style="font-size: 13px;" id="ktynhead">County Name</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -651,8 +669,8 @@ include('header.php');
 
                                                 ?>
                         <tr>
-                            <td style="font-size: 13px;"><?php echo $ktyname;  ?></td>
                             <td style="font-size: 13px;"><?php echo $ktyabb . " " . "(". $code . ")";  ?></td>
+                            <td style="font-size: 13px;"><?php echo $ktyname;  ?></td>                        
                         </tr>
 
                         <?php } ?>
@@ -679,8 +697,8 @@ include('header.php');
                 <table class="table">
                     <thead>
                         <tr>
-                            <th style="font-size: 13px;" id="ktynhead">Gov Type Name</th>
                             <th style="font-size: 13px;" id="ktyahead">Gov Type Code</th>
+                            <th style="font-size: 13px;" id="ktynhead">Gov Type Name</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -697,8 +715,8 @@ include('header.php');
 
                                                 ?>
                         <tr>
-                            <td style="font-size: 13px;"><?php echo $govname;  ?></td>
                             <td style="font-size: 13px;"><?php echo $govcode;  ?></td>
+                            <td style="font-size: 13px;"><?php echo $govname;  ?></td>
                         </tr>
 
                         <?php } ?>
@@ -780,7 +798,7 @@ if(isset($_POST['previous'])){
         echo '
         <script>
             swal({
-                    title: "No Previous Data!",
+                    title: "No Previous Version!",
                     icon: "error",
                  });
     </script>

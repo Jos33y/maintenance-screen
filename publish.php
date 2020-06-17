@@ -251,7 +251,7 @@ include('header.php');
                               
                                     <div  class="<?php  if($pbdnfm == $newpbdnf){ echo "empty"; }else{echo "changed";} ?>"> 
 
-                                    <input type="text" class="form-control" id="" value="<?php echo $newpbdnf ;?>"
+                                    <input type="text" class="form-control" name="newpbdnf" value="<?php echo $newpbdnf ;?>"
                                         required pattern="\S+.*" placeholder=" "readonly>
                                 </div>
                             </td>
@@ -320,7 +320,7 @@ include('header.php');
                                 <input type="text" class="form-control" id="" value="<?php echo $hqpaddress ;?>"
                                     required placeholder="" readonly>
                                     <div  class="<?php  if($hqpaddress == $newpaddress){ echo "empty"; }else{echo "changed";} ?>"> 
-                                    <input type="text" class="form-control" id="" value="<?php echo $newpaddress ;?>"
+                                    <input type="text" class="form-control" name="newpaddress" value="<?php echo $newpaddress ;?>"
                                         required placeholder="" readonly>
                                 </div>
                                 <td />
@@ -331,7 +331,7 @@ include('header.php');
                                     placeholder="" readonly>
 
                                     <div  class="<?php  if($hqpcity == $newpcity){ echo "empty"; }else{echo "changed";} ?>"> 
-                                    <input type="text" class="form-control" id="" value="<?php echo $newpcity ;?>"
+                                    <input type="text" class="form-control" name="newpcity" value="<?php echo $newpcity ;?>"
                                         required placeholder="" readonly>
                                 </div>
                             </td>
@@ -345,7 +345,7 @@ include('header.php');
 
                             <td width="10%">
                                 <label for="gov" class="sr-only">Zip </label>
-                                <input type="text" class="form-control" id="" value="<?php echo $hqmzip ;?>" readonly
+                                <input type="text" class="form-control" value="<?php echo $hqmzip ;?>" readonly
                                     placeholder="" readonly>
                             </td>
 
@@ -368,7 +368,7 @@ include('header.php');
                                 <input type="text" class="form-control" id="" value="<?php echo $hqphone ;?>" required
                                     placeholder="" readonly>
                                     <div  class="<?php  if($hqphone == $newpphone){ echo "empty"; }else{echo "changed";} ?>"> 
-                                    <input type="text" class="form-control" id="" value="<?php echo $newpphone ;?>"
+                                    <input type="text" class="form-control" name="newpphone" value="<?php echo $newpphone ;?>"
                                         required placeholder="" readonly>
                                 </div>
                             </td>
@@ -376,7 +376,7 @@ include('header.php');
                                 <input type="text" class="form-control" id="" value="<?php echo $hqemail ;?>" required
                                     placeholder="" readonly>
                                     <div  class="<?php  if($hqemail == $newpemail){ echo "empty"; }else{echo "changed";} ?>"> 
-                                    <input type="text" class="form-control" id="" value="<?php echo $newpemail ;?>"
+                                    <input type="text" class="form-control" name="newpemail" value="<?php echo $newpemail ;?>"
                                         required placeholder="" readonly>
                                 </div>
                             </td>
@@ -409,7 +409,7 @@ include('header.php');
                                 <input type="text" class="form-control" id="" value="<?php echo $hqmaddress ;?>"
                                     required placeholder="" readonly>
                                     <div  class="<?php  if($hqmaddress == $newmaddress){ echo "empty"; }else{echo "changed";} ?>"> 
-                                    <input type="text" class="form-control" id="" value="<?php echo $newmaddress ;?>"
+                                    <input type="text" class="form-control" name="newmaddress" value="<?php echo $newmaddress ;?>"
                                         required placeholder="" readonly>
                                 </div>
                                 <td />
@@ -419,7 +419,7 @@ include('header.php');
                                 <input type="text" class="form-control" id="" value="<?php echo $hqmcity ;?>" required
                                     placeholder=" "readonly>
                                     <div  class="<?php  if($hqmcity == $newmcity){ echo "empty"; }else{echo "changed";} ?>"> 
-                                    <input type="text" class="form-control" id="" value="<?php echo $newmcity ;?>"
+                                    <input type="text" class="form-control" name="newmcity" value="<?php echo $newmcity ;?>"
                                         required placeholder="" readonly>
                                 </div>
                             </td>
@@ -458,7 +458,7 @@ include('header.php');
                                 <input type="text" class="form-control" id="" value="<?php echo $foiaeaddress ;?>"
                                     required placeholder="" readonly>
                                     <div  class="<?php  if($foiaeaddress == $newfaddress){ echo "empty"; }else{echo "changed";} ?>"> 
-                                    <input type="text" class="form-control" id="" value="<?php echo $newfaddress;?>"
+                                    <input type="text" class="form-control" name="newfaddress" value="<?php echo $newfaddress;?>"
                                         required placeholder="" readonly>
                                 </div>
                                 <td />
@@ -502,7 +502,7 @@ include('header.php');
                                 <input type="text" class="form-control" id="" value="<?php echo $foiaemail ;?>" required
                                     placeholder="" readonly>
                                     <div  class="<?php  if($foiaemail == $newfemail){ echo "empty"; }else{echo "changed";} ?>"> 
-                                    <input type="text" class="form-control" id="" value="<?php echo $newfemail ;?>"
+                                    <input type="text" class="form-control" name="newfemail" value="<?php echo $newfemail ;?>"
                                         required placeholder="" readonly>
                                 </div>
                             </td>
@@ -668,9 +668,8 @@ include('header.php');
 
                             <td>
                                 <br> <br>
-                                <a style="text-decoration: none;" class="btn btn-md btn-success"
-                                    href="update.php?govid=<?php echo $gvid ;?>">
-                                    <i class="fas fa-times"></i> Cancel</a>
+                                <button class="btn btn-md btn-success" name="cancel">
+                                    <i class="fas fa-times"></i> Cancel</button>
                             </td>
 
                             <td>
@@ -798,6 +797,59 @@ include('header.php');
 <?php include('footer.php'); ?>
 
 <?php  }  ?>
+
+
+<?php
+
+/* Code for Cancel Button */
+
+if($_GET['govid']){
+
+if(isset($_POST['cancel'])){
+
+    $_SESSION["newpbdnf"]   = $_POST['pbdnf'];
+    $_SESSION["newpaddress"]   = $_POST['paddress'];
+    $_SESSION["newpcity"]   = $_POST['pcity'];
+    $_SESSION["newpphone"]   = $_POST['pphone'];
+    $_SESSION["newpemail"]   = $_POST['pemail'];
+    $_SESSION["newweburl"]   = $_POST['website'];
+    $_SESSION["newmaddress"]   = $_POST['Maddress'];
+    $_SESSION["newmcity"]   = $_POST['Mcity'];
+    $_SESSION["newfaddress"]   = $_POST['Faddress'];
+    $_SESSION["newfphone"]   = $_POST['Fphone'];
+    $_SESSION["newfemail"]   = $_POST['Femail'];
+    $_SESSION["newweburl"]   = $_POST['website'];
+
+echo "<script>window.open('update.php?govid=$gvid', '_self')</script>";
+}
+}
+
+ elseif($_GET['previd']){
+ if(isset($_POST['cancel'])){
+
+
+    $_SESSION["newpbdnf"]   = $_POST['pbdnf'];
+    $_SESSION["newpaddress"]   = $_POST['paddress'];
+    $_SESSION["newpcity"]   = $_POST['pcity'];
+    $_SESSION["newpphone"]   = $_POST['pphone'];
+    $_SESSION["newpemail"]   = $_POST['pemail'];
+    $_SESSION["newweburl"]   = $_POST['weburl'];
+    $_SESSION["newmaddress"]   = $_POST['Maddress'];
+    $_SESSION["newmcity"]   = $_POST['Mcity'];
+    $_SESSION["newfaddress"]   = $_POST['Faddress'];
+    $_SESSION["newfphone"]   = $_POST['Fphone'];
+    $_SESSION["newfemail"]   = $_POST['Femail'];
+    $_SESSION["newweburl"]   = $_POST['weburl'];
+    
+    echo "<script>window.open('update.php?previd=$gvid', '_self')</script>"; 
+
+    }
+
+}
+
+
+
+?>
 
 <?php
 if(isset($_POST['confirm'])){
