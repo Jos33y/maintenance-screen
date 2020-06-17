@@ -252,7 +252,7 @@ include('header.php');
                                     <div  class="<?php  if($pbdnfm == $newpbdnf){ echo "empty"; }else{echo "changed";} ?>"> 
 
                                     <input type="text" class="form-control" name="newpbdnf" value="<?php echo $newpbdnf ;?>"
-                                        required pattern="\S+.*" placeholder=" "readonly>
+                                        required pattern="\S+.*" placeholder=" ">
                                 </div>
                             </td>
 
@@ -321,7 +321,7 @@ include('header.php');
                                     required placeholder="" readonly>
                                     <div  class="<?php  if($hqpaddress == $newpaddress){ echo "empty"; }else{echo "changed";} ?>"> 
                                     <input type="text" class="form-control" name="newpaddress" value="<?php echo $newpaddress ;?>"
-                                        required placeholder="" readonly>
+                                        required placeholder="">
                                 </div>
                                 <td />
 
@@ -332,7 +332,7 @@ include('header.php');
 
                                     <div  class="<?php  if($hqpcity == $newpcity){ echo "empty"; }else{echo "changed";} ?>"> 
                                     <input type="text" class="form-control" name="newpcity" value="<?php echo $newpcity ;?>"
-                                        required placeholder="" readonly>
+                                        required placeholder="">
                                 </div>
                             </td>
 
@@ -377,7 +377,7 @@ include('header.php');
                                     placeholder="" readonly>
                                     <div  class="<?php  if($hqemail == $newpemail){ echo "empty"; }else{echo "changed";} ?>"> 
                                     <input type="text" class="form-control" name="newpemail" value="<?php echo $newpemail ;?>"
-                                        required placeholder="" readonly>
+                                        required placeholder="">
                                 </div>
                             </td>
                             <td width="35%"><span class="address-text">Website</span>
@@ -385,7 +385,7 @@ include('header.php');
                                     placeholder="" readonly>
                                     <div  class="<?php  if($weburl == $newweburl){ echo "empty"; }else{echo "changed";} ?>"> 
                                     <input type="text" class="form-control" name="website"
-                                        value="<?php echo $newweburl;?>" placeholder="" readonly>
+                                        value="<?php echo $newweburl;?>" placeholder="">
                                 </div>
                             </td>
                         </tr>
@@ -410,7 +410,7 @@ include('header.php');
                                     required placeholder="" readonly>
                                     <div  class="<?php  if($hqmaddress == $newmaddress){ echo "empty"; }else{echo "changed";} ?>"> 
                                     <input type="text" class="form-control" name="newmaddress" value="<?php echo $newmaddress ;?>"
-                                        required placeholder="" readonly>
+                                        required placeholder="" >
                                 </div>
                                 <td />
 
@@ -420,7 +420,7 @@ include('header.php');
                                     placeholder=" "readonly>
                                     <div  class="<?php  if($hqmcity == $newmcity){ echo "empty"; }else{echo "changed";} ?>"> 
                                     <input type="text" class="form-control" name="newmcity" value="<?php echo $newmcity ;?>"
-                                        required placeholder="" readonly>
+                                        required placeholder="">
                                 </div>
                             </td>
 
@@ -459,7 +459,7 @@ include('header.php');
                                     required placeholder="" readonly>
                                     <div  class="<?php  if($foiaeaddress == $newfaddress){ echo "empty"; }else{echo "changed";} ?>"> 
                                     <input type="text" class="form-control" name="newfaddress" value="<?php echo $newfaddress;?>"
-                                        required placeholder="" readonly>
+                                        required placeholder="">
                                 </div>
                                 <td />
 
@@ -495,7 +495,7 @@ include('header.php');
                                     placeholder="" readonly>
                                     <div  class="<?php  if($foiaphone == $newfphone){ echo "empty"; }else{echo "changed";} ?>"> 
                                     <input type="text" class="form-control" id="" value="<?php echo $newfphone ;?>"
-                                        required placeholder="" readonly>
+                                        required placeholder="">
                                 </div>
                             </td>
                             <td><span class="address-text">FOIA Email</span>
@@ -503,7 +503,7 @@ include('header.php');
                                     placeholder="" readonly>
                                     <div  class="<?php  if($foiaemail == $newfemail){ echo "empty"; }else{echo "changed";} ?>"> 
                                     <input type="text" class="form-control" name="newfemail" value="<?php echo $newfemail ;?>"
-                                        required placeholder="" readonly>
+                                        required placeholder="" >
                                 </div>
                             </td>
                             <td width="35%"><span class="address-text">FOIA Website</span>
@@ -511,7 +511,7 @@ include('header.php');
                                     placeholder="" readonly>
                                     <div  class="<?php  if($weburl == $newweburl){ echo "empty"; }else{echo "changed";} ?>"> 
                                     <input type="text" class="form-control" name="website"
-                                        value="<?php echo $newweburl;?>" placeholder="" readonly>
+                                        value="<?php echo $newweburl;?>" placeholder="">
                                 </div>
                             </td>
                         </tr>

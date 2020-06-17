@@ -15,6 +15,7 @@ body {
     font-family: 'Roboto', sans-serif;
     color: #4f4e4b;
     background-color: #f2f1f6;
+    overflow-x: hidden;
 
 }
 
@@ -131,7 +132,7 @@ body {
 /** Ballot STyles **/
 
 .logo {
-    margin-left: 40px;
+    margin-left: 10px;
     width: 25px;
     height: 25px;
 }
@@ -167,6 +168,8 @@ body {
 
 /* Border STyles */
 .search-border {
+    margin-top: 5%;
+    margin-right: 10%;
     color: #ffffff;
     background-color: #4a73f9;
     border: 2px solid #333436;
@@ -176,19 +179,22 @@ body {
 }
 
 .screen-border {
-    margin-right: 8%;
-    margin-left: 8%;
+    margin-top: 5px;
+    margin-right: 10%;
     color: #ffffff;
     background-color: #281199;
-    padding: 2%;
+    padding: 1%;
+    height: 100%;
 }
 
 .update-border {
-    margin-right: 8%;
+    margin-top: 5px;
+    margin-right: 10%;
     margin-left: 8%;
     color: #ffffff;
     background-color: #99116e;
-    padding: 2%;
+    padding: 1%;
+    height: 100%;
 }
 
 .btn.btn-save {
@@ -323,7 +329,6 @@ footer {
 .search-three .fas {
     color: #ffff00;
     font-size: 10px;
-    margin-bottom: 13px;
 }
 
 .search-three .btn.btn-outline-light {
@@ -400,7 +405,7 @@ footer {
 
 
 .address-text {
-    font-size: 13px;
+    font-size: 11px;
     color: #fff;
     font-weight: 600;
     letter-spacing: 1px;
@@ -423,14 +428,14 @@ footer {
 /** Search Type **/
 
 .version {
-    font-size: 15px;
+    font-size: 13px;
     font-weight: 600;
     margin-left: 2%;
 }
 
 .version .btn.btn-danger {
     text-align: center;
-    font-size: 12px;
+    font-size: 11px;
     font-weight: 600;
     letter-spacing: 1px;
     border-color: #0d0d0e;
@@ -438,9 +443,10 @@ footer {
 
 }
 
+
 .version .btn.btn-success {
     text-align: center;
-    font-size: 12px;
+    font-size: 11px;
     font-weight: 600;
     letter-spacing: 1px;
     border-color: #0d0d0e;
@@ -450,13 +456,13 @@ footer {
 .version-time {
     margin-left: 3%;
     color: #ffff00;
-    font-size: 12px;
+    font-size: 11px;
     font-weight: 600;
 }
 
 .yellow-ballot {
     color: #ffff00;
-    font-size: 13px;
+    font-size: 10px;
     font-weight: 550;
     font-style: italic;
     letter-spacing: 0.5px;
@@ -466,7 +472,7 @@ footer {
 .search-rgov input {
     border: 2px solid #fff;
     border-radius: 0;
-    font-size: 22px;
+    font-size: 18px;
     font-weight: 700;
     padding-top: 0;
     padding-bottom: 0;
@@ -476,15 +482,14 @@ footer {
 .search-res input {
     border: 2px solid transparent;
     border-radius: 0;
-    font-size: 13px;
+    font-size: 11px;
     font-weight: 600;
-
 }
 
 .search-res textarea {
     border: 2px solid #fff;
     border-radius: 0;
-    font-size: 13px;
+    font-size: 11px;
     font-weight: 600;
 
 }
@@ -499,7 +504,10 @@ footer {
 .search-res .fas {
     color: #ffff00;
     font-size: 10px;
-    margin-bottom: 13px;
+}
+
+.table td {
+    padding: 2px;
 }
 
 .search-res .btn.btn-outline-light {
@@ -515,7 +523,7 @@ footer {
 }
 
 .search-result {
-    line-height: 15px;
+    line-height: 13px;
 }
 
 .search-result .row {
@@ -534,17 +542,17 @@ footer {
 .btn.btn-prev {
     color: #fff;
     text-align: center;
-    font-weight: 700;
-    font-size: 18px;
+    font-weight: 600;
+    font-size: 12px;
     text-transform: capitalize;
     letter-spacing: 1px;
     background-color: rgb(22, 18, 87);
     border-color: #0d0d0e;
     border-radius: 0;
-    padding-bottom: 5px;
-    padding-top: 5px;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-bottom: 3px;
+    padding-top: 3px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 .search-result-btn .btn.btn-warning,
@@ -552,16 +560,16 @@ footer {
 .btn-danger {
     color: #fff;
     text-align: center;
-    font-weight: 700;
-    font-size: 18px;
+    font-weight: 600;
+    font-size: 12px;
     text-transform: capitalize;
     letter-spacing: 1px;
     border-color: #0d0d0e;
     border-radius: 0;
-    padding-bottom: 5px;
-    padding-top: 5px;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-bottom: 3px;
+    padding-top: 3px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 

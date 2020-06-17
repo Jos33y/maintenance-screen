@@ -76,16 +76,7 @@ include('header.php');
 
 
 
-
-<!--no print div class -->
-<div class="noprint">
-
-    <!--header image-->
-    <!--
-    <img src="images/search.jpg" alt="" class="back-image">
-    -->
-
-    <!-- page title-->
+<div class="col-md-10">
     <div class="container">
         <!--  <h2 class="page-title blue">
             Search Database
