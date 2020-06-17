@@ -187,23 +187,7 @@ include('header.php');
 ?>
 
 <!--no print div -->
-<div class="noprint">
-    <!--header image-->
-<!--
-    <img src="images/screenblue.jpg" alt="" class="back-image">
-
-    <!-- page title-->
-    <!--
-    <div class="container">
-        <h2 class="page-title blue">
-            Update Mode
-        </h2>
-        <hr width="15%" class="page-title-line">
-
-    </div>
-</div>
-<!--table for ballot-->
-<div class="container-fluid">
+<div class="col-md-10">
     <form method="POST" class="update-border update search-result address">
 
         <!--row one-->
@@ -454,10 +438,29 @@ include('header.php');
                         <tr>
                             <td width="11%"><span class="address-text">Notes</span></td>
                             <td width="54%">
-                                <textarea name="comments" id="" cols="30" rows="3" class="form-control"
+                                <textarea name="comments" id="" cols="25" rows="2" class="form-control"
                                     readonly placeholder=""><?php echo $desc; ?></textarea>
                             </td>
-                            <td width="35%"></td>
+                            <td width="9%"></td>
+                                <td width="12%"><br>
+                                    <span class="address-text">Counties
+                                        <button type="button" class="btn btn-outline-light" data-toggle="modal"
+                                            data-target="#countyName">
+                                            <i class="fas fa-info-circle"></i>
+                                        </button>
+                                    </span></td>
+                                <td width="6%">
+                                    <span class="address-text">SEI</span>
+                                    <input type="text" class="form-control" id="" value="<?php echo $ktyabb;?>"
+                                        readonly placeholder="">
+                                </td>
+
+                                <td width="6%">
+                                    <span class="address-text">Home</span>
+                                    <input type="text" class="form-control" id="" value="<?php echo $ktyabb;?>"
+                                        readonly placeholder="">
+
+                                </td>
 
                         </tr>
                     </tbody>
@@ -475,104 +478,68 @@ include('header.php');
                             <td width="11%"><span class="address-text">Cross References</span> </td>
 
                             <td width="18%">
-                                <span class="address-text">Revenue</span>
-                                <input type="text" class="form-control" id="" value="<?php echo $rev ;?>" readonly placeholder="">
-                            </td>
+                                    <span class="address-text">Revenue</span>
+                                    <input type="text" class="form-control" id="" value="<?php echo $rev ;?>" readonly placeholder=""><br>
+                               
+                               
+                                <div class="form-inline">
+                                <span class="address-text">Parent Gov</span>  <span style="margin-left: 20%" class="address-text">Dept</span>
+                                    <input type="text" style="width: 55%;" class="form-control" id="" value="<?php echo $parent ;?>"
+                                        readonly placeholder="">
+                               
+                                    <input type="text" style="width: 40%;" class="form-control" id="" value="<?php echo $dept ;?>" readonly placeholder="">
+                                    <span style="margin-left: 57%" class="address-note"><?php echo $govfunction; ?></span>
+            </div>
+                                </td>
+
 
                             <td width="12%"><span class="address-text">Comptroller</span>
                                 <input type="text" class="form-control" id="" value="<?php echo $cmpid ;?>" readonly placeholder="">
                             </td>
 
-                            <td width="7%"><span class="address-text"> <br></span>
-                                <input type="text" class="form-control" id="" value="<?php echo $othertypeid ;?>"
-                                    readonly placeholder="">
-                               
-                            </td>
+                            <td width="25%"><span class="address-text"> Type </span><span class="address-text">
+                                        &nbsp;&nbsp; Other</span>
+                                    <div class="form-inline">
+                                        <input type="text" class="form-control col-sm-2" id=""
+                                            value="<?php echo $othertypeid ;?>" readonly placeholder="">
+                                        <input type="text" class="form-control col-sm-7" id=""
+                                            value="<?php echo $othertypecode ;?>" readonly placeholder="">
+                                    </div>
+                                    <span class="address-note">State Board of Education</span>
 
-                            <td width="20%"><span class="address-text">Other</span>
-                                <input type="text" class="form-control" id="" value="<?php echo $othertypecode ;?>"
-                                    readonly placeholder="">
-                                <span class="address-note">State Board of Education</span>
-                            </td>
+                                </td>
+           
+                                <td width="6%">
+                                    <input type="text" class="form-control" id="" value="" readonly placeholder="">
+                                    <input type="text" class="form-control" id="" value="" readonly placeholder="">
+                                    <input type="text" class="form-control" id="" value="" readonly placeholder="">
+                                    <input type="text" class="form-control" id="" value="" readonly placeholder="">
+                                </td>
+                                <td width="6%">
+                                    <input type="text" class="form-control" id="" value="" readonly placeholder="">
+                                    <input type="text" class="form-control" id="" value="" readonly placeholder="">
+                                    <input type="text" class="form-control" id="" value="" readonly placeholder="">
+                                    <input type="text" class="form-control" id="" value="" readonly placeholder="">
+                                </td>
 
-                            <td width="12%"></td>
-                            <td width="12%"><br>
-                                <span class="address-text">Counties
-                                    <button type="button" class="btn btn-outline-light" data-toggle="modal"
-                                        data-target="#countyName">
-                                        <i class="fas fa-info-circle"></i>
-                                    </button>
-                                </span></td>
-                            <td width="8%">
-                                <span class="address-text">SEI</span>
-                                <input type="text" class="form-control" id="" value="<?php echo $ktyabb;?>" readonly placeholder="">
-                            </td>
+                                <td width="6%">
+                                    <input type="text" class="form-control" id="" value="" readonly placeholder="">
+                                    <input type="text" class="form-control" id="" value="" readonly placeholder="">
+                                    <input type="text" class="form-control" id="" value="" readonly placeholder="">
+                                    <input type="text" class="form-control" id="" value="" readonly placeholder="">
+                                </td>
 
-                            <td width="8%">
-                                <span class="address-text">Home</span>
-                                <input type="text" class="form-control" id="" value="<?php echo $ktyabb;?>" readonly placeholder="">
-
-                            </td>
-
+                                <td width="6%">
+                                    <input type="text" class="form-control" id="" value="" readonly placeholder="">
+                                    <input type="text" class="form-control" id="" value="" readonly placeholder="">
+                                    <input type="text" class="form-control" id="" value="" readonly placeholder="">
+                                    <input type="text" class="form-control" id="" placeholder="&#61442;" readonly>
+                                </td>
                         </tr>
                     </tbody>
                 </table>
             </div>
         </div>
-        <!--row eight-->
-
-        <div class="row">
-            <div class="col-sm-12">
-                <table class="table table-borderless text-white">
-                    <tbody class="search-res">
-                        <tr>
-                            <td width="11%"></td>
-
-                            <td width="7%"><span class="address-text">Dept</span>
-                                <input type="text" class="form-control" id="" value="<?php echo $dept ;?>" readonly placeholder="">
-                                <span class="address-note"><?php echo $govfunction; ?></span>
-                            </td>
-
-                            <td width="12%"><span class="address-text">Parent Gov</span>
-                                <input type="text" class="form-control" id="" value="<?php echo $parent ;?>" readonly placeholder="">
-                            </td>
-
-                            <td width="38%"></td>
-                            <td width="8%">
-                                <input type="text" class="form-control" id="" value="" readonly placeholder="">
-                                <input type="text" class="form-control" id="" value="" readonly placeholder="">
-                                <input type="text" class="form-control" id="" value="" readonly placeholder="">
-                                <input type="text" class="form-control" id="" value="" readonly placeholder="">
-
-                            </td>
-
-                            <td width="8%">
-                                <input type="text" class="form-control" id="" value="" readonly placeholder="">
-                                <input type="text" class="form-control" id="" value="" readonly placeholder="">
-                                <input type="text" class="form-control" id="" value="" readonly placeholder="">
-                                <input type="text" class="form-control" id="" value="" readonly placeholder="">
-                            </td>
-
-                            <td width="8%">
-                                <input type="text" class="form-control" id="" value="" readonly placeholder="">
-                                <input type="text" class="form-control" id="" value="" readonly placeholder="">
-                                <input type="text" class="form-control" id="" value="" readonly placeholder="">
-                                <input type="text" class="form-control" id="" value="" readonly placeholder="">
-                            </td>
-
-                            <td width="8%">
-                                <input type="text" class="form-control" id="" value="" readonly placeholder="">
-                                <input type="text" class="form-control" id="" value="" readonly placeholder="">
-                                <input type="text" class="form-control" id="" value="" readonly placeholder="">
-                                <input type="text" class="form-control" id="" placeholder="&#61442;" readonly placeholder="">
-                            </td>
-
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
         <!--row ten-->
 
         <div class="row">
@@ -634,6 +601,7 @@ include('header.php');
 
 </div>
 
+</div>
 
 
 <!-- Modal for counties-->

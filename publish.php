@@ -202,29 +202,12 @@ include('header.php');
        }
 ?>
 
-<!--no print div -->
-<div class="noprint">
-    <!--header image-->
-<!--
-    <img src="images/screenblue.jpg" alt="" class="back-image">
 
-    <!-- page title-->
-
-    <!--
-    <div class="container">
-        <h2 class="page-title blue">
-            Publish Mode
-        </h2>
-        <hr width="15%" class="page-title-line">
-
-    </div>
-</div> -->
-<!--table for ballot-->
-<div class="container">
+<div class="col-md-10">
     <form method="POST" class="publish-mod-border publish search-result address">
 
         <!--row one-->
-        <h4 style="font-weight: 700; margin-bottom:2%;" class="text-center text-white">New Changes are indicated in red </h4>
+        <h6 style="font-weight: 700;" class="text-center text-white">New Changes are indicated in red </h6>
         <div class="row version">
            
             <div class="col-sm-2"></div>
@@ -696,7 +679,7 @@ include('header.php');
 
 </div>
 
-
+    </div>
 
 <!-- Modal for counties-->
 <!--

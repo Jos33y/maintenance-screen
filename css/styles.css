@@ -190,7 +190,6 @@ body {
 .update-border {
     margin-top: 5px;
     margin-right: 10%;
-    margin-left: 8%;
     color: #ffffff;
     background-color: #99116e;
     padding: 1%;
@@ -215,7 +214,7 @@ body {
 
 /** Footer STyle **/
 footer {
-    margin-top: 15%;
+    margin-top: 5%;
 }
 
 
@@ -604,6 +603,8 @@ footer {
 /* Publish Mode Styles */
 
 .publish-mod-border {
+    margin-top: 5px;
+    margin-right: 10%;
     color: #ffffff;
     background-color: #fc7b3a;
     border: 2px solid #333436;
@@ -626,7 +627,7 @@ footer {
 
     color: #111111;
     font-weight: 700;
-    margin-top: 10%;
+    margin-top: 3%;
     margin-left: 13%;
 }
 

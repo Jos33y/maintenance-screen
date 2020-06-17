@@ -337,6 +337,8 @@ include('header.php');
     <!--print end-->
 </div>
 
+                                                </div>
+
 <?php 
 
     if(ISSET($_POST['search'])){

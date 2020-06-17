@@ -170,7 +170,7 @@ session_destroy();
 ?>
 
 <!--no print div --> 
-<div class="col-md-10 display">
+<div class="col-md-10">
     <form method="POST" class="screen-border search-result address">
 
             <!--row one-->
@@ -298,7 +298,7 @@ session_destroy();
                             <tr>
                                 <td width="11%"></td>
                                 <td width="20%"><span class="address-text">Phone</span>
-                                    <input type="tel" class="form-control" id="" pattern="([0-9]{3}) [0-9]{3}-[0-9]{4}"
+                                    <input type="tel" class="form-control" id=""
                                         value="<?php echo $hqphone ;?>" readonly>
                                 </td>
                                 <td><span class="address-text">Email</span>
@@ -430,7 +430,7 @@ session_destroy();
                                     <textarea name="comments" id="" cols="25" rows="2" class="form-control" readonly
                                         placeholder=""><?php echo $desc; ?></textarea>
                                 </td>
-                                <td width="7%"></td>
+                                <td width="9%"></td>
                                 <td width="12%"><br>
                                     <span class="address-text">Counties
                                         <button type="button" class="btn btn-outline-light" data-toggle="modal"
@@ -438,13 +438,13 @@ session_destroy();
                                             <i class="fas fa-info-circle"></i>
                                         </button>
                                     </span></td>
-                                <td width="7%">
+                                <td width="6%">
                                     <span class="address-text">SEI</span>
                                     <input type="text" class="form-control" id="" value="<?php echo $ktyabb;?>"
                                         readonly>
                                 </td>
 
-                                <td width="7%">
+                                <td width="6%">
                                     <span class="address-text">Home</span>
                                     <input type="text" class="form-control" id="" value="<?php echo $ktyabb;?>"
                                         readonly>
@@ -477,8 +477,8 @@ session_destroy();
                                         readonly>
                                
                                     <input type="text" style="width: 40%;" class="form-control" id="" value="<?php echo $dept ;?>" readonly>
-                                    <span style="margin-left: 70%" class="address-note"><?php echo $govfunction; ?></span>
-    </div>
+                                    <span style="margin-left: 57%" class="address-note"><?php echo $govfunction; ?></span>
+            </div>
                                 </td>
 
                                 <td width="12%"><span class="address-text">Comptroller</span>
@@ -498,27 +498,27 @@ session_destroy();
 
                                 </td>
            
-                                <td width="7%">
+                                <td width="6%">
                                     <input type="text" class="form-control" id="" value="" readonly>
                                     <input type="text" class="form-control" id="" value="" readonly>
                                     <input type="text" class="form-control" id="" value="" readonly>
                                     <input type="text" class="form-control" id="" value="" readonly>
                                 </td>
-                                <td width="7%">
-                                    <input type="text" class="form-control" id="" value="" readonly>
-                                    <input type="text" class="form-control" id="" value="" readonly>
-                                    <input type="text" class="form-control" id="" value="" readonly>
-                                    <input type="text" class="form-control" id="" value="" readonly>
-                                </td>
-
-                                <td width="7%">
+                                <td width="6%">
                                     <input type="text" class="form-control" id="" value="" readonly>
                                     <input type="text" class="form-control" id="" value="" readonly>
                                     <input type="text" class="form-control" id="" value="" readonly>
                                     <input type="text" class="form-control" id="" value="" readonly>
                                 </td>
 
-                                <td width="7%">
+                                <td width="6%">
+                                    <input type="text" class="form-control" id="" value="" readonly>
+                                    <input type="text" class="form-control" id="" value="" readonly>
+                                    <input type="text" class="form-control" id="" value="" readonly>
+                                    <input type="text" class="form-control" id="" value="" readonly>
+                                </td>
+
+                                <td width="6%">
                                     <input type="text" class="form-control" id="" value="" readonly>
                                     <input type="text" class="form-control" id="" value="" readonly>
                                     <input type="text" class="form-control" id="" value="" readonly>
@@ -598,7 +598,7 @@ session_destroy();
         </form>
 
     </div>
-                                                    </div>
+
 
 
     <!-- Modal for counties-->
