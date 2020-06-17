@@ -48,6 +48,7 @@ session_destroy();
     $foiamcity = $row_edit['FoiaMailingCity'];
     $foiastate = $row_edit['FoiaState'];
     $foiamzip = $row_edit['FoiaMailingZip'];
+    $note = $row_edit['note'];
 
     $timestamp = date("M-d-yy h:i:s A", strtotime( $row_edit['timestamp']));
 
@@ -169,392 +170,380 @@ session_destroy();
        }
 ?>
 
-<!--no print div --> 
+<!--no print div -->
 <div class="col-md-10">
     <form method="POST" class="screen-border search-result address">
 
-            <!--row one-->
-            <div class="row version">
-                <div class="col-sm-2"></div>
-                <div class="col-sm-10" style="font-weight: 600; ">
-                    <?php echo $version_details; ?>
-                    <span class="version-time">It is from <?php echo $timestamp . $version_link; ?> </span>
-                </div>
+        <!--row one-->
+        <div class="row version">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-10" style="font-weight: 600; ">
+                <?php echo $version_details; ?>
+                <span class="version-time">It is from <?php echo $timestamp . $version_link; ?> </span>
             </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <table class="table table-borderless">
-                        <tbody>
-                            <tr>
-                                <td width="11%" class="search-rgov">
-                                    <label for="gov" class="sr-only">GovID </label>
-                                    <input type="text" class="form-control" id="" value="<?php echo $gvid;?>" readonly>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <table class="table table-borderless">
+                    <tbody>
+                        <tr>
+                            <td width="11%" class="search-rgov">
+                                <label for="gov" class="sr-only">GovID </label>
+                                <input type="text" class="form-control" id="" value="<?php echo $gvid;?>" readonly>
 
-                                </td>
-                                <td class="search-res">
-                                    <label for="gov" class="sr-only">PublicBodyNameFormal </label>
-                                    <input type="text" class="form-control" id="" value="<?php echo $pbdnfm ;?>"
-                                        readonly>
+                            </td>
+                            <td class="search-res">
+                                <label for="gov" class="sr-only">PublicBodyNameFormal </label>
+                                <input type="text" class="form-control" id="" value="<?php echo $pbdnfm ;?>" readonly>
 
-                                </td>
+                            </td>
 
-                            </tr>
-                        </tbody>
-                    </table>
+                        </tr>
+                    </tbody>
+                </table>
 
-                </div>
             </div>
+        </div>
 
-            <!--row two-->
+        <!--row two-->
 
-            <div class="row">
-                <!--sort as -->
-                <div class="col-sm-12">
-                    <table class="table table-borderless text-white">
-                        <tbody class="search-res">
-                            <tr>
-                                <td width="11%"></td>
-                                <td width="26%"><span class="address-text">Alternate name</span>
-                                    <input type="text" class="form-control" id="" value="<?php echo $sort_as ;?>"
-                                        readonly>
-                                    <td />
+        <div class="row">
+            <!--sort as -->
+            <div class="col-sm-12">
+                <table class="table table-borderless text-white">
+                    <tbody class="search-res">
+                        <tr>
+                            <td width="11%"></td>
+                            <td width="26%"><span class="address-text">Alternate name</span>
+                                <input type="text" class="form-control" id="" value="<?php echo $sort_as ;?>" readonly>
+                                <td />
 
-                                <td width="13%"><span class="address-text">GovType
-                                        <button type="button" class="btn btn-outline-light" data-toggle="modal"
-                                            data-target="#govTypeName">
-                                            <i class="fas fa-info-circle"></i>
-                                        </button></label>
+                            <td width="13%"><span class="address-text">GovType
+                                    <button type="button" class="btn btn-outline-light" data-toggle="modal"
+                                        data-target="#govTypeName">
+                                        <i class="fas fa-info-circle"></i>
+                                    </button></label>
 
-                                    </span>
-                                    <input type="text" class="form-control" id="" value="<?php echo $gvtype ;?>"
-                                        readonly>
-                                </td>
+                                </span>
+                                <input type="text" class="form-control" id="" value="<?php echo $gvtype ;?>" readonly>
+                            </td>
 
-                                <td width="20%">
-                                    <h3 class="yellow-ballot"> <?php echo $gvtypename; ?> </h3>
-                                    <h3 class="yellow-ballot">WebGroup: <?php echo $webgrp; ?> </h3>
+                            <td width="20%">
+                                <h3 class="yellow-ballot"> <?php echo $gvtypename; ?> </h3>
+                                <h3 class="yellow-ballot">WebGroup: <?php echo $webgrp; ?> </h3>
 
-                                </td>
-                                <td width="13%"><br>
-                                    <h3 class="yellow-ballot">BallotGroup: <?php echo $bgrpid; ?> </h3>
+                            </td>
+                            <td width="13%"><br>
+                                <h3 class="yellow-ballot">BallotGroup: <?php echo $bgrpid; ?> </h3>
 
-                                </td>
-                                <td width="8%"><br>
-                                    <h3 class="yellow-ballot"> <?php echo $investiture; ?> </h3>
-                                </td>
-                                <td width="17%"></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+                            </td>
+                            <td width="8%"><br>
+                                <h3 class="yellow-ballot"> <?php echo $investiture; ?> </h3>
+                            </td>
+                            <td width="17%"></td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
+        </div>
 
 
-            <!--row three-->
+        <!--row three-->
 
-            <div class="row">
-                <div class="col-sm-12">
-                    <table class="table table-borderless text-white">
-                        <tbody class="search-res">
-                            <tr>
-                                <td width="11%"><span class="address-text">Physical</span></td>
-                                <td width="54%">
-                                    <label for="gov" class="sr-only"> Physical Address </label>
-                                    <input type="text" class="form-control" id="" value="<?php echo $hqpaddress ;?>"
-                                        readonly>
-                                    <td />
+        <div class="row">
+            <div class="col-sm-12">
+                <table class="table table-borderless text-white">
+                    <tbody class="search-res">
+                        <tr>
+                            <td width="11%"><span class="address-text">Physical</span></td>
+                            <td width="54%">
+                                <label for="gov" class="sr-only"> Physical Address </label>
+                                <input type="text" class="form-control" id="" value="<?php echo $hqpaddress ;?>"
+                                    readonly>
+                                <td />
 
-                                <td width="20%">
-                                    <label for="gov" class="sr-only">City </label>
-                                    <input type="text" class="form-control" id="" value="<?php echo $hqpcity ;?>"
-                                        readonly>
-                                </td>
+                            <td width="20%">
+                                <label for="gov" class="sr-only">City </label>
+                                <input type="text" class="form-control" id="" value="<?php echo $hqpcity ;?>" readonly>
+                            </td>
 
-                                <td width="6%">
-                                    <label for="gov" class="sr-only">State </label>
-                                    <input type="text" class="form-control" id="" value="<?php echo $hqstate ;?>"
-                                        readonly>
-                                </td>
+                            <td width="6%">
+                                <label for="gov" class="sr-only">State </label>
+                                <input type="text" class="form-control" id="" value="<?php echo $hqstate ;?>" readonly>
+                            </td>
 
-                                <td width="10%">
-                                    <label for="gov" class="sr-only">Zip </label>
-                                    <input type="text" class="form-control" id="" value="<?php echo $hqmzip ;?>"
-                                        readonly>
-                                </td>
+                            <td width="10%">
+                                <label for="gov" class="sr-only">Zip </label>
+                                <input type="text" class="form-control" id="" value="<?php echo $hqmzip ;?>" readonly>
+                            </td>
 
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
+        </div>
 
 
-            <!--row five-->
+        <!--row five-->
 
-            <div class="row">
-                <div class="col-sm-12">
-                    <table class="table table-borderless text-white">
-                        <tbody class="search-res">
-                            <tr>
-                                <td width="11%"></td>
-                                <td width="20%"><span class="address-text">Phone</span>
-                                    <input type="tel" class="form-control" id=""
-                                        value="<?php echo $hqphone ;?>" readonly>
-                                </td>
-                                <td><span class="address-text">Email</span>
-                                    <input type="text" class="form-control" id="" value="<?php echo $hqemail ;?>"
-                                        readonly>
-                                </td>
-                                <td width="35%"><span class="address-text">Website</span>
-                                    <input type="url" class="form-control" name="website" value="<?php echo $weburl ;?>"
-                                        readonly>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <table class="table table-borderless text-white">
+                    <tbody class="search-res">
+                        <tr>
+                            <td width="11%"></td>
+                            <td width="20%"><span class="address-text">Phone</span>
+                                <input type="tel" class="form-control" id="" value="<?php echo $hqphone ;?>" readonly>
+                            </td>
+                            <td><span class="address-text">Email</span>
+                                <input type="text" class="form-control" id="" value="<?php echo $hqemail ;?>" readonly>
+                            </td>
+                            <td width="35%"><span class="address-text">Website</span>
+                                <input type="url" class="form-control" name="website" value="<?php echo $weburl ;?>"
+                                    readonly>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
+        </div>
 
 
-            <!--row four-->
+        <!--row four-->
 
-            <div class="row">
+        <div class="row">
 
-                <div class="col-sm-12">
-                    <table class="table table-borderless text-white">
-                        <tbody class="search-res">
-                            <tr>
-                                <td width="11%"><span class="address-text">Mailing</span></td>
-                                <td width="54%">
-                                    <label for="gov" class="sr-only"> Mailing Address </label>
-                                    <input type="text" class="form-control" id="" value="<?php echo $hqmaddress ;?>"
-                                        readonly>
-                                    <td />
+            <div class="col-sm-12">
+                <table class="table table-borderless text-white">
+                    <tbody class="search-res">
+                        <tr>
+                            <td width="11%"><span class="address-text">Mailing</span></td>
+                            <td width="54%">
+                                <label for="gov" class="sr-only"> Mailing Address </label>
+                                <input type="text" class="form-control" id="" value="<?php echo $hqmaddress ;?>"
+                                    readonly>
+                                <td />
 
-                                <td width="20%">
-                                    <label for="gov" class="sr-only">City </label>
-                                    <input type="text" class="form-control" id="" value="<?php echo $hqmcity ;?>"
-                                        readonly>
-                                </td>
+                            <td width="20%">
+                                <label for="gov" class="sr-only">City </label>
+                                <input type="text" class="form-control" id="" value="<?php echo $hqmcity ;?>" readonly>
+                            </td>
 
-                                <td width="6%">
-                                    <label for="gov" class="sr-only">State </label>
-                                    <input type="text" class="form-control" id="" value="<?php echo $hqstate ;?>"
-                                        readonly>
-                                </td>
+                            <td width="6%">
+                                <label for="gov" class="sr-only">State </label>
+                                <input type="text" class="form-control" id="" value="<?php echo $hqstate ;?>" readonly>
+                            </td>
 
-                                <td width="10%">
-                                    <label for="gov" class="sr-only">Zip </label>
-                                    <input type="text" class="form-control" id="" value="<?php echo $hqmzip ;?>"
-                                        readonly>
-                                </td>
+                            <td width="10%">
+                                <label for="gov" class="sr-only">Zip </label>
+                                <input type="text" class="form-control" id="" value="<?php echo $hqmzip ;?>" readonly>
+                            </td>
 
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
+        </div>
 
 
 
-            <!--row six-->
+        <!--row six-->
 
-            <div class="row">
+        <div class="row">
 
-                <div class="col-sm-12">
-                    <table class="table table-borderless text-white">
-                        <tbody class="search-res">
-                            <tr>
-                                <td width="11%"><span class="address-text">FOIA</span></td>
-                                <td width="74%">
-                                    <label for="gov" class="sr-only"> Mailing Address </label>
-                                    <input type="text" class="form-control" id="" value="<?php echo $foiaeaddress ;?>"
-                                        readonly>
-                                    <td />
+            <div class="col-sm-12">
+                <table class="table table-borderless text-white">
+                    <tbody class="search-res">
+                        <tr>
+                            <td width="11%"><span class="address-text">FOIA</span></td>
+                            <td width="74%">
+                                <label for="gov" class="sr-only"> Mailing Address </label>
+                                <input type="text" class="form-control" id="" value="<?php echo $foiaeaddress ;?>"
+                                    readonly>
+                                <td />
 
-                                <td width="6%">
-                                    <label for="gov" class="sr-only">State </label>
-                                    <input type="text" class="form-control" id="" value="<?php echo $foiastate ;?>"
-                                        readonly>
-                                </td>
+                            <td width="6%">
+                                <label for="gov" class="sr-only">State </label>
+                                <input type="text" class="form-control" id="" value="<?php echo $foiastate ;?>"
+                                    readonly>
+                            </td>
 
-                                <td width="12%">
-                                    <label for="gov" class="sr-only">Zip </label>
-                                    <input type="text" class="form-control" id="" value="<?php echo $foiamzip ;?>"
-                                        readonly>
-                                </td>
+                            <td width="12%">
+                                <label for="gov" class="sr-only">Zip </label>
+                                <input type="text" class="form-control" id="" value="<?php echo $foiamzip ;?>" readonly>
+                            </td>
 
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
+        </div>
 
-            <!--row Seven-->
+        <!--row Seven-->
 
-            <div class="row">
-                <div class="col-sm-12">
+        <div class="row">
+            <div class="col-sm-12">
 
-                    <table class="table table-borderless text-white ">
-                        <tbody class="search-res">
-                            <tr>
-                                <td width="11%"></td>
-                                <td width="20%"><span class="address-text">FOIA Phone</span>
-                                    <input type="text" class="form-control" id="" value="<?php echo $foiaphone ;?>"
-                                        readonly>
-                                </td>
-                                <td><span class="address-text">FOIA Email</span>
-                                    <input type="text" class="form-control" id="" value="<?php echo $foiaemail ;?>"
-                                        readonly>
-                                </td>
-                                <td width="35%"><span class="address-text">FOIA Website</span>
-                                    <input type="url" class="form-control" name="website" value="<?php echo $weburl ;?>"
-                                        readonly>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+                <table class="table table-borderless text-white ">
+                    <tbody class="search-res">
+                        <tr>
+                            <td width="11%"></td>
+                            <td width="20%"><span class="address-text">FOIA Phone</span>
+                                <input type="text" class="form-control" id="" value="<?php echo $foiaphone ;?>"
+                                    readonly>
+                            </td>
+                            <td><span class="address-text">FOIA Email</span>
+                                <input type="text" class="form-control" id="" value="<?php echo $foiaemail ;?>"
+                                    readonly>
+                            </td>
+                            <td width="35%"><span class="address-text">FOIA Website</span>
+                                <input type="url" class="form-control" name="website" value="<?php echo $weburl ;?>"
+                                    readonly>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
+        </div>
 
 
-            <!--row eight  first-->
+        <!--row eight  first-->
 
-            <div class="row">
-                <div class="col-sm-12">
-                    <table class="table table-borderless text-white">
-                        <tbody class="search-res">
-                            <tr>
-                                <td width="11%"><span class="address-text">Notes</span></td>
-                                <td width="54%">
-                                    <textarea name="comments" id="" cols="25" rows="2" class="form-control" readonly
-                                        placeholder=""><?php echo $desc; ?></textarea>
-                                </td>
-                                <td width="9%"></td>
-                                <td width="12%"><br>
-                                    <span class="address-text">Counties
-                                        <button type="button" class="btn btn-outline-light" data-toggle="modal"
-                                            data-target="#countyName">
-                                            <i class="fas fa-info-circle"></i>
-                                        </button>
-                                    </span></td>
-                                <td width="6%">
-                                    <span class="address-text">SEI</span>
-                                    <input type="text" class="form-control" id="" value="<?php echo $ktyabb;?>"
-                                        readonly>
-                                </td>
+        <div class="row">
+            <div class="col-sm-12">
+                <table class="table table-borderless text-white">
+                    <tbody class="search-res">
+                        <tr>
+                            <td width="11%"><span class="address-text">Notes</span></td>
+                            <td width="54%">
+                                <textarea name="comments" id="" cols="25" rows="2" class="form-control" readonly
+                                    placeholder=""><?php echo $desc; ?></textarea>
+                            </td>
+                            <td width="9%"></td>
+                            <td width="12%"><br>
+                                <span class="address-text">Counties
+                                    <button type="button" class="btn btn-outline-light" data-toggle="modal"
+                                        data-target="#countyName">
+                                        <i class="fas fa-info-circle"></i>
+                                    </button>
+                                </span></td>
+                            <td width="6%">
+                                <span class="address-text">SEI</span>
+                                <input type="text" class="form-control" id="" value="<?php echo $ktyabb;?>" readonly>
+                            </td>
 
-                                <td width="6%">
-                                    <span class="address-text">Home</span>
-                                    <input type="text" class="form-control" id="" value="<?php echo $ktyabb;?>"
-                                        readonly>
+                            <td width="6%">
+                                <span class="address-text">Home</span>
+                                <input type="text" class="form-control" id="" value="<?php echo $ktyabb;?>" readonly>
 
-                                </td>
+                            </td>
 
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
+        </div>
 
-            <!--row eight-->
+        <!--row eight-->
 
-            <div class="row">
-                <div class="col-sm-12">
-                    <table class="table table-borderless text-white">
-                        <tbody class="search-res">
-                            <tr>
-                                <td width="11%"><span class="address-text">Cross References</span> </td>
+        <div class="row">
+            <div class="col-sm-12">
+                <table class="table table-borderless text-white">
+                    <tbody class="search-res">
+                        <tr>
+                            <td width="11%"><span class="address-text">Cross References</span> </td>
 
-                                <td width="18%">
-                                    <span class="address-text">Revenue</span>
-                                    <input type="text" class="form-control" id="" value="<?php echo $rev ;?>" readonly><br>
-                               
-                               
+                            <td width="18%">
+                                <span class="address-text">Revenue</span>
+                                <input type="text" class="form-control" id="" value="<?php echo $rev ;?>" readonly><br>
+
+
                                 <div class="form-inline">
-                                <span class="address-text">Parent Gov</span>  <span style="margin-left: 20%" class="address-text">Dept</span>
-                                    <input type="text" style="width: 55%;" class="form-control" id="" value="<?php echo $parent ;?>"
-                                        readonly>
-                               
-                                    <input type="text" style="width: 40%;" class="form-control" id="" value="<?php echo $dept ;?>" readonly>
-                                    <span style="margin-left: 57%" class="address-note"><?php echo $govfunction; ?></span>
+                                    <span class="address-text">Parent Gov</span> <span style="margin-left: 20%"
+                                        class="address-text">Dept</span>
+                                    <input type="text" style="width: 55%;" class="form-control" id=""
+                                        value="<?php echo $parent ;?>" readonly>
+
+                                    <input type="text" style="width: 40%;" class="form-control" id=""
+                                        value="<?php echo $dept ;?>" readonly>
+                                    <span style="margin-left: 57%"
+                                        class="address-note"><?php echo $govfunction; ?></span>
+                                </div>
+                            </td>
+
+                            <td width="12%"><span class="address-text">Comptroller</span>
+                                <input type="text" class="form-control" id="" value="<?php echo $cmpid ;?>" readonly>
+                            </td>
+
+                            <td width="25%"><span class="address-text"> Type </span><span class="address-text">
+                                    &nbsp;&nbsp; Other</span>
+                                <div class="form-inline">
+                                    <input type="text" class="form-control col-sm-2" id=""
+                                        value="<?php echo $othertypeid ;?>" readonly>
+                                    <input type="text" class="form-control col-sm-7" id=""
+                                        value="<?php echo $othertypecode ;?>" readonly>
+                                </div>
+                                <span class="address-note">State Board of Education</span>
+
+                            </td>
+
+                            <td width="6%">
+                                <input type="text" class="form-control" id="" value="" readonly>
+                                <input type="text" class="form-control" id="" value="" readonly>
+                                <input type="text" class="form-control" id="" value="" readonly>
+                                <input type="text" class="form-control" id="" value="" readonly>
+                            </td>
+                            <td width="6%">
+                                <input type="text" class="form-control" id="" value="" readonly>
+                                <input type="text" class="form-control" id="" value="" readonly>
+                                <input type="text" class="form-control" id="" value="" readonly>
+                                <input type="text" class="form-control" id="" value="" readonly>
+                            </td>
+
+                            <td width="6%">
+                                <input type="text" class="form-control" id="" value="" readonly>
+                                <input type="text" class="form-control" id="" value="" readonly>
+                                <input type="text" class="form-control" id="" value="" readonly>
+                                <input type="text" class="form-control" id="" value="" readonly>
+                            </td>
+
+                            <td width="6%">
+                                <input type="text" class="form-control" id="" value="" readonly>
+                                <input type="text" class="form-control" id="" value="" readonly>
+                                <input type="text" class="form-control" id="" value="" readonly>
+                                <input type="text" class="form-control" id="" placeholder="&#61442;" readonly>
+                            </td>
+
+                        </tr>
+                    </tbody>
+                </table>
             </div>
-                                </td>
+        </div>
+        <!--row ten-->
 
-                                <td width="12%"><span class="address-text">Comptroller</span>
-                                    <input type="text" class="form-control" id="" value="<?php echo $cmpid ;?>"
-                                        readonly>
-                                </td>
-
-                                <td width="25%"><span class="address-text"> Type </span><span class="address-text">
-                                        &nbsp;&nbsp; Other</span>
-                                    <div class="form-inline">
-                                        <input type="text" class="form-control col-sm-2" id=""
-                                            value="<?php echo $othertypeid ;?>" readonly>
-                                        <input type="text" class="form-control col-sm-7" id=""
-                                            value="<?php echo $othertypecode ;?>" readonly>
-                                    </div>
-                                    <span class="address-note">State Board of Education</span>
-
-                                </td>
-           
-                                <td width="6%">
-                                    <input type="text" class="form-control" id="" value="" readonly>
-                                    <input type="text" class="form-control" id="" value="" readonly>
-                                    <input type="text" class="form-control" id="" value="" readonly>
-                                    <input type="text" class="form-control" id="" value="" readonly>
-                                </td>
-                                <td width="6%">
-                                    <input type="text" class="form-control" id="" value="" readonly>
-                                    <input type="text" class="form-control" id="" value="" readonly>
-                                    <input type="text" class="form-control" id="" value="" readonly>
-                                    <input type="text" class="form-control" id="" value="" readonly>
-                                </td>
-
-                                <td width="6%">
-                                    <input type="text" class="form-control" id="" value="" readonly>
-                                    <input type="text" class="form-control" id="" value="" readonly>
-                                    <input type="text" class="form-control" id="" value="" readonly>
-                                    <input type="text" class="form-control" id="" value="" readonly>
-                                </td>
-
-                                <td width="6%">
-                                    <input type="text" class="form-control" id="" value="" readonly>
-                                    <input type="text" class="form-control" id="" value="" readonly>
-                                    <input type="text" class="form-control" id="" value="" readonly>
-                                    <input type="text" class="form-control" id="" placeholder="&#61442;" readonly>
-                                </td>
-
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <!--row ten-->
-
-            <div class="row">
+        <div class="row">
             <div class="col-md-1"></div>
-                <div class="col-md-8 mx-auto search-result-btn">
-                    <table class="table table-borderless text-white">
-                        <tbody>
-                            <tr>
+            <div class="col-md-7 mx-auto search-result-btn">
+                <table class="table table-borderless text-white">
+                    <tbody>
+                        <tr>
 
-                                <td>
-                                    <br> <br>
-                                    <a style="text-decoration: none;" class="btn btn-md btn-success" href="search.php"
-                                        name="save">
-                                        <i class="fas fa-times"></i> Cancel</a>
-                                </td>
+                            <td>
+                                <br> <br>
+                                <a style="text-decoration: none;" class="btn btn-md btn-success" href="search.php"
+                                    name="save">
+                                    <i class="fas fa-times"></i> Cancel</a>
+                            </td>
 
-                                <td>
-                                    <br> <br>
-                                    <button onclick="window.print()" class="btn btn-md btn-warning">
-                                        <i class="fas fa-print"></i> Print</button>
-                                </td>
+                            <td>
+                                <br> <br>
+                                <button onclick="window.print()" class="btn btn-md btn-warning">
+                                    <i class="fas fa-print"></i> Print</button>
+                            </td>
 
-                                <td>
+                            <td>
 
-                                    <?php
+                                <?php
 
                                                         $get_prevtime = "select timestamp from historytable WHERE govid ='$gvid' ORDER BY timestamp DESC";
                                                         
@@ -575,52 +564,63 @@ session_destroy();
                                                         ?>
 
 
-                                    <span class="version-time"
-                                        style="font-style: italic;"><?php echo $prev_timestamp; ?>
-                                    </span><br><br>
-                                    <button class="btn btn-md btn-prev" name="previous">
+                                <span class="version-time" style="font-style: italic;"><?php echo $prev_timestamp; ?>
+                                </span><br><br>
+                                <button class="btn btn-md btn-prev" name="previous">
 
-                                        <i class="fas fa-backward"></i> Get Previous Version</button>
-                                </td>
+                                    <i class="fas fa-backward"></i> Get Previous Version</button>
+                            </td>
 
-                                <td>
-                                    <br> <br>
-                                    <button class="btn btn-md btn-danger" name="unlock">
-                                        <i class="fas fa-unlock-alt"></i> Unlock</button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="col-md-3"></div>
+                            <td>
+                                <br> <br>
+                                <button class="btn btn-md btn-danger" name="unlock">
+                                    <i class="fas fa-unlock-alt"></i> Unlock</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
+            <div class="col-md-3">
+                <table class="table table-borderless text-white">
+                    <tbody class="search-res">
+                        <tr>
+                            <td><br> <br>
+                                <span class="note-text"> <?php echo $note; ?></span></td>
 
-        </form>
+                        </tr>
+                    </tbody>
+                </table>
 
-    </div>
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+
+    </form>
+
+</div>
+  </div>
 
 
-
-    <!-- Modal for counties-->
-    <div class="modal fade" id="countyName" tabindex="-1" role="dialog" aria-labelledby="countyNameTitle"
-        aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th style="font-size: 13px;" id="ktyahead">County Abb</th>
-                                <th style="font-size: 13px;" id="ktynhead">County Name</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php
+<!-- Modal for counties-->
+<div class="modal fade" id="countyName" tabindex="-1" role="dialog" aria-labelledby="countyNameTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th style="font-size: 13px;" id="ktyahead">County Abb</th>
+                            <th style="font-size: 13px;" id="ktynhead">County Name</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
 
                                                         $get_kty = "select * from kountynbrs";
                                                         $run_kty = mysqli_query($con , $get_kty);
@@ -633,41 +633,41 @@ session_destroy();
                                                             $code = $row_kty['dptrevcounty'];
 
                                                         ?>
-                            <tr>
-                                <td style="font-size: 13px;"><?php echo $ktyabb . " " . "(". $code . ")"; ?></td>
-                                <td style="font-size: 13px;"><?php echo $ktyname;  ?></td>
-                            </tr>
+                        <tr>
+                            <td style="font-size: 13px;"><?php echo $ktyabb . " " . "(". $code . ")"; ?></td>
+                            <td style="font-size: 13px;"><?php echo $ktyname;  ?></td>
+                        </tr>
 
-                            <?php } ?>
-                        </tbody>
-                    </table>
-
-                </div>
+                        <?php } ?>
+                    </tbody>
+                </table>
 
             </div>
+
         </div>
     </div>
+</div>
 
-    <!-- Modal for govtypename  -->
-    <div class="modal fade" id="govTypeName" tabindex="-1" role="dialog" aria-labelledby="countyNameTitle"
-        aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th style="font-size: 13px;" id="ktyahead">Gov Type Code</th>
-                                <th style="font-size: 13px;" id="ktynhead">Gov Type Name</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php
+<!-- Modal for govtypename  -->
+<div class="modal fade" id="govTypeName" tabindex="-1" role="dialog" aria-labelledby="countyNameTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th style="font-size: 13px;" id="ktyahead">Gov Type Code</th>
+                            <th style="font-size: 13px;" id="ktynhead">Gov Type Name</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
 
                                                         $get_gov = "select DISTINCT govtypeid, govtypename from govtype ORDER BY govtypename ASC";
                                                         $run_gov = mysqli_query($con , $get_gov);
@@ -679,27 +679,27 @@ session_destroy();
                                                             $govcode = $row_gov['govtypeid'];
 
                                                         ?>
-                            <tr>
-                                <td style="font-size: 13px;"><?php echo $govcode;  ?></td>
-                                <td style="font-size: 13px;"><?php echo $govname;  ?></td>
-                            </tr>
+                        <tr>
+                            <td style="font-size: 13px;"><?php echo $govcode;  ?></td>
+                            <td style="font-size: 13px;"><?php echo $govname;  ?></td>
+                        </tr>
 
-                            <?php } ?>
-                        </tbody>
-                    </table>
-
-                </div>
+                        <?php } ?>
+                    </tbody>
+                </table>
 
             </div>
+
         </div>
     </div>
+</div>
 
-    <?php include('footer.php'); ?>
-    <?php  }  ?>
+<?php include('footer.php'); ?>
+<?php  }  ?>
 
 
 
-    <?php 
+<?php 
 
 /* Code of Unlock Button */
 

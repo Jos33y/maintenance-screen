@@ -401,7 +401,14 @@ footer {
 
 /** Address Style **/
 
-
+.note-text{
+    border: 2px solid #ffff00;
+    padding: 3px;
+    font-size: 11px;
+    color: #fff;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
 
 .address-text {
     font-size: 11px;
@@ -627,7 +634,7 @@ footer {
 
     color: #111111;
     font-weight: 700;
-    margin-top: 3%;
+    margin-bottom: 3%;
     margin-left: 13%;
 }
 

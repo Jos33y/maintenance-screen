@@ -10,7 +10,7 @@ include('header.php');
 //$oldWebsite =  $_SESSION["oldWebsite"];
 
 //GOVID OR PREVIOUS DATA ID
-  if(!empty(isset($_GET['govid']) OR isset($_GET['previd'] ))){
+  if(!empty(isset($_GET['govid']) OR isset($_GET['previd']))){
 
 
     //BELOW IS THE CODE TO GET THE PRESENT ID
@@ -44,6 +44,7 @@ include('header.php');
     $foiamcity = $row_edit['FoiaMailingCity'];
     $foiastate = $row_edit['FoiaState'];
     $foiamzip = $row_edit['FoiaMailingZip'];
+    $note = $row_edit['note'];
 
     $timestamp = date("M-d-yy h:i:s A", strtotime( $row_edit['timestamp']));
 
@@ -183,7 +184,6 @@ include('header.php');
 
     
        }
-
 ?>
 
 <!--no print div -->
@@ -231,7 +231,7 @@ include('header.php');
                         <tr>
                             <td width="11%"></td>
                             <td width="26%"><span class="address-text">Sort as</span>
-                                <input type="text" class="form-control" id="" value="<?php echo $sort_as ;?>" readonly placeholder="">
+                                <input type="text" class="form-control" id="" name="sort-as" value="<?php echo $sort_as ;?>" placeholder="">
                                 <td />
 
                             <td width="13%"><span class="address-text">GovType
@@ -241,7 +241,7 @@ include('header.php');
                                     </button></label>
 
                                 </span>
-                                <input type="text" class="form-control" id="" value="<?php echo $gvtype ;?>" readonly required placeholder="">
+                                <input type="text" class="form-control" id="" name="gvtype" value="<?php echo $gvtype ;?>" required placeholder="">
                             </td>
 
                             <td width="20%">
@@ -479,13 +479,13 @@ include('header.php');
 
                             <td width="18%">
                                     <span class="address-text">Revenue</span>
-                                    <input type="text" class="form-control" id="" value="<?php echo $rev ;?>" readonly placeholder=""><br>
+                                    <input type="text" class="form-control" id="" name="revenue" value="<?php echo $rev ;?>" placeholder=""><br>
                                
                                
                                 <div class="form-inline">
                                 <span class="address-text">Parent Gov</span>  <span style="margin-left: 20%" class="address-text">Dept</span>
-                                    <input type="text" style="width: 55%;" class="form-control" id="" value="<?php echo $parent ;?>"
-                                        readonly placeholder="">
+                                    <input type="text" style="width: 55%;" class="form-control" name ="parent"id="" value="<?php echo $parent ;?>"
+                                        placeholder="">
                                
                                     <input type="text" style="width: 40%;" class="form-control" id="" value="<?php echo $dept ;?>" readonly placeholder="">
                                     <span style="margin-left: 57%" class="address-note"><?php echo $govfunction; ?></span>
@@ -494,16 +494,16 @@ include('header.php');
 
 
                             <td width="12%"><span class="address-text">Comptroller</span>
-                                <input type="text" class="form-control" id="" value="<?php echo $cmpid ;?>" readonly placeholder="">
+                                <input type="text" class="form-control" id="" name="comptroller" value="<?php echo $cmpid ;?>" placeholder="">
                             </td>
 
                             <td width="25%"><span class="address-text"> Type </span><span class="address-text">
                                         &nbsp;&nbsp; Other</span>
                                     <div class="form-inline">
-                                        <input type="text" class="form-control col-sm-2" id=""
-                                            value="<?php echo $othertypeid ;?>" readonly placeholder="">
-                                        <input type="text" class="form-control col-sm-7" id=""
-                                            value="<?php echo $othertypecode ;?>" readonly placeholder="">
+                                        <input type="text" class="form-control col-sm-2" id="" name="type"
+                                            value="<?php echo $othertypeid ;?>" placeholder="">
+                                        <input type="text" class="form-control col-sm-7" id="" name="othertype"
+                                            value="<?php echo $othertypecode ;?>" placeholder="">
                                     </div>
                                     <span class="address-note">State Board of Education</span>
 
@@ -543,7 +543,8 @@ include('header.php');
         <!--row ten-->
 
         <div class="row">
-            <div class="col-md-10 mx-auto search-result-btn">
+        <div class="col-md-1"></div>
+            <div class="col-md-7 mx-auto search-result-btn">
                 <table class="table table-borderless text-white">
                     <tbody>
                         <tr>
@@ -594,6 +595,20 @@ include('header.php');
                     </tbody>
                 </table>
             </div>
+
+            <div class="col-md-3">
+                <table class="table table-borderless text-white">
+                    <tbody class="search-res">
+                        <tr>
+                            <td><br> <br>
+                                <span class="note-text"> <?php echo $note; ?></span></td>
+
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+            <div class="col-md-1"></div>
         </div>
 
 
@@ -724,6 +739,14 @@ if(isset($_POST['publish'])){
     $_SESSION["newfphone"]   = $_POST['Fphone'];
     $_SESSION["newfemail"]   = $_POST['Femail'];
     $_SESSION["newweburl"]   = $_POST['weburl'];
+    $_SESSION["newsortas"]   = $_POST['sort-as'];
+    $_SESSION["newgvtype"]   = $_POST['gvtype'];
+    $_SESSION["newrevenue"]   = $_POST['revenue'];
+    $_SESSION["newcomptroller"]   = $_POST['comptroller'];
+    $_SESSION["newtype"]   = $_POST['type'];
+    $_SESSION["newothertype"]   = $_POST['othertype'];
+    $_SESSION["newparent"]   = $_POST['parent'];
+
 
 echo "<script>window.open('publish.php?govid=$gvid', '_self')</script>";
 }
@@ -745,6 +768,14 @@ echo "<script>window.open('publish.php?govid=$gvid', '_self')</script>";
     $_SESSION["newfphone"]   = $_POST['Fphone'];
     $_SESSION["newfemail"]   = $_POST['Femail'];
     $_SESSION["newweburl"]   = $_POST['weburl'];
+
+    $_SESSION["newsortas"]   = $_POST['sort-as'];
+    $_SESSION["newgvtype"]   = $_POST['gvtype'];
+    $_SESSION["newrevenue"]   = $_POST['revenue'];
+    $_SESSION["newcomptroller"]   = $_POST['comptroller'];
+    $_SESSION["newtype"]   = $_POST['type'];
+    $_SESSION["newothertype"]   = $_POST['othertype'];
+    $_SESSION["newparent"]   = $_POST['parent'];
     
     echo "<script>window.open('publish.php?previd=$gvid', '_self')</script>"; 
 
