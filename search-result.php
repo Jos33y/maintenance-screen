@@ -146,6 +146,23 @@ session_destroy();
          $ktyabb = $row_edit['ktyabb'];
      
          $fullspan = $row_edit['fullspan'];
+
+       /* $kty1 = $row_edit[''];
+         $kty2 = $row_edit[''];
+         $kty3 = $row_edit[''];
+         $kty4 = $row_edit[''];
+         $kty5 = $row_edit[''];
+         $kty6 = $row_edit[''];
+         $kty7 = $row_edit[''];
+         $kty8 = $row_edit[''];
+         $kty9 = $row_edit[''];
+         $kty10 = $row_edit[''];
+         $kty11 = $row_edit[''];
+         $kty12 = $row_edit[''];
+         $kty13 = $row_edit[''];
+         $kty14 = $row_edit[''];
+         $kty15 = $row_edit[''];
+         $kty16 = $row_edit['']; */
      
          $sort_as = $row_edit['namesimple'];
 
@@ -483,7 +500,14 @@ session_destroy();
                                     <input type="text" class="form-control col-sm-7" id=""
                                         value="<?php echo $othertypecode ;?>" readonly>
                                 </div>
-                                <span class="address-note">State Board of Education</span>
+                                <?php if(empty($othertypeid) == 0){
+
+                                    echo "
+                                    <span class='address-note'>State Board of Education</span>";
+                                }else{
+                                    echo "";
+                                }
+                                ?>
 
                             </td>
 
@@ -526,17 +550,24 @@ session_destroy();
             <div class="col-md-7 mx-auto search-result-btn">
                 <table class="table table-borderless text-white">
                     <tbody>
+                    <tr>
+                         
+                            <td>
+                            <span class="note-text" style="margin-left:210%;"> <?php echo $note; ?></span></td>
+
+                        </tr>
+
                         <tr>
 
                             <td>
-                                <br> <br>
+                                <br>
                                 <a style="text-decoration: none;" class="btn btn-md btn-success" href="search.php"
                                     name="save">
                                     <i class="fas fa-times"></i> Cancel</a>
                             </td>
 
                             <td>
-                                <br> <br>
+                                <br> 
                                 <button onclick="window.print()" class="btn btn-md btn-warning">
                                     <i class="fas fa-print"></i> Print</button>
                             </td>
@@ -562,17 +593,15 @@ session_destroy();
 
                                                         }
                                                         ?>
-
-
                                 <span class="version-time" style="font-style: italic;"><?php echo $prev_timestamp; ?>
-                                </span><br><br>
+                                </span><br>
                                 <button class="btn btn-md btn-prev" name="previous">
 
                                     <i class="fas fa-backward"></i> Get Previous Version</button>
                             </td>
 
                             <td>
-                                <br> <br>
+                                <br> 
                                 <button class="btn btn-md btn-danger" name="unlock">
                                     <i class="fas fa-unlock-alt"></i> Unlock</button>
                             </td>
@@ -580,19 +609,7 @@ session_destroy();
                     </tbody>
                 </table>
             </div>
-            <div class="col-md-3">
-                <table class="table table-borderless text-white">
-                    <tbody class="search-res">
-                        <tr>
-                            <td><br> <br>
-                                <span class="note-text"> <?php echo $note; ?></span></td>
-
-                        </tr>
-                    </tbody>
-                </table>
-
-            </div>
-            <div class="col-md-1"></div>
+            <div class="col-md-2"></div>
         </div>
 
     </form>

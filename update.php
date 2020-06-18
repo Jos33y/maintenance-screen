@@ -452,13 +452,13 @@ include('header.php');
                                 <td width="6%">
                                     <span class="address-text">SEI</span>
                                     <input type="text" class="form-control" id="" value="<?php echo $ktyabb;?>"
-                                        readonly placeholder="">
+                                     placeholder="">
                                 </td>
 
                                 <td width="6%">
                                     <span class="address-text">Home</span>
                                     <input type="text" class="form-control" id="" value="<?php echo $ktyabb;?>"
-                                        readonly placeholder="">
+                                     placeholder="">
 
                                 </td>
 
@@ -505,35 +505,41 @@ include('header.php');
                                         <input type="text" class="form-control col-sm-7" id="" name="othertype"
                                             value="<?php echo $othertypecode ;?>" placeholder="">
                                     </div>
-                                    <span class="address-note">State Board of Education</span>
+                                    <?php if(empty($othertypeid) == 0){
 
+                                    echo "
+                                    <span class='address-note'>State Board of Education</span>";
+                                }else{
+                                    echo "";
+                                }
+                                ?>
                                 </td>
            
                                 <td width="6%">
-                                    <input type="text" class="form-control" id="" value="" readonly placeholder="">
-                                    <input type="text" class="form-control" id="" value="" readonly placeholder="">
-                                    <input type="text" class="form-control" id="" value="" readonly placeholder="">
-                                    <input type="text" class="form-control" id="" value="" readonly placeholder="">
+                                    <input type="text" class="form-control" id="" value="" placeholder="">
+                                    <input type="text" class="form-control" id="" value="" placeholder="">
+                                    <input type="text" class="form-control" id="" value="" placeholder="">
+                                    <input type="text" class="form-control" id="" value="" placeholder="">
                                 </td>
                                 <td width="6%">
-                                    <input type="text" class="form-control" id="" value="" readonly placeholder="">
-                                    <input type="text" class="form-control" id="" value="" readonly placeholder="">
-                                    <input type="text" class="form-control" id="" value="" readonly placeholder="">
-                                    <input type="text" class="form-control" id="" value="" readonly placeholder="">
-                                </td>
-
-                                <td width="6%">
-                                    <input type="text" class="form-control" id="" value="" readonly placeholder="">
-                                    <input type="text" class="form-control" id="" value="" readonly placeholder="">
-                                    <input type="text" class="form-control" id="" value="" readonly placeholder="">
-                                    <input type="text" class="form-control" id="" value="" readonly placeholder="">
+                                    <input type="text" class="form-control" id="" value="" placeholder="">
+                                    <input type="text" class="form-control" id="" value="" placeholder="">
+                                    <input type="text" class="form-control" id="" value="" placeholder="">
+                                    <input type="text" class="form-control" id="" value="" placeholder="">
                                 </td>
 
                                 <td width="6%">
-                                    <input type="text" class="form-control" id="" value="" readonly placeholder="">
-                                    <input type="text" class="form-control" id="" value="" readonly placeholder="">
-                                    <input type="text" class="form-control" id="" value="" readonly placeholder="">
-                                    <input type="text" class="form-control" id="" placeholder="&#61442;" readonly>
+                                    <input type="text" class="form-control" id="" value="" placeholder="">
+                                    <input type="text" class="form-control" id="" value="" placeholder="">
+                                    <input type="text" class="form-control" id="" value="" placeholder="">
+                                    <input type="text" class="form-control" id="" value="" placeholder="">
+                                </td>
+
+                                <td width="6%">
+                                    <input type="text" class="form-control" id="" value="" placeholder="">
+                                    <input type="text" class="form-control" id="" value="" placeholder="">
+                                    <input type="text" class="form-control" id="" value="" placeholder="">
+                                    <input type="text" class="form-control" id="" placeholder="&#61442;">
                                 </td>
                         </tr>
                     </tbody>
@@ -543,14 +549,21 @@ include('header.php');
         <!--row ten-->
 
         <div class="row">
-        <div class="col-md-1"></div>
-            <div class="col-md-7 mx-auto search-result-btn">
+        <div class="col-md-2"></div>
+            <div class="col-md-8 mx-auto search-result-btn">
                 <table class="table table-borderless text-white">
                     <tbody>
+
+                    <tr>
+                         
+                         <td>
+                         <span class="note-text" style="margin-left:100%;"> <?php echo $note; ?></span></td>
+
+                     </tr>
                         <tr>
 
                             <td>
-                                <br> <br>
+                                <br> 
                                 <a style="text-decoration: none;" class="btn btn-md btn-success"
                                     href="search-result.php?govid=<?php echo $gvid ;?>">
                                     <i class="fas fa-times"></i> Cancel</a>
@@ -580,14 +593,14 @@ include('header.php');
 
 
                                 <span class="version-time" style="font-style: italic;"><?php echo $prev_timestamp; ?>
-                                </span><br><br>
+                                </span><br>
                                 <button class="btn btn-md btn-prev" name="previous">
 
                                     <i class="fas fa-backward"></i> Get Previous Version</button>
                             </td>
 
                             <td>
-                                <br> <br>
+                                <br>
                                 <button class="btn btn-md btn-warning" name="publish">
                                     <i class="fas fa-upload"></i> Publish This</button>
                             </td>
@@ -596,19 +609,8 @@ include('header.php');
                 </table>
             </div>
 
-            <div class="col-md-3">
-                <table class="table table-borderless text-white">
-                    <tbody class="search-res">
-                        <tr>
-                            <td><br> <br>
-                                <span class="note-text"> <?php echo $note; ?></span></td>
-
-                        </tr>
-                    </tbody>
-                </table>
-
-            </div>
-            <div class="col-md-1"></div>
+            <div class="col-md-2"></div>
+        </div>
         </div>
 
 
