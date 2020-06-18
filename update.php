@@ -80,13 +80,198 @@ include('header.php');
 
     $rev = $row_gov['RevenueID'];
 
-    $ktyabb = $row_gov['KtyAbb'];
+    $kty = $row_gov['ElectionAuthority'];
 
-    $fullspan = $row_gov['FullSpan'];
+    $ktyone = $row_gov['EconInterests'];
 
     $sort_as = $row_gov['NameSimple'];
 
     $parent = $row_gov['ParentID'];
+
+    $kty = $row_gov['ElectionAuthority'];
+    if(empty($kty) == 1){
+        echo " ";
+    }else{
+            $sql = "SELECT * FROM kountynbrs WHERE eiauthority = '$kty'";
+            $qry = mysqli_query($con, $sql);
+            $row = mysqli_fetch_array($qry);
+            $kty = $row['ktyabb'];
+    }
+
+    $ktyone = $row_gov['EconInterests'];
+    if(empty($ktyone) == 1){
+        echo " ";
+    }else{
+        $sql = "SELECT * FROM kountynbrs WHERE eiauthority = '$ktyone'";
+        $qry = mysqli_query($con, $sql);
+        $row = mysqli_fetch_array($qry);
+        $ktyone = $row['ktyabb'];
+    }
+    $sort_as = $row_gov['NameSimple'];
+
+    $parent = $row_gov['ParentID'];
+
+    $kty1 = $row_gov['kty1'];
+    if(empty($kty1) == 1){
+        echo " ";
+    }else{
+        $sql = "SELECT * FROM kountynbrs WHERE eiauthority = '$kty1'";
+        $qry = mysqli_query($con, $sql);
+        $row = mysqli_fetch_array($qry);
+        $kty1 = $row['ktyabb'];
+    }
+
+    $kty2 = $row_gov['kty2'];
+    if(empty($kty2) == 1){
+        echo " ";
+    }else{
+        $sql = "SELECT * FROM kountynbrs WHERE eiauthority = '$kty2'";
+        $qry = mysqli_query($con, $sql);
+        $row = mysqli_fetch_array($qry);
+        $kty2 = $row['ktyabb'];
+    }
+
+   $kty3 = $row_gov['kty3'];
+   if(empty($kty3) == 1){
+    echo " ";
+    }else{
+        $sql = "SELECT * FROM kountynbrs WHERE eiauthority = '$kty3'";
+        $qry = mysqli_query($con, $sql);
+        $row = mysqli_fetch_array($qry);
+        $kty3 = $row['ktyabb'];
+    }
+
+    $kty4 = $row_gov['kty4'];
+    if(empty($kty4) == 1){
+        echo " ";
+    }else{
+        $sql = "SELECT * FROM kountynbrs WHERE eiauthority = '$kty4'";
+        $qry = mysqli_query($con, $sql);
+        $row = mysqli_fetch_array($qry);
+        $kty4 = $row['ktyabb'];
+    }
+
+    $kty5 = $row_gov['kty5'];
+    if(empty($kty5) == 1){
+        echo " ";
+    }else{
+        $sql = "SELECT * FROM kountynbrs WHERE eiauthority = '$kty5'";
+        $qry = mysqli_query($con, $sql);
+        $row = mysqli_fetch_array($qry);
+        $kty5 = $row['ktyabb'];
+    }
+
+    $kty6 = $row_gov['kty6'];
+    if(empty($kty6) == 1){
+        echo " ";
+    }else{
+        $sql = "SELECT * FROM kountynbrs WHERE eiauthority = '$kty6'";
+        $qry = mysqli_query($con, $sql);
+        $row = mysqli_fetch_array($qry);
+        $kty6 = $row['ktyabb'];
+    }
+
+    $kty7 = $row_gov['kty7'];
+    if(empty($kty7) == 1){
+        echo " ";
+    }else{
+        $sql = "SELECT * FROM kountynbrs WHERE eiauthority = '$kty7'";
+        $qry = mysqli_query($con, $sql);
+        $row = mysqli_fetch_array($qry);
+        $kty7 = $row['ktyabb'];
+    }
+
+    $kty8 = $row_gov['kty8'];
+    if(empty($kty8) == 1){
+        echo " ";
+    }else{
+        $sql = "SELECT * FROM kountynbrs WHERE eiauthority = '$kty8'";
+        $qry = mysqli_query($con, $sql);
+        $row = mysqli_fetch_array($qry);
+        $kty8 = $row['ktyabb'];
+    }
+
+    $kty9 = $row_gov['kty9'];
+    if(empty($kty9) == 1){
+        echo " ";
+    }else{
+        $sql = "SELECT * FROM kountynbrs WHERE eiauthority = '$kty9'";
+        $qry = mysqli_query($con, $sql);
+        $row = mysqli_fetch_array($qry);
+        $kty9 = $row['ktyabb'];
+    }
+
+    $kty10 = $row_gov['kty10'];
+    if(empty($kty10) == 1){
+        echo " ";
+    }else{
+        $sql = "SELECT * FROM kountynbrs WHERE eiauthority = '$kty10'";
+        $qry = mysqli_query($con, $sql);
+        $row = mysqli_fetch_array($qry);
+        $kty10 = $row['ktyabb'];
+    }
+        
+    $kty11 = $row_gov['kty11'];
+    if(empty($kty11) == 1){
+     echo " ";
+     }else{
+         $sql = "SELECT * FROM kountynbrs WHERE eiauthority = '$kty11'";
+         $qry = mysqli_query($con, $sql);
+         $row = mysqli_fetch_array($qry);
+         $kty11 = $row['ktyabb'];
+     }
+
+    $kty12 = $row_gov['kty12'];
+    if(empty($kty12) == 1){
+        echo "";
+    }else{
+        $sql = "SELECT * FROM kountynbrs WHERE eiauthority = '$kty12'";
+        $qry = mysqli_query($con, $sql);
+        $row = mysqli_fetch_array($qry);
+        $kty12 = $row['ktyabb'];
+    }
+
+    $kty13 = $row_gov['kty13'];
+    if(empty($kty13) == 1){
+        echo " ";
+    }else{
+        $sql = "SELECT * FROM kountynbrs WHERE eiauthority = '$kty13'";
+        $qry = mysqli_query($con, $sql);
+        $row = mysqli_fetch_array($qry);
+        $kty13 = $row['ktyabb'];
+    }
+
+    $kty14 = $row_gov['kty14'];
+    if(empty($kty14) == 1){
+        echo " ";
+    }else{
+        $sql = "SELECT * FROM kountynbrs WHERE eiauthority = '$kty14'";
+        $qry = mysqli_query($con, $sql);
+        $row = mysqli_fetch_array($qry);
+        $kty14 = $row['ktyabb'];
+    }
+
+    
+    $kty15 = $row_gov['kty15'];
+    if(empty($kty15) == 1){
+        echo " ";
+    }else{
+        $sql = "SELECT * FROM kountynbrs WHERE eiauthority = '$kty15'";
+        $qry = mysqli_query($con, $sql);
+        $row = mysqli_fetch_array($qry);
+        $kty15 = $row['ktyabb'];
+    }
+
+    
+    $kty16 = $row_gov['kty16'];
+    if(empty($kty16) == 1){
+        echo " ";
+    }else{
+        $sql = "SELECT * FROM kountynbrs WHERE eiauthority = '$kty16'";
+        $qry = mysqli_query($con, $sql);
+        $row = mysqli_fetch_array($qry);
+        $kty16 = $row['ktyabb'];
+    }
  
     $version_details = " <button style='font-weight: 600;' class='btn btn-sm btn-success'>This is the latest version</button>";
     
@@ -451,13 +636,13 @@ include('header.php');
                                     </span></td>
                                 <td width="6%">
                                     <span class="address-text">SEI</span>
-                                    <input type="text" class="form-control" id="" value="<?php echo $ktyabb;?>"
+                                    <input type="text" class="form-control" id=""name="kty" value="<?php echo $kty;?>"
                                      placeholder="">
                                 </td>
 
                                 <td width="6%">
                                     <span class="address-text">Home</span>
-                                    <input type="text" class="form-control" id="" value="<?php echo $ktyabb;?>"
+                                    <input type="text" class="form-control" id="" name="ktyone" value="<?php echo $ktyone;?>"
                                      placeholder="">
 
                                 </td>
@@ -515,32 +700,32 @@ include('header.php');
                                 ?>
                                 </td>
            
-                                <td width="6%">
-                                    <input type="text" class="form-control" id="" value="" placeholder="">
-                                    <input type="text" class="form-control" id="" value="" placeholder="">
-                                    <input type="text" class="form-control" id="" value="" placeholder="">
-                                    <input type="text" class="form-control" id="" value="" placeholder="">
-                                </td>
-                                <td width="6%">
-                                    <input type="text" class="form-control" id="" value="" placeholder="">
-                                    <input type="text" class="form-control" id="" value="" placeholder="">
-                                    <input type="text" class="form-control" id="" value="" placeholder="">
-                                    <input type="text" class="form-control" id="" value="" placeholder="">
-                                </td>
+                            <td width="6%">
+                                <input type="text" class="form-control" id="" name="kty1" value="<?php echo $kty1;?>" >
+                                <input type="text" class="form-control" id="" name="kty2" value="<?php echo $kty2;?>">
+                                <input type="text" class="form-control" id="" name="kty3" value="<?php echo $kty3;?>">
+                                <input type="text" class="form-control" id="" name="kty4" value="<?php echo $kty4;?>">
+                            </td>
+                            <td width="6%">
+                                <input type="text" class="form-control" id="" name="kty5" value="<?php echo $kty5;?>" >
+                                <input type="text" class="form-control" id="" name="kty6" value="<?php echo $kty6;?>">
+                                <input type="text" class="form-control" id="" name="kty7" value="<?php echo $kty7;?>">
+                                <input type="text" class="form-control" id="" name="kty8" value="<?php echo $kty8;?>">
+                            </td>
 
-                                <td width="6%">
-                                    <input type="text" class="form-control" id="" value="" placeholder="">
-                                    <input type="text" class="form-control" id="" value="" placeholder="">
-                                    <input type="text" class="form-control" id="" value="" placeholder="">
-                                    <input type="text" class="form-control" id="" value="" placeholder="">
-                                </td>
+                            <td width="6%">
+                                <input type="text" class="form-control" id="" name="kty9" value="<?php echo $kty9;?>" >
+                                <input type="text" class="form-control" id="" name="kty10" value="<?php echo $kty10;?>">
+                                <input type="text" class="form-control" id="" name="kty11" value="<?php echo $kty11;?>">
+                                <input type="text" class="form-control" id="" name="kty12" value="<?php echo $kty12;?>">
+                            </td>
 
-                                <td width="6%">
-                                    <input type="text" class="form-control" id="" value="" placeholder="">
-                                    <input type="text" class="form-control" id="" value="" placeholder="">
-                                    <input type="text" class="form-control" id="" value="" placeholder="">
-                                    <input type="text" class="form-control" id="" placeholder="&#61442;">
-                                </td>
+                            <td width="6%">
+                                <input type="text" class="form-control" id="" name="kty13" value="<?php echo $kty13;?>">
+                                <input type="text" class="form-control" id="" name="kty14" value="<?php echo $kty14;?>">
+                                <input type="text" class="form-control" id="" name="kty15" value="<?php echo $kty15;?>">
+                                <input type="text" class="form-control" id="" name="kty16" value="<?php echo $kty16;?>" placeholder="&#61442;">
+                            </td>
                         </tr>
                     </tbody>
                 </table>
@@ -749,6 +934,26 @@ if(isset($_POST['publish'])){
     $_SESSION["newothertype"]   = $_POST['othertype'];
     $_SESSION["newparent"]   = $_POST['parent'];
 
+    $_SESSION["nkty"] = $_POST['kty'];
+    $_SESSION["nktyone"] = $_POST['ktyone'];
+
+    $_SESSION["nkty1"] = $_POST['kty1'];
+    $_SESSION["nkty2"] = $_POST['kty2'];
+    $_SESSION["nkty3"] = $_POST['kty3'];
+    $_SESSION["nkty4"] = $_POST['kty4'];
+    $_SESSION["nkty5"] = $_POST['kty5'];
+    $_SESSION["nkty6"] = $_POST['kty6'];
+    $_SESSION["nkty7"] = $_POST['kty7'];
+    $_SESSION["nkty8"] = $_POST['kty8'];
+    $_SESSION["nkty9"] = $_POST['kty9'];
+    $_SESSION["nkty10"] = $_POST['kty10'];
+    $_SESSION["nkty11"] = $_POST['kty11'];
+    $_SESSION["nkty12"] = $_POST['kty12'];
+    $_SESSION["nkty13"] = $_POST['kty13'];
+    $_SESSION["nkty14"] = $_POST['kty14'];
+    $_SESSION["nkty15"] = $_POST['kty15'];
+    $_SESSION["nkty16"] = $_POST['kty16'];
+
 
 echo "<script>window.open('publish.php?govid=$gvid', '_self')</script>";
 }
@@ -778,7 +983,27 @@ echo "<script>window.open('publish.php?govid=$gvid', '_self')</script>";
     $_SESSION["newtype"]   = $_POST['type'];
     $_SESSION["newothertype"]   = $_POST['othertype'];
     $_SESSION["newparent"]   = $_POST['parent'];
-    
+
+    $_SESSION["nkty"] = $_POST['kty'];
+    $_SESSION["nktyone"] = $_POST['ktyone'];
+
+    $_SESSION["nkty1"] = $_POST['kty1'];
+    $_SESSION["nkty2"] = $_POST['kty2'];
+    $_SESSION["nkty3"] = $_POST['kty3'];
+    $_SESSION["nkty4"] = $_POST['kty4'];
+    $_SESSION["nkty5"] = $_POST['kty5'];
+    $_SESSION["nkty6"] = $_POST['kty6'];
+    $_SESSION["nkty7"] = $_POST['kty7'];
+    $_SESSION["nkty8"] = $_POST['kty8'];
+    $_SESSION["nkty9"] = $_POST['kty9'];
+    $_SESSION["nkty10"] = $_POST['kty10'];
+    $_SESSION["nkty11"] = $_POST['kty11'];
+    $_SESSION["nkty12"] = $_POST['kty12'];
+    $_SESSION["nkty13"] = $_POST['kty13'];
+    $_SESSION["nkty14"] = $_POST['kty14'];
+    $_SESSION["nkty15"] = $_POST['kty15'];
+    $_SESSION["nkty16"] = $_POST['kty16'];
+
     echo "<script>window.open('publish.php?previd=$gvid', '_self')</script>"; 
 
     }

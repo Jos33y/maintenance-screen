@@ -83,13 +83,199 @@ include('header.php');
 
     $rev = $row_gov['RevenueID'];
 
-    $ktyabb = $row_gov['KtyAbb'];
+    $kty = $row_gov['ElectionAuthority'];
 
-    $fullspan = $row_gov['FullSpan'];
+    $ktyone = $row_gov['EconInterests'];
 
     $sort_as = $row_gov['NameSimple'];
 
     $parent = $row_gov['ParentID'];
+
+    $kty = $row_gov['ElectionAuthority'];
+    if(empty($kty) == 1){
+        echo " ";
+    }else{
+            $sql = "SELECT * FROM kountynbrs WHERE eiauthority = '$kty'";
+            $qry = mysqli_query($con, $sql);
+            $row = mysqli_fetch_array($qry);
+            $kty = $row['ktyabb'];
+    }
+
+    $ktyone = $row_gov['EconInterests'];
+    if(empty($ktyone) == 1){
+        echo " ";
+    }else{
+        $sql = "SELECT * FROM kountynbrs WHERE eiauthority = '$ktyone'";
+        $qry = mysqli_query($con, $sql);
+        $row = mysqli_fetch_array($qry);
+        $ktyone = $row['ktyabb'];
+    }
+    $sort_as = $row_gov['NameSimple'];
+
+    $parent = $row_gov['ParentID'];
+
+    $kty1 = $row_gov['kty1'];
+    if(empty($kty1) == 1){
+        echo " ";
+    }else{
+        $sql = "SELECT * FROM kountynbrs WHERE eiauthority = '$kty1'";
+        $qry = mysqli_query($con, $sql);
+        $row = mysqli_fetch_array($qry);
+        $kty1 = $row['ktyabb'];
+    }
+
+    $kty2 = $row_gov['kty2'];
+    if(empty($kty2) == 1){
+        echo " ";
+    }else{
+        $sql = "SELECT * FROM kountynbrs WHERE eiauthority = '$kty2'";
+        $qry = mysqli_query($con, $sql);
+        $row = mysqli_fetch_array($qry);
+        $kty2 = $row['ktyabb'];
+    }
+
+   $kty3 = $row_gov['kty3'];
+   if(empty($kty3) == 1){
+    echo " ";
+    }else{
+        $sql = "SELECT * FROM kountynbrs WHERE eiauthority = '$kty3'";
+        $qry = mysqli_query($con, $sql);
+        $row = mysqli_fetch_array($qry);
+        $kty3 = $row['ktyabb'];
+    }
+
+    $kty4 = $row_gov['kty4'];
+    if(empty($kty4) == 1){
+        echo " ";
+    }else{
+        $sql = "SELECT * FROM kountynbrs WHERE eiauthority = '$kty4'";
+        $qry = mysqli_query($con, $sql);
+        $row = mysqli_fetch_array($qry);
+        $kty4 = $row['ktyabb'];
+    }
+
+    $kty5 = $row_gov['kty5'];
+    if(empty($kty5) == 1){
+        echo " ";
+    }else{
+        $sql = "SELECT * FROM kountynbrs WHERE eiauthority = '$kty5'";
+        $qry = mysqli_query($con, $sql);
+        $row = mysqli_fetch_array($qry);
+        $kty5 = $row['ktyabb'];
+    }
+
+    $kty6 = $row_gov['kty6'];
+    if(empty($kty6) == 1){
+        echo " ";
+    }else{
+        $sql = "SELECT * FROM kountynbrs WHERE eiauthority = '$kty6'";
+        $qry = mysqli_query($con, $sql);
+        $row = mysqli_fetch_array($qry);
+        $kty6 = $row['ktyabb'];
+    }
+
+    $kty7 = $row_gov['kty7'];
+    if(empty($kty7) == 1){
+        echo " ";
+    }else{
+        $sql = "SELECT * FROM kountynbrs WHERE eiauthority = '$kty7'";
+        $qry = mysqli_query($con, $sql);
+        $row = mysqli_fetch_array($qry);
+        $kty7 = $row['ktyabb'];
+    }
+
+    $kty8 = $row_gov['kty8'];
+    if(empty($kty8) == 1){
+        echo " ";
+    }else{
+        $sql = "SELECT * FROM kountynbrs WHERE eiauthority = '$kty8'";
+        $qry = mysqli_query($con, $sql);
+        $row = mysqli_fetch_array($qry);
+        $kty8 = $row['ktyabb'];
+    }
+
+    $kty9 = $row_gov['kty9'];
+    if(empty($kty9) == 1){
+        echo " ";
+    }else{
+        $sql = "SELECT * FROM kountynbrs WHERE eiauthority = '$kty9'";
+        $qry = mysqli_query($con, $sql);
+        $row = mysqli_fetch_array($qry);
+        $kty9 = $row['ktyabb'];
+    }
+
+    $kty10 = $row_gov['kty10'];
+    if(empty($kty10) == 1){
+        echo " ";
+    }else{
+        $sql = "SELECT * FROM kountynbrs WHERE eiauthority = '$kty10'";
+        $qry = mysqli_query($con, $sql);
+        $row = mysqli_fetch_array($qry);
+        $kty10 = $row['ktyabb'];
+    }
+        
+    $kty11 = $row_gov['kty11'];
+    if(empty($kty11) == 1){
+     echo " ";
+     }else{
+         $sql = "SELECT * FROM kountynbrs WHERE eiauthority = '$kty11'";
+         $qry = mysqli_query($con, $sql);
+         $row = mysqli_fetch_array($qry);
+         $kty11 = $row['ktyabb'];
+     }
+
+    $kty12 = $row_gov['kty12'];
+    if(empty($kty12) == 1){
+        echo "";
+    }else{
+        $sql = "SELECT * FROM kountynbrs WHERE eiauthority = '$kty12'";
+        $qry = mysqli_query($con, $sql);
+        $row = mysqli_fetch_array($qry);
+        $kty12 = $row['ktyabb'];
+    }
+
+    $kty13 = $row_gov['kty13'];
+    if(empty($kty13) == 1){
+        echo " ";
+    }else{
+        $sql = "SELECT * FROM kountynbrs WHERE eiauthority = '$kty13'";
+        $qry = mysqli_query($con, $sql);
+        $row = mysqli_fetch_array($qry);
+        $kty13 = $row['ktyabb'];
+    }
+
+    $kty14 = $row_gov['kty14'];
+    if(empty($kty14) == 1){
+        echo " ";
+    }else{
+        $sql = "SELECT * FROM kountynbrs WHERE eiauthority = '$kty14'";
+        $qry = mysqli_query($con, $sql);
+        $row = mysqli_fetch_array($qry);
+        $kty14 = $row['ktyabb'];
+    }
+
+    
+    $kty15 = $row_gov['kty15'];
+    if(empty($kty15) == 1){
+        echo " ";
+    }else{
+        $sql = "SELECT * FROM kountynbrs WHERE eiauthority = '$kty15'";
+        $qry = mysqli_query($con, $sql);
+        $row = mysqli_fetch_array($qry);
+        $kty15 = $row['ktyabb'];
+    }
+
+    
+    $kty16 = $row_gov['kty16'];
+    if(empty($kty16) == 1){
+        echo " ";
+    }else{
+        $sql = "SELECT * FROM kountynbrs WHERE eiauthority = '$kty16'";
+        $qry = mysqli_query($con, $sql);
+        $row = mysqli_fetch_array($qry);
+        $kty16 = $row['ktyabb'];
+    }
+ 
  
     $version_details = " <button style='font-weight: 600;' class='btn btn-sm btn-success'>This is the latest version</button>";
    
@@ -117,6 +303,26 @@ include('header.php');
   $newtype = $_SESSION["newtype"];
   $newothertype = $_SESSION["newothertype"];
   $newparent =  $_SESSION["newparent"];
+
+  $nkty  = $_SESSION["nkty"];
+  $nktyone  = $_SESSION["nktyone"];
+
+  $nkty1 = $_SESSION["nkty1"];
+  $nkty2 = $_SESSION["nkty2"];
+  $nkty3 = $_SESSION["nkty3"];
+  $nkty4 = $_SESSION["nkty4"];
+  $nkty5 = $_SESSION["nkty5"];
+  $nkty6 = $_SESSION["nkty6"];
+  $nkty7 = $_SESSION["nkty7"];
+  $nkty8 = $_SESSION["nkty8"];
+  $nkty9 = $_SESSION["nkty9"];
+  $nkty10 = $_SESSION["nkty10"];
+  $nkty11 = $_SESSION["nkty11"];
+  $nkty12 = $_SESSION["nkty12"];
+  $nkty13 = $_SESSION["nkty13"];
+  $nkty14 = $_SESSION["nkty14"];
+  $nkty15 = $_SESSION["nkty15"];
+  $nkty16 = $_SESSION["nkty16"];
 
   
 
@@ -213,6 +419,26 @@ include('header.php');
         $newothertype = $_SESSION["newothertype"];
         $newparent =  $_SESSION["newparent"];
 
+        $nkty  = $_SESSION["nkty"];
+        $nktyone  = $_SESSION["nktyone"];
+
+        $nkty1 = $_SESSION["nkty1"];
+        $nkty2 = $_SESSION["nkty2"];
+        $nkty3 = $_SESSION["nkty3"];
+        $nkty4 = $_SESSION["nkty4"];
+        $nkty5 = $_SESSION["nkty5"];
+        $nkty6 = $_SESSION["nkty6"];
+        $nkty7 = $_SESSION["nkty7"];
+        $nkty8 = $_SESSION["nkty8"];
+        $nkty9 = $_SESSION["nkty9"];
+        $nkty10 = $_SESSION["nkty10"];
+        $nkty11 = $_SESSION["nkty11"];
+        $nkty12 = $_SESSION["nkty12"];
+        $nkty13 = $_SESSION["nkty13"];
+        $nkty14 = $_SESSION["nkty14"];
+        $nkty15 = $_SESSION["nkty15"];
+        $nkty16 = $_SESSION["nkty16"];
+            
   
     
        }
@@ -530,6 +756,7 @@ include('header.php');
                                         value="<?php echo $newweburl;?>" placeholder="" readonly>
                                 </div>
                             </td>
+
                         </tr>
                     </tbody>
                 </table>
@@ -624,7 +851,35 @@ include('header.php');
 
                             </td>
 
-                            <td width="24%"></td>
+                            <td width="9%"></td>
+                                <td width="12%"><br>
+                                    <span class="address-text">Counties
+                                        <button type="button" class="btn btn-outline-light" data-toggle="modal"
+                                            data-target="#countyName">
+                                            <i class="fas fa-info-circle"></i>
+                                        </button>
+                                    </span></td>
+                                <td width="6%">
+                                    <span class="address-text">SEI</span>
+                                    <input type="text" class="form-control" id=""name="kty" value="<?php echo $kty;?>"
+                                     placeholder="">
+                                     <div  class="<?php  if($kty == $nkty)
+                                 { echo "empty"; }else{echo "changed";} ?>">
+                                 <input type="text" class="form-control" id=""name="kty" value="<?php echo $nkty;?>"
+                                     placeholder="">
+                                </td>
+
+                                <td width="6%">
+                                    <span class="address-text">Home</span>
+                                    <input type="text" class="form-control" id="" name="ktyone" value="<?php echo $ktyone;?>"
+                                     placeholder="">
+                                     <div  class="<?php  if($kty == $nktyone)
+                                 { echo "empty"; }else{echo "changed";} ?>">
+                                 <input type="text" class="form-control" id=""name="kty" value="<?php echo $nktyone;?>"
+                                     placeholder="">
+
+                                </td>
+
 
                         </tr>
                     </tbody>
@@ -632,53 +887,138 @@ include('header.php');
             </div>
         </div>
         <!--row eight-->
-        <!--
+
         <div class="row">
             <div class="col-sm-12">
                 <table class="table table-borderless text-white">
                     <tbody class="search-res">
                         <tr>
-                            <td width="11%"></td>
+                        <tr>
 
-                            <td width="7%"><span class="address-text">Dept</span>
-                                <input type="text" class="form-control" id="" value="<?php echo $dept ;?>" readonly placeholder="" readonly>
-                                <span class="address-note"><?php echo $govfunction; ?></span>
+                            <td>
+                                <input type="text" class="form-control" id="" value="<?php echo $kty1; ?>" readonly placeholder="" readonly>
+                                 <div  class="<?php  if($kty1 == $nkty1)
+                                 { echo "empty"; }else{echo "changed";} ?>">
+                                  <input type="text" class="form-control" id="" value="<?php echo $nkty1; ?>" readonly placeholder="" readonly>
+                                 </div>
+                            </td>
+                            <td>
+                                <input type="text" class="form-control" id="" value="<?php echo $kty2; ?>" readonly placeholder="" readonly>
+                                <div  class="<?php  if($kty2 == $nkty2)
+                                 { echo "empty"; }else{echo "changed";} ?>">
+                                  <input type="text" class="form-control" id="" value="<?php echo $nkty2; ?>" readonly placeholder="" readonly>
+                                 </div>
                             </td>
 
-                            <td width="12%"><span class="address-text">Parent Gov</span>
-                                <input type="text" class="form-control" id="" value="<?php echo $parent ;?>" readonly placeholder="" readonly>
+                            <td>
+                                <input type="text" class="form-control" id="" value="<?php echo $kty3; ?>" readonly placeholder="" readonly>
+                                <div  class="<?php  if($kty3 == $nkty3)
+                                 { echo "empty"; }else{echo "changed";} ?>">
+                                  <input type="text" class="form-control" id="" value="<?php echo $nkty3; ?>" readonly placeholder="" readonly>
+                                 </div>
                             </td>
 
-                            <td width="70%"></td>
-                       <!--     <td width="8%">
-                                <input type="text" class="form-control" id="" value="" readonly placeholder="" readonly>
-                                <input type="text" class="form-control" id="" value="" readonly placeholder="" readonly>
-                                <input type="text" class="form-control" id="" value="" readonly placeholder="" readonly>
-                                <input type="text" class="form-control" id="" value="" readonly placeholder="" readonly>
-
+                            <td>
+                                <input type="text" class="form-control" id="" value="<?php echo $kty4; ?>" readonly placeholder="" readonly>
+                                <div  class="<?php  if($kty4 == $nkty4)
+                                 { echo "empty"; }else{echo "changed";} ?>">
+                                  <input type="text" class="form-control" id="" value="<?php echo $nkty4; ?>" readonly placeholder="" readonly>
+                                 </div>
                             </td>
 
-                            <td width="8%">
-                                <input type="text" class="form-control" id="" value="" readonly placeholder="" readonly>
-                                <input type="text" class="form-control" id="" value="" readonly placeholder="" readonly>
-                                <input type="text" class="form-control" id="" value="" readonly placeholder="" readonly>
-                                <input type="text" class="form-control" id="" value="" readonly placeholder="" readonly>
+                            <td>
+                                <input type="text" class="form-control" id="" value="<?php echo $kty5; ?>" readonly placeholder="" readonly>
+                                <div  class="<?php  if($kty5 == $nkty5)
+                                 { echo "empty"; }else{echo "changed";} ?>">
+                                  <input type="text" class="form-control" id="" value="<?php echo $nkty5; ?>" readonly placeholder="" readonly>
+                                 </div>
+                            </td>
+                            <td>
+                                <input type="text" class="form-control" id="" value="<?php echo $kty6; ?>" readonly placeholder="" readonly>
+                                <div  class="<?php  if($kty6 == $nkty6)
+                                 { echo "empty"; }else{echo "changed";} ?>">
+                                  <input type="text" class="form-control" id="" value="<?php echo $nkty6; ?>" readonly placeholder="" readonly>
+                                 </div>
                             </td>
 
-                            <td width="8%">
-                                <input type="text" class="form-control" id="" value="" readonly placeholder="" readonly>
-                                <input type="text" class="form-control" id="" value="" readonly placeholder="" readonly>
-                                <input type="text" class="form-control" id="" value="" readonly placeholder="" readonly>
-                                <input type="text" class="form-control" id="" value="" readonly placeholder="" readonly>
+                            <td>
+                                <input type="text" class="form-control" id="" value="<?php echo $kty7; ?>" readonly placeholder="" readonly>
+                                <div  class="<?php  if($kty7 == $nkty7)
+                                 { echo "empty"; }else{echo "changed";} ?>">
+                                  <input type="text" class="form-control" id="" value="<?php echo $nkty7; ?>" readonly placeholder="" readonly>
+                                 </div>
                             </td>
 
-                            <td width="8%">
-                                <input type="text" class="form-control" id="" value="" readonly placeholder="" readonly>
-                                <input type="text" class="form-control" id="" value="" readonly placeholder="" readonly>
-                                <input type="text" class="form-control" id="" value="" readonly placeholder="" readonly>
-                                <input type="text" class="form-control" id="" placeholder="&#61442;" readonly placeholder="" readonly>
+                            <td>
+                                <input type="text" class="form-control" id="" value="<?php echo $kty8; ?>" readonly placeholder="" readonly>
+                                <div  class="<?php  if($kty8 == $nkty8)
+                                 { echo "empty"; }else{echo "changed";} ?>">
+                                  <input type="text" class="form-control" id="" value="<?php echo $nkty8; ?>" readonly placeholder="" readonly>
+                                 </div>
                             </td>
-  
+
+                            <td>
+                                <input type="text" class="form-control" id="" value="<?php echo $kty9; ?>" readonly placeholder="" readonly>
+                                <div  class="<?php  if($kty9 == $nkty9)
+                                 { echo "empty"; }else{echo "changed";} ?>">
+                                  <input type="text" class="form-control" id="" value="<?php echo $nkty9; ?>" readonly placeholder="" readonly>
+                                 </div>
+                            </td>
+
+                            <td>
+                                <input type="text" class="form-control" id="" value="<?php echo $kty10; ?>" readonly placeholder="" readonly>
+                                <div  class="<?php  if($kty10 == $nkty10)
+                                 { echo "empty"; }else{echo "changed";} ?>">
+                                  <input type="text" class="form-control" id="" value="<?php echo $nkty10; ?>" readonly placeholder="" readonly>
+                                 </div>
+                            </td>
+
+                            <td>
+                                <input type="text" class="form-control" id="" value="<?php echo $kty11; ?>" readonly placeholder="" readonly>
+                                <div  class="<?php  if($kty11 == $nkty11)
+                                 { echo "empty"; }else{echo "changed";} ?>">
+                                  <input type="text" class="form-control" id="" value="<?php echo $nkty11; ?>" readonly placeholder="" readonly>
+                                 </div>
+                            </td>
+                            <td>
+                                <input type="text" class="form-control" id="" value="<?php echo $kty12; ?>" readonly placeholder="" readonly>
+                                <div  class="<?php  if($kty12 == $nkty12)
+                                 { echo "empty"; }else{echo "changed";} ?>">
+                                  <input type="text" class="form-control" id="" value="<?php echo $nkty12; ?>" readonly placeholder="" readonly>
+                                 </div>
+                            </td>
+
+                            <td>
+                                <input type="text" class="form-control" id="" value="<?php echo $kty13; ?>" readonly placeholder="" readonly>
+                                <div  class="<?php  if($kty13 == $nkty1)
+                                 { echo "empty"; }else{echo "changed";} ?>">
+                                  <input type="text" class="form-control" id="" value="<?php echo $nkty13; ?>" readonly placeholder="" readonly>
+                                 </div>
+                            </td>
+
+                            <td>
+                                <input type="text" class="form-control" id="" value="<?php echo $kty14; ?>" readonly placeholder="" readonly>
+                                <div  class="<?php  if($kty14 == $nkty1)
+                                 { echo "empty"; }else{echo "changed";} ?>">
+                                  <input type="text" class="form-control" id="" value="<?php echo $nkty14; ?>" readonly placeholder="" readonly>
+                                 </div>
+                            </td>
+
+                            <td>
+                                <input type="text" class="form-control" id="" value="<?php echo $kty15; ?>" readonly placeholder="" readonly>
+                                <div  class="<?php  if($kty15 == $nkty15)
+                                 { echo "empty"; }else{echo "changed";} ?>">
+                                  <input type="text" class="form-control" id="" value="<?php echo $nkty15; ?>" readonly placeholder="" readonly>
+                                 </div>
+                            </td>
+
+                            <td>
+                                <input type="text" class="form-control" id="" value="<?php echo $kty16; ?>"  placeholder="&#61442;" readonly>
+                                <div  class="<?php  if($kty16 == $nkty16)
+                                 { echo "empty"; }else{echo "changed";} ?>">
+                                  <input type="text" class="form-control" id="" value="<?php echo $nkty16; ?>" readonly placeholder="" readonly>
+                                 </div>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
@@ -697,10 +1037,11 @@ include('header.php');
                 </div>
             </div>
             <div class="col-sm-4">
-                <textarea name="notebox" id="" cols="25" rows="2"  class="form-control" placeholder="Change Source"></textarea>
+                <textarea name="notebox" id="" cols="25" rows="2" class="form-control"
+                    placeholder="Change Source"></textarea>
             </div>
             <div class="col-sm-4">
-    </div>
+            </div>
         </div>
 
         <div class="row">
@@ -711,7 +1052,8 @@ include('header.php');
 
                             <td>
                                 <br> <br>
-                                <a href="update.php?govid=<?php echo $gvid; ?>" class="btn btn-md btn-success" name="cancel">
+                                <a href="update.php?govid=<?php echo $gvid; ?>" class="btn btn-md btn-success"
+                                    name="cancel">
                                     <i class="fas fa-times"></i> Cancel</a>
                             </td>
 
@@ -867,8 +1209,10 @@ if(isset($_POST['confirm'])){
     $sql_up = "UPDATE governments 
    SET NameSimple = '$newsortas', 	RevenueID = '$newrevenue',
    ComptrollerID = '$newcomptroller', OtherIDtype = '$newtype', OtherID = '$newothertype',
-   ParentID = '$newparent', timestamp = NOW()
-   WHERE GovId = '$gvid'
+   ParentID = '$newparent', ElectionAuthority = '$nkty', EconInterests = '$nktyone',
+   kty1 = '$nkty1', kty2 = '$nkty2', kty3 = '$nkty3', kty4 = '$nkty4', kty5 = '$nkty5', kty6 = '$nkty6', kty7 = '$nkty7', kty8 = '$nkty8', kty9 = '$nkty9', 
+   kty10 = '$nkty10', kty11 = '$nkty11' , kty12 = '$nkty12', kty13 = '$nkty13', kty14 = '$nkty14', kty15 = '$nkty15', kty16 = '$nkty16',
+   timestamp = NOW() WHERE GovId = '$gvid'
     ";
 
 $query_up = mysqli_query($con, $sql_up) or  die(mysqli_error($con));
