@@ -69,8 +69,6 @@ include('header.php');
 
     $gvtypename = $row['govtypename'];
 
-    $desc = $row['description'];
-
     $get_governments = "select * from governments where GovId = '$gvid'";
 
     $run_governments = mysqli_query($con, $get_governments);
@@ -91,8 +89,10 @@ include('header.php');
 
     $parent = $row_gov['ParentID'];
 
+    $desc = $row_gov['Comments'];
+
     $kty = $row_gov['ElectionAuthority'];
-    if(empty($kty) == 1){
+    if(empty($kty) !== 0){
         echo " ";
     }else{
             $sql = "SELECT * FROM kountynbrs WHERE eiauthority = '$kty'";
@@ -101,15 +101,16 @@ include('header.php');
             $kty = $row['ktyabb'];
     }
 
-    $ktyone = $row_gov['EconInterests'];
-    if(empty($ktyone) == 1){
-        echo " ";
-    }else{
-        $sql = "SELECT * FROM kountynbrs WHERE eiauthority = '$ktyone'";
-        $qry = mysqli_query($con, $sql);
-        $row = mysqli_fetch_array($qry);
-        $ktyone = $row['ktyabb'];
-    }
+        $ktyone = $row_gov['EconInterests'];
+        if(empty($ktyone) !== 0){
+            echo " ";
+        }else{
+            $sql = "SELECT * FROM kountynbrs WHERE eiauthority = '$ktyone'";
+            $qry = mysqli_query($con, $sql);
+            $row = mysqli_fetch_array($qry);
+            $ktyone = $row['ktyabb'];
+        }
+
     $sort_as = $row_gov['NameSimple'];
 
     $parent = $row_gov['ParentID'];
@@ -875,7 +876,7 @@ include('header.php');
                                      placeholder="">
                                      <div  class="<?php  if($kty == $nktyone)
                                  { echo "empty"; }else{echo "changed";} ?>">
-                                 <input type="text" class="form-control" id=""name="kty" value="<?php echo $nktyone;?>"
+                                 <input type="text" class="form-control" id=""name="ktyone" value="<?php echo $nktyone;?>"
                                      placeholder="">
 
                                 </td>
@@ -1228,21 +1229,42 @@ $query_up = mysqli_query($con, $sql_up) or  die(mysqli_error($con));
    WHERE GovId = '$gvid'
     ";
 
-$query_update = mysqli_query($con, $sql_update) or  die(mysqli_error($con));
+    $query_update = mysqli_query($con, $sql_update) or  die(mysqli_error($con));
 
 //Insert Statement for History Table
     $sql_insert = "INSERT INTO historytable (govid, comptrollerid, revenueid, otheridtype, othertypecode, namesimple, PBDNF, govtype, websiteurl, 
     hqemail, hqphysicaladdress, hqphysicalcity, hqmailingzip, hqphone, hqmailingaddress, hqmailingcity, hqstate, Femail, Fmailingaddress,
-     Fphone, Fphysicaladdress, Fmailingcity, Fstate, Fmailingzip, govtypename, webgroup, ballotgroupid, investiture, ktyabb, fullspan) 
+     Fphone, Fphysicaladdress, Fmailingcity, Fstate, Fmailingzip, govtypename, webgroup, ballotgroupid, investiture, electionauth, econinterest,
+     kty1, kty2, kty3, kty4, kty5, kty6, kty7, kty8, kty9, kty10, kty11, kty12, kty13, kty14, kty15, kty16)
 
      VALUES ('$gvid', '$cmpid', '$rev', '$othertypeid', '$othertypecode', '$sort_as', '$pbdnfm', '$gvtype', '$weburl', '$hqemail',
      '$hqpaddress', '$hqpcity', '$hqmzip', '$hqphone', '$hqmaddress', '$hqmcity', '$hqstate', '$foiaemail', '$foiaeaddress', 
-     '$foiaphone', '$foiapaddress', '$foiamcity', '$foiastate', '$foiamzip', '$gvtypename', '$webgrp', '$bgrpid', '$investiture', '$ktyabb', '$fullspan')
+     '$foiaphone', '$foiapaddress', '$foiamcity', '$foiastate', '$foiamzip', '$gvtypename', '$webgrp', '$bgrpid', '$investiture', '$kty', '$ktyone',
+     '$kty1', '$kty2', '$kty3', '$kty4', '$kty5', '$kty6', '$kty7', '$kty8', '$kty9', '$kty10', '$kty11', '$kty12', '$kty13', '$kty14', '$kty15', '$kty16')
     ";
 
-$query_insert = mysqli_query($con, $sql_insert) or  die(mysqli_error($con));
+    $query_insert = mysqli_query($con, $sql_insert) or  die(mysqli_error($con));
 
-    if ($query_up AND $query_update AND $query_insert == 1) 
+    $insert = "INSERT INTO histaddresses (GovId, ComptrollerID, PublicBodyNameFormal, govtype, WebsiteURL, HQemail,
+    HqphysicalAddress, HQphysicalCity, HQmailingZip, HQphone, HQmailingAddress, HQmailingCity, HQState,
+    FoiaEmail, FoiaMailingAddress, FoiaPhone, FoiaPhysicalAddress, FoiaMailingCity, FoiaState, FoiaMailingZip, note)
+     VALUES('$gvid', '$cmpid', '$pbdnfm', '$gvtype', '$weburl', '$hqemail', '$hqpaddress', '$hqpcity', '$hqmzip', '$hqphone', '$hqmaddress',
+     '$hqmcity', '$hqstate', '$foiaemail', '$foiaeaddress', '$foiaphone', '$foiapaddress', '$foiamcity', '$foiastate', '$foiamzip', 
+     '$noteBox')";
+     
+    $insert_qry = mysqli_query($con, $insert) or  die(mysqli_error($con));
+
+
+    $in = "INSERT INTO histgovernments (GovId, ComptrollerID, RevenueID, OtherIDtype, OtherID, ParentID, NameSimple, ElectionAuthority, EconInterests,
+     kty1, kty2, kty3, kty4, kty5, kty6, kty7, kty8, kty9, kty10, kty11, kty12, kty13, kty14, kty15, kty16, Comments)
+      VALUES('$gvid', '$cmpid', '$rev', '$othertypeid', '$othertypecode', '$parent', '$sort_as', '$kty', '$ktyone',
+      '$kty1', '$kty2', '$kty3', '$kty4', '$kty5', '$kty6', '$kty7', '$kty8', '$kty9', '$kty10', '$kty11', '$kty12', '$kty13', '$kty14', '$kty15', '$kty16',
+       '$desc')";
+    $in_qry = mysqli_query($con, $in) or  die(mysqli_error($con));
+
+    $confirm  = $query_up AND $query_update AND $query_insert AND $insert_qry AND $in_qry;
+
+    if ($confirm == 1) 
     {
        
         echo '

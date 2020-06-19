@@ -66,8 +66,6 @@ include('header.php');
 
     $gvtypename = $row['govtypename'];
 
-    $desc = $row['description'];
-
     $get_governments = "select * from governments where GovId = '$gvid'";
 
     $run_governments = mysqli_query($con, $get_governments);
@@ -80,222 +78,208 @@ include('header.php');
 
     $rev = $row_gov['RevenueID'];
 
-    $kty = $row_gov['ElectionAuthority'];
-
-    $ktyone = $row_gov['EconInterests'];
-
     $sort_as = $row_gov['NameSimple'];
 
     $parent = $row_gov['ParentID'];
 
+    $desc = $row_gov['Comments'];
+
     $kty = $row_gov['ElectionAuthority'];
-    if(empty($kty) == 1){
-        echo " ";
+
+    if(is_numeric($kty) != 1 ){
+        $kty = $kty;             
     }else{
-            $sql = "SELECT * FROM kountynbrs WHERE eiauthority = '$kty'";
+        
+        $sql = "SELECT * FROM kountynbrs WHERE eiauthority = $kty";
+        $qry = mysqli_query($con, $sql);
+        $row = mysqli_fetch_array($qry);
+        $kty = $row['ktyabb'];
+            
+    }
+
+        $ktyon = $row_gov['EconInterests'];
+
+        if(is_numeric($ktyon) != 1){
+            $ktyone = $ktyon;
+        }
+        
+        elseif(is_string($ktyon)){
+            $sql = "SELECT * FROM kountynbrs WHERE eiauthority = $ktyon";
             $qry = mysqli_query($con, $sql);
             $row = mysqli_fetch_array($qry);
-            $kty = $row['ktyabb'];
-    }
-
-    $ktyone = $row_gov['EconInterests'];
-    if(empty($ktyone) == 1){
-        echo " ";
-    }else{
-        $sql = "SELECT * FROM kountynbrs WHERE eiauthority = '$ktyone'";
-        $qry = mysqli_query($con, $sql);
-        $row = mysqli_fetch_array($qry);
-        $ktyone = $row['ktyabb'];
-    }
-    $sort_as = $row_gov['NameSimple'];
-
-    $parent = $row_gov['ParentID'];
-
-    $kty1 = $row_gov['kty1'];
-    if(empty($kty1) == 1){
-        echo " ";
-    }else{
-        $sql = "SELECT * FROM kountynbrs WHERE eiauthority = '$kty1'";
-        $qry = mysqli_query($con, $sql);
-        $row = mysqli_fetch_array($qry);
-        $kty1 = $row['ktyabb'];
-    }
-
-    $kty2 = $row_gov['kty2'];
-    if(empty($kty2) == 1){
-        echo " ";
-    }else{
-        $sql = "SELECT * FROM kountynbrs WHERE eiauthority = '$kty2'";
-        $qry = mysqli_query($con, $sql);
-        $row = mysqli_fetch_array($qry);
-        $kty2 = $row['ktyabb'];
-    }
-
-   $kty3 = $row_gov['kty3'];
-   if(empty($kty3) == 1){
-    echo " ";
-    }else{
-        $sql = "SELECT * FROM kountynbrs WHERE eiauthority = '$kty3'";
-        $qry = mysqli_query($con, $sql);
-        $row = mysqli_fetch_array($qry);
-        $kty3 = $row['ktyabb'];
-    }
-
-    $kty4 = $row_gov['kty4'];
-    if(empty($kty4) == 1){
-        echo " ";
-    }else{
-        $sql = "SELECT * FROM kountynbrs WHERE eiauthority = '$kty4'";
-        $qry = mysqli_query($con, $sql);
-        $row = mysqli_fetch_array($qry);
-        $kty4 = $row['ktyabb'];
-    }
-
-    $kty5 = $row_gov['kty5'];
-    if(empty($kty5) == 1){
-        echo " ";
-    }else{
-        $sql = "SELECT * FROM kountynbrs WHERE eiauthority = '$kty5'";
-        $qry = mysqli_query($con, $sql);
-        $row = mysqli_fetch_array($qry);
-        $kty5 = $row['ktyabb'];
-    }
-
-    $kty6 = $row_gov['kty6'];
-    if(empty($kty6) == 1){
-        echo " ";
-    }else{
-        $sql = "SELECT * FROM kountynbrs WHERE eiauthority = '$kty6'";
-        $qry = mysqli_query($con, $sql);
-        $row = mysqli_fetch_array($qry);
-        $kty6 = $row['ktyabb'];
-    }
-
-    $kty7 = $row_gov['kty7'];
-    if(empty($kty7) == 1){
-        echo " ";
-    }else{
-        $sql = "SELECT * FROM kountynbrs WHERE eiauthority = '$kty7'";
-        $qry = mysqli_query($con, $sql);
-        $row = mysqli_fetch_array($qry);
-        $kty7 = $row['ktyabb'];
-    }
-
-    $kty8 = $row_gov['kty8'];
-    if(empty($kty8) == 1){
-        echo " ";
-    }else{
-        $sql = "SELECT * FROM kountynbrs WHERE eiauthority = '$kty8'";
-        $qry = mysqli_query($con, $sql);
-        $row = mysqli_fetch_array($qry);
-        $kty8 = $row['ktyabb'];
-    }
-
-    $kty9 = $row_gov['kty9'];
-    if(empty($kty9) == 1){
-        echo " ";
-    }else{
-        $sql = "SELECT * FROM kountynbrs WHERE eiauthority = '$kty9'";
-        $qry = mysqli_query($con, $sql);
-        $row = mysqli_fetch_array($qry);
-        $kty9 = $row['ktyabb'];
-    }
-
-    $kty10 = $row_gov['kty10'];
-    if(empty($kty10) == 1){
-        echo " ";
-    }else{
-        $sql = "SELECT * FROM kountynbrs WHERE eiauthority = '$kty10'";
-        $qry = mysqli_query($con, $sql);
-        $row = mysqli_fetch_array($qry);
-        $kty10 = $row['ktyabb'];
-    }
+            $ktyone = $row['ktyabb'];
+        }
         
-    $kty11 = $row_gov['kty11'];
-    if(empty($kty11) == 1){
-     echo " ";
-     }else{
-         $sql = "SELECT * FROM kountynbrs WHERE eiauthority = '$kty11'";
-         $qry = mysqli_query($con, $sql);
-         $row = mysqli_fetch_array($qry);
-         $kty11 = $row['ktyabb'];
-     }
+  
 
-    $kty12 = $row_gov['kty12'];
-    if(empty($kty12) == 1){
-        echo "";
-    }else{
-        $sql = "SELECT * FROM kountynbrs WHERE eiauthority = '$kty12'";
-        $qry = mysqli_query($con, $sql);
-        $row = mysqli_fetch_array($qry);
-        $kty12 = $row['ktyabb'];
-    }
 
-    $kty13 = $row_gov['kty13'];
-    if(empty($kty13) == 1){
-        echo " ";
-    }else{
-        $sql = "SELECT * FROM kountynbrs WHERE eiauthority = '$kty13'";
-        $qry = mysqli_query($con, $sql);
-        $row = mysqli_fetch_array($qry);
-        $kty13 = $row['ktyabb'];
-    }
-
-    $kty14 = $row_gov['kty14'];
-    if(empty($kty14) == 1){
-        echo " ";
-    }else{
-        $sql = "SELECT * FROM kountynbrs WHERE eiauthority = '$kty14'";
-        $qry = mysqli_query($con, $sql);
-        $row = mysqli_fetch_array($qry);
-        $kty14 = $row['ktyabb'];
-    }
-
+        $kty1 = $row_gov['kty1'];
+        if(is_numeric($kty1) != 1){
+            $kty1; 
+        }else{
+            $sql = "SELECT * FROM kountynbrs WHERE eiauthority = '$kty1'";
+            $qry = mysqli_query($con, $sql);
+            $row = mysqli_fetch_array($qry);
+            $kty1 = $row['ktyabb'];
+        }
     
-    $kty15 = $row_gov['kty15'];
-    if(empty($kty15) == 1){
-        echo " ";
-    }else{
-        $sql = "SELECT * FROM kountynbrs WHERE eiauthority = '$kty15'";
-        $qry = mysqli_query($con, $sql);
-        $row = mysqli_fetch_array($qry);
-        $kty15 = $row['ktyabb'];
-    }
-
+        $kty2 = $row_gov['kty2'];
+        if(is_numeric($kty2) != 1){
+            $kty2; 
+        }else{
+            $sql = "SELECT * FROM kountynbrs WHERE eiauthority = '$kty2'";
+            $qry = mysqli_query($con, $sql);
+            $row = mysqli_fetch_array($qry);
+            $kty2 = $row['ktyabb'];
+        }
     
-    $kty16 = $row_gov['kty16'];
-    if(empty($kty16) == 1){
-        echo " ";
-    }else{
-        $sql = "SELECT * FROM kountynbrs WHERE eiauthority = '$kty16'";
-        $qry = mysqli_query($con, $sql);
-        $row = mysqli_fetch_array($qry);
-        $kty16 = $row['ktyabb'];
-    }
+       $kty3 = $row_gov['kty3'];
+       if(is_numeric($kty3) != 1){
+        $kty3; 
+        }else{
+            $sql = "SELECT * FROM kountynbrs WHERE eiauthority = '$kty3'";
+            $qry = mysqli_query($con, $sql);
+            $row = mysqli_fetch_array($qry);
+            $kty3 = $row['ktyabb'];
+        }
+    
+        $kty4 = $row_gov['kty4'];
+        if(is_numeric($kty4) != 1){
+            $kty4; 
+        }else{
+            $sql = "SELECT * FROM kountynbrs WHERE eiauthority = '$kty4'";
+            $qry = mysqli_query($con, $sql);
+            $row = mysqli_fetch_array($qry);
+            $kty4 = $row['ktyabb'];
+        }
+    
+        $kty5 = $row_gov['kty5'];
+        if(is_numeric($kty5) != 1){
+            $kty5; 
+        }else{
+            $sql = "SELECT * FROM kountynbrs WHERE eiauthority = '$kty5'";
+            $qry = mysqli_query($con, $sql);
+            $row = mysqli_fetch_array($qry);
+            $kty5 = $row['ktyabb'];
+        }
+    
+        $kty6 = $row_gov['kty6'];
+        if(is_numeric($kty6) != 1){
+            $kty6; 
+        }else{
+            $sql = "SELECT * FROM kountynbrs WHERE eiauthority = '$kty6'";
+            $qry = mysqli_query($con, $sql);
+            $row = mysqli_fetch_array($qry);
+            $kty6 = $row['ktyabb'];
+        }
+    
+        $kty7 = $row_gov['kty7'];
+        if(is_numeric($kty7) != 1){
+            $kty7; 
+        }else{
+            $sql = "SELECT * FROM kountynbrs WHERE eiauthority = '$kty7'";
+            $qry = mysqli_query($con, $sql);
+            $row = mysqli_fetch_array($qry);
+            $kty7 = $row['ktyabb'];
+        }
+    
+        $kty8 = $row_gov['kty8'];
+        if(is_numeric($kty8) != 1){
+            $kty8; 
+        }else{
+            $sql = "SELECT * FROM kountynbrs WHERE eiauthority = '$kty8'";
+            $qry = mysqli_query($con, $sql);
+            $row = mysqli_fetch_array($qry);
+            $kty8 = $row['ktyabb'];
+        }
+    
+        $kty9 = $row_gov['kty9'];
+        if(is_numeric($kty9) != 1){
+            $kty9; 
+        }else{
+            $sql = "SELECT * FROM kountynbrs WHERE eiauthority = '$kty9'";
+            $qry = mysqli_query($con, $sql);
+            $row = mysqli_fetch_array($qry);
+            $kty9 = $row['ktyabb'];
+        }
+    
+        $kty10 = $row_gov['kty10'];
+        if(is_numeric($kty10) != 1){
+            $kty10; 
+        }else{
+            $sql = "SELECT * FROM kountynbrs WHERE eiauthority = '$kty10'";
+            $qry = mysqli_query($con, $sql);
+            $row = mysqli_fetch_array($qry);
+            $kty10 = $row['ktyabb'];
+        }
+            
+        $kty11 = $row_gov['kty11'];
+        if(is_numeric($kty11) != 1){
+            $kty11; 
+         }else{
+             $sql = "SELECT * FROM kountynbrs WHERE eiauthority = '$kty11'";
+             $qry = mysqli_query($con, $sql);
+             $row = mysqli_fetch_array($qry);
+             $kty11 = $row['ktyabb'];
+         }
+    
+        $kty12 = $row_gov['kty12'];
+        if(is_numeric($kty12) != 1){
+            $kty12; 
+        }else{
+            $sql = "SELECT * FROM kountynbrs WHERE eiauthority = '$kty12'";
+            $qry = mysqli_query($con, $sql);
+            $row = mysqli_fetch_array($qry);
+            $kty12 = $row['ktyabb'];
+        }
+    
+        $kty13 = $row_gov['kty13'];
+        if(is_numeric($kty13) != 1){
+            $kty13; 
+        }else{
+            $sql = "SELECT * FROM kountynbrs WHERE eiauthority = '$kty13'";
+            $qry = mysqli_query($con, $sql);
+            $row = mysqli_fetch_array($qry);
+            $kty13 = $row['ktyabb'];
+        }
+    
+        $kty14 = $row_gov['kty14'];
+        if(is_numeric($kty14) != 1){
+            $kty14; 
+        }else{
+            $sql = "SELECT * FROM kountynbrs WHERE eiauthority = '$kty14'";
+            $qry = mysqli_query($con, $sql);
+            $row = mysqli_fetch_array($qry);
+            $kty14 = $row['ktyabb'];
+        }
+    
+       
+        $kty15 = $row_gov['kty15'];
+        if(is_numeric($kty15) != 1){
+            $kty15; 
+        }else{
+            $sql = "SELECT * FROM kountynbrs WHERE eiauthority = '$kty15'";
+            $qry = mysqli_query($con, $sql);
+            $row = mysqli_fetch_array($qry);
+            $kty15 = $row['ktyabb'];
+        }
+    
+        
+        $kty16 = $row_gov['kty16'];
+        if(is_numeric($kty16) != 1){
+            $kty16; 
+        }else{
+            $sql = "SELECT * FROM kountynbrs WHERE eiauthority = '$kty16'";
+            $qry = mysqli_query($con, $sql);
+            $row = mysqli_fetch_array($qry);
+            $kty16 = $row['ktyabb'];
+        }
  
     $version_details = " <button style='font-weight: 600;' class='btn btn-sm btn-success'>This is the latest version</button>";
     
     //$version_link = ", Click " . "<a href='search-result.php?govid=$gvid' class='text-white'>" . "here" . "</a> " . " to bring up latest version";
 
     $version_link =" ";
-
-     /** COde to get Session  
-     if(isset($_POST['cancel'])){
-     $pbdnf  = $_SESSION["newpbdnf"];  
-     $hqpaddress  = $_SESSION["newpaddress"];   
-     $hqpcity  = $_SESSION["newpcity"];  
-     $hqphone  = $_SESSION["newpphone"];   
-     $hqemail  = $_SESSION["newpemail"];   
-     $weburl  = $_SESSION["newweburl"];   
-     $hqmaddress  = $_SESSION["newmaddress"];   
-     $hqmcity  = $_SESSION["newmcity"];  
-     $foiaeaddress  = $_SESSION["newfaddress"];   
-     $foiaphone  = $_SESSION["newfphone"];   
-     $foiaemail  = $_SESSION["newfemail"];   
-     $weburl  = $_SESSION["newweburl"];   
-
-     }
-     */
 
 }
 
@@ -343,14 +327,196 @@ include('header.php');
      
          $rev = $row_edit['revenueid'];
      
-         $ktyabb = $row_edit['ktyabb'];
-     
-         $fullspan = $row_edit['fullspan'];
-     
          $sort_as = $row_edit['namesimple'];
 
          $gvtypename = $row_edit['govtypename'];
+        
+        
+         $kty = $row_edit['electionauth'];
+
+         if(is_numeric($kty) != 1){
+            $kty;      
+        }else{
+            $sql = "SELECT * FROM kountynbrs WHERE eiauthority = $kty";
+            $qry = mysqli_query($con, $sql);
+            $row = mysqli_fetch_array($qry);
+            $kty = $row['ktyabb'];
+                
+        }
     
+            $ktyone = $row_edit['econinterest'];
+            if(is_numeric($ktyone) != 1){
+                $ktyone;
+            }else{
+                $sql = "SELECT * FROM kountynbrs WHERE eiauthority = $ktyone";
+                $qry = mysqli_query($con, $sql);
+                $row = mysqli_fetch_array($qry);
+                $ktyone = $row['ktyabb'];
+            }
+      
+    
+        $kty1 = $row_edit['kty1'];
+        if(is_numeric($kty1) != 1){
+            $kty1; 
+        }else{
+            $sql = "SELECT * FROM kountynbrs WHERE eiauthority = '$kty1'";
+            $qry = mysqli_query($con, $sql);
+            $row = mysqli_fetch_array($qry);
+            $kty1 = $row['ktyabb'];
+        }
+    
+        $kty2 = $row_edit['kty2'];
+        if(is_numeric($kty2) != 1){
+            $kty2; 
+        }else{
+            $sql = "SELECT * FROM kountynbrs WHERE eiauthority = '$kty2'";
+            $qry = mysqli_query($con, $sql);
+            $row = mysqli_fetch_array($qry);
+            $kty2 = $row['ktyabb'];
+        }
+    
+       $kty3 = $row_edit['kty3'];
+       if(is_numeric($kty3) != 1){
+        $kty3; 
+        }else{
+            $sql = "SELECT * FROM kountynbrs WHERE eiauthority = '$kty3'";
+            $qry = mysqli_query($con, $sql);
+            $row = mysqli_fetch_array($qry);
+            $kty3 = $row['ktyabb'];
+        }
+    
+        $kty4 = $row_edit['kty4'];
+        if(is_numeric($kty4) != 1){
+            $kty4; 
+        }else{
+            $sql = "SELECT * FROM kountynbrs WHERE eiauthority = '$kty4'";
+            $qry = mysqli_query($con, $sql);
+            $row = mysqli_fetch_array($qry);
+            $kty4 = $row['ktyabb'];
+        }
+    
+        $kty5 = $row_edit['kty5'];
+        if(is_numeric($kty5) != 1){
+            $kty5; 
+        }else{
+            $sql = "SELECT * FROM kountynbrs WHERE eiauthority = '$kty5'";
+            $qry = mysqli_query($con, $sql);
+            $row = mysqli_fetch_array($qry);
+            $kty5 = $row['ktyabb'];
+        }
+    
+        $kty6 = $row_edit['kty6'];
+        if(is_numeric($kty6) != 1){
+            $kty6; 
+        }else{
+            $sql = "SELECT * FROM kountynbrs WHERE eiauthority = '$kty6'";
+            $qry = mysqli_query($con, $sql);
+            $row = mysqli_fetch_array($qry);
+            $kty6 = $row['ktyabb'];
+        }
+    
+        $kty7 = $row_edit['kty7'];
+        if(is_numeric($kty7) != 1){
+            $kty7; 
+        }else{
+            $sql = "SELECT * FROM kountynbrs WHERE eiauthority = '$kty7'";
+            $qry = mysqli_query($con, $sql);
+            $row = mysqli_fetch_array($qry);
+            $kty7 = $row['ktyabb'];
+        }
+    
+        $kty8 = $row_edit['kty8'];
+        if(is_numeric($kty8) != 1){
+            $kty8; 
+        }else{
+            $sql = "SELECT * FROM kountynbrs WHERE eiauthority = '$kty8'";
+            $qry = mysqli_query($con, $sql);
+            $row = mysqli_fetch_array($qry);
+            $kty8 = $row['ktyabb'];
+        }
+    
+        $kty9 = $row_edit['kty9'];
+        if(is_numeric($kty9) != 1){
+            $kty9; 
+        }else{
+            $sql = "SELECT * FROM kountynbrs WHERE eiauthority = '$kty9'";
+            $qry = mysqli_query($con, $sql);
+            $row = mysqli_fetch_array($qry);
+            $kty9 = $row['ktyabb'];
+        }
+    
+        $kty10 = $row_edit['kty10'];
+        if(is_numeric($kty10) != 1){
+            $kty10; 
+        }else{
+            $sql = "SELECT * FROM kountynbrs WHERE eiauthority = '$kty10'";
+            $qry = mysqli_query($con, $sql);
+            $row = mysqli_fetch_array($qry);
+            $kty10 = $row['ktyabb'];
+        }
+            
+        $kty11 = $row_edit['kty11'];
+        if(is_numeric($kty11) != 1){
+            $kty11; 
+         }else{
+             $sql = "SELECT * FROM kountynbrs WHERE eiauthority = '$kty11'";
+             $qry = mysqli_query($con, $sql);
+             $row = mysqli_fetch_array($qry);
+             $kty11 = $row['ktyabb'];
+         }
+    
+        $kty12 = $row_edit['kty12'];
+        if(is_numeric($kty12) != 1){
+            $kty12; 
+        }else{
+            $sql = "SELECT * FROM kountynbrs WHERE eiauthority = '$kty12'";
+            $qry = mysqli_query($con, $sql);
+            $row = mysqli_fetch_array($qry);
+            $kty12 = $row['ktyabb'];
+        }
+    
+        $kty13 = $row_edit['kty13'];
+        if(is_numeric($kty13) != 1){
+            $kty13; 
+        }else{
+            $sql = "SELECT * FROM kountynbrs WHERE eiauthority = '$kty13'";
+            $qry = mysqli_query($con, $sql);
+            $row = mysqli_fetch_array($qry);
+            $kty13 = $row['ktyabb'];
+        }
+    
+        $kty14 = $row_edit['kty14'];
+        if(is_numeric($kty14) != 1){
+            $kty14; 
+        }else{
+            $sql = "SELECT * FROM kountynbrs WHERE eiauthority = '$kty14'";
+            $qry = mysqli_query($con, $sql);
+            $row = mysqli_fetch_array($qry);
+            $kty14 = $row['ktyabb'];
+        }
+    
+       
+        $kty15 = $row_edit['kty15'];
+        if(is_numeric($kty15) != 1){
+            $kty15; 
+        }else{
+            $sql = "SELECT * FROM kountynbrs WHERE eiauthority = '$kty15'";
+            $qry = mysqli_query($con, $sql);
+            $row = mysqli_fetch_array($qry);
+            $kty15 = $row['ktyabb'];
+        }
+    
+        
+        $kty16 = $row_edit['kty16'];
+        if(is_numeric($kty16) != 1){
+            $kty16; 
+        }else{
+            $sql = "SELECT * FROM kountynbrs WHERE eiauthority = '$kty16'";
+            $qry = mysqli_query($con, $sql);
+            $row = mysqli_fetch_array($qry);
+            $kty16 = $row['ktyabb'];
+        }
+         $note =" ";
          $dept = "";
     
         $govfunction = "";
@@ -732,19 +898,20 @@ include('header.php');
             </div>
         </div>
         <!--row ten-->
+         <!--row ten-->
+         <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-6 mx-auto">
+                <span class="note-text"> <?php echo $note; ?></span>
+            </div>
+            <div class="col-md-2"></div>
+        </div>
 
         <div class="row">
         <div class="col-md-2"></div>
             <div class="col-md-8 mx-auto search-result-btn">
                 <table class="table table-borderless text-white">
                     <tbody>
-
-                    <tr>
-                         
-                         <td>
-                         <span class="note-text" style="margin-left:100%;"> <?php echo $note; ?></span></td>
-
-                     </tr>
                         <tr>
 
                             <td>

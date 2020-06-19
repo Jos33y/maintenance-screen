@@ -402,13 +402,13 @@ footer {
 /** Address Style **/
 
 .note-text{
-   
-    padding: 3px;
     font-size: 11px;
     color: #fff;
     font-weight: 600;
     letter-spacing: 1px;
+    text-transform: capitalize;
 }
+
 
 .address-text {
     font-size: 11px;
