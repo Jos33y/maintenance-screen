@@ -624,6 +624,12 @@ footer {
     font-weight: 700;
 }
 
+.publish-mod-border .changed textarea {
+    border: 3px solid #ec1d2e;
+    color: #ec1d2e;
+    font-weight: 700;
+}
+
 .publish-mod-border .empty input {
     background-color: transparent;
     color: transparent;

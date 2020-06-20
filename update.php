@@ -56,8 +56,6 @@ include('header.php');
 
     $bgrpid = $row['ballotgroupid'];
 
-    $dept = $row['comptypecode'];
-
     $govfunction = $row['govfunction'];
 
     $investiture = $row['investiture'];
@@ -77,6 +75,8 @@ include('header.php');
     $othertypecode = $row_gov['OtherID'];
 
     $rev = $row_gov['RevenueID'];
+
+    $dept = $row_gov['DeptId'];
 
     $sort_as = $row_gov['NameSimple'];
 
@@ -521,7 +521,7 @@ include('header.php');
     
         $govfunction = "";
 
-        $desc = "";     
+        $desc = $row_edit['comments'];
     
        $parent = ""; 
 
@@ -790,7 +790,7 @@ include('header.php');
                             <td width="11%"><span class="address-text">Notes</span></td>
                             <td width="54%">
                                 <textarea name="comments" id="" cols="25" rows="2" class="form-control"
-                                    readonly placeholder=""><?php echo $desc; ?></textarea>
+                                     placeholder=""><?php echo $desc; ?></textarea>
                             </td>
                             <td width="9%"></td>
                                 <td width="12%"><br>
@@ -1002,7 +1002,7 @@ include('header.php');
                                                     $kid = $row_kty['kid'];
                                                     $ktyname = $row_kty['namesimple'];
                                                     $ktyabb = $row_kty['ktyabb'];
-                                                    $code = $row_kty['dptrevcounty'];
+                                                    $code = $row_kty['eiauthority2'];
 
                                                 ?>
                         <tr>
@@ -1121,6 +1121,8 @@ if(isset($_POST['publish'])){
     $_SESSION["nkty15"] = $_POST['kty15'];
     $_SESSION["nkty16"] = $_POST['kty16'];
 
+    $_SESSION["ncomments"] = $_POST['comments'];
+
 
 echo "<script>window.open('publish.php?govid=$gvid', '_self')</script>";
 }
@@ -1170,6 +1172,8 @@ echo "<script>window.open('publish.php?govid=$gvid', '_self')</script>";
     $_SESSION["nkty14"] = $_POST['kty14'];
     $_SESSION["nkty15"] = $_POST['kty15'];
     $_SESSION["nkty16"] = $_POST['kty16'];
+
+    $_SESSION["ncomments"] = $_POST['comments'];
 
     echo "<script>window.open('publish.php?previd=$gvid', '_self')</script>"; 
 

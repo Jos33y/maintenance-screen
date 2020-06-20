@@ -316,7 +316,7 @@ include('header.php');
                                                     $kid = $row_kty['kid'];
                                                     $ktyname = $row_kty['namesimple'];
                                                     $ktyabb = $row_kty['ktyabb'];
-                                                    $code = $row_kty['dptrevcounty'];
+                                                    $code = $row_kty['eiauthority2'];
 
                                                 ?>
                             <tr>

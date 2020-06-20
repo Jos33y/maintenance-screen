@@ -60,8 +60,6 @@ session_destroy();
 
     $bgrpid = $row['ballotgroupid'];
 
-    $dept = $row['comptypecode'];
-
     $govfunction = $row['govfunction'];
 
     $investiture = $row['investiture'];
@@ -79,6 +77,8 @@ session_destroy();
     $othertypeid = $row_gov['OtherIDtype'];
 
     $othertypecode = $row_gov['OtherID'];
+
+    $dept = $row_gov['DeptId'];
 
     $rev = $row_gov['RevenueID'];
 
@@ -519,7 +519,7 @@ session_destroy();
     
         $govfunction = "";
 
-        $desc = "";     
+        $desc = $row_edit['comments'];
     
        $parent = ""; 
 
@@ -996,7 +996,7 @@ session_destroy();
                                                             $kid = $row_kty['kid'];
                                                             $ktyname = $row_kty['namesimple'];
                                                             $ktyabb = $row_kty['ktyabb'];
-                                                            $code = $row_kty['dptrevcounty'];
+                                                            $code = $row_kty['eiauthority2'];
 
                                                         ?>
                         <tr>

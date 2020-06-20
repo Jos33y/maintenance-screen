@@ -59,8 +59,6 @@ include('header.php');
 
     $bgrpid = $row['ballotgroupid'];
 
-    $dept = $row['comptypecode'];
-
     $govfunction = $row['govfunction'];
 
     $investiture = $row['investiture'];
@@ -80,6 +78,8 @@ include('header.php');
     $othertypecode = $row_gov['OtherID'];
 
     $rev = $row_gov['RevenueID'];
+
+    $dept = $row_gov['DeptId'];
 
     $kty = $row_gov['ElectionAuthority'];
 
@@ -325,6 +325,8 @@ include('header.php');
   $nkty15 = $_SESSION["nkty15"];
   $nkty16 = $_SESSION["nkty16"];
 
+  $ncomments = $_SESSION["ncomments"];
+
   
 
 
@@ -386,7 +388,7 @@ include('header.php');
     
         $govfunction = "";
 
-        $desc = "";     
+        $desc = $row_edit['comments'];
     
        $parent = ""; 
 
@@ -439,6 +441,8 @@ include('header.php');
         $nkty14 = $_SESSION["nkty14"];
         $nkty15 = $_SESSION["nkty15"];
         $nkty16 = $_SESSION["nkty16"];
+
+        $ncomments = $_SESSION["ncomments"];
             
   
     
@@ -766,19 +770,23 @@ include('header.php');
 
 
         <!--row eight  first-->
-        <!--
         <div class="row">
             <div class="col-sm-12">
                 <table class="table table-borderless text-white">
                     <tbody class="search-res">
                         <tr>
                             <td width="11%"><span class="address-text">Notes</span></td>
-                            <td width="54%">
-                                <textarea name="comments" id="" cols="30" rows="3" class="form-control"
-                                    readonly placeholder="" readonly><?php// echo $desc; ?></textarea>
+                            <td width="45%">
+                                <textarea name="comments" id="" cols="25" rows="2" class="form-control"
+                                    readonly placeholder="" readonly><?php echo $desc; ?></textarea>
                             </td>
-                            <td width="35%"></td>
-
+                            <td width="45%">
+                            <div  class="<?php  if($desc == $ncomments)
+                                 { echo "empty"; }else{echo "changed";} ?>">
+                                <textarea name="comments" id="" cols="25" rows="2" class="form-control"
+                                    readonly placeholder="" readonly><?php echo $ncomments; ?></textarea>
+                                        </div>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
@@ -863,21 +871,21 @@ include('header.php');
                                 <td width="6%">
                                     <span class="address-text">SEI</span>
                                     <input type="text" class="form-control" id=""name="kty" value="<?php echo $kty;?>"
-                                     placeholder="">
+                                     placeholder="" readonly>
                                      <div  class="<?php  if($kty == $nkty)
                                  { echo "empty"; }else{echo "changed";} ?>">
                                  <input type="text" class="form-control" id=""name="kty" value="<?php echo $nkty;?>"
-                                     placeholder="">
+                                     placeholder="" readonly>
                                 </td>
 
                                 <td width="6%">
                                     <span class="address-text">Home</span>
                                     <input type="text" class="form-control" id="" name="ktyone" value="<?php echo $ktyone;?>"
-                                     placeholder="">
+                                     placeholder="" readonly>
                                      <div  class="<?php  if($kty == $nktyone)
                                  { echo "empty"; }else{echo "changed";} ?>">
                                  <input type="text" class="form-control" id=""name="ktyone" value="<?php echo $nktyone;?>"
-                                     placeholder="">
+                                     placeholder="" readonly>
 
                                 </td>
 
@@ -1212,7 +1220,7 @@ if(isset($_POST['confirm'])){
    ComptrollerID = '$newcomptroller', OtherIDtype = '$newtype', OtherID = '$newothertype',
    ParentID = '$newparent', ElectionAuthority = '$nkty', EconInterests = '$nktyone',
    kty1 = '$nkty1', kty2 = '$nkty2', kty3 = '$nkty3', kty4 = '$nkty4', kty5 = '$nkty5', kty6 = '$nkty6', kty7 = '$nkty7', kty8 = '$nkty8', kty9 = '$nkty9', 
-   kty10 = '$nkty10', kty11 = '$nkty11' , kty12 = '$nkty12', kty13 = '$nkty13', kty14 = '$nkty14', kty15 = '$nkty15', kty16 = '$nkty16',
+   kty10 = '$nkty10', kty11 = '$nkty11' , kty12 = '$nkty12', kty13 = '$nkty13', kty14 = '$nkty14', kty15 = '$nkty15', kty16 = '$nkty16', comments = '$ncomments',
    timestamp = NOW() WHERE GovId = '$gvid'
     ";
 
@@ -1235,12 +1243,12 @@ $query_up = mysqli_query($con, $sql_up) or  die(mysqli_error($con));
     $sql_insert = "INSERT INTO historytable (govid, comptrollerid, revenueid, otheridtype, othertypecode, namesimple, PBDNF, govtype, websiteurl, 
     hqemail, hqphysicaladdress, hqphysicalcity, hqmailingzip, hqphone, hqmailingaddress, hqmailingcity, hqstate, Femail, Fmailingaddress,
      Fphone, Fphysicaladdress, Fmailingcity, Fstate, Fmailingzip, govtypename, webgroup, ballotgroupid, investiture, electionauth, econinterest,
-     kty1, kty2, kty3, kty4, kty5, kty6, kty7, kty8, kty9, kty10, kty11, kty12, kty13, kty14, kty15, kty16)
+     kty1, kty2, kty3, kty4, kty5, kty6, kty7, kty8, kty9, kty10, kty11, kty12, kty13, kty14, kty15, kty16, comments)
 
      VALUES ('$gvid', '$cmpid', '$rev', '$othertypeid', '$othertypecode', '$sort_as', '$pbdnfm', '$gvtype', '$weburl', '$hqemail',
      '$hqpaddress', '$hqpcity', '$hqmzip', '$hqphone', '$hqmaddress', '$hqmcity', '$hqstate', '$foiaemail', '$foiaeaddress', 
      '$foiaphone', '$foiapaddress', '$foiamcity', '$foiastate', '$foiamzip', '$gvtypename', '$webgrp', '$bgrpid', '$investiture', '$kty', '$ktyone',
-     '$kty1', '$kty2', '$kty3', '$kty4', '$kty5', '$kty6', '$kty7', '$kty8', '$kty9', '$kty10', '$kty11', '$kty12', '$kty13', '$kty14', '$kty15', '$kty16')
+     '$kty1', '$kty2', '$kty3', '$kty4', '$kty5', '$kty6', '$kty7', '$kty8', '$kty9', '$kty10', '$kty11', '$kty12', '$kty13', '$kty14', '$kty15', '$kty16', '$desc')
     ";
 
     $query_insert = mysqli_query($con, $sql_insert) or  die(mysqli_error($con));
@@ -1275,6 +1283,8 @@ $query_up = mysqli_query($con, $sql_up) or  die(mysqli_error($con));
                  });
                 
                 </script>';
+                
+        echo "<script>window.open('search-result.php?govid=$gvid', '_self')</script>";
 
       }
        else
