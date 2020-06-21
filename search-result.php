@@ -29,7 +29,6 @@ session_destroy();
 
     $aid = $row_edit['AddressId'];
     $gvid = $row_edit['GovId'];
-    $cmpid = $row_edit['ComptrollerID'];
     $pbdnfm = $row_edit['PublicBodyNameFormal'];
     $gvtype = $row_edit['GovType'];
     $weburl = $row_edit['WebsiteURL'];
@@ -87,6 +86,8 @@ session_destroy();
     $sort_as = $row_gov['NameSimple'];
 
     $parent = $row_gov['ParentID'];
+
+    $cmpid = $row_gov['ComptrollerID'];
 
 
     $kty = $row_gov['ElectionAuthority'];

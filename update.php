@@ -25,7 +25,6 @@ include('header.php');
 
     $aid = $row_edit['AddressId'];
     $gvid = $row_edit['GovId'];
-    $cmpid = $row_edit['ComptrollerID'];
     $pbdnfm = $row_edit['PublicBodyNameFormal'];
     $gvtype = $row_edit['GovType'];
     $weburl = $row_edit['WebsiteURL'];
@@ -81,6 +80,8 @@ include('header.php');
     $sort_as = $row_gov['NameSimple'];
 
     $parent = $row_gov['ParentID'];
+
+    $cmpid = $row_gov['ComptrollerID'];
 
     $desc = $row_gov['Comments'];
 
@@ -295,7 +296,7 @@ include('header.php');
     
         $hid = $row_edit['hist_id'];
         $gvid = $row_edit['govid'];
-        $cmpid = $row_edit['comptrollerid'];
+       
         $pbdnfm = $row_edit['PBDNF'];
         $gvtype = $row_edit['govtype'];
         $weburl = $row_edit['websiteurl'];
