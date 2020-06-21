@@ -401,7 +401,7 @@ footer {
 
 /** Address Style **/
 
-.note-text{
+.note-text {
     font-size: 11px;
     color: #fff;
     font-weight: 600;
@@ -676,4 +676,28 @@ li:hover {
 .search-res .form-check {
     font-size: 7px;
     font-weight: 500;
+}
+
+
+.fast-s input {
+    border: 2px solid transparent;
+    border-radius: 0;
+    font-size: 10px;
+    font-weight: 600;
+}
+
+.fast-s .fab {
+    color: #ffff;
+    font-size: 15px;
+}
+
+.fast-s .btn.btn-sm {
+    text-align: center;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    border-color: #0d0d0e;
+    border-radius: 0;
+    margin-left: 5px;
+
 }

@@ -45,11 +45,49 @@
                 $("#bodyResponse").html("");
             });
         });
-        // name simple script 
+       
     </script>
 
-    <script>
 
+<script>
+        //address script
+        $(document).ready(function () {
+            $("#address").keyup(function () {
+
+                var query =  $("#address").val();
+
+                if(query.length > 1){
+               
+                    $.ajax(
+                        {
+                            url:'search.php',
+                            method:'POST',
+                            data: {
+                                checkaddress: 1,
+                                a: query
+                            },
+                            success: function(data) {
+                          $("#addResponse").html(data);
+                       },
+                            dataType: 'text'
+                        }
+                    );
+           }
+            });
+
+             $(document).on('click', 'li.address', function() {
+                var address = $(this).text();
+                $("#address").val(address);
+                $("#addResponse").html("");
+            });
+        });
+
+      
+    </script>
+
+
+    <script>
+//Name Simple Script
         $(document).ready(function () {
             $("#nameSimple").keyup(function () {
 

@@ -63,6 +63,26 @@ elseif(isset($_POST['checkdata'])){
     exit($response);
 }
 
+elseif(isset($_POST['checkaddress'])){
+    $response = '<ul><li>No data found</li><ul>';
+
+    $q = $con->real_escape_string($_POST['a']);
+
+    $sql = $con->query("SELECT DISTINCT HQphysicalAddress from addresses  WHERE HQphysicalAddress LIKE '%$q%'");
+    if($sql->num_rows > 0) {
+
+        $response = "<ul>";
+
+        while($data = $sql->fetch_array())
+        $response .= "<li class='address'>".$data['HQphysicalAddress']."</li>";
+
+        $response .= "</ul>";
+    }
+
+    exit($response);
+}
+
+
 
 
 ?>
@@ -147,6 +167,28 @@ include('header.php');
                         </table>
                     </div>
                 </div>
+
+                
+                <!--row three BEE-->
+                <div class="row">
+                    <div class="col-md-12">
+                        <table class="table table-borderless">
+                            <tbody>
+                                <tr>
+                                    <td width="15%" class="search-label">
+                                        <label for="part" class="search-three">Address</label>
+                                    </td>
+                                    <td width="85%" class="search-input">
+                                        <input type='text' name='address' class='form-control' placeholder="&#61442;" id="address">
+                                        <div id="addResponse"></div>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
 
                 <!-- fourth row-->
                 <div class="row">
@@ -347,6 +389,8 @@ include('header.php');
 
     $pbdnf = $_POST['pbdnf'];
 
+    $address = $_POST['address'];
+
     $govType = $_POST['govType'];
 
     $nameSimple = $_POST['nameSimple'];
@@ -383,6 +427,33 @@ include('header.php');
     }
     elseif($pbdnf){
         $get_address = "select * from addresses where PublicBodyNameFormal ='$pbdnf'";
+
+        $run_address = mysqli_query($con, $get_address);
+
+            if (mysqli_num_rows($run_address) == 1) {
+
+                $row = mysqli_fetch_array($run_address);
+                    $gvid = $row['GovId'];
+
+                    echo "<script>window.open('search-result.php?govid=$gvid', '_self')</script>";
+            }
+            else{
+                echo '
+                <script>
+                    swal({
+                            title: "No Public Body Formal Name Found!",
+                            icon: "error",
+                         });
+            </script>
+            ';
+
+            }
+
+
+    }
+
+    elseif($address){
+        $get_address = "select * from addresses where HQphysicalAddress ='$address'";
 
         $run_address = mysqli_query($con, $get_address);
 
