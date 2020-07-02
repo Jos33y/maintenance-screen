@@ -3,13 +3,12 @@
 <?php 
 $title = "View History";
 include('dbcon.php');
-include('header.php'); 
+include('headerhist.php'); 
 
 ?>
 <!--header image-->
 <!--header image-->
 
-<img src="images/screengold.jpg" alt="" class="back-image">
 
 <!-- page title-->
 <div class="container-fluid">
@@ -21,7 +20,7 @@ include('header.php');
 
     <!--table for ballot-->
     <div class="sty">
-        <table class="table border-bottom border">
+        <table class="table">
             <thead>
                 <tr class="county-tble-head">
                     <th></th>
@@ -77,8 +76,8 @@ include('header.php');
                         $othertypeid = $row['otheridtype'];
                         $otid = $row['othertypecode'];
                         $nmsimp = $row['namesimple'];
-                        $ktyabb = $row['ktyabb']; 
-                        $fulspan = $row['fullspan'];
+                        $kty = $row['electionauth']; 
+                        $kty = $row['electionauth'];
                         $pbdnfm = $row['PBDNF'];
                         $gvtype = $row['govtype'];
                         $weburl = $row['websiteurl'];
@@ -101,7 +100,21 @@ include('header.php');
                         $webgrp = $row['webgroup'];
                         $bltgid = $row['ballotgroupid'];
                         $invst = $row['investiture'];
-                        $timestamp = $row['timestamp'];
+                        $timestamp = date("M-d-yy h:i:s A", strtotime($row['timestamp']));
+                        $date = new DateTime($timestamp, new DateTimeZone('Africa/Lagos'));
+                        $date->setTimezone(new DateTimeZone('America/Chicago'));
+
+                        if(is_numeric($kty) != 1){
+                            $kty;
+                               
+                        }else{
+                            $sql = "SELECT * FROM kountynbrs WHERE eiauthority = $kty";
+                            $qry = mysqli_query($con, $sql);
+                            $row = mysqli_fetch_array($qry);
+                            $kty = $row['ktyabb'];
+                                
+                        }
+                    
 
 
                     $i++;                  
@@ -112,7 +125,7 @@ include('header.php');
                 <tr style="font-size:13px;">
                     <td><a style="text-decoration: none;" href="restore-data.php?hist_id=<?php echo $id;?>"><i
                                 class="fas fa-edit"></i> Restore</a> </td>
-                    <td class="text-danger"><?php echo $timestamp; ?> </td>
+                    <td class="text-danger"><?php echo $date->format('M-d-yy h:i:s A'); ?> </td>
                     <td><b><?php echo $i; ?> </b></td>
                     <td><?php echo $gvid; ?> </td>
                     <td><?php echo $cmpid; ?> </td>
@@ -142,8 +155,8 @@ include('header.php');
                     <td><?php echo $webgrp; ?> </td>
                     <td><?php echo $bltgid; ?> </td>
                     <td><?php echo $invst; ?> </td>
-                    <td><?php echo $ktyabb; ?> </td>
-                    <td><?php echo $fulspan; ?> </td>
+                    <td><?php echo $kty; ?> </td>
+                    <td><?php echo $kty; ?> </td>
                 </tr>
 
                 <?php } ?>

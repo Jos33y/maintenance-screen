@@ -50,6 +50,9 @@ session_destroy();
     $note = $row_edit['note'];
 
     $timestamp = date("M-d-yy h:i:s A", strtotime( $row_edit['timestamp']));
+    
+    $date = new DateTime($timestamp, new DateTimeZone('Africa/Lagos'));
+    $date->setTimezone(new DateTimeZone('America/Chicago'));
 
     $get_govtype = "select * from govtype where govtypeid = '$gvtype'";
 
@@ -525,6 +528,8 @@ session_destroy();
        $parent = ""; 
 
         $timestamp = date("M-d-yy h:i:s A", strtotime($row_edit['timestamp']));
+        $date = new DateTime($timestamp, new DateTimeZone('Africa/Lagos'));
+        $date->setTimezone(new DateTimeZone('America/Chicago'));
        
         $version_details = " <button style='font-weight: 600;' class='btn btn-md btn-danger'>This is not the latest version</button>";
     
@@ -543,12 +548,14 @@ session_destroy();
         <div class="row version">
             <div class="col-sm-8" style="font-weight: 600; ">
                 <?php echo $version_details; ?>
-                <span class="version-time">It is from <?php echo $timestamp . $version_link; ?> </span>
+                <span class="version-time">It is from <?php echo $date->format('M-d-yy h:i:s A')  . $version_link; ?>
+                </span>
             </div>
             <div class="col-sm-3 form-inline fast-s">
-            <input type="text" name="sgovid" class="form-control" id="" maxlength="6" placeholder=" Enter GovID">
-            <button class="btn btn-sm btn-primary" name="searchgovid" type="submit"> <i class="fab fa-searchengin"></i> </button>
-    </div>
+                <input type="text" name="sgovid" class="form-control" id="" maxlength="6" placeholder=" Enter GovID">
+                <button class="btn btn-sm btn-primary" name="searchgovid" type="submit"> <i
+                        class="fab fa-searchengin"></i> </button>
+            </div>
         </div>
         <div class="row">
             <div class="col-md-12">
@@ -652,31 +659,6 @@ session_destroy();
         </div>
 
 
-        <!--row five-->
-
-        <div class="row">
-            <div class="col-sm-12">
-                <table class="table table-borderless text-white">
-                    <tbody class="search-res">
-                        <tr>
-                            <td width="11%"></td>
-                            <td width="20%"><span class="address-text">Phone</span>
-                                <input type="tel" class="form-control" id="" value="<?php echo $hqphone ;?>" readonly>
-                            </td>
-                            <td><span class="address-text">Email</span>
-                                <input type="text" class="form-control" id="" value="<?php echo $hqemail ;?>" readonly>
-                            </td>
-                            <td width="35%"><span class="address-text">Website</span>
-                                <input type="url" class="form-control" name="website" value="<?php echo $weburl ;?>"
-                                    readonly>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
-
         <!--row four-->
 
         <div class="row">
@@ -741,6 +723,30 @@ session_destroy();
                                 <input type="text" class="form-control" id="" value="<?php echo $foiamzip ;?>" readonly>
                             </td>
 
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!--row five-->
+
+        <div class="row">
+            <div class="col-sm-12">
+                <table class="table table-borderless text-white">
+                    <tbody class="search-res">
+                        <tr>
+                            <td width="11%"></td>
+                            <td width="20%"><span class="address-text">Phone</span>
+                                <input type="tel" class="form-control" id="" value="<?php echo $hqphone ;?>" readonly>
+                            </td>
+                            <td><span class="address-text">Email</span>
+                                <input type="text" class="form-control" id="" value="<?php echo $hqemail ;?>" readonly>
+                            </td>
+                            <td width="35%"><span class="address-text">Website</span>
+                                <input type="url" class="form-control" name="website" value="<?php echo $weburl ;?>"
+                                    readonly>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
@@ -943,10 +949,13 @@ session_destroy();
                                                         $row_time=mysqli_fetch_array($run_prevtime);
 
                                                         $prev_timestamp = date("M-d-yy h:i:s A", strtotime( $row_time['timestamp']));
+                                                        $date = new DateTime($prev_timestamp, new DateTimeZone('Africa/Lagos'));
+                                                        $date->setTimezone(new DateTimeZone('America/Chicago'));
 
                                                         }
                                                         ?>
-                                <span class="version-time" style="font-style: italic;"><?php echo $prev_timestamp; ?>
+                                <span class="version-time"
+                                    style="font-style: italic;"><?php echo $date->format('M-d-yy h:i:s A'); ?>
                                 </span><br>
                                 <button class="btn btn-md btn-prev" name="previous">
 
