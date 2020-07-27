@@ -7,6 +7,25 @@ session_destroy();
 ?>
 
 <?php
+
+if(isset($_POST['checkgov'])){
+    $response = '<ul><li>No data found</li><ul>';
+
+    $q = $con->real_escape_string($_POST['s']);
+
+    $sql = $con->query("SELECT DISTINCT PublicBodyNameFormal from addresses  WHERE PublicBodyNameFormal LIKE '%$q%'");
+    if($sql->num_rows > 0) {
+
+        $response = "<ul>";
+
+        while($data = $sql->fetch_array())
+        $response .= "<li class='sgovid'>".$data['PublicBodyNameFormal']."</li>";
+
+        $response .= "</ul>";
+    }
+
+    exit($response);
+}
 //$query = (isset($_GET['previd']) ? $_GET['govid'] : null);
 
  //if($query){
@@ -538,6 +557,9 @@ session_destroy();
        // $version_link =" ";
     
        }
+
+       
+    
 ?>
 
 <!--no print div -->
@@ -552,12 +574,17 @@ session_destroy();
                 </span>
             </div>
             <div class="col-sm-5 form-inline fast-s">
-                <input type="text" name="sgovid" class="form-control" id="" maxlength="6" placeholder=" Enter GovID">
+                <input type="text" name="sgovid" class="form-control" id="sGovid" placeholder=" Enter GovID">
+                
                 <button class="btn btn-sm btn-primary" name="searchgovid" type="submit"> <i
                         class="fab fa-searchengin"></i> </button>
                         <button class="btn btn-sm btn-warning" name="export" type="submit"> 
                         <i style="color:white;" class="fas fa-file-export"></i> Export </button>
             </div>
+        </div>
+        <div class="row">
+        <div class="col-sm-5"></div> 
+        <div class="col-sm-7">  <div id="sResponse"></div> </div>
         </div>
         <div class="row">
             <div class="col-md-12">
@@ -804,12 +831,12 @@ session_destroy();
                                     </button>
                                 </span></td>
                             <td width="6%">
-                                <span class="address-text">SEI</span>
+                                <span class="address-text">Home</span>
                                 <input type="text" class="form-control" id="" value="<?php echo $kty;?>" readonly>
                             </td>
 
                             <td width="6%">
-                                <span class="address-text">Home</span>
+                                <span class="address-text">SEI</span>
                                 <input type="text" class="form-control" id="" value="<?php echo $ktyone;?>" readonly>
 
                             </td>
@@ -1086,7 +1113,7 @@ if(isset($_POST['export'])){
    $sql = "SELECT ('ID', 'GovId', 'GovType', 'WebsiteURL', 'HQemail', 'HQphysicalAddress', 'HQphysicalCity', 
    'HQmailingZip', 'HQphone', 'HQmailingAddress', 'HQmailingCity', 'HQState', 
    'FoiaEmail', 'FoiaMailingAddress', 'FoiaPhone', 'FoiaPhysicalAddress', 'FoiaMailingCity', 'FoiaState', 'FoiaMailingZip')
-    FROM addresses WHERE GovId ='$gvid'";
+    FROM addresses";
    
    $query = mysqli_query($con, $sql);
    
@@ -1095,7 +1122,7 @@ if(isset($_POST['export'])){
        $filename = "address_" . date('Y-m-d') . ".csv";
        
        //create a file pointer
-       $f = fopen('', 'w');
+       $f = fopen("php://output","w");
        
        //set column headers
        $fields = array('ID', 'GovId', 'GovType', 'WebsiteURL', 'HQemail', 'HQphysicalAddress', 'HQphysicalCity', 
@@ -1117,8 +1144,10 @@ if(isset($_POST['export'])){
        fseek($f, 0);
        
        //set headers to download file rather than displayed
-       header('Content-Type: text/csv');
-       header('Content-Disposition: attachment; filename="' . $filename . '";');
+        header("Content-Description: File Transfer");
+        header("Content-Disposition: attachment; filename=".$filename);
+        header("Content-Type: application/csv; ");
+      
        
        //output all remaining data on a file pointer
        fpassthru($f);
@@ -1146,7 +1175,7 @@ if(isset($_POST['searchgovid'])){
 
     $govid = $_POST['sgovid'];
 
-    if($govid){
+    if(is_numeric($govid)){
 
         $check = "select * from addresses where GovId = '$govid'";
         $run_check = mysqli_query($con, $check);
@@ -1167,6 +1196,32 @@ if(isset($_POST['searchgovid'])){
         </script>
         ';
         }
+
+    }
+    else{
+
+        $get_address = "select * from addresses where PublicBodyNameFormal ='$govid'";
+
+        $run_address = mysqli_query($con, $get_address);
+
+            if (mysqli_num_rows($run_address) == 1) {
+
+                $row = mysqli_fetch_array($run_address);
+                    $gvid = $row['GovId'];
+
+                    echo "<script>window.open('search-result.php?govid=$gvid', '_self')</script>";
+            }
+            else{
+                echo '
+                <script>
+                    swal({
+                            title: "No Public Body Formal Name Found!",
+                            icon: "error",
+                         });
+            </script>
+            ';
+
+            }
 
     }
      

@@ -157,6 +157,44 @@
       
     </script>
 
+<script type="text/javascript">
+
+    //govid script 
+
+    $(document).ready(function () {
+            $("#sGovid").keyup(function () {
+
+                var query =  $("#sGovid").val();
+
+                if(query.length > 2){
+               
+               $.ajax(
+                   {
+                       url:'search-result.php',
+                       method:'POST',
+                       data: {
+                           checkgov: 1,
+                           s: query
+                       },
+                       success: function(data) {
+                          $("#sResponse").html(data);
+                       },
+                       dataType: 'text'
+                   }
+               );
+      }
+            });
+
+            $(document).on('click', 'li.sgovid', function() {
+                var sgov = $(this).text();
+                $("#sGovid").val(sgov);
+                $("#sResponse").html("");
+            });
+        });
+       
+    </script>
+
+
 <script>
 $(document).ready(function(){   
 

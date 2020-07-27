@@ -7,6 +7,7 @@
 @import "//netdna.bootstrapcdn.com/font-awesome/3.0/css/font-awesome.css";
 
 
+
 body {
     height: 100%;
     width: 100%;
@@ -18,6 +19,7 @@ body {
     overflow-x: hidden;
 
 }
+
 
 .home-image {
     background: url('../images/home.jpg');

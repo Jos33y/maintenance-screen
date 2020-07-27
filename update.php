@@ -828,13 +828,13 @@ include('header.php');
                                     </button>
                                 </span></td>
                             <td width="6%">
-                                <span class="address-text">SEI</span>
+                                <span class="address-text">Home</span>
                                 <input type="text" class="form-control" id="" name="kty" value="<?php echo $kty;?>"
                                     placeholder="">
                             </td>
 
                             <td width="6%">
-                                <span class="address-text">Home</span>
+                                <span class="address-text">SEI</span>
                                 <input type="text" class="form-control" id="" name="ktyone"
                                     value="<?php echo $ktyone;?>" placeholder="">
 
