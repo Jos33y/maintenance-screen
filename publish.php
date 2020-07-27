@@ -305,6 +305,7 @@ include('header.php');
   $newtype = $_SESSION["newtype"];
   $newothertype = $_SESSION["newothertype"];
   $newparent =  $_SESSION["newparent"];
+  $zip = $_SESSION["zip"];
 
   $nkty  = $_SESSION["nkty"];
   $nktyone  = $_SESSION["nktyone"];
@@ -422,6 +423,7 @@ include('header.php');
         $newtype = $_SESSION["newtype"];
         $newothertype = $_SESSION["newothertype"];
         $newparent =  $_SESSION["newparent"];
+        $zip = $_SESSION["zip"];
 
         $nkty  = $_SESSION["nkty"];
         $nktyone  = $_SESSION["nktyone"];
@@ -589,7 +591,7 @@ include('header.php');
 
                             <td width="10%">
                                 <label for="gov" class="sr-only">Zip </label>
-                                <input type="text" class="form-control" value="<?php echo $hqmzip ;?>" readonly
+                                <input type="text" class="form-control" value="<?php echo $zip ;?>" readonly
                                     placeholder="" readonly>
                             </td>
 
@@ -677,7 +679,7 @@ include('header.php');
 
                             <td width="10%">
                                 <label for="gov" class="sr-only">Zip </label>
-                                <input type="text" class="form-control" id="" value="<?php echo $hqmzip ;?>" readonly
+                                <input type="text" class="form-control" id="" value="<?php echo $zip ;?>" readonly
                                     placeholder=" " readonly>
                             </td>
 
@@ -717,7 +719,7 @@ include('header.php');
 
                             <td width="12%">
                                 <label for="gov" class="sr-only">Zip </label>
-                                <input type="text" class="form-control" id="" value="<?php echo $foiamzip ;?>" readonly
+                                <input type="text" class="form-control" id="" value="<?php echo $zip; ?>" readonly
                                     placeholder="" readonly>
                             </td>
 
@@ -1231,10 +1233,10 @@ $query_up = mysqli_query($con, $sql_up) or  die(mysqli_error($con));
 
     $sql_update = "UPDATE addresses 
    SET PublicBodyNameFormal = '$newpbdnf', GovType ='$newgvtype', 	WebsiteURL = '$newweburl',
-   HQemail = '$newpemail', HQphysicalAddress = '$newpaddress', HQphysicalCity = '$newpcity', HQphone = '$newpphone',
+   HQemail = '$newpemail', HQphysicalAddress = '$newpaddress', HQphysicalCity = '$newpcity', HQmailingZip = '$zip', HQphone = '$newpphone',
    HQmailingAddress = '$newmaddress', HQmailingCity = '$newmcity', FoiaEmail = '$newfemail',
    FoiaMailingAddress = '$newfaddress', FoiaPhone = '$newfphone', FoiaPhysicalAddress = '$newfaddress',
-   FoiaMailingCity = '$newmcity', note = '$noteBox', timestamp = NOW()
+   FoiaMailingCity = '$newmcity', FoiaMailingZip = '$zip', note = '$noteBox', timestamp = NOW()
    WHERE GovId = '$gvid'
     ";
 
@@ -1247,8 +1249,8 @@ $query_up = mysqli_query($con, $sql_up) or  die(mysqli_error($con));
      kty1, kty2, kty3, kty4, kty5, kty6, kty7, kty8, kty9, kty10, kty11, kty12, kty13, kty14, kty15, kty16, comments)
 
      VALUES ('$gvid', '$cmpid', '$rev', '$othertypeid', '$othertypecode', '$sort_as', '$pbdnfm', '$gvtype', '$weburl', '$hqemail',
-     '$hqpaddress', '$hqpcity', '$hqmzip', '$hqphone', '$hqmaddress', '$hqmcity', '$hqstate', '$foiaemail', '$foiaeaddress', 
-     '$foiaphone', '$foiapaddress', '$foiamcity', '$foiastate', '$foiamzip', '$gvtypename', '$webgrp', '$bgrpid', '$investiture', '$kty', '$ktyone',
+     '$hqpaddress', '$hqpcity', '$zip', '$hqphone', '$hqmaddress', '$hqmcity', '$hqstate', '$foiaemail', '$foiaeaddress', 
+     '$foiaphone', '$foiapaddress', '$foiamcity', '$foiastate', '$zip', '$gvtypename', '$webgrp', '$bgrpid', '$investiture', '$kty', '$ktyone',
      '$kty1', '$kty2', '$kty3', '$kty4', '$kty5', '$kty6', '$kty7', '$kty8', '$kty9', '$kty10', '$kty11', '$kty12', '$kty13', '$kty14', '$kty15', '$kty16', '$desc')
     ";
 
@@ -1257,8 +1259,8 @@ $query_up = mysqli_query($con, $sql_up) or  die(mysqli_error($con));
     $insert = "INSERT INTO histaddresses (GovId, ComptrollerID, PublicBodyNameFormal, govtype, WebsiteURL, HQemail,
     HqphysicalAddress, HQphysicalCity, HQmailingZip, HQphone, HQmailingAddress, HQmailingCity, HQState,
     FoiaEmail, FoiaMailingAddress, FoiaPhone, FoiaPhysicalAddress, FoiaMailingCity, FoiaState, FoiaMailingZip, note)
-     VALUES('$gvid', '$cmpid', '$pbdnfm', '$gvtype', '$weburl', '$hqemail', '$hqpaddress', '$hqpcity', '$hqmzip', '$hqphone', '$hqmaddress',
-     '$hqmcity', '$hqstate', '$foiaemail', '$foiaeaddress', '$foiaphone', '$foiapaddress', '$foiamcity', '$foiastate', '$foiamzip', 
+     VALUES('$gvid', '$cmpid', '$pbdnfm', '$gvtype', '$weburl', '$hqemail', '$hqpaddress', '$hqpcity', '$zip', '$hqphone', '$hqmaddress',
+     '$hqmcity', '$hqstate', '$foiaemail', '$foiaeaddress', '$foiaphone', '$foiapaddress', '$foiamcity', '$foiastate', '$zip', 
      '$noteBox')";
      
     $insert_qry = mysqli_query($con, $insert) or  die(mysqli_error($con));

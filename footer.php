@@ -173,6 +173,12 @@ $(document).ready(function(){
         $("#mCity").val(same);
        
     });
+
+    $("#myZip").on("input", function(){
+    var same = $(this).val();
+    $("#mZip").val(same);
+
+    });
 });
 
 
@@ -182,6 +188,13 @@ $('#checkFoia').click(function(){
     $("#fAddress").val(same);
 
 });
+
+    $("#myZip").on("input", function(){
+    var same = $(this).val();
+    $("#mZip").val(same);
+
+});
+
 
 $("#myPhone").on("input", function(){
         var same = $(this).val();

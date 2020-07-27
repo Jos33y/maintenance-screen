@@ -40,7 +40,7 @@
         <div class="col-md-2">
             <ul class="navbar">
                 <li>
-                    <a class="navbar-brand" href="index.html">
+                    <a class="navbar-brand" href="search.php">
                         <img src="images/4869420be83.png" class="logo">
                         <span class="logo-name">Home Screen</span>
                     </a>

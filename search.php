@@ -540,8 +540,8 @@ include('header.php');
                             $ktyabb = $row['KtyAbb'];
                             $nmfrm = $row['NameFormal'];
                             $fulspan = $row['FullSpan'];
-                            $khnbr = $row['KtyHomeNbr'];
-                            $khab = $row['KtyHomeAbb'];
+                            $khnbr = $row['ElectionAuthority'];
+                            $khab = $row['EconInterests'];
                            
                         }
                         $i++;
@@ -598,8 +598,8 @@ include('header.php');
                 $ktyabb = $row['KtyAbb'];
                 $nmfrm = $row['NameFormal'];
                 $fulspan = $row['FullSpan'];
-                $khnbr = $row['KtyHomeNbr'];
-                $khab = $row['KtyHomeAbb'];
+                $khnbr = $row['ElectionAuthority'];
+                $khab = $row['EconInterests'];
                 $i++;
 
                 if($rowcount >= '2'){  
@@ -662,11 +662,11 @@ include('header.php');
                     $ktyabb = $row['KtyAbb'];
                     $nmfrm = $row['NameFormal'];
                     $fulspan = $row['FullSpan'];
-                    $khnbr = $row['KtyHomeNbr'];
-                    $khab = $row['KtyHomeAbb'];
+                    $khnbr = $row['ElectionAuthority'];
+                    $khab = $row['EconInterests'];
                     $i++;
 
-              ?>
+              ?> 
             <tr style="font-size:13px;">
                 <td><a style="text-decoration: none;" href="search-result.php?govid=<?php echo $gvid;?>"><i
                             class="fas fa-edit"></i> Edit</a> </td>

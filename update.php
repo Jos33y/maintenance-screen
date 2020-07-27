@@ -653,7 +653,7 @@ include('header.php');
 
                             <td width="10%">
                                 <label for="gov" class="sr-only">Zip </label>
-                                <input type="text" class="form-control" id="" value="<?php echo $hqmzip ;?>" readonly
+                                <input type="text" id="myZip" name="zip" class="form-control" id="" value="<?php echo $hqmzip ;?>"
                                     placeholder="">
                             </td>
 
@@ -702,8 +702,8 @@ include('header.php');
 
                             <td width="10%">
                                 <label for="gov" class="sr-only">Zip </label>
-                                <input type="text" class="form-control" id="" value="<?php echo $hqmzip ;?>" readonly
-                                    placeholder=" ">
+                                <input type="text" id="mZip" name="zip" class="form-control" id="" value="<?php echo $hqmzip ;?>"
+                                    placeholder="">
                             </td>
 
                         </tr>
@@ -744,7 +744,7 @@ include('header.php');
 
                             <td width="12%">
                                 <label for="gov" class="sr-only">Zip </label>
-                                <input type="text" class="form-control" value="<?php echo $foiamzip ;?>" readonly
+                                <input type="text" id="mZip" name="zip" class="form-control" value="<?php echo $foiamzip ;?>"
                                     placeholder="">
                             </td>
 
@@ -763,11 +763,11 @@ include('header.php');
                             <td width="11%"></td>
                             <td width="20%"><span class="address-text">Phone</span>
                                 <input type="tel" id="myPhone" class="form-control" name="pphone" id="phoneNumber"
-                                    value="<?php echo $hqphone ;?>" required placeholder="">
+                                    value="<?php echo $hqphone ;?>" placeholder="">
                             </td>
                             <td><span class="address-text">Email</span>
                                 <input type="text" id="myEmail" class="form-control" name="pemail"
-                                    value="<?php echo $hqemail ;?>" required placeholder="">
+                                    value="<?php echo $hqemail ;?>" placeholder="">
                             </td>
                             <td width="35%"><span class="address-text">Website</span>
                                 <input type="text" id="myWeburl" class="form-control" name="weburl"
@@ -790,11 +790,11 @@ include('header.php');
                             <td width="11%"></td>
                             <td width="20%"><span class="address-text">FOIA Phone</span>
                                 <input type="text" id="Fphone" class="form-control" name="Fphone"
-                                    value="<?php echo $foiaphone ;?>" required placeholder="">
+                                    value="<?php echo $foiaphone ;?>" placeholder="">
                             </td>
                             <td><span class="address-text">FOIA Email</span>
                                 <input type="text" id="Femail" class="form-control" name="Femail"
-                                    value="<?php echo $foiaemail ;?>" required placeholder="">
+                                    value="<?php echo $foiaemail ;?>" placeholder="">
                             </td>
                             <td width="35%"><span class="address-text">FOIA Website</span>
                                 <input type="text" id="Fweburl" class="form-control" name="weburl"
@@ -1139,6 +1139,7 @@ if(isset($_POST['publish'])){
 
     $_SESSION["nkty"] = $_POST['kty'];
     $_SESSION["nktyone"] = $_POST['ktyone'];
+    $_SESSION["zip"] = $_POST['zip'];
 
     $_SESSION["nkty1"] = $_POST['kty1'];
     $_SESSION["nkty2"] = $_POST['kty2'];
@@ -1188,6 +1189,7 @@ echo "<script>window.open('publish.php?govid=$gvid', '_self')</script>";
     $_SESSION["newtype"]   = $_POST['type'];
     $_SESSION["newothertype"]   = $_POST['othertype'];
     $_SESSION["newparent"]   = $_POST['parent'];
+    $_SESSION["zip"] = $_POST['zip'];
 
     $_SESSION["nkty"] = $_POST['kty'];
     $_SESSION["nktyone"] = $_POST['ktyone'];

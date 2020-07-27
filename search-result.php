@@ -546,15 +546,17 @@ session_destroy();
 
         <!--row one-->
         <div class="row version">
-            <div class="col-sm-8" style="font-weight: 600; ">
+            <div class="col-sm-7" style="font-weight: 600; ">
                 <?php echo $version_details; ?>
                 <span class="version-time">It is from <?php echo $date->format('M-d-yy h:i:s A')  . $version_link; ?>
                 </span>
             </div>
-            <div class="col-sm-3 form-inline fast-s">
+            <div class="col-sm-5 form-inline fast-s">
                 <input type="text" name="sgovid" class="form-control" id="" maxlength="6" placeholder=" Enter GovID">
                 <button class="btn btn-sm btn-primary" name="searchgovid" type="submit"> <i
                         class="fab fa-searchengin"></i> </button>
+                        <button class="btn btn-sm btn-warning" name="export" type="submit"> 
+                        <i style="color:white;" class="fas fa-file-export"></i> Export </button>
             </div>
         </div>
         <div class="row">
@@ -1076,7 +1078,57 @@ session_destroy();
 <?php include('footer.php'); ?>
 <?php  }  ?>
 
+<?php 
 
+if(isset($_POST['export'])){
+
+    //Export to CSV method below
+   $sql = "SELECT ('ID', 'GovId', 'GovType', 'WebsiteURL', 'HQemail', 'HQphysicalAddress', 'HQphysicalCity', 
+   'HQmailingZip', 'HQphone', 'HQmailingAddress', 'HQmailingCity', 'HQState', 
+   'FoiaEmail', 'FoiaMailingAddress', 'FoiaPhone', 'FoiaPhysicalAddress', 'FoiaMailingCity', 'FoiaState', 'FoiaMailingZip')
+    FROM addresses WHERE GovId ='$gvid'";
+   
+   $query = mysqli_query($con, $sql);
+   
+   if($query){
+       $delimiter = ",";
+       $filename = "address_" . date('Y-m-d') . ".csv";
+       
+       //create a file pointer
+       $f = fopen('', 'w');
+       
+       //set column headers
+       $fields = array('ID', 'GovId', 'GovType', 'WebsiteURL', 'HQemail', 'HQphysicalAddress', 'HQphysicalCity', 
+       'HQmailingZip', 'HQphone', 'HQmailingAddress', 'HQmailingCity', 'HQState', 
+       'FoiaEmail', 'FoiaMailingAddress', 'FoiaPhone', 'FoiaPhysicalAddress', 'FoiaMailingCity', 'FoiaState', 'FoiaMailingZip');
+       fputcsv($f, $fields, $delimiter);
+       
+       //output each row of the data, format line as csv and write to file pointer
+       while($row = mysqli_fetch_assoc($query)){
+          
+           $lineData = array($row['ID'], $row['GovId'], $row['GovType'], $row['WebsiteURL'], $row['HQemail'],
+           $row['HQphysicalAddress'], $row['HQphysicalCity'], $row['HQmailingZip'], $row['HQphone'], $row['HQmailingAddress'],
+           $row['HQmailingCity'], $row['HQState'], $row['FoiaEmail'], $row['FoiaMailingAddress'], $row['FoiaPhone'],
+           $row['FoiaPhysicalAddress'], $row['FoiaMailingCity'], $row['FoiaState'], $row['FoiaMailingZip']);
+           fputcsv($f, $lineData, $delimiter);
+       }
+       
+       //move back to beginning of file
+       fseek($f, 0);
+       
+       //set headers to download file rather than displayed
+       header('Content-Type: text/csv');
+       header('Content-Disposition: attachment; filename="' . $filename . '";');
+       
+       //output all remaining data on a file pointer
+       fpassthru($f);
+   }
+   exit;
+   
+   }
+   
+
+?>
 
 <?php 
 
