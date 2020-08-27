@@ -1,13 +1,13 @@
 <?php 
 $title = "Screen Mode";
 include('dbcon.php');
-include('header.php'); 
-session_destroy();
+
+
 
 ?>
 
 <?php
-
+include('header.php'); 
 if(isset($_POST['checkgov'])){
     $response = '<ul><li>No data found</li><ul>';
 
@@ -1073,7 +1073,7 @@ if(isset($_POST['checkgov'])){
                             <th style="font-size: 13px;" id="ktyahead">Gov Type Code</th>
                             <th style="font-size: 13px;" id="ktynhead">Gov Type Name</th>
                         </tr>
-                    </thead>
+                     </thead>
                     <tbody>
                         <?php
 
@@ -1103,65 +1103,18 @@ if(isset($_POST['checkgov'])){
 </div>
 
 <?php include('footer.php'); ?>
+
 <?php  }  ?>
 
-<?php 
 
-if(isset($_POST['export'])){
 
-    //Export to CSV method below
-   $sql = "SELECT ('ID', 'GovId', 'GovType', 'WebsiteURL', 'HQemail', 'HQphysicalAddress', 'HQphysicalCity', 
-   'HQmailingZip', 'HQphone', 'HQmailingAddress', 'HQmailingCity', 'HQState', 
-   'FoiaEmail', 'FoiaMailingAddress', 'FoiaPhone', 'FoiaPhysicalAddress', 'FoiaMailingCity', 'FoiaState', 'FoiaMailingZip')
-    FROM addresses";
-   
-   $query = mysqli_query($con, $sql);
-   
-   if($query){
-       $delimiter = ",";
-       $filename = "address_" . date('Y-m-d') . ".csv";
-       
-       //create a file pointer
-       $f = fopen("php://output","w");
-       
-       //set column headers
-       $fields = array('ID', 'GovId', 'GovType', 'WebsiteURL', 'HQemail', 'HQphysicalAddress', 'HQphysicalCity', 
-       'HQmailingZip', 'HQphone', 'HQmailingAddress', 'HQmailingCity', 'HQState', 
-       'FoiaEmail', 'FoiaMailingAddress', 'FoiaPhone', 'FoiaPhysicalAddress', 'FoiaMailingCity', 'FoiaState', 'FoiaMailingZip');
-       fputcsv($f, $fields, $delimiter);
-       
-       //output each row of the data, format line as csv and write to file pointer
-       while($row = mysqli_fetch_assoc($query)){
-          
-           $lineData = array($row['ID'], $row['GovId'], $row['GovType'], $row['WebsiteURL'], $row['HQemail'],
-           $row['HQphysicalAddress'], $row['HQphysicalCity'], $row['HQmailingZip'], $row['HQphone'], $row['HQmailingAddress'],
-           $row['HQmailingCity'], $row['HQState'], $row['FoiaEmail'], $row['FoiaMailingAddress'], $row['FoiaPhone'],
-           $row['FoiaPhysicalAddress'], $row['FoiaMailingCity'], $row['FoiaState'], $row['FoiaMailingZip']);
-           fputcsv($f, $lineData, $delimiter);
-       }
-       
-       //move back to beginning of file
-       fseek($f, 0);
-       
-       //set headers to download file rather than displayed
-        header("Content-Description: File Transfer");
-        header("Content-Disposition: attachment; filename=".$filename);
-        header("Content-Type: application/csv; ");
-      
-       
-       //output all remaining data on a file pointer
-       fpassthru($f);
-   }
-   exit;
-   
-   }
-   
 
-?>
 
-<?php 
 
-/* Code of Unlock Button */
+
+
+<?php
+/* Code to Unlock Button */
 
 if(isset($_POST['unlock'])){
 
@@ -1222,13 +1175,10 @@ if(isset($_POST['searchgovid'])){
             ';
 
             }
+    }   
 
-    }
-     
- 
  }
  
-
 
 /* code for Previous Button  */
 
@@ -1266,9 +1216,17 @@ if(isset($_POST['previous'])){
     echo "<script>window.open('search-result.php?previd=$gvid', '_self')</script>";
 
     }
-   
+}
 
 
+?>
+
+
+<?php
+
+if(isset($_POST['export'])){
+    echo "<script>window.open('export.php', '_self')</script>";
+    
 }
 
 ?>
