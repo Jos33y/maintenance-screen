@@ -432,8 +432,8 @@ include('header.php');
 
             if (mysqli_num_rows($run_address) == 1) {
 
-                $row = mysqli_fetch_array($run_address);
-                    $gvid = $row['GovId'];
+                $row_address = mysqli_fetch_array($run_address);
+                    $gvid = $row_address['GovId'];
 
                     echo "<script>window.open('search-result.php?govid=$gvid', '_self')</script>";
             }
