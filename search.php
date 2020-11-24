@@ -430,7 +430,7 @@ include('header.php');
 
         $run_address = mysqli_query($con, $get_address);
 
-            if (mysqli_num_rows($run_address) == 1) {
+            if (mysqli_num_rows($run_address) == 2) {
 
                 $row_address = mysqli_fetch_array($run_address);
                     $gvid = $row_address['GovId'];
@@ -441,14 +441,13 @@ include('header.php');
                 echo '
                 <script>
                     swal({
-                            title: "No Public Body Formal Name Found!",
+                            title: "No Public Formal Name Found!!!",
                             icon: "error",
                          });
             </script>
             ';
 
             }
-
 
     }
 
@@ -457,7 +456,7 @@ include('header.php');
 
         $run_address = mysqli_query($con, $get_address);
 
-            if (mysqli_num_rows($run_address) == 1) {
+            if (mysqli_num_rows($run_address) == 2) {
 
                 $row = mysqli_fetch_array($run_address);
                     $gvid = $row['GovId'];
@@ -476,14 +475,11 @@ include('header.php');
 
             }
 
-
     }
 
     else{
     
     ?>
-
-
 <div class="sty">
     <button style="margin: 20px; font-weight: 600;" onclick="window.print()" class="btn btn-sm btn-danger">Print this
         page</button>

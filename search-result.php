@@ -2,8 +2,6 @@
 $title = "Screen Mode";
 include('dbcon.php');
 
-
-
 ?>
 
 <?php
@@ -110,7 +108,6 @@ if(isset($_POST['checkgov'])){
     $parent = $row_gov['ParentID'];
 
     $cmpid = $row_gov['ComptrollerID'];
-
 
     $kty = $row_gov['ElectionAuthority'];
 
