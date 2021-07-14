@@ -1,9 +1,9 @@
 <!-- php get header -->
 
-<?php 
+<?php
 $title = "View History";
 include('dbcon.php');
-include('headerhist.php'); 
+include('header.php');
 
 ?>
 <!--header image-->
@@ -15,7 +15,7 @@ include('headerhist.php');
     <h2 class="page-title gold">
         Edit History
     </h2>
-    <hr width="15%" class="page-title-line">
+    <hr width="8%" class="page-title-line">
 
 
     <!--table for ballot-->
@@ -68,7 +68,7 @@ include('headerhist.php');
                 $get_history = "select * from historytable ORDER BY hist_id DESC";
                 $run_history = mysqli_query($con, $get_history);
                 while ($row = mysqli_fetch_array($run_history)){
-                    
+
                         $id = $row['hist_id'];
                         $gvid = $row['govid'];
                         $cmpid = $row['comptrollerid'];
@@ -76,7 +76,7 @@ include('headerhist.php');
                         $othertypeid = $row['otheridtype'];
                         $otid = $row['othertypecode'];
                         $nmsimp = $row['namesimple'];
-                        $kty = $row['electionauth']; 
+                        $kty = $row['electionauth'];
                         $kty = $row['electionauth'];
                         $pbdnfm = $row['PBDNF'];
                         $gvtype = $row['govtype'];
@@ -101,25 +101,25 @@ include('headerhist.php');
                         $bltgid = $row['ballotgroupid'];
                         $invst = $row['investiture'];
                         $timestamp = date("M-d-yy h:i:s A", strtotime($row['timestamp']));
-                        $date = new DateTime($timestamp, new DateTimeZone('Africa/Lagos'));
+                        $date = new DateTime($timestamp, new DateTimeZone('America/Chicago'));
                         $date->setTimezone(new DateTimeZone('America/Chicago'));
 
                         if(is_numeric($kty) != 1){
                             $kty;
-                               
+
                         }else{
                             $sql = "SELECT * FROM kountynbrs WHERE eiauthority = $kty";
                             $qry = mysqli_query($con, $sql);
                             $row = mysqli_fetch_array($qry);
                             $kty = $row['ktyabb'];
-                                
+
                         }
-                    
 
 
-                    $i++;                  
-                        
-                   
+
+                    $i++;
+
+
         ?>
 
                 <tr style="font-size:13px;">

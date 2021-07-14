@@ -1,22 +1,22 @@
 <!-- php get header -->
 
-<?php 
+<?php
 $title = "View Data";
 include('dbcon.php');
-include('header.php'); 
+include('header.php');
 
 ?>
 <!--header image-->
     <!--header image-->
 
-    <img src="images/screengold.jpg" alt="" class="back-image">
+   <!--  <img src="images/screengold.jpg" alt="" class="back-image"> -->
 
     <!-- page title-->
     <div class="container-fluid">
         <h2 class="page-title gold">
             View Data
         </h2>
-        <hr width="15%" class="page-title-line">
+        <hr width="8%" class="page-title-line">
 
 
         <!--table for ballot-->
@@ -30,7 +30,7 @@ include('header.php');
                         <th>ComptrollerID</th>
                         <th>RevenueID</th>
                         <th>OtherIDtype</th>
-                        <th>OtherID</th>               
+                        <th>OtherID</th>
                         <th>NameSimple</th>
                         <th>PublicBodyNameFormal</th>
                         <th>GovType</th>
@@ -54,11 +54,11 @@ include('header.php');
                         <th>WebGroup</th>
                         <th>BallotGroupId</th>
                         <th>Investiture</th>
-                        <th>KtyAbb</th>                    
-                        <th>FullSpan</th> 
-                       
-                    
-                       
+                        <th>KtyAbb</th>
+                        <th>FullSpan</th>
+
+
+
                     </tr>
                 </thead>
                 <tbody>
@@ -68,7 +68,7 @@ include('header.php');
                 $get_governments = "select * from governments LIMIT 100";
                 $run_governments = mysqli_query($con, $get_governments);
                 while ($row = mysqli_fetch_array($run_governments)){
-                    
+
                     $did = $row['id'];
                     $gvid = $row['GovId'];
                     $cmpid = $row['ComptrollerID'];
@@ -76,17 +76,17 @@ include('header.php');
                     $othertypeid = $row['OtherIDtype'];
                     $otid = $row['OtherID'];
                     $nmsimp = $row['NameSimple'];
-                    $ktyabb = $row['KtyAbb']; 
+                    $ktyabb = $row['KtyAbb'];
                     $fulspan = $row['FullSpan'];
-                   
+
                     $i++;
-               
+
 
                     $get_a = "select * from addresses where GovId = '$gvid'";
                     $run_a = mysqli_query($con, $get_a);
                     while($row_add = mysqli_fetch_array($run_a)){
 
-                    
+
 
                         $pbdnfm = $row_add['PublicBodyNameFormal'];
                         $gvtype = $row_add['GovType'];
@@ -122,11 +122,11 @@ include('header.php');
                     }
 
 
-                
 
-                    
-                        
-                   
+
+
+
+
         ?>
 
                     <tr style="font-size:13px;">
@@ -134,7 +134,7 @@ include('header.php');
                         <td><b><?php echo $i; ?> </b></td>
                         <td><?php echo $gvid; ?> </td>
                         <td><?php echo $cmpid; ?> </td>
-                        <td><?php echo $revid; ?> </td> 
+                        <td><?php echo $revid; ?> </td>
                         <td><?php echo $othertypeid; ?> </td>
                         <td><?php echo $otid; ?> </td>
                         <td><?php echo $nmsimp; ?> </td>
